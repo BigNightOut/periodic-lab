@@ -1,0 +1,335 @@
+[
+  {
+    "z": 95,
+    "tier": "short",
+    "tagline": "The smoke-detector element: a tiny source of alpha particles that lets electricity flow through air.",
+    "atomStory": "Seven shells, with 2 electrons on the outer ring and seven more in the deep 5f shell. In americium those 5f electrons pull in close and mostly stop bonding. So it acts like a rare-earth metal and almost always sits at +3. Simple hand-counting does not apply here.",
+    "uses": [
+      {"title": "Smoke detectors", "why": "A speck of americium-241 (as AmO2 on a foil) shoots alpha particles. They knock electrons off air molecules, so a small current flows between two plates. Smoke soaks up the charged air, the current drops, and the alarm goes off."},
+      {"title": "Factory gauges", "why": "Its steady radiation measures the thickness and density of materials like glass and sheet metal."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "AmO2", "name": "Americium dioxide", "note": "The stable oxide sealed inside smoke-detector sources."}
+    ],
+    "number": {"value": "7,370 years", "label": "Half-life (time for half to decay) of americium-243, its longest-lasting form (Am-241: 432 years)"},
+    "source": "First made in 1944 by Glenn Seaborg's group, by hitting plutonium with neutrons. Today americium-241 comes from used reactor fuel, where plutonium-241 decays into it.",
+    "lenses": {
+      "rocket": "The European Space Agency has studied americium-241 for spacecraft heat and power. It gives less heat per gram than plutonium-238. But it is easier to get from used fuel and lasts far longer."
+    }
+  },
+  {
+    "z": 96,
+    "tier": "short",
+    "tagline": "Named for Marie and Pierre Curie, and it has flown to Mars inside rover instruments.",
+    "atomStory": "Curium's 5f shell is exactly half full (7 electrons), a very stable setup. So it holds firmly at +3. As with other actinides, the f electrons sit deep and simple hand-counting breaks down.",
+    "uses": [
+      {"title": "Mars rock analysis", "why": "Curium-244 powers the Alpha Particle X-ray Spectrometer on Mars rovers. Its alpha particles and X-rays hit a rock, and the rock gives off its own X-rays. Their energies show which elements are in it."},
+      {"title": "Making heavier elements", "why": "Curium targets are hit in accelerators to build heavier elements such as livermorium."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Cm2O3", "name": "Curium(III) oxide", "note": "The common oxide, showing curium's strong liking for the +3 state."}
+    ],
+    "number": {"value": "15.6 million years", "label": "Half-life of curium-247, its longest-lasting form"},
+    "source": "First made in 1944 at Berkeley by hitting plutonium-239 with alpha particles in a cyclotron (particle accelerator). Small amounts build up in reactor fuel.",
+    "lenses": {
+      "rocket": "Curium-244 sources ride on NASA rovers, including Spirit, Opportunity and Curiosity, to read the chemistry of Martian rocks and soil."
+    }
+  },
+  {
+    "z": 97,
+    "tier": "short",
+    "tagline": "Named for Berkeley, and the stepping stone used to make element 117.",
+    "atomStory": "Berkelium has 9 electrons in its deep 5f shell and 2 on the outer ring. It usually sits at +3. It can give up one more to reach +4, which leaves the 5f shell half full. The f electrons make simple hand-counting useless here.",
+    "uses": [
+      {"title": "Target for new elements", "why": "In 2010, about 22 milligrams of berkelium-249 were hit with calcium-48. That made tennessine."}
+    ],
+    "bonds": [],
+    "number": {"value": "1,380 years", "label": "Half-life of berkelium-247, its longest-lasting form"},
+    "source": "First made in December 1949 at Berkeley by hitting americium-241 with alpha particles. Today it is made in milligram amounts in powerful research reactors.",
+    "lenses": {}
+  },
+  {
+    "z": 98,
+    "tier": "short",
+    "tagline": "A pocket neutron source: californium-252 splits on its own and sprays neutrons.",
+    "atomStory": "Californium's center is so overloaded that some versions split apart by themselves (spontaneous fission), throwing out neutrons. Its chemistry is +3, like its actinide neighbors. Its f electrons break simple hand-counting.",
+    "uses": [
+      {"title": "Neutron source", "why": "One microgram of californium-252 gives off about 2.3 million neutrons per second as it splits on its own. It is used to start nuclear reactors and to see inside objects with neutrons."},
+      {"title": "Well logging and cargo scanning", "why": "Its neutrons hit nearby rock or cargo. The gamma rays that bounce back reveal hydrogen, water and other elements."}
+    ],
+    "bonds": [],
+    "number": {"value": "~900 years", "label": "Half-life of californium-251, its longest-lasting form (Cf-252: 2.6 years)"},
+    "source": "First made in 1950 at Berkeley by hitting curium-242 with alpha particles. Now made in tiny amounts in the High Flux Isotope Reactor at Oak Ridge.",
+    "lenses": {
+      "nexus": "Tools lowered down oil wells use neutron sources like californium-252. Neutrons slow down most when they hit hydrogen. So the readings flag rock holding oil, gas or water."
+    }
+  },
+  {
+    "z": 99,
+    "tier": "short",
+    "tagline": "Born in the first hydrogen bomb test, and named for Einstein.",
+    "atomStory": "Einsteinium has 11 electrons in its 5f shell and acts as a +3 metal. Its strong radiation heats and damages samples. So its chemistry has been studied a microgram or less at a time.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only tiny amounts exist. Einsteinium-253 was the target used in 1955 to make mendelevium."}
+    ],
+    "bonds": [],
+    "number": {"value": "~472 days", "label": "Half-life of einsteinium-252, its longest-lasting form"},
+    "source": "Found in 1952 in debris from Ivy Mike, the first hydrogen bomb test, where uranium caught many neutrons at once. Now made in tiny amounts in powerful reactors.",
+    "lenses": {}
+  },
+  {
+    "z": 100,
+    "tier": "short",
+    "tagline": "The heaviest element you can build by feeding neutrons to lighter atoms.",
+    "atomStory": "Fermium has 12 electrons in its 5f shell and acts as a +3 metal. Its center marks a wall. Fermium-258 splits apart in under a millisecond. So adding neutrons one at a time in a reactor can't climb past it.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only made in tiny amounts, to study how atomic centers are built and how they split."}
+    ],
+    "bonds": [],
+    "number": {"value": "~100 days", "label": "Half-life of fermium-257, its longest-lasting form"},
+    "source": "Found with einsteinium in the 1952 Ivy Mike bomb debris. Now made in reactors by heavy neutron bombardment.",
+    "lenses": {}
+  },
+  {
+    "z": 101,
+    "tier": "short",
+    "tagline": "Named for Mendeleev, and first made one atom at a time.",
+    "atomStory": "Mendelevium has 13 electrons in its 5f shell. It is usually +3, but can be pushed to +2. That shows the nearly full f shell is getting harder to use. Simple hand-counting does not apply.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only small numbers of atoms are made, for nuclear and chemistry experiments."}
+    ],
+    "bonds": [],
+    "number": {"value": "~51 days", "label": "Half-life of mendelevium-258, its longest-lasting form"},
+    "source": "First made in 1955 at Berkeley by hitting einsteinium-253 with alpha particles. The team spotted about 17 atoms.",
+    "lenses": {}
+  },
+  {
+    "z": 102,
+    "tier": "short",
+    "tagline": "The actinide that prefers +2, because its f shell is completely full.",
+    "atomStory": "Nobelium's 5f shell holds all 14 electrons. Giving up only the 2 on the outer ring leaves that full shell untouched. So it is most stable at +2, unlike the +3 of most actinides.",
+    "uses": [
+      {"title": "No uses outside research", "why": "It is made a few atoms at a time to study how the heaviest elements behave."}
+    ],
+    "bonds": [],
+    "number": {"value": "~58 minutes", "label": "Half-life of nobelium-259, its longest-lasting form"},
+    "source": "Made in accelerators by firing light charged atoms, like carbon, at curium. Labs in Sweden, the US and the USSR made rival claims in 1957-1966 before credit was settled.",
+    "lenses": {}
+  },
+  {
+    "z": 103,
+    "tier": "short",
+    "tagline": "The last actinide, named for cyclotron inventor Ernest Lawrence.",
+    "atomStory": "Lawrencium closes the actinide row with a full 5f shell plus 3 outer electrons, so it sits at +3. Its last electron is predicted to land in a 7p orbital instead of 6d. That is a relativity effect of the huge center. A 2015 test found its last electron unusually easy to remove, which fit that picture.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a few atoms at a time have ever been made."}
+    ],
+    "bonds": [],
+    "number": {"value": "~11 hours", "label": "Half-life of lawrencium-266, its longest-lasting known form"},
+    "source": "First made in 1961 at Berkeley by hitting californium with boron ions (charged atoms).",
+    "lenses": {}
+  },
+  {
+    "z": 104,
+    "tier": "short",
+    "tagline": "The first superheavy element, and it behaves like hafnium above it.",
+    "atomStory": "Rutherfordium starts the 6d row of transition metals, with 2 d electrons and 2 on the outer ring. Like hafnium and zirconium above it, it gives up all 4 to reach +4. The d electrons join in, so simple hand-counting breaks down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Used to test whether the periodic table's patterns still hold for very heavy atoms."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "RfCl4", "name": "Rutherfordium tetrachloride", "note": "Studied as a gas, a few molecules at a time. It acts like HfCl4, which confirms rutherfordium's place in group 4."}
+    ],
+    "number": {"value": "~1 hour", "label": "Half-life of rutherfordium-267, its longest-lasting known form (rough size)"},
+    "source": "Claimed by Dubna in the USSR (1964) and Berkeley (1969), by smashing beams of heavy charged atoms into plutonium and californium. Credit was later shared.",
+    "lenses": {}
+  },
+  {
+    "z": 105,
+    "tier": "short",
+    "tagline": "Named for Dubna, the Russian town whose lab made many superheavy elements.",
+    "atomStory": "Dubnium sits below tantalum and niobium, with 3 d electrons and 2 on the outer ring. So it leans toward +5. The d electrons join in and simple hand-counting breaks down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Studied a few atoms at a time to test group-5 chemistry at extreme weight."}
+    ],
+    "bonds": [],
+    "number": {"value": "~1 day", "label": "Half-life of dubnium-268, its longest-lasting known form (rough size)"},
+    "source": "Made at Dubna (1968) and Berkeley (1970) by firing neon or nitrogen ions at americium or californium. Dubnium-268 also shows up when moscovium decays.",
+    "lenses": {}
+  },
+  {
+    "z": 106,
+    "tier": "short",
+    "tagline": "Named for Glenn Seaborg while he was still alive.",
+    "atomStory": "Seaborgium sits below tungsten, with 4 d electrons and 2 on the outer ring. So it can reach +6, like tungsten. The d electrons join in and simple hand-counting breaks down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Used to test whether superheavy atoms keep the chemistry of their column."}
+    ],
+    "bonds": [
+      {"partners": ["C", "O"], "formula": "Sg(CO)6", "name": "Seaborgium hexacarbonyl", "note": "Made in 2014 a few molecules at a time. It acted like W(CO)6. It was the first carbonyl (metal plus CO) compound of a superheavy element."}
+    ],
+    "number": {"value": "minutes", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 1974 at Berkeley by firing oxygen-18 ions at californium-249.",
+    "lenses": {}
+  },
+  {
+    "z": 107,
+    "tier": "short",
+    "tagline": "Named for Niels Bohr, whose shell model is the drawing beside this card.",
+    "atomStory": "Bohrium sits below rhenium, with 5 d electrons and 2 on the outer ring. So it can reach +7. The d electrons join in and simple hand-counting breaks down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a handful of atoms are made per experiment."}
+    ],
+    "bonds": [
+      {"partners": ["O", "Cl"], "formula": "BhO3Cl", "name": "Bohrium oxychloride", "note": "Studied in 2000 using about six atoms. It acted like the rhenium version, which puts bohrium in group 7."}
+    ],
+    "number": {"value": "~1 minute", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First confirmed in 1981 at GSI in Darmstadt, Germany, by fusing chromium-54 ions with bismuth-209.",
+    "lenses": {}
+  },
+  {
+    "z": 108,
+    "tier": "short",
+    "tagline": "Named for the German state of Hesse, and it forms an oxide that turns to gas easily, like osmium's.",
+    "atomStory": "Hassium sits below osmium, with 6 d electrons and 2 on the outer ring. It can reach +8 by giving all of them to oxygen. The d electrons join in and simple hand-counting breaks down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Used to test superheavy chemistry one atom at a time."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "HsO4", "name": "Hassium tetroxide", "note": "Studied in 2001. Like OsO4, it turns to gas easily, which confirms hassium belongs in group 8."}
+    ],
+    "number": {"value": "seconds", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 1984 at GSI in Darmstadt by fusing iron-58 ions with lead-208.",
+    "lenses": {}
+  },
+  {
+    "z": 109,
+    "tier": "short",
+    "tagline": "Named for Lise Meitner, who helped explain how atoms split (fission).",
+    "atomStory": "Meitnerium sits below iridium, with 7 d electrons and 2 on the outer ring. Its chemistry has never been measured. It is predicted to act like a heavy noble metal (one that barely reacts). The d electrons make simple hand-counting break down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a few atoms have ever been made."}
+    ],
+    "bonds": [],
+    "number": {"value": "seconds", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 1982 at GSI in Darmstadt by fusing iron-58 ions with bismuth-209. The first report rested on a single atom.",
+    "lenses": {}
+  },
+  {
+    "z": 110,
+    "tier": "short",
+    "tagline": "Named for Darmstadt, home of the German lab that made it.",
+    "atomStory": "Darmstadtium sits below platinum. Its chemistry has never been measured. It is predicted to be a dense metal that barely reacts. The d electrons make simple hand-counting break down.",
+    "uses": [
+      {"title": "No uses outside research", "why": "It lasts only seconds and is made a few atoms at a time."}
+    ],
+    "bonds": [],
+    "number": {"value": "seconds", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 1994 at GSI in Darmstadt by fusing nickel-62 ions with lead-208.",
+    "lenses": {}
+  },
+  {
+    "z": 111,
+    "tier": "short",
+    "tagline": "Named for Wilhelm Röntgen, who discovered X-rays. It sits below gold.",
+    "atomStory": "Roentgenium falls in the copper-silver-gold column. But its huge center makes the inner electrons move near light speed, which reshapes the outer electron paths. It is predicted to act differently from gold, though no chemistry has been measured.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a few atoms have ever been made."}
+    ],
+    "bonds": [],
+    "number": {"value": "minutes", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 1994 at GSI in Darmstadt by fusing nickel-64 ions with bismuth-209.",
+    "lenses": {}
+  },
+  {
+    "z": 112,
+    "tier": "short",
+    "tagline": "Named for Copernicus. A heavier cousin of mercury that may be a metal that turns to gas easily.",
+    "atomStory": "Copernicium has full d shells and 2 outer electrons held very tight, pulled in by relativity effects from its huge center. That makes it slow to bond. In 2007 tests it stuck to gold only weakly, like a mercury-type metal that turns to gas easily.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Studied a few atoms at a time to see how relativity changes chemistry."}
+    ],
+    "bonds": [],
+    "number": {"value": "~30 seconds", "label": "Half-life of copernicium-285, its longest-lasting known form"},
+    "source": "First made in 1996 at GSI in Darmstadt by fusing zinc-70 ions with lead-208.",
+    "lenses": {}
+  },
+  {
+    "z": 113,
+    "tier": "short",
+    "tagline": "The first element discovered in Asia, named for Japan (Nihon).",
+    "atomStory": "Nihonium starts the 7p row with 3 electrons on its outer ring, below thallium. Relativity holds its outer s pair tight. So it is predicted to work mostly through its single p electron. Its chemistry is barely tested.",
+    "uses": [
+      {"title": "No uses outside research", "why": "The RIKEN team spent about nine years to collect three atoms."}
+    ],
+    "bonds": [],
+    "number": {"value": "seconds", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "Made at RIKEN in Japan from 2004 to 2012 by fusing zinc-70 ions with bismuth-209. Dubna also saw it when moscovium decayed.",
+    "lenses": {}
+  },
+  {
+    "z": 114,
+    "tier": "short",
+    "tagline": "Named for the Flerov lab at Dubna. It sits below lead but may act half like a noble gas.",
+    "atomStory": "Flerovium has 4 outer electrons, like carbon and lead. But relativity pulls 2 of its p electrons into a tight, closed pair. That makes it far less willing to bond than lead. Tests suggest a metal that turns to gas easily.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Used to probe the predicted island of stability, where extra-stable superheavy atoms may exist."}
+    ],
+    "bonds": [],
+    "number": {"value": "~2 seconds", "label": "Half-life of flerovium-289, its longest-lasting known form"},
+    "source": "First made in 1998-1999 at Dubna by fusing calcium-48 ions with plutonium-244. Calcium-48 is rich in neutrons, which helps the heaviest atoms hold together a bit longer.",
+    "lenses": {}
+  },
+  {
+    "z": 115,
+    "tier": "short",
+    "tagline": "Named for the Moscow region. It lasts well under a second.",
+    "atomStory": "Moscovium has 5 outer electrons, like nitrogen and bismuth. Relativity locks 2 of its p electrons into a tight pair. So it is predicted to act mainly with one loose electron, at +1 or +3. No chemistry has been measured.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a small number of atoms have ever been made."}
+    ],
+    "bonds": [],
+    "number": {"value": "under 1 second", "label": "Half-life of its longest-lasting known form (rough size)"},
+    "source": "First made in 2003 at Dubna, with Lawrence Livermore, by fusing calcium-48 ions with americium-243.",
+    "lenses": {}
+  },
+  {
+    "z": 116,
+    "tier": "short",
+    "tagline": "Named for Lawrence Livermore National Laboratory. It sits below polonium.",
+    "atomStory": "Livermorium has 6 outer electrons, like oxygen. But its huge center scrambles the simple pattern. It is predicted to be a metal that favors +2, nothing like oxygen. No chemistry has been measured.",
+    "uses": [
+      {"title": "No uses outside research", "why": "It decays in tens of milliseconds."}
+    ],
+    "bonds": [],
+    "number": {"value": "milliseconds", "label": "Half-life of its longest-lasting known form (tens of milliseconds)"},
+    "source": "First made in 2000 at Dubna, with Lawrence Livermore, by fusing calcium-48 ions with curium-248.",
+    "lenses": {}
+  },
+  {
+    "z": 117,
+    "tier": "short",
+    "tagline": "Named for Tennessee. The heaviest member of chlorine's family, made with berkelium from a US lab.",
+    "atomStory": "Tennessine has 7 outer electrons, like fluorine and chlorine, so on paper it has one hand. Relativity splits its outer p electrons into tight and loose sets. So it is predicted to act more like a metal than a halogen. No chemistry has been measured.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Only a handful of atoms have been made."}
+    ],
+    "bonds": [],
+    "number": {"value": "milliseconds", "label": "Half-life of its longest-lasting known form (tens of milliseconds)"},
+    "source": "First made in 2010 at Dubna by fusing calcium-48 ions with berkelium-249. The berkelium was made at Oak Ridge National Laboratory in Tennessee.",
+    "lenses": {}
+  },
+  {
+    "z": 118,
+    "tier": "short",
+    "tagline": "The heaviest element known. It sits under the noble gases but probably isn't one.",
+    "atomStory": "Oganesson has a full outer ring of 8, like neon and xenon. On paper that means no empty hands. But relativity and its 118 electrons blur the shells. So it is predicted to be a solid and somewhat reactive. Only about five atoms have ever been seen.",
+    "uses": [
+      {"title": "No uses outside research", "why": "Each atom lasts well under a millisecond."}
+    ],
+    "bonds": [],
+    "number": {"value": "under 1 millisecond", "label": "Half-life of oganesson-294, its only confirmed form"},
+    "source": "Made at Dubna, with Lawrence Livermore, between 2002 and 2005 by fusing calcium-48 ions with californium-249. Named for physicist Yuri Oganessian.",
+    "lenses": {}
+  }
+]

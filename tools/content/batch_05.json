@@ -1,0 +1,461 @@
+[
+  {
+    "z": 73,
+    "tier": "deep",
+    "tagline": "The capacitor metal: it grows a thin, perfect oxide skin (metal plus oxygen) that blocks current and shrugs off acid.",
+    "atomStory": "Tantalum's 2 outer electrons (6s) get help from a deeper layer (5d), so simple hand-counting breaks down. Across the lanthanide row before it, 14 extra protons get added. Protons are the + bits in the center, and they pull the shells in tight. So tantalum ends up almost the same size as niobium above it. Same size and same outer layout make them chemical twins. That is why they are almost always found together in ore.",
+    "uses": [
+      {"title": "Capacitors (tiny charge-storage parts)", "why": "Tantalum grows an oxide layer only nanometers thick that blocks electricity well. The metal starts as powder baked together (sintered), so it has a huge surface. Thin blocker plus huge surface stores a lot of charge in a tiny, steady part."},
+      {"title": "Surgical implants", "why": "The same tight oxide skin seals the metal off from body fluids, so the body accepts it well. It is used in bone screws, plates and blood-vessel clips."},
+      {"title": "Acid-proof chemical equipment", "why": "The oxide skin stands up to almost every acid except hydrofluoric. Tantalum linings and heat-exchanger tubes survive hot acids that eat stainless steel."},
+      {"title": "Heat-proof metal mixes (alloys)", "why": "It melts at about 3,000 °C. Added to nickel superalloys for turbine blades, it keeps them strong when hot."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Ta2O5", "name": "Tantalum pentoxide", "note": "The electricity-blocking film in tantalum capacitors. Tantalum has given all 5 of its outer electrons to oxygen (its +5 state)."},
+      {"partners": ["C"], "formula": "TaC", "name": "Tantalum carbide", "note": "A very hard ceramic that melts above 3,700 °C, one of the highest of any compound. Used in cutting tools."},
+      {"partners": ["Nb", "Fe", "Mn", "O"], "formula": "(Fe,Mn)(Ta,Nb)2O6", "name": "Coltan (columbite-tantalite)", "note": "The main ore. It is a mixed oxide where tantalum and niobium swap places freely, because they are the same size."}
+    ],
+    "number": {"value": "3,017 °C", "label": "Melting point, one of the highest of any metal"},
+    "source": "Mined mainly as coltan ore. Some comes from slag, the waste left from melting tin ore. It is split from niobium using fluoride chemistry.",
+    "lenses": {}
+  },
+  {
+    "z": 74,
+    "tier": "deep",
+    "tagline": "The heat-proof metal: the highest melting point of any metal, and the base of the hardest cutting tools.",
+    "atomStory": "Tungsten has 6 electrons to share (4 in 5d, 2 in 6s). Metal atoms pool their electrons into a shared sea that glues them together. Six is exactly enough to fill the strong-glue half of that sea. That makes some of the strongest metal bonds of any element, so heat struggles to shake the atoms apart. Deeper electrons join in, so hand-counting does not apply.",
+    "uses": [
+      {"title": "Light bulb filaments", "why": "Old light bulbs heated a thin wire (the filament) to about 2,500 °C so it glowed white. Only a metal that melts far above that, like tungsten, survives it."},
+      {"title": "Cutting tools and drill bits", "why": "Tungsten carbide is about three times as stiff as steel and very hard. It holds an edge while cutting steel or rock."},
+      {"title": "Welding electrodes", "why": "TIG welding uses a tungsten rod to carry the electric arc, because the rod does not melt into the weld."},
+      {"title": "X-ray tube targets", "why": "When electrons slam into it, its heavy, highly charged center makes X-rays well. Its high melting point handles the heat."},
+      {"title": "Counterweights and shielding", "why": "At 19.3 g/cm³ it is as dense as gold, but far cheaper and harder. It packs a lot of weight into a small space."}
+    ],
+    "bonds": [
+      {"partners": ["C"], "formula": "WC", "name": "Tungsten carbide", "note": "Tungsten and carbon locked into a hard ceramic. It is baked together with cobalt to make drill bits and saw tips."},
+      {"partners": ["O"], "formula": "WO3", "name": "Tungsten trioxide", "note": "A yellow oxide with tungsten in its +6 state. It is the middle step in making the pure metal."},
+      {"partners": ["Ca", "O"], "formula": "CaWO4", "name": "Scheelite", "note": "One of the two main ores. The other is wolframite, (Fe,Mn)WO4."}
+    ],
+    "number": {"value": "3,422 °C", "label": "Melting point, highest of any metal"},
+    "source": "Mined as scheelite and wolframite ore and turned into oxide. Hydrogen pulls the oxygen off, leaving metal powder. The powder is pressed and baked solid, since the metal is too hard to melt and cast easily.",
+    "lenses": {
+      "nexus": "Refineries use nickel-tungsten sulfide catalysts (helpers that speed a reaction without being used up). With hydrogen, they strip out sulfur and nitrogen and crack heavy oil into lighter fuel. This is a standard way to upgrade oils like pyrolysis oil.",
+      "rocket": "Solid rocket motors have used tungsten and tungsten-copper inserts at the nozzle throat. That is the narrowest, hottest and most worn spot. Tungsten keeps its shape where other metals would melt or wash away."
+    }
+  },
+  {
+    "z": 75,
+    "tier": "deep",
+    "tagline": "The rare heat metal: it keeps jet engine blades from sagging and refinery catalysts from choking on carbon.",
+    "atomStory": "Rhenium has 7 electrons to bond with (5 in 5d, 2 in 6s). Deeper electrons join in, so hand-counting does not apply. Like its neighbor tungsten, it pours a lot of electrons into the shared metal sea that glues the atoms. That gives it the second-highest melting point of any metal. It can hand all 7 to oxygen, reaching a +7 state.",
+    "uses": [
+      {"title": "Jet engine turbine blades", "why": "Adding about 3 to 6% rhenium to single-crystal nickel superalloys slows creep. Creep is metal slowly sagging under load when red hot. So blades last longer at higher heat."},
+      {"title": "Gasoline reforming catalyst", "why": "Platinum-rhenium on alumina turns low-octane naphtha (a light oil cut) into high-octane gasoline. Rhenium fights coke (carbon) buildup, so it runs longer between cleanings."},
+      {"title": "Very hot thermometers (thermocouples)", "why": "Pairs of tungsten-rhenium wire measure heat above 2,000 °C, where ordinary thermocouples melt."},
+      {"title": "Thruster combustion chambers", "why": "Rhenium stays strong near 2,000 °C. Small rocket thrusters use it for the chamber where fuel burns, coated with iridium to keep oxygen off."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Re2O7", "name": "Rhenium heptoxide", "note": "Rhenium at +7. It turns to vapor easily. That is how rhenium escapes into the dust when molybdenum ore is roasted, and gets caught."},
+      {"partners": ["N", "H", "O"], "formula": "NH4ReO4", "name": "Ammonium perrhenate", "note": "The form rhenium is sold and shipped in. Hydrogen turns it back into metal."},
+      {"partners": ["Pt"], "formula": "Pt-Re", "name": "Platinum-rhenium catalyst", "note": "The two-metal catalyst used in refinery reforming units."}
+    ],
+    "number": {"value": "3,186 °C", "label": "Melting point, second-highest of any metal after tungsten"},
+    "source": "One of the rarest elements in Earth's crust. It is a side product of roasting molybdenite, which itself comes from porphyry copper mines.",
+    "lenses": {
+      "nexus": "Reforming uses platinum-rhenium to reshape naphtha molecules into rings (aromatics) and branched chains, giving off hydrogen. Rhenium's job is to keep coke, basically char, from smothering the platinum.",
+      "rocket": "Small spacecraft and satellite thrusters use rhenium chambers coated with iridium. They run near 2,000 °C with no regenerative cooling (no fuel flowing through the walls). Rhenium carries the load. Iridium keeps oxygen from attacking it."
+    }
+  },
+  {
+    "z": 76,
+    "tier": "deep",
+    "tagline": "The densest element: its atoms pack so tight that a soda can of it would weigh about 8 kg.",
+    "atomStory": "Osmium has 76 protons pulling on its shells. Those shells were already squeezed small by the lanthanide contraction, the shrinking across the row before it. So a very heavy atom sits in a very small space. That makes it the densest element. Deeper electrons join in bonding. It can hand all 8 outer electrons to oxygen, reaching +8, one of the highest charge states of any element.",
+    "uses": [
+      {"title": "Hard-wearing tips", "why": "Osmium-iridium mixes are extremely hard and slow to wear. That made them the classic tip for fountain pen nibs and old record-player needles."},
+      {"title": "Electron microscope stain", "why": "Osmium tetroxide sticks to fats in cell walls (membranes). The heavy osmium atoms block electrons, so the membranes show up dark and sharp."},
+      {"title": "Chemistry catalyst", "why": "Osmium tetroxide adds two OH groups across a carbon-carbon double bond. It is used in small amounts in labs and drug-making, since osmium is rare and the oxide is toxic."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "OsO4", "name": "Osmium tetroxide", "note": "Osmium at +8. A toxic, smelly crystal that turns to vapor easily, used as a stain and catalyst. The name osmium comes from the Greek for smell."},
+      {"partners": ["O"], "formula": "OsO2", "name": "Osmium dioxide", "note": "A steadier oxide that does not turn to vapor, with osmium at +4."},
+      {"partners": ["Ir"], "formula": "Os-Ir", "name": "Osmiridium", "note": "A natural mix of osmium and iridium, found as hard grains in platinum ores."}
+    ],
+    "number": {"value": "22.59 g/cm³", "label": "Density, highest of any element, just ahead of iridium"},
+    "source": "Recovered in tiny amounts as a side product of nickel and platinum refining.",
+    "lenses": {}
+  },
+  {
+    "z": 77,
+    "tier": "deep",
+    "tagline": "The metal that won't corrode: it wraps the plutonium in spacecraft power units and sets off hydrazine thrusters.",
+    "atomStory": "Iridium holds its electrons tight, and deeper electrons join in bonding, so hand-counting does not apply. Its metal bonds are strong and its surface barely reacts. That makes it the most corrosion-resistant metal known. Yet that same surface can grab small molecules and pull them apart. That makes it a catalyst, a helper that speeds reactions without being used up.",
+    "uses": [
+      {"title": "Spark plug tips", "why": "It melts near 2,450 °C and resists being worn by sparks. Iridium tips stay sharp far longer than nickel ones."},
+      {"title": "Hydrogen electrolyzers", "why": "PEM electrolyzers split water with electricity. The oxygen side is harsh, acidic and corrosive. Iridium oxide is the main catalyst there because it survives."},
+      {"title": "Acetic acid production", "why": "An iridium catalyst (the Cativa process) joins methanol and carbon monoxide into acetic acid, the acid in vinegar."},
+      {"title": "Pots for growing crystals", "why": "Iridium pots (crucibles) hold melted oxides above 2,000 °C without tainting them. They grow crystals for lasers and electronics."},
+      {"title": "Hydrazine thruster catalyst", "why": "Iridium spread on alumina pellets breaks hydrazine apart on contact, even at room temperature. So single-fuel (monopropellant) thrusters fire without an igniter."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "IrO2", "name": "Iridium dioxide", "note": "The catalyst that makes the oxygen in PEM electrolyzers, which split water for hydrogen."},
+      {"partners": ["Pt"], "formula": "Pt-Ir (90:10)", "name": "Platinum-iridium alloy", "note": "Hard and stable. The old official kilogram and meter bar were made of it."},
+      {"partners": ["C", "O", "I"], "formula": "[Ir(CO)2I2]−", "name": "Cativa catalyst", "note": "The iridium compound that stitches CO onto methanol to make acetic acid."}
+    ],
+    "number": {"value": "2,446 °C", "label": "Melting point"},
+    "source": "Recovered as a side product of platinum and nickel refining. A thin clay layer around the world, rich in iridium from an asteroid, marks the dinosaur extinction 66 million years ago.",
+    "lenses": {
+      "nexus": "The Cativa process uses an iridium catalyst to make acetic acid from methanol and CO. Iridium also makes PEM electrolyzers practical. They are one source of the hydrogen a Sabatier reactor needs.",
+      "rocket": "Spacecraft plutonium-238 heat sources are sealed in an iridium-alloy shell. It stays whole through fire, impact and reentry. Iridium on alumina fires hydrazine thrusters, and iridium coats rhenium thruster chambers."
+    }
+  },
+  {
+    "z": 78,
+    "tier": "deep",
+    "tagline": "The catalyst metal: its surface grabs molecules just hard enough to break them, then lets the products go.",
+    "atomStory": "Platinum's deeper (d) electrons join in, so hand-counting does not apply. Its surface atoms have partly filled d orbitals, like half-free hands. They grab a molecule like H2 or CO, loosen its grip, then let the new product go. Grab too tight and the surface clogs. Grab too loose and nothing happens. Platinum sits near the sweet spot. This is the Sabatier principle, named for the same Paul Sabatier as the Sabatier reaction.",
+    "uses": [
+      {"title": "Catalytic converters", "why": "Platinum and palladium burn CO and leftover hydrocarbons into CO2 and water. Rhodium turns NOx back into N2. A few grams spread as tiny specks give a huge working surface."},
+      {"title": "Refinery reforming", "why": "Platinum on alumina reshapes naphtha into high-octane rings (aromatics) and branched molecules. It gives off hydrogen the refinery reuses."},
+      {"title": "Fuel cells and electrolyzers", "why": "In a fuel cell, platinum splits H2 into protons and electrons at one side (the anode). It also speeds the oxygen reaction at the other side (the cathode)."},
+      {"title": "Nitric acid and fertilizer", "why": "A platinum-rhodium mesh burns ammonia into nitrogen oxides, the first step toward nitric acid."},
+      {"title": "Thermometers and cancer drugs", "why": "Platinum-rhodium thermocouples read furnace heat up to about 1,700 °C. Cisplatin grabs onto DNA to stop cancer cells dividing."}
+    ],
+    "bonds": [
+      {"partners": ["H", "Cl"], "formula": "H2PtCl6", "name": "Chloroplatinic acid", "note": "The form that dissolves in water. It is soaked onto catalyst supports, then turned into tiny metal specks."},
+      {"partners": ["N", "H", "Cl"], "formula": "Pt(NH3)2Cl2", "name": "Cisplatin", "note": "A cancer drug. Platinum at +2 latches onto DNA."},
+      {"partners": ["Rh"], "formula": "Pt-Rh", "name": "Platinum-rhodium alloy", "note": "Used for ammonia-burning mesh and very hot thermocouples."},
+      {"partners": ["O"], "formula": "PtO2", "name": "Adams' catalyst", "note": "Platinum oxide that turns into fine platinum metal in hydrogen. Used to add hydrogen across double bonds (two-hand holds)."}
+    ],
+    "number": {"value": "1,768 °C", "label": "Melting point"},
+    "source": "Mined mostly from a few big deposits, mainly in South Africa and Russia, and as a side product of nickel mining. Much is now recycled from old catalytic converters.",
+    "lenses": {
+      "nexus": "Platinum is the core refinery catalyst metal. It reshapes naphtha into gasoline and aromatics and rearranges light paraffins. As platinum-tin, it pulls hydrogen off propane to make propylene. Lead and sulfur poison it by sitting on its working surface.",
+      "rocket": "NASA's Gemini spacecraft flew some of the first proton-exchange-membrane fuel cells. They rely on a platinum catalyst to join hydrogen and oxygen into power and water."
+    }
+  },
+  {
+    "z": 79,
+    "tier": "deep",
+    "tagline": "The metal that never tarnishes: its one outer electron is held so tight that oxygen can't take it.",
+    "atomStory": "Gold has 1 outer electron (6s), like copper. But its 79 protons whip its inner electrons to over half the speed of light. That relativity effect shrinks the s orbitals (electron paths), including the outer 6s. So gold holds its one hand very close, and that is why it doesn't tarnish. The same effect changes which light it soaks up, giving the yellow color. Its full d shell can still join in, so hand-counting does not apply.",
+    "uses": [
+      {"title": "Electronic contacts and wire bonds", "why": "Gold carries current well and never grows an oxide film. So connector pins and the fine wires inside chips keep a clean, easy-flowing contact for decades."},
+      {"title": "Infrared mirrors", "why": "A thin gold layer reflects about 98% of infrared (heat) light. It coats telescope mirrors and heat-blocking windows."},
+      {"title": "Money and jewelry", "why": "It doesn't corrode, it is rare, and it is soft enough to shape by hand."},
+      {"title": "Dentistry and medicine", "why": "It does not react in the body, so it has long been used for crowns and some implants."}
+    ],
+    "bonds": [
+      {"partners": ["H", "Cl"], "formula": "HAuCl4", "name": "Chloroauric acid", "note": "What forms when gold dissolves in aqua regia (nitric plus hydrochloric acid). That mix is one of the few things that dissolves gold."},
+      {"partners": ["C", "N"], "formula": "[Au(CN)2]−", "name": "Gold cyanide complex", "note": "How most mined gold is pulled out of crushed ore. Cyanide wraps each gold atom so it dissolves in water."},
+      {"partners": ["Hg"], "formula": "Au-Hg", "name": "Gold amalgam", "note": "Gold dissolves into liquid mercury. Small-scale miners use this to collect gold, a major source of mercury pollution."}
+    ],
+    "number": {"value": "about 45 MS/m", "label": "How well it carries electricity, third after silver and copper"},
+    "source": "Mined from quartz veins and river gravel, then pulled out mostly with cyanide. Astronomers think much of it was forged when neutron stars crashed together.",
+    "lenses": {
+      "nexus": "Gold-on-carbon catalysts are now used commercially to make vinyl chloride (for PVC) from acetylene. They replaced the old mercury chloride catalyst.",
+      "rocket": "The James Webb Space Telescope's mirrors are gold-coated to reflect infrared. Apollo helmet visors had a thin gold layer to block solar heat. Much of the gold-looking foil on spacecraft is not gold, but aluminized amber Kapton film."
+    }
+  },
+  {
+    "z": 80,
+    "tier": "deep",
+    "tagline": "The liquid metal: its two outer electrons are held so tight that its atoms barely hold onto each other.",
+    "atomStory": "Mercury has 2 outer electrons (6s). Like gold's, its heavy center pulls them in close (a relativity effect). Held that tight, they barely join the shared metal sea that glues metal atoms. So the atoms cling to each other only weakly, and the metal is liquid at room temperature. With a full d shell and a tight s pair, it acts partly like a noble gas.",
+    "uses": [
+      {"title": "Fluorescent lamps", "why": "Electricity excites mercury vapor, which gives off ultraviolet light at 254 nm. A coating on the glass (phosphor) turns that into visible light."},
+      {"title": "Thermometers and barometers", "why": "It is a heavy liquid that expands evenly with heat and doesn't stick to glass. Mostly replaced now because it is toxic."},
+      {"title": "Dental fillings (amalgam)", "why": "Mercury dissolves silver, tin and copper into a paste that sets hard. Still in some use as a filling."},
+      {"title": "Making chlorine (older plants)", "why": "A flowing mercury cathode (the minus side) collected sodium while electricity split salt water. This made chlorine and caustic soda. Being phased out over pollution."}
+    ],
+    "bonds": [
+      {"partners": ["S"], "formula": "HgS", "name": "Cinnabar", "note": "The red ore. Roasting it drives off mercury vapor, which is cooled back into liquid metal."},
+      {"partners": ["Cl"], "formula": "HgCl2, Hg2Cl2", "name": "Mercury chlorides", "note": "HgCl2 is toxic and was the classic catalyst for making vinyl chloride from acetylene. Hg2Cl2 (calomel) dissolves far less."},
+      {"partners": ["C", "H"], "formula": "CH3Hg+", "name": "Methylmercury", "note": "Made by microbes in water. It builds up in fish and is the main way mercury harms people."}
+    ],
+    "number": {"value": "−38.8 °C", "label": "Melting point, the only metal that is liquid at room temperature"},
+    "source": "Made by roasting cinnabar ore. Also recovered from gold mining and natural-gas cleanup.",
+    "lenses": {
+      "nexus": "Natural gas and some condensates carry trace mercury. Beds of sulfur-soaked carbon or metal sulfides must catch it before the super-cold (cryogenic) units. Otherwise mercury eats the brazed aluminum heat exchangers in gas plants and ethane cold boxes.",
+      "rocket": "NASA's SERT-1 test in 1964 flew one of the first ion thrusters, using mercury as propellant. Its heavy atoms give more push per ion (charged atom). Later ion engines switched to xenon, which is not toxic."
+    }
+  },
+  {
+    "z": 81,
+    "tier": "deep",
+    "tagline": "The impostor poison: its ion (charged atom) is almost exactly the size of potassium's, so the body lets it in.",
+    "atomStory": "Thallium sits in boron's column with 3 outer electrons (two 6s, one 6p), so the hands picture works here. But its heavy center holds the 6s pair tight, and that pair often won't join in. So thallium usually gives away just 1 electron and becomes Tl+. Tl+ is about 150 pm across, close to potassium's 138 pm. That look-alike size is why it is poisonous.",
+    "uses": [
+      {"title": "Radiation detectors", "why": "Sodium iodide crystals with a little thallium, NaI(Tl), flash when hit by gamma rays. The thallium atoms are what give off the light."},
+      {"title": "Heart stress tests", "why": "Thallium-201 moves like potassium into living heart muscle. A scan then shows which areas get poor blood flow."},
+      {"title": "Infrared optics", "why": "A thallium bromide-iodide crystal (KRS-5) lets long-wave infrared through. It is used for lenses and windows."},
+      {"title": "Former rat poison", "why": "Thallium sulfate had no taste and was strong, because cells take in Tl+ as if it were K+. Banned in many countries."}
+    ],
+    "bonds": [
+      {"partners": ["S", "O"], "formula": "Tl2SO4", "name": "Thallium(I) sulfate", "note": "The old poison. Thallium is in its favorite +1 state."},
+      {"partners": ["Br", "I"], "formula": "TlBr-TlI", "name": "KRS-5", "note": "A mixed thallium halide crystal used for infrared windows."}
+    ],
+    "number": {"value": "~150 pm", "label": "Size of the Tl+ ion, close to K+ (138 pm), so cells mistake it for potassium"},
+    "source": "A side product of smelting zinc, lead and copper ores and of roasting pyrite.",
+    "lenses": {
+      "rocket": "NaI(Tl) detectors, which flash when radiation hits them, have flown on gamma-ray astronomy satellites. They catch gamma-ray bursts and solar flares."
+    }
+  },
+  {
+    "z": 82,
+    "tier": "deep",
+    "tagline": "Carbon's heavy cousin: four outer electrons, but its heavy center makes it soft, dense and toxic.",
+    "atomStory": "Lead sits under carbon with 4 outer electrons and 4 hands, so it can hold 4 partners, like carbon in methane. But its 82 protons hold the 6s pair tight, and that pair often sits out. So lead usually gives away just 2 and acts as Pb2+. Lead-208 is the heaviest stable atom. Lead isotopes (versions with different weights) are where the uranium and thorium decay chains end.",
+    "uses": [
+      {"title": "Car batteries", "why": "Lead-acid cells use lead and lead dioxide plates in sulfuric acid, about 2.1 V per cell. They are cheap, tough and push lots of current to start engines."},
+      {"title": "Radiation shielding", "why": "At 11.3 g/cm³, with many electrons per atom, lead stops X-rays and gamma rays in a short distance."},
+      {"title": "Solder (older)", "why": "Tin-lead solder melts low, around 183 °C, and spreads well on copper. Electronics have mostly switched to lead-free tin mixes."},
+      {"title": "Ammunition and weights", "why": "It is dense, soft and cheap to cast."}
+    ],
+    "bonds": [
+      {"partners": ["S"], "formula": "PbS", "name": "Galena", "note": "The main lead ore. Shiny gray cubes."},
+      {"partners": ["O", "S"], "formula": "PbO2, PbSO4", "name": "Battery chemistry", "note": "Using the battery turns both lead plates into lead sulfate. Charging turns them back into Pb and PbO2."},
+      {"partners": ["C", "H"], "formula": "Pb(C2H5)4", "name": "Tetraethyllead", "note": "Lead using all 4 hands to hold 4 ethyl groups, the way carbon does. Once added to gasoline to stop engine knock."}
+    ],
+    "number": {"value": "11.34 g/cm³", "label": "Density"},
+    "source": "Smelted from galena. Most lead today comes from recycled batteries.",
+    "lenses": {
+      "nexus": "Tetraethyllead was added to gasoline for decades to stop knock. It was phased out partly because lead coats the platinum in catalytic converters and kills them. Refiners replaced it with high-octane blends from reforming and alkylation units."
+    }
+  },
+  {
+    "z": 83,
+    "tier": "deep",
+    "tagline": "The last nearly stable element: technically radioactive, but its half-life is a billion times the age of the universe.",
+    "atomStory": "Bismuth sits under nitrogen with 5 outer electrons (two 6s, three 6p), so it has 3 hands. Its heavy center holds the 6s pair tight. So it mostly uses just the 3 p electrons and becomes Bi3+. Its center is just past the line of true stability, so it does decay. But so slowly that it was only measured in 2003.",
+    "uses": [
+      {"title": "Stomach medicine", "why": "Bismuth subsalicylate, the active part of Pepto-Bismol, coats the stomach lining and mildly fights bacteria. Bismuth is unusually low in toxicity for a heavy metal."},
+      {"title": "Metals that melt low", "why": "Bismuth mixed with tin, indium and others melts well below 100 °C, some under 60 °C. Used in fire-sprinkler fuse links and lead-free solders."},
+      {"title": "Lead replacement", "why": "Dense and non-toxic, it replaces lead in shot, fishing weights and plumbing brass."},
+      {"title": "Thermoelectric coolers", "why": "Bismuth telluride turns electric current into a hot side and a cold side, or the reverse. It runs small coolers with no moving parts."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Bi2O3", "name": "Bismuth oxide", "note": "Bismuth at +3. A yellow powder used in glass, ceramics and catalysts."},
+      {"partners": ["Te"], "formula": "Bi2Te3", "name": "Bismuth telluride", "note": "The standard material in Peltier coolers that work near room temperature."},
+      {"partners": ["Mo", "O"], "formula": "Bi2O3·nMoO3", "name": "Bismuth molybdate", "note": "The catalyst that turns propylene into acrylonitrile and acrolein."}
+    ],
+    "number": {"value": "2 × 10^19 years", "label": "Half-life (time for half to decay) of bismuth-209, about a billion times the age of the universe"},
+    "source": "A side product of lead, copper and tin refining.",
+    "lenses": {
+      "nexus": "Bismuth molybdate is the catalyst in the SOHIO process. It reacts propylene, ammonia and air into acrylonitrile, the building block of acrylic fiber and ABS plastic."
+    }
+  },
+  {
+    "z": 84,
+    "tier": "deep",
+    "tagline": "The hot isotope: a gram of polonium-210 gives off about 140 watts of heat on its own.",
+    "atomStory": "Polonium sits under oxygen with 6 outer electrons and 2 hands, so it can form H2Po the way oxygen forms H2O. Its center has no stable form. Polonium-210 throws out alpha particles (tiny fast chunks) so quickly that the metal heats itself. Alphas carry a lot of energy, but a sheet of paper stops them. So it is dangerous mainly if swallowed or breathed in.",
+    "uses": [
+      {"title": "Static removers", "why": "Its alpha particles charge up the air, letting static leak away from film, paper and precision parts. Used in factory brushes."},
+      {"title": "Space heater for rovers", "why": "Its strong decay heat kept Soviet Lunokhod moon rovers from freezing through the lunar night."},
+      {"title": "Neutron sources", "why": "Alphas from polonium hitting beryllium knock out neutrons. Early nuclear weapons used this as a trigger."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "PoO2", "name": "Polonium dioxide", "note": "Polonium at +4, the most common oxide."},
+      {"partners": ["H"], "formula": "H2Po", "name": "Polonium hydride", "note": "The heavy cousin of water, using polonium's 2 hands. Unstable and turns to vapor easily."}
+    ],
+    "number": {"value": "~140 W/g", "label": "Heat from polonium-210 (half-life 138 days)"},
+    "source": "Found by Marie and Pierre Curie in 1898 in uranium ore and named for Poland. Today it is made in reactors by hitting bismuth-209 with neutrons.",
+    "lenses": {
+      "rocket": "Polonium-210 powered Lunokhod's heater, but its 138-day half-life means it fades fast. So long missions use plutonium-238. It lasts 88 years, at much lower power per gram."
+    }
+  },
+  {
+    "z": 85,
+    "tier": "deep",
+    "tagline": "The rarest natural element: a halogen (chlorine's family) so radioactive no one has ever seen a visible piece.",
+    "atomStory": "Astatine sits under fluorine and chlorine with 7 outer electrons and 1 hand. So on paper it holds 1 partner, like them. But its outer electrons are far from a huge center and feel strong relativity effects. Theory even predicts solid astatine might be a metal. Its longest-lived form lasts about 8 hours, so it is only handled a few billion atoms at a time.",
+    "uses": [
+      {"title": "Targeted alpha therapy", "why": "Astatine-211 is tied to molecules that seek out cancer cells. Its alpha particles travel only a few cell widths, killing the target with little harm around it. Still in clinical trials."},
+      {"title": "Halogen chemistry tests", "why": "It bonds like a halogen, so it can be attached to carrier molecules the same way iodine is."},
+      {"title": "Testing heavy-element theory", "why": "It checks predictions about how relativity changes chemistry at the bottom of the table."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "HAt", "name": "Hydrogen astatide", "note": "The heaviest hydrogen halide, using astatine's one hand."},
+      {"partners": ["I"], "formula": "AtI", "name": "Astatine iodide", "note": "A two-halogen pair seen in trace experiments, showing it pairs with other halogens."}
+    ],
+    "number": {"value": "8.1 hours", "label": "Half-life of astatine-210, its longest-lasting form"},
+    "source": "In nature it exists only briefly, in uranium and thorium decay chains. It is made in cyclotrons (particle accelerators) by firing alpha particles at bismuth-209.",
+    "lenses": {}
+  },
+  {
+    "z": 86,
+    "tier": "deep",
+    "tagline": "The radioactive noble gas: it seeps out of rock into basements and is the second leading cause of lung cancer.",
+    "atomStory": "Radon has a full outer ring of 8 electrons. Like neon and argon, it has no empty hands and almost never bonds. That is why it drifts freely out of soil as a gas. The problem is its center. Radon-222 decays in days into solid radioactive atoms that lodge in the lungs.",
+    "uses": [
+      {"title": "Home radon testing", "why": "Not a use of radon, but the main reason people measure it. It comes from uranium in ordinary soil. It is 8 times denser than air, so it collects in basements."},
+      {"title": "Tracing water and air movement", "why": "It doesn't react and decays on a known clock. So geologists use it to track groundwater and gas escaping from faults."},
+      {"title": "Early radiation therapy", "why": "Sealed radon seeds were once placed in tumors to treat them, before safer isotopes replaced them."}
+    ],
+    "bonds": [
+      {"partners": ["F"], "formula": "RnF2", "name": "Radon difluoride", "note": "Fluorine, the strongest electron grabber, can tug on radon's big, loosely held outer ring. One of the few radon compounds."}
+    ],
+    "number": {"value": "3.8 days", "label": "Half-life of radon-222"},
+    "source": "Made nonstop underground as radium-226 decays, part of the uranium-238 decay chain.",
+    "lenses": {}
+  },
+  {
+    "z": 87,
+    "tier": "deep",
+    "tagline": "The alkali metal that vanishes: its longest-lived form lasts 22 minutes.",
+    "atomStory": "Francium sits under sodium and cesium with 1 lone electron on a 7th shell, far from the center and held loosely. Like other alkali metals, it would give that electron away easily. Relativity pulls that 7s electron in a little, so it actually holds on a bit tighter than cesium. Its center decays so fast that a sample big enough to weigh would boil away from its own heat.",
+    "uses": [
+      {"title": "Precision atomic physics", "why": "Its single outer electron and heavy center make it a sensitive test of tiny forces inside atoms."},
+      {"title": "Laser trapping studies", "why": "Physicists have cooled and trapped a few hundred thousand francium atoms with lasers to measure their energy levels."},
+      {"title": "Testing the alkali trend", "why": "Tests check whether it really acts like a heavier cesium, as its one outer electron suggests."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "FrCl", "name": "Francium chloride", "note": "Never made in amounts you could see. But trace tests show francium follows cesium into salts like this, handing its 1 electron to chlorine."},
+      {"partners": ["O", "H"], "formula": "FrOH", "name": "Francium hydroxide", "note": "Expected to be a very strong base (the opposite of an acid), like CsOH. Studied only in trace amounts."}
+    ],
+    "number": {"value": "22 minutes", "label": "Half-life of francium-223, its longest-lasting form"},
+    "source": "Found in 1939 by Marguerite Perey in the decay of actinium-227. Made in accelerators by fusing oxygen with gold.",
+    "lenses": {}
+  },
+  {
+    "z": 88,
+    "tier": "deep",
+    "tagline": "Radioactive calcium: it follows calcium into bone, which made it a poison and later a medicine.",
+    "atomStory": "Radium sits under calcium and barium. It gives away its 2 outer electrons easily, becoming Ra2+. That ion acts like calcium, so the body stores it in bone. Its center decays with a 1,600-year half-life, and that energy makes radium salts glow faintly.",
+    "uses": [
+      {"title": "Bone cancer treatment", "why": "Radium-223 chloride is injected and settles in bone where tumors have spread. Its short-range alphas kill nearby cancer cells."},
+      {"title": "Glow-in-the-dark paint (historic)", "why": "Mixed with zinc sulfide, its radiation made watch dials glow. Workers who licked their brushes got bone cancers. That drove early radiation-safety law."},
+      {"title": "Early radiation therapy", "why": "Before reactor-made isotopes, radium was the main radiation source for treating tumors."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "RaCl2", "name": "Radium chloride", "note": "Radium at +2. The form Marie Curie first isolated, and the form of the radium-223 drug."},
+      {"partners": ["S", "O"], "formula": "RaSO4", "name": "Radium sulfate", "note": "Barely dissolves, like barium sulfate. So radium drops out of water along with barium scale."}
+    ],
+    "number": {"value": "3.7 × 10^10 decays/s", "label": "Activity of 1 gram of radium-226, the original definition of the curie"},
+    "source": "Found by the Curies in 1898 in uranium ores, where a tonne of ore holds well under a gram.",
+    "lenses": {
+      "nexus": "In oil and gas production, radium in underground water drops out with barium sulfate scale inside pipes and tanks. This makes naturally radioactive scale (NORM), which must be handled and disposed of as a regulated waste."
+    }
+  },
+  {
+    "z": 89,
+    "tier": "deep",
+    "tagline": "The element that starts the actinide row and glows blue in the dark.",
+    "atomStory": "Actinium has 3 electrons to give (one 6d, two 7s), and gives all 3 to become Ac3+, much like lanthanum above it. It opens the actinide row. From here, elements start filling the deep 5f shell, so simple hand-counting breaks down. Its radiation is strong enough to charge the air around it and make a faint blue glow.",
+    "uses": [
+      {"title": "Targeted alpha therapy", "why": "Actinium-225 (10-day half-life) is tied to cancer-seeking molecules. As it decays it releases 4 alpha particles, a big dose right at the tumor. In clinical trials and growing use."},
+      {"title": "Neutron sources", "why": "Actinium-227 mixed with beryllium gives off neutrons for well logging and research."},
+      {"title": "Research", "why": "Its chemistry is the baseline for comparing the heavier actinides."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Ac2O3", "name": "Actinium oxide", "note": "Actinium at +3, matching lanthanum oxide."},
+      {"partners": ["Cl"], "formula": "AcCl3", "name": "Actinium chloride", "note": "A typical +3 salt. Actinium chemistry closely mirrors lanthanum's."}
+    ],
+    "number": {"value": "21.8 years", "label": "Half-life of actinium-227"},
+    "source": "Found in trace amounts in uranium ore. Actinium-227 is made by hitting radium-226 with neutrons. Actinium-225 is drawn off from thorium-229 or made in accelerators.",
+    "lenses": {}
+  },
+  {
+    "z": 90,
+    "tier": "deep",
+    "tagline": "The slow-burn nuclear fuel: three times as common as uranium, with a half-life about the age of the universe.",
+    "atomStory": "Thorium has 4 electrons to give (two 6d, two 7s), and gives all 4 to become Th4+. Its 5f shell is still nearly empty, so it acts a lot like a transition metal and hand-counting does not apply. Its center decays so slowly that most of the thorium from Earth's birth is still here.",
+    "uses": [
+      {"title": "Nuclear fuel (thorium cycle)", "why": "Thorium-232 can't split on its own (it is not fissile). But it soaks up a neutron and decays into uranium-233, which can. Molten-salt and other reactor designs aim to use this."},
+      {"title": "Welding electrodes", "why": "About 2% thorium oxide in tungsten welding rods helps electrons leave the tip. So the arc starts and holds more easily."},
+      {"title": "Gas lamp mantles", "why": "Thorium oxide with 1% cerium oxide glows bright white when heated by a gas flame."},
+      {"title": "Heat-resistant ceramics", "why": "Thorium oxide melts near 3,390 °C, one of the highest of any oxide."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "ThO2", "name": "Thorium dioxide (thoria)", "note": "Thorium at +4. Used in mantles, welding rods and as reactor fuel."},
+      {"partners": ["F"], "formula": "ThF4", "name": "Thorium tetrafluoride", "note": "Dissolved in melted fluoride salts as fuel in molten-salt reactor designs."}
+    ],
+    "number": {"value": "14 billion years", "label": "Half-life of thorium-232"},
+    "source": "Mostly from monazite sand, a side product of mining rare-earth and titanium minerals.",
+    "lenses": {
+      "nexus": "Early German Fischer-Tropsch plants turned coal-based syngas into liquid hydrocarbons and waxes. They used cobalt catalysts boosted with thorium oxide."
+    }
+  },
+  {
+    "z": 91,
+    "tier": "deep",
+    "tagline": "The stepping stone: the short-lived link between thorium and uranium fuel.",
+    "atomStory": "Protactinium has 5 electrons to give, spread across 5f, 6d and 7s. It most often gives all 5, forming +5 compounds. This is where the deep 5f shell really starts to fill, so hand-counting does not apply. It sits between thorium and uranium, both on the table and in the decay chains that link them.",
+    "uses": [
+      {"title": "Dating ocean sediments", "why": "Uranium in seawater decays to protactinium-231 and thorium-230 at known rates. Their ratio in seafloor mud shows how fast ocean currents moved in the past."},
+      {"title": "Thorium reactor link", "why": "In a thorium reactor, thorium-233 decays to protactinium-233, which then decays to fissile (splittable) uranium-233. Managing this step is a key design problem."},
+      {"title": "Research", "why": "No commercial use. It is scarce, very radioactive and toxic."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Pa2O5", "name": "Protactinium pentoxide", "note": "Protactinium in its favorite +5 state."},
+      {"partners": ["Cl"], "formula": "PaCl5", "name": "Protactinium pentachloride", "note": "A yellow +5 halide used to separate it out."}
+    ],
+    "number": {"value": "32,760 years", "label": "Half-life of protactinium-231"},
+    "source": "Found in trace amounts in uranium ore. In 1961 a UK effort pulled about 125 g from roughly 60 tonnes of uranium-processing waste. That is still most of the world's supply.",
+    "lenses": {}
+  },
+  {
+    "z": 92,
+    "tier": "deep",
+    "tagline": "The energy-dense atom: splitting 1 kg of uranium-235 releases about as much energy as burning 3,000 tonnes of coal.",
+    "atomStory": "Uranium has 6 electrons to give across 5f, 6d and 7s. The f electrons join in, so hand-counting does not apply. It often forms U6+, as in UF6 or the uranyl ion. The real action is in the center. Its 92 protons push each other apart hard. A slow neutron hitting a uranium-235 center splits it in two and frees more neutrons. Those can keep a chain reaction going.",
+    "uses": [
+      {"title": "Nuclear power", "why": "Uranium oxide pellets with about 3 to 5% uranium-235 fuel power reactors. Splitting atoms gives millions of times more energy per kg than burning fuel. It taps bonds in the atom's center, not the handshakes between atoms."},
+      {"title": "Naval reactors", "why": "Highly enriched fuel lets submarines and carriers run for years without refueling."},
+      {"title": "Dense metal (depleted uranium)", "why": "Left over after enrichment, it is 19.1 g/cm³. It is used for aircraft counterweights, radiation shielding and armor."},
+      {"title": "Dating rocks", "why": "Uranium decays to lead at known rates. So uranium-lead dating of zircon crystals dates the oldest rocks. Lead isotopes in meteorites give Earth's age, about 4.5 billion years."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "UO2", "name": "Uranium dioxide", "note": "The ceramic fuel pellet material in nearly all power reactors."},
+      {"partners": ["F"], "formula": "UF6", "name": "Uranium hexafluoride", "note": "Turns to gas at 56.5 °C. That is why enrichment centrifuges use it, spinning U-235 apart from the heavier U-238."},
+      {"partners": ["O"], "formula": "U3O8", "name": "Yellowcake", "note": "The concentrated oxide shipped from uranium mills."}
+    ],
+    "number": {"value": "~80 TJ/kg", "label": "Energy from fully splitting uranium-235, millions of times more than burning fuel"},
+    "source": "Mined from uraninite and other ores, then dissolved out and concentrated into yellowcake. Natural uranium is 99.3% U-238 and 0.7% U-235.",
+    "lenses": {
+      "rocket": "Nuclear thermal rockets, like NASA's 1960s NERVA, heat hydrogen in a uranium reactor. They reached about twice the efficiency (specific impulse) of the best chemical engines. NASA's 2018 KRUSTY test ran a small uranium-235 reactor built for space power."
+    }
+  },
+  {
+    "z": 93,
+    "tier": "deep",
+    "tagline": "The first element past uranium, and the raw material for spacecraft plutonium.",
+    "atomStory": "Neptunium has 7 electrons to give across 5f, 6d and 7s. The f electrons join in, so it can sit anywhere from +3 to +7, and hand-counting does not apply. It was the first element made heavier than uranium. In 1940, uranium-238 caught a neutron, then beta-decayed (a neutron turned into a proton). Its 2-million-year half-life is short for geology, so almost none is left from Earth's birth.",
+    "uses": [
+      {"title": "Making plutonium-238", "why": "Neptunium-237 targets are hit with neutrons in a reactor. Each atom that catches one becomes neptunium-238, which beta-decays in about 2 days to plutonium-238."},
+      {"title": "Neutron detection", "why": "Neptunium-237 splits only with fast neutrons. So it is used in detectors for high-energy neutrons."},
+      {"title": "Research", "why": "Its many charge states make it a test case for actinide chemistry and how nuclear waste behaves."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "NpO2", "name": "Neptunium dioxide", "note": "The stable oxide pressed into targets to make plutonium-238."},
+      {"partners": ["F"], "formula": "NpF6", "name": "Neptunium hexafluoride", "note": "A +6 fluoride that turns to gas easily, like UF6."}
+    ],
+    "number": {"value": "2.1 million years", "label": "Half-life of neptunium-237"},
+    "source": "Made by Edwin McMillan and Philip Abelson at Berkeley in 1940. Today it comes from used reactor fuel, where it builds up as uranium catches neutrons.",
+    "lenses": {
+      "rocket": "Neptunium-237 is the starting material for plutonium-238, the heat source in spacecraft RTGs (nuclear batteries). The US restarted Pu-238 production by hitting neptunium oxide targets with neutrons in research reactors."
+    }
+  },
+  {
+    "z": 94,
+    "tier": "deep",
+    "tagline": "The two-faced metal: plutonium-239 powers bombs and reactors, while plutonium-238 keeps deep-space probes alive.",
+    "atomStory": "Plutonium's 5f electrons sit right on the edge between bonding and staying home. So hand-counting does not apply, and the metal is very odd. It has six different solid crystal forms between room temperature and its melting point. The isotope (version of the atom) matters more than the chemistry. Plutonium-239 splits like uranium-235. Plutonium-238 decays steadily and gives off heat.",
+    "uses": [
+      {"title": "Spacecraft power (RTGs)", "why": "Plutonium-238 gives about 0.57 W of heat per gram and lasts 88 years per half-life. Thermocouples turn that heat into electricity with no moving parts."},
+      {"title": "Reactor fuel (MOX)", "why": "Plutonium-239 taken from used fuel is mixed with uranium oxide and burned in power reactors."},
+      {"title": "Nuclear weapons", "why": "Plutonium-239 can split (it is fissile), so a few kilograms can keep a fast chain reaction going."},
+      {"title": "Early pacemakers", "why": "Some 1970s pacemakers ran on a tiny plutonium-238 heat source that lasted for decades."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "PuO2", "name": "Plutonium dioxide", "note": "The ceramic form in RTG fuel pellets. A Pu-238 pellet glows red-hot from its own decay heat."},
+      {"partners": ["Ga"], "formula": "Pu-Ga", "name": "Plutonium-gallium alloy", "note": "A little gallium locks plutonium into its easy-to-work delta crystal form at room temperature."}
+    ],
+    "number": {"value": "0.57 W/g", "label": "Heat from plutonium-238 (half-life 87.7 years)"},
+    "source": "Made in reactors. Uranium-238 catches a neutron and decays through neptunium into plutonium-239. Plutonium-238 is made from neptunium-237. Traces occur naturally in uranium ore.",
+    "lenses": {
+      "rocket": "Plutonium-238 RTGs power missions too far from the Sun, or too dusty, for solar panels: Voyager, Cassini, New Horizons, Curiosity and Perseverance. The Mars rovers' unit holds about 4.8 kg of plutonium oxide. At launch it gives about 2,000 W of heat and 110 W of electricity. The fuel is sealed in iridium-alloy cladding."
+    }
+  }
+]

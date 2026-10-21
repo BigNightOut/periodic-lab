@@ -1,0 +1,359 @@
+[
+  {
+    "z": 15,
+    "tier": "deep",
+    "tagline": "The life and fertilizer element: 5 outer electrons and 3 hands to hold out.",
+    "atomStory": "Phosphorus has 5 electrons (tiny charged bits) in its outer layer and 3 hands. So in simple molecules like PH3 it holds 3 hands, just like nitrogen above it. Its atom is bigger than nitrogen's, so it can fit more partners around itself. That gives phosphate (PO4 3-), the form life and industry use most.",
+    "uses": [
+      {"title": "Fertilizer", "why": "Plants need phosphate to build DNA and ATP. ATP is the molecule cells use to move energy around. Nothing can replace it, so most mined phosphate rock goes to farms."},
+      {"title": "DNA and ATP", "why": "Phosphate groups link DNA's sugars into a backbone, like the rails of a ladder. ATP has three phosphates in a row. Snapping one off releases stored energy."},
+      {"title": "Tuning silicon for chips", "why": "Phosphorus has 5 outer electrons; silicon has 4. Swap a few phosphorus atoms into a silicon crystal. Each one brings a spare electron that is free to carry current. This is n-type silicon, used in solar cells and chips."},
+      {"title": "Match strikers", "why": "The strip on a matchbox holds red phosphorus. Rubbing turns a tiny bit of it into the more reactive white form. That lights the match head."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "PO4 3-", "name": "Phosphate", "note": "One phosphorus with four oxygens around it. The form found in rock, bone, fertilizer and DNA."},
+      {"partners": ["H", "O"], "formula": "H3PO4", "name": "Phosphoric acid", "note": "Made from phosphate rock and sulfuric acid. The starting point for fertilizers, and the tang in cola."},
+      {"partners": ["O"], "formula": "P4O10", "name": "Phosphorus pentoxide", "note": "What phosphorus becomes when it burns. It pulls in water so hard that it is used to dry things."},
+      {"partners": ["H"], "formula": "PH3", "name": "Phosphine", "note": "Phosphorus with 3 hydrogens holding its 3 hands. A toxic gas used to gas out pests (fumigation) and in chip making."}
+    ],
+    "number": {"value": "1669", "label": "Year Hennig Brand got it out of boiled-down urine. The first element found by a person we know by name"},
+    "source": "Mined as phosphate rock from ancient seabeds. The main mineral is apatite, a calcium phosphate. Morocco holds most known reserves.",
+    "lenses": {
+      "nexus": "Phosphorus flame retardants in plastics turn into a protective char crust when heated. Solid phosphoric acid catalysts (helpers that speed a reaction without being used up) join propylene and butylene into gasoline-size molecules. Phosphorus also keeps ZSM-5 zeolite catalyst stable in refinery FCC units."
+    }
+  },
+  {
+    "z": 16,
+    "tier": "deep",
+    "tagline": "Oxygen's bigger cousin with 2 hands: the backbone of sulfuric acid and tire rubber.",
+    "atomStory": "Sulfur sits right under oxygen. It has 6 outer electrons and 2 hands, so it holds 2 hands. That is why H2S looks just like H2O. Sulfur's atom is bigger and holds its electrons more loosely. So it can also hold up to four oxygens (sulfate), and hold hands with itself in chains and rings.",
+    "uses": [
+      {"title": "Sulfuric acid", "why": "Burn sulfur to get SO2, then SO3, then add water. That gives H2SO4, the most-made industrial chemical by weight. This strong acid dissolves phosphate rock for fertilizer and pulls metals out of ore."},
+      {"title": "Curing tire rubber (vulcanizing)", "why": "With 2 hands, sulfur can act as a bridge. It ties one long rubber molecule (a polymer chain) to the next. Those links make tires spring back instead of slowly flowing like putty."},
+      {"title": "Fertilizer", "why": "Plants need sulfur to build two amino acids (cysteine and methionine), which are protein building blocks. So sulfate is added to many fertilizers."},
+      {"title": "Gunpowder", "why": "Black powder is about 10% sulfur. It lowers the temperature at which the charcoal and potassium nitrate mix catches fire."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "H2S", "name": "Hydrogen sulfide", "note": "The rotten-egg gas in sour natural gas and crude oil. It is toxic and eats metal, so refineries strip it out."},
+      {"partners": ["O"], "formula": "SO2", "name": "Sulfur dioxide", "note": "What sulfur in fuel turns into when burned. It causes acid rain, which is why fuel has sulfur limits."},
+      {"partners": ["H", "O"], "formula": "H2SO4", "name": "Sulfuric acid", "note": "Sulfur holding four oxygens. The workhorse acid of industry."},
+      {"partners": ["Fe"], "formula": "FeS2", "name": "Pyrite", "note": "Fool's gold: shiny brass-colored crystals of iron and sulfur, common in coal and rock."}
+    ],
+    "number": {"value": "8", "label": "Atoms in each crown-shaped ring of solid yellow sulfur (S8)"},
+    "source": "Most sulfur today comes out of sour natural gas and crude oil. The Claus process turns their H2S into solid sulfur. Some is still mined from underground.",
+    "lenses": {
+      "nexus": "Crude oil carries sulfur. Refineries pull it out with hydrogen (hydrodesulfurization) and collect it as pure sulfur. Polyethylene and polypropylene have almost none, so oil made from plastic starts low in sulfur. But tire rubber feed brings its curing sulfur along."
+    }
+  },
+  {
+    "z": 17,
+    "tier": "deep",
+    "tagline": "Just 1 empty hand, and it grabs electrons hard: salt, PVC, bleach.",
+    "atomStory": "Chlorine has 7 outer electrons and just 1 hand. Its center (nucleus) pulls hard to fill it. Next to a metal, it simply takes an electron and becomes Cl- (as in table salt). With carbon or hydrogen it shares instead, holding exactly 1 hand.",
+    "uses": [
+      {"title": "PVC plastic", "why": "PVC is a chain like polyethylene, but with a chlorine on every other carbon. It is about 57% chlorine by weight. The carbon-chlorine bonds make it stiff and slow to burn, because loose chlorine disrupts the flame's chemistry."},
+      {"title": "Cleaning drinking water", "why": "In water, chlorine forms hypochlorous acid (HOCl). It rips electrons off the molecules of bacteria and viruses, which kills them."},
+      {"title": "Bleach", "why": "Household bleach is sodium hypochlorite (NaOCl). The same electron-stealing breaks down colored molecules and germs."},
+      {"title": "Hydrochloric acid", "why": "HCl in water is a strong acid. It cleans rust and scale off steel before coating (called pickling). Your stomach uses it too."}
+    ],
+    "bonds": [
+      {"partners": ["Na"], "formula": "NaCl", "name": "Sodium chloride", "note": "Table salt. Sodium gives its 1 loose electron to chlorine's 1 empty hand. Now one is + and one is −, and they stick like magnets into a crystal."},
+      {"partners": ["H"], "formula": "HCl", "name": "Hydrogen chloride", "note": "A gas that becomes hydrochloric acid in water. Also what PVC gives off when heated."},
+      {"partners": ["C", "H"], "formula": "(C2H3Cl)n", "name": "Polyvinyl chloride (PVC)", "note": "Plastic for pipe, siding and wire coating. The plastic in mixed waste that carries chlorine."},
+      {"partners": ["Na", "O"], "formula": "NaOCl", "name": "Sodium hypochlorite", "note": "The active ingredient in liquid bleach."}
+    ],
+    "number": {"value": "349 kJ/mol", "label": "Energy released when a chlorine atom grabs an electron. No element releases more (highest electron affinity)"},
+    "source": "Made by running electricity through salty water (the chlor-alkali process). That splits it into chlorine gas, sodium hydroxide and hydrogen.",
+    "lenses": {
+      "nexus": "PVC is the problem plastic for pyrolysis. From about 250-300 °C it gives off HCl. That eats away steel and leaves chlorine in the oil. So plants limit PVC in the feed and often remove chlorine from the product.",
+      "rocket": "Ammonium perchlorate (NH4ClO4) is the oxidizer, the oxygen supplier, in most solid rocket boosters. It was about 70% of the Space Shuttle booster propellant by weight. Each chlorine carries four oxygens. It hands them over to burn the aluminum and rubbery binder."
+    }
+  },
+  {
+    "z": 18,
+    "tier": "deep",
+    "tagline": "The lazy gas: no empty hands, so it reacts with almost nothing.",
+    "atomStory": "Argon has 8 electrons in its outer layer, and that layer is full. It has 0 hands to hold out. It gains nothing by sharing, giving or taking electrons. So it forms almost no stable compounds. Its name comes from the Greek word for idle.",
+    "uses": [
+      {"title": "Welding shield gas", "why": "A stream of argon covers the melted metal like a blanket. Oxygen and nitrogen from the air can't reach it and weaken the weld. It works because argon won't react even at welding heat."},
+      {"title": "Making stainless steel", "why": "In argon-oxygen decarburization, argon is blown in with oxygen to thin it out. Carbon burns out of the melted steel, while the valuable chromium stays put."},
+      {"title": "Light bulbs", "why": "Old-style bulbs were filled with argon so the hot tungsten wire couldn't react with oxygen. The gas also slowed the wire from boiling away."},
+      {"title": "Insulated windows", "why": "Argon is heavier than air and carries heat less well. Filling the gap in double-pane windows cuts heat loss."}
+    ],
+    "bonds": [],
+    "number": {"value": "0.93%", "label": "Share of Earth's air. The third most common gas, after nitrogen and oxygen"},
+    "source": "Separated by distilling liquid air. Almost all of Earth's argon is argon-40. It was made over billions of years as radioactive potassium-40 broke down in rocks.",
+    "lenses": {
+      "rocket": "SpaceX's Starlink V2 Mini satellites use Hall-effect thrusters that run on argon (company-reported). They push out charged argon atoms (ions). Those are heavy enough for useful thrust, and argon costs far less than xenon, the usual electric-thruster fuel."
+    }
+  },
+  {
+    "z": 19,
+    "tier": "deep",
+    "tagline": "One lonely outer electron, far from the center: potash, nerves, and gunpowder.",
+    "atomStory": "Potassium has a single electron alone in its 4th layer. It sits far from the center, behind 18 other electrons. Potassium gives it away with almost no effort and becomes K+. That makes it even more reactive than sodium above it.",
+    "uses": [
+      {"title": "Fertilizer (potash)", "why": "Plants use K+ to open and close tiny pores in their leaves and to move water. Potassium is one of the three main fertilizer nutrients (N-P-K)."},
+      {"title": "Nerve and muscle signals", "why": "Your cells pump K+ in and Na+ out. When these charged atoms (ions) rush back across the cell's outer skin, that is the electric pulse behind every nerve signal and heartbeat."},
+      {"title": "Gunpowder oxidizer", "why": "Potassium nitrate (KNO3) is about 75% of black powder. It carries oxygen and lets it go when heated, so the powder burns without air."},
+      {"title": "Alkaline battery fluid", "why": "Potassium hydroxide splits into K+ and OH- ions that move freely. They carry charge between the zinc and manganese dioxide inside an AA battery."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "KCl", "name": "Potassium chloride", "note": "The main potash mineral (sylvite) and a salt substitute. K gives its one electron to Cl's one empty hand."},
+      {"partners": ["N", "O"], "formula": "KNO3", "name": "Potassium nitrate", "note": "Saltpeter: the oxygen source in gunpowder, and a fertilizer."},
+      {"partners": ["O", "H"], "formula": "KOH", "name": "Potassium hydroxide", "note": "A strong base (the opposite of an acid) used in soaps, battery fluid and making biodiesel."},
+      {"partners": ["C", "O"], "formula": "K2CO3", "name": "Potassium carbonate", "note": "First made by soaking wood ash and boiling it in pots. That gave potash, and potassium, their names."}
+    ],
+    "number": {"value": "1.25 billion years", "label": "Time for half of potassium-40 to break down (its half-life). It is the radioactive kind in every banana, and it made most of Earth's argon"},
+    "source": "Mined as potash: beds of potassium chloride left behind when ancient seas dried up. The pure metal is made by reacting melted KCl with sodium.",
+    "lenses": {
+      "nexus": "Potassium boosts the iron oxide catalyst (a reaction helper) that turns ethylbenzene into styrene. It helps steam burn off coke, a carbon crust, so the catalyst keeps working longer.",
+      "rocket": "The first rockets, Chinese fire arrows and British Congreve rockets, ran on black powder. Potassium nitrate was the oxidizer, the part that supplies oxygen. Same fuel-plus-oxidizer idea as a modern rocket."
+    }
+  },
+  {
+    "z": 20,
+    "tier": "deep",
+    "tagline": "Gives away 2 outer electrons, and builds bone, limestone and cement.",
+    "atomStory": "Calcium has 2 electrons in its outer layer and gives both away. That makes it Ca2+, a double plus charge. It grips negative pieces like carbonate and phosphate tightly, like a strong magnet. That is why calcium compounds are hard, stable solids: shells, bone, limestone and concrete.",
+    "uses": [
+      {"title": "Cement and concrete", "why": "Heating limestone drives off CO2 and leaves lime (CaO). In cement, calcium silicates react with water. They grow crystals that lock together and harden into rock."},
+      {"title": "Bones and teeth", "why": "Bone mineral is hydroxyapatite, a calcium phosphate. The tight grip between Ca2+ and phosphate makes it hard."},
+      {"title": "Cleaning steel (flux)", "why": "Lime added to a steel furnace grabs silica, phosphorus and sulfur. They form a floating layer called slag, which is skimmed off."},
+      {"title": "Drywall and plaster", "why": "Gypsum is calcium sulfate with water locked inside. Heat drives off some water. Add water back and it sets hard again."}
+    ],
+    "bonds": [
+      {"partners": ["C", "O"], "formula": "CaCO3", "name": "Calcium carbonate", "note": "Limestone, chalk, marble and seashells. Mostly built by sea life over millions of years."},
+      {"partners": ["O"], "formula": "CaO", "name": "Calcium oxide (lime)", "note": "Made by roasting limestone near 900 °C. The base of cement, and used to clean steel."},
+      {"partners": ["P", "O", "H"], "formula": "Ca5(PO4)3OH", "name": "Hydroxyapatite", "note": "The mineral in bone and tooth enamel."},
+      {"partners": ["S", "O", "H"], "formula": "CaSO4·2H2O", "name": "Gypsum", "note": "The mineral inside drywall and plaster."}
+    ],
+    "number": {"value": "99%", "label": "Share of the body's calcium that sits in bones and teeth"},
+    "source": "Mined as limestone and chalk, rock made mostly from the shells of ancient sea creatures. The fifth most common element in Earth's crust.",
+    "lenses": {
+      "nexus": "Calcium carbonate is a cheap filler in many plastics. In pyrolysis it ends up as ash in the char. Lime can also be added to catch HCl from PVC. It locks the chlorine up as calcium chloride before it reaches the oil."
+    }
+  },
+  {
+    "z": 21,
+    "tier": "deep",
+    "tagline": "The first transition metal (middle-block metal): a pinch of it makes aluminum stronger.",
+    "atomStory": "Scandium is where electrons start filling an inner layer (the 3d shell) instead of the outer one. It has 3 electrons it can give: 2 outer and 1 in 3d. It nearly always gives all three and becomes Sc3+. From here on the inner d electrons join in, so simple hand-counting stops working.",
+    "uses": [
+      {"title": "Aluminum-scandium alloys", "why": "An alloy is a metal mix. A few tenths of a percent of scandium forms tiny Al3Sc specks that pin aluminum's crystal grains in place. The metal gets stronger and keeps more strength after welding. Used in some aerospace parts and high-end bike frames."},
+      {"title": "Stadium and film lights", "why": "Scandium iodide in metal halide lamps gives off many sharp colors of light at once. Together they make bright light close to daylight."},
+      {"title": "Solid oxide fuel cells", "why": "Adding scandium oxide to zirconia leaves gaps in the crystal. Charged oxygen atoms (ions) hop through those gaps. That is how these fuel cells carry current."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Sc2O3", "name": "Scandium oxide", "note": "The form scandium is sold in. Used in fuel cells and to make the metal."},
+      {"partners": ["I"], "formula": "ScI3", "name": "Scandium iodide", "note": "The salt that gives off the light in metal halide lamps."},
+      {"partners": ["Al"], "formula": "Al3Sc", "name": "Aluminum scandide", "note": "Super tiny (nanoscale) specks inside Al-Sc alloys that stop crystal grains from growing."}
+    ],
+    "number": {"value": "2.99 g/cm³", "label": "Density (weight for its size), barely heavier than aluminum (2.70 g/cm³)"},
+    "source": "Spread thin through many minerals, with almost no rich ores. So it is collected as a side product when processing titanium, uranium, rare earth and nickel ores."
+  },
+  {
+    "z": 22,
+    "tier": "deep",
+    "tagline": "Strong like steel at about half the weight, sealed by its own oxide skin.",
+    "atomStory": "Titanium has 4 electrons it can give: 2 outer and 2 in the inner 3d layer. It usually gives all four, as in TiO2. It grabs oxygen so fast that any bare surface instantly grows an oxide skin (metal joined with oxygen). The skin is only a few nanometers thick, far thinner than a hair. It seals the metal, which is why titanium shrugs off corrosion.",
+    "uses": [
+      {"title": "Aircraft and spacecraft", "why": "Titanium alloys (metal mixes) match many steels in strength at about 57% of the weight. They stay strong at heat that softens aluminum. So they go into airframes, landing gear, and jet engine fans and compressors."},
+      {"title": "Medical implants", "why": "The oxide skin is stable and the body accepts it. Bone even grows onto it. So hip joints and dental implants are made of titanium."},
+      {"title": "White pigment", "why": "Titanium dioxide bends light very strongly. A thin layer scatters nearly all visible light, so it looks bright white. Most mined titanium ends up as this pigment in paint, plastic and paper."},
+      {"title": "Seawater and chemical equipment", "why": "The self-repairing skin resists salt water and chlorine. So titanium is used for desalination tubes and chemical plant heat exchangers."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "TiO2", "name": "Titanium dioxide", "note": "The mineral rutile, and the world's main white pigment."},
+      {"partners": ["Cl"], "formula": "TiCl4", "name": "Titanium tetrachloride", "note": "A liquid made on the way to titanium metal. Also the active part of Ziegler-Natta catalysts that make plastic."},
+      {"partners": ["Al", "V"], "formula": "Ti-6Al-4V", "name": "Grade 5 titanium alloy", "note": "About 90% titanium, 6% aluminum, 4% vanadium. The most-used titanium alloy in aerospace."}
+    ],
+    "number": {"value": "4.5 g/cm³", "label": "Density (weight for its size), about 57% of steel's (7.9 g/cm³)"},
+    "source": "Mined from beach sands rich in ilmenite (FeTiO3) and rutile (TiO2). The Kroll process turns ore into TiCl4, then melted magnesium strips off the chlorine. It is slow and done one batch at a time, which is why titanium is expensive.",
+    "lenses": {
+      "nexus": "Most polypropylene and much of the world's polyethylene is made on Ziegler-Natta catalysts (reaction helpers). They are titanium chloride on a magnesium chloride base, switched on by triethylaluminum. That is the same TEA as in Falcon 9's TEA-TEB igniter. Small building blocks (monomers) snap onto the titanium one at a time to grow the chain.",
+      "rocket": "Falcon 9's grid fins are titanium. SpaceX switched from aluminum fins, which could catch fire during reentry. Titanium alloys also show up in rocket and spacecraft frames and pressure tanks, where weight and heat both matter."
+    }
+  },
+  {
+    "z": 23,
+    "tier": "deep",
+    "tagline": "A metal with four colorful charges: tough steel, a sulfuric acid helper, flow batteries.",
+    "atomStory": "Vanadium has 5 electrons it can give: 2 outer and 3 in the inner 3d layer. It can give up 2, 3, 4 or all 5. In water, each of those charges shows a different color: violet, green, blue, yellow. The inner d electrons join in here, so hand-counting doesn't work.",
+    "uses": [
+      {"title": "Tough steel", "why": "A few tenths of a percent of vanadium forms hard vanadium carbide specks. They keep steel's crystal grains small. That makes tool steel, springs and rebar stronger and tougher."},
+      {"title": "Flow batteries", "why": "These batteries store energy by shifting vanadium between charges in two tanks of liquid. Both sides use the same element. So if liquid leaks across the divider, it doesn't ruin the battery fluid."},
+      {"title": "Sulfuric acid catalyst", "why": "A catalyst is a helper that is never used up. Vanadium pentoxide hands an oxygen to SO2 to make SO3, dropping from +5 to +4. Then it grabs oxygen from the air and goes back."},
+      {"title": "Titanium alloy", "why": "Vanadium is the 4 in Ti-6Al-4V. It holds titanium in a second crystal form, which lets the alloy be heat-treated for strength."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "V2O5", "name": "Vanadium pentoxide", "note": "Orange helper (catalyst) for making sulfuric acid. Vanadium at its full +5."},
+      {"partners": ["C"], "formula": "VC", "name": "Vanadium carbide", "note": "Very hard specks that strengthen steel."},
+      {"partners": ["O", "S"], "formula": "VOSO4", "name": "Vanadyl sulfate", "note": "Blue salt used to make flow battery fluid."}
+    ],
+    "number": {"value": "4", "label": "Charges vanadium takes in water (+2 to +5), each a different color. The basis of the vanadium flow battery"},
+    "source": "Mostly a side product of steelmaking slag (furnace waste) from iron ore that holds vanadium. Some also comes from oil residues and ash.",
+    "lenses": {
+      "nexus": "Heavy crude carries vanadium locked inside ring-shaped carbon molecules. In a refinery FCC unit it lands on the zeolite catalyst and wrecks its structure. So vanadium is a key catalyst poison. Oils made from plastic are mostly free of it."
+    }
+  },
+  {
+    "z": 24,
+    "tier": "deep",
+    "tagline": "The element that makes stainless steel stainless.",
+    "atomStory": "Chromium moves one outer electron inward, so its 3d layer is exactly half full (5 of 10). That setup is more stable, and it leaves one electron outside. Chromium grabs oxygen fast. It forms an oxide skin only a few nanometers thick. The skin is tight and repairs itself when scratched.",
+    "uses": [
+      {"title": "Stainless steel", "why": "Steel with at least about 10.5% chromium grows an unbroken chromium oxide film that blocks rust. Scratch it, and the exposed chromium reseals with oxygen."},
+      {"title": "Chrome plating", "why": "A thin chromium layer is put on with electricity (electroplating). It is hard and stays shiny because of the same oxide film."},
+      {"title": "Gem and pigment colors", "why": "A trace of Cr3+ in aluminum oxide makes ruby red. In beryl it makes emerald green. Chromium's d electrons soak up certain colors of light."},
+      {"title": "Leather tanning", "why": "Chromium(III) salts link the collagen fibers in animal hide together, turning it into tough leather. Most leather is chrome-tanned."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Cr2O3", "name": "Chromium(III) oxide", "note": "The protective film on stainless steel, and a stable green pigment."},
+      {"partners": ["O"], "formula": "CrO4 2-, Cr2O7 2-", "name": "Chromate and dichromate (hexavalent chromium)", "note": "Chromium at +6. Strong electron-stealers (oxidizers) known to cause cancer, so they are tightly regulated."},
+      {"partners": ["Fe", "O"], "formula": "FeCr2O4", "name": "Chromite", "note": "The only chromium ore mined for business."}
+    ],
+    "number": {"value": "10.5%", "label": "Least chromium steel can have and still count as stainless"},
+    "source": "Mined as chromite ore. It is smelted with carbon into ferrochrome, an iron-chromium mix that goes straight into steelmaking.",
+    "lenses": {
+      "nexus": "Chromium on silica (the Phillips catalyst, a reaction helper) makes a large share of the world's high-density polyethylene. Chromia on alumina turns propane into propylene by pulling hydrogen off its C-H bonds.",
+      "rocket": "Starship's hull and tanks are stainless steel. Early ships used 304L, about 18% chromium and 8% nickel. SpaceX has since moved to its own alloy, reportedly called 30X. Stainless stays strong at liquid-oxygen cold and melts around 1,400 °C, versus aluminum's 660 °C. So only the side facing the oncoming air needs heat-shield tiles."
+    }
+  },
+  {
+    "z": 25,
+    "tier": "deep",
+    "tagline": "Steel's cleanup crew, with charges from +2 up to purple +7.",
+    "atomStory": "Manganese has 7 electrons it can give: 2 outer and 5 in a half-full 3d layer. It can give anywhere from 2 (Mn2+) up to all 7, as in purple permanganate (MnO4-). The inner d electrons join in, so hand-counting breaks down.",
+    "uses": [
+      {"title": "Steelmaking", "why": "Most manganese goes into steel. It grabs leftover oxygen and sulfur. It forms manganese sulfide instead of iron sulfide, which would make steel crack when rolled hot."},
+      {"title": "Alkaline batteries", "why": "Manganese dioxide is the + end (cathode) in AA batteries. It takes in electrons by stepping down from Mn4+ to Mn3+."},
+      {"title": "Aluminum cans", "why": "About 1% manganese makes the aluminum in drink cans stronger, without making it harder to shape."},
+      {"title": "Water treatment", "why": "Potassium permanganate is a strong electron-stealer (oxidizer). It pulls electrons from iron, sulfide and carbon-based gunk so they can be filtered out."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "MnO2", "name": "Manganese dioxide", "note": "The main ore mineral (pyrolusite) and a battery cathode material."},
+      {"partners": ["K", "O"], "formula": "KMnO4", "name": "Potassium permanganate", "note": "Deep purple electron-stealer, with manganese at +7."},
+      {"partners": ["S"], "formula": "MnS", "name": "Manganese sulfide", "note": "Harmless specks that lock up sulfur in steel."}
+    ],
+    "number": {"value": "+7", "label": "Highest charge, reached in permanganate by giving up all seven 3d and 4s electrons"},
+    "source": "Mined mostly as manganese oxide ores. Potato-sized lumps on the deep seafloor hold large amounts, but they are not mined for business yet.",
+    "lenses": {
+      "rocket": "The V-2 spun its turbopump with steam made from hydrogen peroxide. A permanganate solution broke the peroxide down, acting as a catalyst (a helper that is not used up). This peroxide turbine idea carried into early postwar rockets."
+    }
+  },
+  {
+    "z": 26,
+    "tier": "deep",
+    "tagline": "Steel, blood and magnets: the metal where stars' fusion chain ends.",
+    "atomStory": "Iron usually gives up 2 or 3 electrons (Fe2+ or Fe3+), from both its outer layer and its 3d layer. Four of its 3d electrons are unpaired. In the metal, their spins line up across neighbor atoms like tiny compass needles. That makes iron magnetic. Its center (nucleus) is among the most tightly held together of all.",
+    "uses": [
+      {"title": "Steel", "why": "Steel is iron with about 0.1-1% carbon. The small carbon atoms wedge into gaps in iron's crystal. They stop layers from sliding, which turns soft iron into strong steel."},
+      {"title": "Stainless steel hulls", "why": "Stainless is still about 70% iron, with chromium to stop rust and nickel for toughness."},
+      {"title": "Blood", "why": "Each hemoglobin molecule holds four Fe2+ atoms. They hold oxygen loosely enough to let it go in your muscles."},
+      {"title": "Magnets and transformer cores", "why": "Unpaired 3d electrons line up their spins. So iron gathers magnetic fields in motors and transformers."},
+      {"title": "Ammonia catalyst", "why": "The Haber-Bosch process uses iron as a helper (catalyst). It splits nitrogen's triple bond, three hands held at once, so nitrogen can join hydrogen. That makes ammonia for fertilizer."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Fe2O3", "name": "Iron(III) oxide", "note": "Rust and the ore hematite. Also the red in Mars's dust."},
+      {"partners": ["O"], "formula": "Fe3O4", "name": "Magnetite", "note": "Black magnetic iron ore that holds both Fe2+ and Fe3+."},
+      {"partners": ["C"], "formula": "Fe3C", "name": "Cementite", "note": "Hard iron-carbon compound that forms in carbon steel and cast iron."}
+    ],
+    "number": {"value": "8.8 MeV", "label": "How tightly each particle in iron-56's center is held (binding energy), near the top. Stars that fuse heavier atoms spend energy instead of making it"},
+    "source": "Mined as hematite and magnetite ores. A blast furnace burns coke (baked coal) into carbon monoxide, which pulls the oxygen off the ore. Newer plants use natural gas or hydrogen instead.",
+    "lenses": {
+      "nexus": "Iron catalysts (reaction helpers) drive Fischer-Tropsch synthesis. It builds chains of carbon and hydrogen from CO and H2. That is pyrolysis in reverse: your plant breaks long chains apart, and this builds them up.",
+      "rocket": "Starship is built from stainless steel, about 70% iron. SpaceX switched from carbon fiber around the turn of 2019. Steel is cheap and easy to weld. It stays strong from -183 °C liquid oxygen up to heat that would soften aluminum."
+    }
+  },
+  {
+    "z": 27,
+    "tier": "deep",
+    "tagline": "The deep-blue magnetic metal inside many lithium-ion batteries.",
+    "atomStory": "Cobalt usually gives up 2 or 3 electrons, from both its outer layer and its 3d layer. Like iron and nickel, it has unpaired 3d electrons whose spins line up, so it is magnetic. It stays magnetic at a higher temperature than any other element.",
+    "uses": [
+      {"title": "Lithium-ion batteries", "why": "In lithium cobalt oxide cathodes (the battery's + end), cobalt shifts between +3 and +4 as lithium ions leave and come back. Meanwhile it holds the layered crystal steady."},
+      {"title": "Superalloys and hard coatings", "why": "Cobalt alloys (metal mixes) stay strong and hard to wear down even when red hot. So they go into turbine parts, valve seats and cutting tools."},
+      {"title": "High-temperature magnets", "why": "Samarium-cobalt and alnico magnets stay magnetic at heat that would weaken ordinary magnets."},
+      {"title": "Sterilization and radiotherapy", "why": "Cobalt-60 gives off strong gamma rays. They are used to sterilize medical supplies and treat cancer."}
+    ],
+    "bonds": [
+      {"partners": ["Li", "O"], "formula": "LiCoO2", "name": "Lithium cobalt oxide", "note": "The original lithium-ion cathode. Still used in many phone batteries."},
+      {"partners": ["Al", "O"], "formula": "CoAl2O4", "name": "Cobalt blue", "note": "Stable deep-blue pigment used in ceramics and paint."},
+      {"partners": ["O"], "formula": "Co3O4", "name": "Cobalt oxide", "note": "Black oxide used to make other cobalt compounds and catalysts."}
+    ],
+    "number": {"value": "1,115 °C", "label": "Curie temperature, the heat where a magnet stops working. Cobalt's is the highest of any element"},
+    "source": "Mostly a side product of copper and nickel mining. The biggest share comes from the copper belt of central Africa.",
+    "lenses": {
+      "nexus": "Cobalt-molybdenum on alumina is the classic catalyst (reaction helper) that strips sulfur out of refinery streams with hydrogen (hydrodesulfurization). Cobalt also drives low-temperature Fischer-Tropsch synthesis, building long waxy chains from syngas."
+    }
+  },
+  {
+    "z": 28,
+    "tier": "deep",
+    "tagline": "The hydrogen-handling metal: tough stainless, superalloys, and the Sabatier catalyst.",
+    "atomStory": "Nickel usually gives up 2 electrons (Ni2+), and its 3d layer is 8 of 10 full. On a nickel surface, those d electrons can grab an H2 molecule and split it into two H atoms. Then nickel passes them to other molecules. That is why nickel is a top helper (catalyst) for adding hydrogen. In steel, it holds iron in a crystal pattern that stays tough when frozen.",
+    "uses": [
+      {"title": "Stainless steel", "why": "About 8% nickel locks iron into a crystal form called austenite. It stays bendy instead of brittle at super-cold (cryogenic) temperatures, and it is not magnetic."},
+      {"title": "Superalloys", "why": "Nickel alloys like Inconel stay strong near 1,000 °C. Tiny Ni3Al specks stop the metal from bending out of shape. So they are used in jet turbines and rocket engine parts."},
+      {"title": "Batteries", "why": "High-nickel cathodes (NMC, NCA) store more energy per kilogram. Nickel shifts between charges as lithium moves in and out."},
+      {"title": "Hydrogenation catalysts", "why": "Nickel adds hydrogen to double bonds, where two atoms hold two hands at once. It turns vegetable oils into solid fats and upgrades refinery streams."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "NiO", "name": "Nickel oxide", "note": "Green-black oxide. The form of nickel in many catalysts before hydrogen switches them on."},
+      {"partners": ["C", "O"], "formula": "Ni(CO)4", "name": "Nickel carbonyl", "note": "A very toxic gas used to purify nickel (the Mond process). Make the gas, then heat it to leave pure metal behind."},
+      {"partners": ["Al"], "formula": "Ni3Al", "name": "Nickel aluminide", "note": "The strengthening specks inside nickel superalloys."}
+    ],
+    "number": {"value": "~8%", "label": "Nickel in 304 stainless steel (with ~18% chromium). Enough to keep it tough at super-cold temperatures"},
+    "source": "Mined from sulfide ores like pentlandite, including Canada's Sudbury basin, an ancient meteorite crater. Also from laterite ores formed by tropical weathering.",
+    "lenses": {
+      "nexus": "Nickel catalysts (reaction helpers) run steam methane reforming, which makes hydrogen. They also run the Sabatier reaction (CO2 + 4H2 → CH4 + 2H2O). Nickel-molybdenum catalysts treat oils with hydrogen, including upgrading pyrolysis oil.",
+      "rocket": "SpaceX's Mars plan is to make methane propellant with the Sabatier reaction on a nickel catalyst. It would use CO2 from the air and hydrogen from water ice. Nickel superalloys handle the hottest oxygen-rich engine parts. Raptor reportedly uses an in-house nickel superalloy."
+    }
+  },
+  {
+    "z": 29,
+    "tier": "deep",
+    "tagline": "The wiring metal: one loose outer electron makes it a cheap, great conductor.",
+    "atomStory": "Copper's inner 3d layer is completely full at 10. That leaves one electron alone in its outer 4s layer, loosely held behind 28 others. In solid copper, every atom lets that electron go into a shared sea of electrons. Push with a voltage and the sea drifts. That drift is an electric current.",
+    "uses": [
+      {"title": "Electrical wiring", "why": "Each atom adds its one loose 4s electron to the sea. Copper's neat crystal lets them flow without bumping much. Only silver conducts better, and copper costs far less."},
+      {"title": "Motors and transformers", "why": "Copper coils carry high current and waste little as heat. So motors and transformers run more efficiently."},
+      {"title": "Heat exchangers", "why": "The same free electrons carry heat. Copper's thermal conductivity is about 400 W/m·K, roughly 25 times stainless steel's. Used in radiators, heat sinks and rocket chambers."},
+      {"title": "Plumbing", "why": "Copper reacts far less than iron, so pipes corrode slowly instead of rusting through. Dissolved copper ions (charged copper atoms) also hold back germs."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Cu2O, CuO", "name": "Copper oxides", "note": "The red and black tarnish that forms when copper gets hot or ages in air."},
+      {"partners": ["S", "O"], "formula": "CuSO4", "name": "Copper sulfate", "note": "Bright blue salt used in copper-refining baths and to kill fungus."},
+      {"partners": ["C", "O", "H"], "formula": "Cu2(OH)2CO3", "name": "Basic copper carbonate (malachite)", "note": "Green mineral, and part of the green coat on old copper roofs."},
+      {"partners": ["Zn", "Sn"], "formula": "Cu-Zn, Cu-Sn", "name": "Brass and bronze", "note": "Copper mixed with zinc (brass) or tin (bronze). Harder than pure copper, and bronze named an age of history."}
+    ],
+    "number": {"value": "59.6 MS/m", "label": "How well it carries electricity (conductivity), second only to silver"},
+    "source": "Mined mostly from chalcopyrite (CuFeS2) in huge, low-grade porphyry deposits. Then it is smelted and cleaned up with electricity to 99.99% pure.",
+    "lenses": {
+      "nexus": "Copper-zinc oxide catalysts (reaction helpers) make methanol from syngas. They also run the low-temperature water-gas shift, which turns CO and steam into hydrogen.",
+      "rocket": "Engines cooled by their own fuel line the burn chamber with copper alloys. Copper pulls heat into the cooling channels fastest. The Shuttle's RS-25 used a copper-silver-zirconium alloy. NASA developed copper-chromium-niobium GRCop alloys. Raptor's chamber is reported to be copper alloy too."
+    }
+  },
+  {
+    "z": 30,
+    "tier": "deep",
+    "tagline": "The sacrificial metal: it corrodes first so steel doesn't.",
+    "atomStory": "Zinc's 3d layer is completely full, so those electrons stay out of bonding. Zinc simply gives up its 2 outer electrons to become Zn2+, the only charge it takes. That makes it act more like magnesium than iron. Its atoms also hold each other weakly, so it melts low for a transition metal.",
+    "uses": [
+      {"title": "Galvanizing steel", "why": "Zinc gives up electrons more easily than iron. So a zinc coat corrodes first and protects the steel under it, even at scratches. About half of all zinc goes to this."},
+      {"title": "Brass", "why": "Mixing zinc into copper makes brass. It is harder than pure copper and easier to machine."},
+      {"title": "Batteries", "why": "Zinc metal is the - end (anode) in alkaline and zinc-air batteries. Each atom gives up 2 electrons as it reacts."},
+      {"title": "Rubber and sunscreen", "why": "Zinc oxide gets the sulfur links going when tires are cured (vulcanized). In sunscreen, it soaks up UV light."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "ZnO", "name": "Zinc oxide", "note": "White powder used in tires, sunscreen, and beds that clean gas."},
+      {"partners": ["S"], "formula": "ZnS", "name": "Zinc sulfide", "note": "Sphalerite, the main zinc ore. Also a glow-in-the-dark material."}
+    ],
+    "number": {"value": "420 °C", "label": "Melting point. Low for a transition metal, because its full 3d layer adds little to bonding"},
+    "source": "Mined as sphalerite (ZnS) and roasted into zinc oxide. Then it is dissolved and cleaned up with electricity, or smelted.",
+    "lenses": {
+      "nexus": "Tires have about 1-2% zinc oxide from curing. When tires are pyrolyzed, most of it ends up in the char. In gas plants and refineries, beds of zinc oxide soak up H2S and turn into zinc sulfide."
+    }
+  }
+]

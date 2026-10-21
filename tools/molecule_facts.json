@@ -1,0 +1,513 @@
+{
+ "h2": [
+  "About 9 of every 10 atoms in the universe are hydrogen. Nearly all of it was made in the first minutes after the Big Bang.",
+  "The Sun shines by squeezing hydrogen into helium, about 600 million tons every second.",
+  "The Hindenburg airship was filled with hydrogen because the US would not sell Germany helium."
+ ],
+ "o2": [
+  "Liquid oxygen is pale blue, and it gets pulled toward a strong magnet.",
+  "By weight, oxygen is the most common element in Earth's crust, a bit under half of all rock.",
+  "Almost all the oxygen in the air was made by plants, algae and tiny ocean microbes using sunlight."
+ ],
+ "o3": [
+  "If all the ozone high in the sky were squeezed to ground-level pressure, it would make a layer only about 3 mm thick. That's about two pennies stacked.",
+  "Its name comes from a Greek word meaning 'to smell.' The sharp, clean smell near a lightning storm can be ozone."
+ ],
+ "n2": [
+  "Liquid nitrogen boils at -196 °C. One cup of it turns into roughly 700 cups of gas.",
+  "Every breath you take is mostly nitrogen, and your body breathes it right back out unused.",
+  "Plants can't use it straight from the air either. Lightning and special soil bacteria are nature's main ways to crack that triple bond."
+ ],
+ "cl2": [
+  "Chlorine is a yellow-green gas. Its name comes from the Greek word for pale green.",
+  "In 1915 at Ypres, chlorine became the first poison gas used on a large scale in war.",
+  "Adding chlorine to drinking water in the early 1900s is a big reason diseases like cholera and typhoid became rare."
+ ],
+ "f2": [
+  "Fluorine was so hard to isolate that several chemists were hurt trying. Henri Moissan finally did it in 1886 and later won a Nobel Prize.",
+  "It reacts with nearly every element, even the noble gas xenon.",
+  "The fluoride in toothpaste is fluorine that has already grabbed an extra electron, so it's calm instead of wild."
+ ],
+ "br2": [
+  "Bromine and mercury are the only two elements that are liquid at room temperature.",
+  "Its name comes from the Greek word for stench. It has a harsh, choking smell.",
+  "Royal purple, the ancient dye made from sea snails, has bromine in it."
+ ],
+ "i2": [
+  "Iodine was discovered in 1811 by a French chemist who was making gunpowder ingredients from seaweed ash.",
+  "Your thyroid gland needs iodine. Adding it to salt, starting in the US in 1924, made goiter (a swollen neck) rare.",
+  "Its name comes from the Greek word for violet, the color of its vapor."
+ ],
+ "methane": [
+  "Natural gas has no smell. Gas companies add a sulfur chemical that smells like rotten eggs so you notice a leak.",
+  "Cows burp out methane made by microbes living in their stomachs.",
+  "Saturn's moon Titan is so cold that it has lakes and rain made of liquid methane."
+ ],
+ "ethane": [
+  "Ethane boils at about -89 °C, so on Earth it's always a gas. On frozen Titan it pools in lakes with methane.",
+  "It comes out of the ground mixed into natural gas, then gets separated and piped to crackers."
+ ],
+ "ethylene": [
+  "Plants make ethylene as a ripening signal. One ripe banana in a bag speeds up the other fruit around it.",
+  "Fruit companies pump ethylene into warehouse 'ripening rooms' to time when bananas turn yellow."
+ ],
+ "acetylene": [
+  "Pure acetylene is unsafe to squeeze into a tank. Welding cylinders are packed with a spongy filler soaked in acetone, and the acetylene dissolves into it.",
+  "Old miners' lamps made acetylene by dripping water onto rocks of calcium carbide, then burned the gas for light."
+ ],
+ "propane": [
+  "Propane is heavier than air. A leak sinks and collects in low spots like basements.",
+  "It boils at about -42 °C. Grill tanks hold it as a liquid under pressure, and it boils into gas when you open the valve."
+ ],
+ "propylene": [
+  "After ethylene, propylene is the second most important building block for plastics.",
+  "Refinery units that crack heavy oil into gasoline make lots of propylene on the side."
+ ],
+ "butane": [
+  "You can see butane sloshing as a liquid in a clear lighter. A little pressure keeps it liquid at room temperature.",
+  "It boils at about -1 °C, so a lighter left in freezing cold may barely light.",
+  "Its branched twin, isobutane, has the same atoms. It's the cooling gas in many home fridges."
+ ],
+ "butadiene": [
+  "In World War II, Japan cut off most natural rubber. The US built a huge industry making synthetic rubber from butadiene.",
+  "It's also the 'B' in ABS, the tough plastic LEGO bricks are made from."
+ ],
+ "isooctane": [
+  "The octane scale runs from heptane (0) to iso-octane (100). A fuel rated 90 knocks like a mix of 90% iso-octane and 10% heptane.",
+  "Some fuels score above 100, like racing fuels and pure ethanol."
+ ],
+ "dodecane": [
+  "Twelve-carbon chains boil around 216 °C, far hotter than gasoline-size molecules.",
+  "Jet fuel and RP-1 are cousins. RP-1 is held to tighter limits on sulfur and ring-shaped molecules, which helps keep rocket engines clean."
+ ],
+ "hexadecane": [
+  "Diesel engines have no spark plugs. They squeeze air until it's hot enough to light the fuel by itself.",
+  "Rudolf Diesel showed an engine running on peanut oil at the 1900 Paris World's Fair.",
+  "Hexadecane turns solid at about 18 °C. Long waxy chains like it are why diesel can gel in winter."
+ ],
+ "benzene": [
+  "Michael Faraday discovered benzene in 1825, in oily leftovers from the gas used for lamps.",
+  "August Kekulé said the ring shape came to him in a daydream of a snake biting its own tail.",
+  "Benzene can cause cancer, so it's kept to tiny amounts in gasoline."
+ ],
+ "toluene": [
+  "TNT is toluene with three nitro groups added. Its full name is trinitrotoluene.",
+  "It was first found in tolu balsam, a South American tree sap, which gave it its name."
+ ],
+ "styrene": [
+  "Tiny natural amounts of styrene show up in foods like cinnamon, strawberries and coffee.",
+  "It also goes into SBR, a synthetic rubber used in many car tires."
+ ],
+ "naphthalene": [
+  "Mothballs slowly turn from solid straight into gas. Those fumes are what keep moths away.",
+  "It was one of the first chemicals pulled out of coal tar, back in the early 1800s."
+ ],
+ "polyethylene": [
+  "It was discovered by accident in 1933 at the British company ICI, when a high-pressure test left a waxy white solid.",
+  "In World War II it insulated radar cables. That made radar light enough to fit in airplanes."
+ ],
+ "polypropylene": [
+  "It can bend thousands of times without snapping, so it's used for 'living hinges' like flip-top bottle caps.",
+  "Australia made the first plastic banknotes in 1988, printed on polypropylene film.",
+  "Giulio Natta, who figured out how to make it in a neat, orderly form, shared the 1963 Nobel Prize in Chemistry."
+ ],
+ "polystyrene": [
+  "Foam polystyrene is about 98% air. That trapped air is why a foam cup keeps coffee hot.",
+  "The real 'Styrofoam' brand is blue building insulation. White foam cups are a different product people call by the same name."
+ ],
+ "pvc": [
+  "By weight, PVC is more than half chlorine.",
+  "PVC was stiff and brittle at first. In 1926 Waldo Semon at B.F. Goodrich found how to make it soft and bendy.",
+  "That soft PVC shows up in garden hoses, shower curtains and fake leather."
+ ],
+ "ptfe": [
+  "Roy Plunkett found it by accident in 1938. A gas tank seemed empty, and inside was a slippery white powder.",
+  "It helped build the first atomic bombs, because it could survive the harsh uranium gas used to enrich uranium.",
+  "Even geckos can't stick to it."
+ ],
+ "pet": [
+  "Nathaniel Wyeth patented the PET soda bottle in 1973. His brother was the famous painter Andrew Wyeth.",
+  "The same plastic in a water bottle can be spun into fleece jackets and carpet."
+ ],
+ "water": [
+  "Water expands about 9% when it freezes, so ice floats. Most solids sink in their own liquid.",
+  "Water is heaviest at about 4 °C, so lakes freeze from the top down and fish survive underneath.",
+  "The space station recycles about 98% of its water, including astronaut sweat and urine."
+ ],
+ "h2o2": [
+  "The bombardier beetle mixes hydrogen peroxide with other chemicals to shoot a boiling-hot spray at attackers.",
+  "The 1960s Bell Rocket Belt jetpack ran on hydrogen peroxide. It could only fly for about 20 seconds.",
+  "Drugstore peroxide is about 3%. Rocket-grade peroxide is often around 90%."
+ ],
+ "co": [
+  "It has no color, smell or taste. That's why homes need CO alarms.",
+  "Your blood grabs carbon monoxide about 200 times more tightly than oxygen. So even a little crowds out the oxygen.",
+  "In a blast furnace, CO is what pulls the oxygen off iron ore to leave iron."
+ ],
+ "co2": [
+  "Dry ice is frozen CO2 at -78.5 °C. It turns straight into gas without melting first.",
+  "Mars has polar caps topped with frozen CO2 that grow and shrink with the seasons.",
+  "Warm soda goes flat faster because warm water holds less dissolved gas."
+ ],
+ "methanol": [
+  "It's called wood alcohol because it was first made by heating wood without air. That's pyrolysis, the same basic idea your plant uses on plastic.",
+  "It burns with a nearly invisible flame in daylight. Indy cars ran on it for years, which made pit fires hard to see.",
+  "Drinking even a small amount can cause blindness."
+ ],
+ "ethanol": [
+  "Yeast makes ethanol by eating sugar. Beer, wine and corn fuel ethanol all come from that same process.",
+  "Most US gasoline has about 10% ethanol mixed in, labeled E10.",
+  "Henry Ford's Model T could run on ethanol as well as gasoline."
+ ],
+ "dme": [
+  "DME boils at about -24 °C, while ethanol, with the very same atoms, boils at 78 °C.",
+  "Moving the oxygen to the middle removes the OH 'sticky end' that makes ethanol molecules cling to each other."
+ ],
+ "formaldehyde": [
+  "Your own body makes small amounts of formaldehyde as part of normal chemistry.",
+  "That new-furniture smell can include formaldehyde slowly leaking from glues in pressed wood."
+ ],
+ "aceticacid": [
+  "Vinegar is mostly water with about 4 to 8% acetic acid.",
+  "Pure acetic acid freezes at about 17 °C, a cool room. The icy-looking crystals are why it's called 'glacial' acetic acid."
+ ],
+ "acetone": [
+  "Your body makes acetone when it burns fat for fuel, like during fasting. It can show up on your breath.",
+  "In World War I, Chaim Weizmann found a way to make acetone with bacteria, which Britain needed for explosives. He later became Israel's first president."
+ ],
+ "glycol": [
+  "It tastes sweet but is poisonous. Many antifreeze brands now add a bitter chemical so pets and kids won't drink it.",
+  "A 50/50 mix with water won't freeze until about -37 °C."
+ ],
+ "glucose": [
+  "Your brain is about 2% of your body weight but uses about 20% of your energy, mostly from glucose.",
+  "Starch and cellulose are both chains of glucose. A small change in how the links point is why you can digest bread but not wood."
+ ],
+ "ammonia": [
+  "Fritz Haber and Carl Bosch learned to make ammonia from air in the early 1900s. Fertilizer from their process helps feed about half the people on Earth.",
+  "Roughly half the nitrogen atoms in your body passed through an ammonia factory first.",
+  "The X-15 rocket plane burned ammonia with liquid oxygen."
+ ],
+ "hcn": [
+  "Cyanide smells like bitter almonds to some people. Many others can't smell it at all because of their genes.",
+  "Apple seeds and peach pits hold a chemical that can release small amounts of HCN when chewed."
+ ],
+ "n2o": [
+  "In 1799 Humphry Davy tested laughing gas on himself and his friends. It later became one of the first anesthetics.",
+  "Under pressure it dissolves into cream's fat. When sprayed out, it puffs up and makes the cream fluffy."
+ ],
+ "no2": [
+  "NO2 is the brown haze in smoggy city air.",
+  "Car engines make it by accident. The heat is so high that nitrogen and oxygen from the air join up.",
+  "Catalytic converters exist partly to turn it back into harmless nitrogen."
+ ],
+ "n2o4": [
+  "N2O4 and NO2 keep switching back and forth. Cold favors colorless N2O4, and warmth turns it into brown NO2.",
+  "The Apollo service module engine burned it with a hydrazine fuel blend. Since it lit on contact, there was no igniter to fail."
+ ],
+ "hydrazine": [
+  "The Voyager probes use hydrazine thrusters to keep their antennas pointed at Earth. In 2017, engineers fired Voyager 1 backup thrusters that had sat unused for 37 years.",
+  "It's so toxic that crews fueling spacecraft wear full protective suits."
+ ],
+ "mmh": [
+  "The Space Shuttle's orbital maneuvering engines burned MMH with N2O4.",
+  "Plain hydrazine freezes at about 2 °C. Adding the methyl group drops that to about -52 °C, handy in cold space."
+ ],
+ "urea": [
+  "In 1828 Friedrich Wöhler made urea from non-living chemicals. That broke the old belief that only living things could make such compounds.",
+  "Your body makes urea to get rid of extra nitrogen. Its name comes from urine, where it leaves.",
+  "Diesel exhaust fluid is 32.5% urea in water. Sprayed into hot exhaust, it helps turn smog gases into plain nitrogen and water."
+ ],
+ "nitricacid": [
+  "Mixed with hydrochloric acid, it makes aqua regia, one of the few liquids that dissolves gold.",
+  "In 1940 a chemist hid two gold Nobel medals from the Nazis by dissolving them in aqua regia. After the war the gold was recovered and the medals were recast.",
+  "Most of it is made by burning ammonia over a platinum mesh."
+ ],
+ "h2s": [
+  "You can smell tiny traces of it, but high levels knock out your sense of smell. So a smell that fades can mean danger.",
+  "Rotten eggs smell this way because bacteria break down the sulfur in egg proteins."
+ ],
+ "so2": [
+  "After Mount Pinatubo erupted in 1991, its sulfur dioxide cooled the whole planet by about 0.5 °C for a while.",
+  "The sharp smell of a just-struck match is partly sulfur dioxide."
+ ],
+ "h2so4": [
+  "A country's sulfuric acid output was once used as a measure of how industrial it was.",
+  "It pulls water out of sugar so hard that the sugar turns into a tall, steaming column of black carbon.",
+  "The clouds of Venus are made of sulfuric acid droplets."
+ ],
+ "hcl": [
+  "Your stomach makes hydrochloric acid. Stomach juice has a pH around 1.5 to 3.5.",
+  "A thick layer of mucus keeps that acid from eating your stomach wall."
+ ],
+ "hf": [
+  "HF is called a 'weak' acid, but it's one of the most dangerous. It slips through skin and pulls calcium out of the body.",
+  "Almost all fluorine chemicals, from Teflon to refrigerants, start out as HF."
+ ],
+ "ccl4": [
+  "It was once used in fire extinguishers. But on hot surfaces it can form phosgene, a poison gas, so it was dropped.",
+  "It also harms the ozone layer, so it's controlled by the Montreal Protocol treaty."
+ ],
+ "cf4": [
+  "CF4 is one of the longest-lasting gases known. Once released, it stays in the air for about 50,000 years.",
+  "Aluminum smelters give off small amounts of CF4 as a by-product."
+ ],
+ "chcl3": [
+  "In 1853 Dr. John Snow gave Queen Victoria chloroform while she gave birth. That made pain relief in childbirth popular.",
+  "Movies show it knocking someone out in seconds. In real life it takes minutes and can easily kill."
+ ],
+ "ph3": [
+  "In 2020 scientists reported possible signs of phosphine in Venus's clouds. The finding is still being debated.",
+  "Impure phosphine smells like garlic or rotting fish."
+ ],
+ "pcl3": [
+  "It reacts with water so fast that it fumes in damp air, giving off HCl.",
+  "Phosphorus has 3 hands like nitrogen, so PCl3 is shaped like a short pyramid, just like ammonia."
+ ],
+ "sf6": [
+  "SF6 is about 5 times heavier than air. Breathing it makes your voice sound very deep, the opposite of helium.",
+  "A foil boat can float on an invisible pool of SF6 gas in a fish tank.",
+  "It's the strongest greenhouse gas known, about 23,500 times stronger than CO2 pound for pound over 100 years."
+ ],
+ "silane": [
+  "Silane catches fire by itself in air, so a leak at a chip plant can burn with no spark at all.",
+  "Silicon can't build long, stable chains the way carbon can. That's one reason life is built on carbon."
+ ],
+ "teb": [
+  "The SR-71 Blackbird spy plane also used TEB to light its engines. It carried only enough for a limited number of starts.",
+  "Boron is what gives TEB's flame its green color."
+ ],
+ "tea": [
+  "Karl Ziegler's work with aluminum compounds like this earned him a share of the 1963 Nobel Prize in Chemistry.",
+  "Each Merlin engine relight uses up a shot of TEA-TEB, so the supply limits how many times it can restart."
+ ],
+ "xef2": [
+  "Before 1962, textbooks said noble gases could never form compounds. Neil Bartlett proved them wrong with xenon.",
+  "XeF2 is a stable solid that forms colorless crystals you can keep in a bottle."
+ ],
+ "xef4": [
+  "XeF4 was first made in 1962, the same year as Bartlett's discovery, by heating xenon with fluorine.",
+  "Xenon keeps two pairs of electrons to itself, one above and one below. They push the four fluorines into that flat square."
+ ],
+ "nickelcarbonyl": [
+  "Ludwig Mond discovered it around 1890. It was the first known compound of a metal bonded to carbon monoxide.",
+  "It boils at only 43 °C. So nickel can be carried off as a gas, then dropped back out as pure metal by heating."
+ ],
+ "ap": [
+  "In 1988 a Nevada factory making ammonium perchlorate for the Space Shuttle blew up in a series of huge explosions.",
+  "NASA's Phoenix lander found perchlorates in Martian soil in 2008."
+ ],
+ "nacl": [
+  "Sodium is a metal that bursts into flame in water, and chlorine is a poison gas. Together they make something you sprinkle on food.",
+  "Each grain of table salt is a tiny cube, because its grid of atoms is cube-shaped."
+ ],
+ "kcl": [
+  "Bananas are rich in potassium, and a tiny share of all potassium is naturally radioactive.",
+  "'Potash' means pot ash. Early settlers made potassium salts by soaking wood ashes in pots."
+ ],
+ "lif": [
+  "In the 1960s, Oak Ridge ran a test nuclear reactor using a melted salt made with lithium fluoride.",
+  "Unlike table salt, it barely dissolves in water."
+ ],
+ "mgo": [
+  "Burning magnesium ribbon makes a blinding white flash. The white ash left behind is MgO.",
+  "MgO bricks line steel furnaces that hold molten steel at over 1,500 °C."
+ ],
+ "cao": [
+  "Heated in a hot flame, quicklime glows bright white. Old theaters used it for stage lights, which is where 'in the limelight' comes from.",
+  "Adding water to quicklime gives off enough heat to boil the water.",
+  "Cement plants make it by baking limestone, which releases CO2. That's a big part of cement's carbon footprint."
+ ],
+ "caf2": [
+  "Fluorite gave its name to both fluorine and the word 'fluorescence,' because some pieces glow under UV light.",
+  "Its name comes from the Latin word 'to flow.' Metal workers added it to help melted metal and slag flow."
+ ],
+ "mgcl2": [
+  "The Dead Sea is unusually rich in magnesium chloride.",
+  "Tofu makers use it, called nigari in Japan, to curdle soy milk."
+ ],
+ "cacl2": [
+  "Dissolving it in water gives off heat, which helps it melt ice even in deep cold.",
+  "It pulls so much water from the air that a pile left out can dissolve into a puddle by itself."
+ ],
+ "al2o3": [
+  "Rubies and sapphires are both aluminum oxide. A trace of chromium makes red ruby, and iron and titanium make blue sapphire.",
+  "Aluminum metal is made by pulling the oxygen off alumina using huge amounts of electricity."
+ ],
+ "fe2o3": [
+  "Mars looks red because its dust is full of rusty iron minerals.",
+  "Hematite's name comes from the Greek word for blood, because the powder is blood-red.",
+  "Red ochre, an iron oxide, was among the first paints people ever used, in cave art tens of thousands of years ago."
+ ],
+ "fe3o4": [
+  "Lodestones are natural magnetite magnets. Hung on a string, they pointed north and became the first compasses.",
+  "Some bacteria grow chains of tiny magnetite crystals and use them like a compass needle."
+ ],
+ "cuo": [
+  "Copper oxides give glass and pottery glazes their blue and green colors.",
+  "The first 'high-temperature' superconductors, found in 1986, are built around copper-oxide layers."
+ ],
+ "cu2o": [
+  "It occurs in nature as the red mineral cuprite.",
+  "In the 1920s, layers of Cu2O made some of the first rectifiers, devices that let electricity flow only one way."
+ ],
+ "tio2": [
+  "It's one of the whitest things known, so a thin layer hides what's underneath. That's why good paint covers in one coat.",
+  "The EU banned it as a food coloring, E171, in 2022.",
+  "Some self-cleaning windows use a thin TiO2 coating that breaks down dirt in sunlight."
+ ],
+ "zno": [
+  "Calamine, the pink lotion for itchy rashes, is mostly zinc oxide.",
+  "ZnO turns yellow when hot and goes back to white as it cools."
+ ],
+ "li2o": [
+  "It forms when lithium metal burns in air, with a crimson-red flame.",
+  "Lithium-containing glass-ceramics make cooktops that don't crack when heated fast."
+ ],
+ "naoh": [
+  "Many drain cleaners are lye. It turns hair and grease into a soapy goo that washes away.",
+  "Most of it is made by running electricity through salt water, which makes chlorine gas at the same time.",
+  "Dissolving it in water makes the water get very hot."
+ ],
+ "caco3": [
+  "The White Cliffs of Dover are chalk made from the shells of tiny ocean algae.",
+  "The Great Pyramid was built mostly from limestone blocks.",
+  "Antacid tablets like Tums are calcium carbonate."
+ ],
+ "nahco3": [
+  "When heated, baking soda gives off CO2 gas. Those bubbles make cakes rise.",
+  "Add vinegar and it fizzes right away, releasing the same CO2 much faster."
+ ],
+ "lih": [
+  "It's light and full of hydrogen, which makes it good at stopping neutrons. It was used as shielding for space nuclear reactors.",
+  "A version made with heavy hydrogen, lithium deuteride, is the fuel inside hydrogen bombs."
+ ],
+ "licoo2": [
+  "John Goodenough found this battery material in 1980. He won the Nobel Prize in 2019 at age 97, the oldest winner ever.",
+  "When you charge your phone, lithium moves out of this layer and into the graphite on the other side."
+ ],
+ "uo2": [
+  "One fuel pellet, about the size of a fingertip, holds about as much energy as a ton of coal.",
+  "The pellets are a ceramic, not a metal, so they can handle very high heat without melting."
+ ],
+ "diamond": [
+  "Diamond moves heat better than any other natural material, about 5 times better than copper.",
+  "A diamond is just carbon. Heat it enough in air and it burns away into CO2.",
+  "Most natural diamonds formed about 100 miles underground and are over a billion years old."
+ ],
+ "graphite": [
+  "Pencil 'lead' has never had lead in it. Early users thought graphite was a kind of lead.",
+  "A single sheet of graphite is graphene. It was first peeled off with sticky tape in 2004, and that work won the 2010 Nobel Prize."
+ ],
+ "si": [
+  "Silicon is the second most common element in Earth's crust, after oxygen.",
+  "Chip-grade silicon is about 99.9999999% pure. That's one stray atom per billion."
+ ],
+ "sio2": [
+  "The quartz crystal in a watch vibrates 32,768 times per second to keep time.",
+  "Glass is silica that cooled too fast for its atoms to line up into crystals."
+ ],
+ "sic": [
+  "Natural SiC is extremely rare. Henri Moissan found it at a meteor crater in Arizona, and the gem moissanite is named after him.",
+  "The Tesla Model 3 was one of the first mass-market cars to use SiC power chips."
+ ],
+ "bn": [
+  "The flat form is called 'white graphite.' It's slippery like graphite, but white and doesn't carry electricity.",
+  "Squeezed into a diamond-like form, it's one of the hardest materials known, and it can cut steel that wears diamond down."
+ ],
+ "gaas": [
+  "Gallium metal melts at about 30 °C, so it can melt in your hand.",
+  "Electrons move faster in GaAs than in silicon, so it's used in radio chips inside phones."
+ ],
+ "wc": [
+  "Most drill bits and saw tips labeled 'carbide' are tungsten carbide.",
+  "To make tools, the powder is pressed and baked with a little cobalt that acts like glue."
+ ],
+ "zeolite": [
+  "Zeolite means 'boiling stone' in Greek. Heat the natural mineral and it hisses out steam from water trapped inside.",
+  "Its holes are about the size of a single molecule, so it can sort molecules by size like a sieve."
+ ],
+ "cu_metal": [
+  "The Statue of Liberty's skin is copper about as thick as two pennies. Its green coat is weathered copper.",
+  "Copper was one of the first metals people used, about 10,000 years ago."
+ ],
+ "fe_metal": [
+  "Earth's core is mostly iron, mixed with nickel.",
+  "Iron in your blood carries oxygen, and it's part of why blood is red.",
+  "Iron is made in big stars. When a star's core turns to iron, it can't get more energy and collapses."
+ ],
+ "al_metal": [
+  "Before 1886, aluminum was so hard to make that it cost more than gold. Napoleon III served his most honored guests with aluminum forks.",
+  "The tip of the Washington Monument is a small aluminum pyramid, set in place in 1884.",
+  "Recycling aluminum takes only about 5% of the energy needed to make new metal."
+ ],
+ "ni_metal": [
+  "The US 5-cent 'nickel' is actually 75% copper and only 25% nickel.",
+  "One of the world's biggest nickel mining areas, Sudbury in Canada, sits in an ancient meteorite crater."
+ ],
+ "pt_metal": [
+  "Platinum is denser than gold. A platinum bar weighs about 10% more than a gold bar the same size.",
+  "From 1889 to 2019, the official kilogram was a metal cylinder made mostly of platinum."
+ ],
+ "na_metal": [
+  "Sodium metal is stored under oil, because it reacts with the moisture in air.",
+  "The orange glow of old street lights comes from sodium vapor."
+ ],
+ "li_metal": [
+  "Lithium is so light it floats on water, and even on oil.",
+  "It's one of the few elements made in the Big Bang itself."
+ ],
+ "ti_metal": [
+  "The SR-71 Blackbird was made mostly of titanium, some of it quietly bought from the Soviet Union.",
+  "Bone can grow right onto titanium and lock it in place."
+ ],
+ "w_metal": [
+  "Tungsten is almost exactly as dense as gold. Crooks have made fake gold bars with tungsten hidden inside.",
+  "Its symbol W comes from 'wolfram,' its other name."
+ ],
+ "au_metal": [
+  "All the gold ever mined would fit in a cube about 22 meters (74 feet) on each side.",
+  "Astronaut helmet visors have a super-thin gold layer to block harsh sunlight and heat.",
+  "Gold can be hammered so thin that light shines through it, glowing green."
+ ],
+ "ag_metal": [
+  "Black tarnish on silver is silver sulfide, made from tiny traces of sulfur gas in the air.",
+  "Silver kills many germs, so it's used in some bandages."
+ ],
+ "mg_metal": [
+  "At the center of every chlorophyll molecule, the green stuff in leaves, sits one magnesium atom.",
+  "Burning magnesium is very hard to put out, and water can make the fire worse."
+ ],
+ "zn_metal": [
+  "US pennies made since 1982 are 97.5% zinc with a thin copper coat.",
+  "Your body needs a little zinc for healing and for your senses of taste and smell."
+ ],
+ "steel": [
+  "The world makes far more steel than any other metal, close to 2 billion tons a year.",
+  "Blacksmiths harden steel by heating it red-hot and plunging it into water, called quenching."
+ ],
+ "stainless": [
+  "Harry Brearley made one of the first stainless steels in 1913 while looking for better gun barrels.",
+  "Stainless isn't fully rust-proof. Salt water and deep scratches can still leave rust spots."
+ ],
+ "bronze": [
+  "Bronze gave its name to the Bronze Age, which began more than 5,000 years ago.",
+  "Copper alloys like bronze barely spark when struck, so they're used for tools around flammable gas."
+ ],
+ "brass": [
+  "Germs die off on brass surfaces within hours, which makes it a good choice for door handles.",
+  "It's easy to cut and shape, which is why so many keys are made of brass."
+ ],
+ "alli": [
+  "Lithium metal is about 5 times lighter than aluminum, so a little goes a long way.",
+  "The Shuttle's later 'super lightweight' tank switched to aluminum-lithium. It was thousands of pounds lighter, so more cargo could go to the space station."
+ ],
+ "inconel": [
+  "The X-15 rocket plane's skin was Inconel X, built to survive the heat of flying more than six times the speed of sound.",
+  "It's hard to machine because it stays strong even as the cutting tool heats it up."
+ ],
+ "solder": [
+  "Classic tin-lead solder melts at 183 °C, lower than either tin or lead alone.",
+  "Old solder was mostly tin and lead. Lead-free solder took over after Europe's RoHS rules began in 2006."
+ ]
+}

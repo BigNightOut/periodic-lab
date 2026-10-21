@@ -1,0 +1,323 @@
+[
+  {
+    "z": 1,
+    "tier": "deep",
+    "tagline": "The lightest atom: one proton, one electron, one hand. It holds exactly one partner.",
+    "atomStory": "Hydrogen is the simplest atom. One proton (a tiny + particle) sits in the middle. One electron (a tiny − particle) goes around it. It has one hand, so it holds exactly one partner. That is why hydrogen caps the ends and sides of every hydrocarbon chain. It is so light that its molecules, and its engine exhaust, move faster than any heavier gas at the same temperature.",
+    "uses": [
+      {"title": "Ammonia for fertilizer", "why": "About a third of factory-made hydrogen is joined with nitrogen from air to make ammonia (NH3). Only refining uses more. Each hydrogen holds one of nitrogen's 3 hands."},
+      {"title": "Cleaning fuels (hydrotreating)", "why": "Refineries push hydrogen over catalysts (helpers that speed up a reaction). It pulls sulfur out of fuels as H2S and fills in shaky double bonds. With one hand, each hydrogen neatly caps one broken bond."},
+      {"title": "Rocket fuel", "why": "Liquid hydrogen burned with liquid oxygen gives the fastest exhaust of any common chemical rocket fuel pair, about 4.4 km/s in vacuum. The exhaust molecules are very light, so the same heat throws them out faster."},
+      {"title": "Making methane (Sabatier)", "why": "CO2 + 4H2 → CH4 + 2H2O, with nickel as the catalyst. Hydrogen fills carbon's 4 hands and carries the oxygens off as water."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "H2", "name": "Hydrogen gas", "note": "Two hydrogens hold hands, so neither has an empty hand. This is how hydrogen exists as a gas."},
+      {"partners": ["O"], "formula": "H2O", "name": "Water", "note": "Oxygen's 2 hands each hold one hydrogen. Water is the main product of burning any fuel that contains hydrogen."},
+      {"partners": ["C"], "formula": "CH4", "name": "Methane", "note": "Carbon's 4 hands each hold one hydrogen. The simplest hydrocarbon and Raptor's fuel."},
+      {"partners": ["N"], "formula": "NH3", "name": "Ammonia", "note": "Three hydrogens hold nitrogen's 3 hands. Nearly all nitrogen fertilizer starts here."}
+    ],
+    "number": {"value": "71 kg/m³", "label": "Density (weight for its size) of liquid hydrogen: about 1/14 of water and 1/6 of liquid methane"},
+    "source": "About three-quarters of the universe's ordinary matter by weight. On Earth it is locked in water and hydrocarbons. Industry mostly makes it by steam methane reforming (CH4 + H2O → CO + 3H2). Coal gasification is second. Only a small share comes from splitting water with electricity (electrolysis).",
+    "lenses": {
+      "nexus": "Polyethylene (CH2)n is about 14% hydrogen by weight. At your plant, pyrolysis has to split that hydrogen among its products. Gas and light oil get lots of it. Char is the carbon left behind after the hydrogen has gone elsewhere.",
+      "rocket": "Hydrogen gives the fastest exhaust, but it is so light for its size that its tanks get huge. At -253 °C it boils off and leaks through tiny gaps. That trade-off is a big reason Starship chose methane instead."
+    }
+  },
+  {
+    "z": 2,
+    "tier": "deep",
+    "tagline": "The full, content gas: 2 electrons fill its only ring, so it has no hands. It reacts with nothing and stays a gas almost to absolute zero.",
+    "atomStory": "Helium's one ring holds its limit of 2 electrons (tiny − particles). So it has no hands and nothing to bond with. Those 2 electrons sit very close to 2 protons (+ particles) in the middle. No other atom holds its electrons tighter. Helium atoms barely pull on each other, so it only turns liquid at -269 °C.",
+    "uses": [
+      {"title": "Pushing propellant out of tanks", "why": "Helium gas pushes propellant (fuel and oxidizer) out of the tanks toward the pumps. It is light, never reacts, and stays a gas even touching -183 °C liquid oxygen."},
+      {"title": "MRI magnets", "why": "Liquid helium chills MRI superconducting magnets to about 4 K (-269 °C). Nothing else stays liquid that cold."},
+      {"title": "Leak detection", "why": "Helium atoms are tiny and never react, so they slip through leaks other gases can't. Air has only about 5 parts per million of helium. So a detector picks up a leak easily."},
+      {"title": "Balloons and airships", "why": "Helium is about 7 times lighter than air. Unlike hydrogen, it cannot burn."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "HeH+", "name": "Helium hydride ion", "note": "Helium only bonds as a charged particle (an ion) like this. Scientists think it was the first molecule to form after the Big Bang."}
+    ],
+    "number": {"value": "-268.9 °C", "label": "Boiling point (4.2 K), the lowest of any element"},
+    "source": "Uranium and thorium in rock shoot out alpha particles, which are helium nuclei (atom centers). Over millions of years that helium collects in some natural gas fields. It is separated out by deep cooling.",
+    "lenses": {
+      "rocket": "Falcon 9 keeps helium in high-pressure composite bottles to pressurize its tanks. Starship reportedly uses autogenous pressurization instead: it taps heated methane and oxygen gas from its own engines. That removes most of the need for helium."
+    }
+  },
+  {
+    "z": 3,
+    "tier": "deep",
+    "tagline": "The lightest metal: one loose outer electron it gives away easily, which makes it the go-to atom for batteries.",
+    "atomStory": "Lithium has 2 electrons (tiny − particles) on an inner ring and just 1 on its outer ring. That outer one is held loosely. Lithium would rather give it away than hold hands. Then it becomes a tiny Li+ ion (a charged atom). Small, light, and eager to give away an electron: that is what a battery needs.",
+    "uses": [
+      {"title": "Lithium-ion batteries", "why": "The tiny Li+ ion shuttles between the battery's two ends (electrodes). Lithium's eagerness to give up its electron gives each cell a high voltage. Its standard electrode potential, -3.04 V, is the most negative of any element."},
+      {"title": "Aluminum-lithium alloys", "why": "In this metal mix, each 1% of lithium makes aluminum about 3% less dense and about 6% stiffer. The light lithium atoms form tiny Al3Li specks that stiffen the metal."},
+      {"title": "CO2 scrubbers", "why": "Lithium hydroxide soaks up CO2 in spacecraft and submarines. Lithium is so light that each kg carried removes a lot of CO2."},
+      {"title": "Grease", "why": "Most all-purpose grease is oil thickened with a lithium soap. It keeps its shape over a wide range of temperatures."}
+    ],
+    "bonds": [
+      {"partners": ["C", "O"], "formula": "Li2CO3", "name": "Lithium carbonate", "note": "The main form lithium is bought and sold in. It gets refined into battery cathode (+ side) materials."},
+      {"partners": ["O", "H"], "formula": "LiOH", "name": "Lithium hydroxide", "note": "A strong base (the opposite of an acid). Used for battery cathodes and to soak up CO2 (2LiOH + CO2 → Li2CO3 + H2O)."},
+      {"partners": ["Co", "O"], "formula": "LiCoO2", "name": "Lithium cobalt oxide", "note": "The classic Li-ion cathode. Lithium ions slip in and out between cobalt oxide layers as the battery charges and drains."},
+      {"partners": ["N"], "formula": "Li3N", "name": "Lithium nitride", "note": "Lithium is the only alkali metal (the give-away column) that reacts with air's nitrogen at room temperature."}
+    ],
+    "number": {"value": "0.534 g/cm³", "label": "Density (weight for its size), about half of water: the lightest metal"},
+    "source": "Salty brine is pumped up and dried down in evaporation ponds on South American salt flats. Or it is mined from hard-rock minerals such as spodumene, mainly in Australia.",
+    "lenses": {
+      "nexus": "Butyllithium kicks off the chain reaction that links butadiene and styrene into synthetic rubbers. Its lithium-carbon bond is very lopsided, so the carbon carries a spare electron pair. That pair attacks the first monomer (single building block).",
+      "rocket": "Falcon 9's propellant tanks are aluminum-lithium alloy. A little lithium buys lighter, stiffer tank walls. Apollo 13's crew survived on makeshift LiOH canisters that kept CO2 from building up."
+    }
+  },
+  {
+    "z": 4,
+    "tier": "deep",
+    "tagline": "The stiff featherweight: lighter than aluminum and about 40% stiffer than steel.",
+    "atomStory": "Beryllium has 2 electrons (tiny − particles) on its outer ring. The atom is small and they sit close to the center. So unlike most metals, it doesn't give them away freely. Its bonds are short and partly shared, like half-held hands. That makes the metal very stiff for its weight. It has only 4 electrons in all, so X-rays pass right through it.",
+    "uses": [
+      {"title": "Space telescope mirrors", "why": "JWST's 18 mirror segments are gold-coated beryllium. It is light, stiff, and holds its shape when chilled below -220 °C in space."},
+      {"title": "X-ray windows", "why": "Few electrons per atom means little to block X-rays. So thin beryllium sheets seal X-ray tubes and detectors and still let the beam through."},
+      {"title": "Beryllium copper", "why": "About 2% beryllium makes copper as strong as many steels. It still conducts and doesn't spark. That makes it ideal for springs, connectors and safety tools."},
+      {"title": "Neutron reflectors", "why": "Beryllium bounces neutrons (uncharged particles from atom centers) back into a reactor core and can release extra ones. James Chadwick discovered the neutron in 1932 by firing alpha particles at beryllium."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "BeO", "name": "Beryllium oxide", "note": "A ceramic that moves heat almost as well as some metals but blocks electricity. Its dust, like all beryllium dust, can cause a long-term lung disease."},
+      {"partners": ["Al", "Si", "O"], "formula": "Be3Al2Si6O18", "name": "Beryl", "note": "The mineral behind emerald (green from traces of chromium) and aquamarine. Also a main beryllium ore."},
+      {"partners": ["Cu"], "formula": "CuBe (about 2% Be)", "name": "Beryllium copper", "note": "A spring and tool alloy (metal mix): strong, conducts, and won't spark when struck."}
+    ],
+    "number": {"value": "287 GPa", "label": "Stiffness (Young's modulus): about 40% above steel, at under a quarter of steel's weight"},
+    "source": "Mined mostly from the minerals bertrandite and beryl. These are turned into beryllium compounds. Then magnesium pulls the fluorine off beryllium fluoride, leaving the metal.",
+    "lenses": {
+      "nexus": "Copper-beryllium tools are common in refineries and petrochemical plants. There, a spark from a steel wrench could light hydrocarbon vapors.",
+      "rocket": "Space telescopes like JWST and Spitzer used beryllium mirrors and frames. When every kilogram has to be launched, stiffness per kilogram is what counts."
+    }
+  },
+  {
+    "z": 5,
+    "tier": "deep",
+    "tagline": "The short-handed builder: after 3 handshakes it still has one empty hand, so it grabs electron pairs.",
+    "atomStory": "Boron has 3 electrons (tiny − particles) on its outer ring. It shares all 3 and holds hands with 3 partners. That only gets it to 6 of the 8 it wants, so one hand stays empty. That empty hand grabs electron pairs from other molecules. So boron compounds react easily and work as catalysts (helpers that speed up reactions).",
+    "uses": [
+      {"title": "Borosilicate glass", "why": "Boron oxide in the glass cuts how much it grows with heat to about a third of window glass. So lab glassware and oven dishes survive sudden heating and cooling."},
+      {"title": "Armor and abrasives", "why": "Boron carbide (B4C) is one of the hardest materials known, behind diamond and cubic boron nitride. Small boron and carbon atoms lock into a tight, rigid net of short bonds."},
+      {"title": "Nuclear control rods", "why": "The boron-10 nucleus (atom center) soaks up neutrons very well. So boron carbide rods, and boric acid in the coolant, slow a reactor down."},
+      {"title": "Igniter fluid", "why": "Triethylborane bursts into flame when it touches oxygen and burns with boron's green color. It is the TEB half of Falcon 9's TEA-TEB igniter."},
+      {"title": "Neodymium magnets", "why": "The strongest permanent magnets (Nd2Fe14B) need a little boron. It locks iron and neodymium into the crystal pattern that holds strong magnetism."}
+    ],
+    "bonds": [
+      {"partners": ["C", "H"], "formula": "B(C2H5)3", "name": "Triethylborane (TEB)", "note": "A liquid that catches fire on its own in air. Boron's empty hand gives oxygen an easy way in, so it ignites instantly."},
+      {"partners": ["O"], "formula": "B2O3", "name": "Boron oxide", "note": "A glass maker: the boron ingredient in borosilicate glass and fiberglass."},
+      {"partners": ["C"], "formula": "B4C", "name": "Boron carbide", "note": "A very hard, light ceramic used in body armor, blasting nozzles and reactor control rods."},
+      {"partners": ["N"], "formula": "BN", "name": "Boron nitride", "note": "Boron (3 outer electrons) plus nitrogen (5) has the same 8 as two carbons. So BN copies carbon: a slippery graphite-like form, and a diamond-like form nearly as hard as diamond."}
+    ],
+    "number": {"value": "3.3 × 10⁻⁶ /K", "label": "Thermal expansion (growth when heated) of borosilicate glass: about a third of window glass"},
+    "source": "Mined as borate minerals like borax and kernite from old dried-up lake beds, mainly in Turkey and California.",
+    "lenses": {
+      "nexus": "Boron trifluoride (BF3) uses boron's empty hand to grab electron pairs. That makes it a strong acid catalyst for making polyisobutylene and other petrochemicals. It is a close cousin of the acid spots in zeolite catalysts.",
+      "rocket": "Falcon 9's Merlin engines light with TEA-TEB, which ignites on touching liquid oxygen and flashes green from the boron. The Space Shuttle's black tiles had a borosilicate glass coating. It radiated heat away and sealed the porous silica underneath."
+    }
+  },
+  {
+    "z": 6,
+    "tier": "deep",
+    "tagline": "The chain builder: four hands, and it happily holds hands with other carbons.",
+    "atomStory": "Carbon has 4 electrons (tiny − particles) on its outer ring, so it has 4 hands. It makes exactly 4 bonds. The atom is small, so carbon-to-carbon handshakes are short and strong. That lets carbon build long chains, rings and sheets. Because carbon holds hands with itself, there are millions of carbon compounds, from methane to polyethylene to living cells.",
+    "uses": [
+      {"title": "Fuels", "why": "Every hydrocarbon fuel stores energy in its C–C and C–H bonds. Burning trades them for stronger bonds in CO2 and H2O. The difference comes out as heat."},
+      {"title": "Steel", "why": "A fraction of a percent of carbon wedges between iron atoms. It keeps layers of atoms from sliding, turning soft iron into hard steel."},
+      {"title": "Carbon fiber", "why": "The fibers are graphite-like sheets lined up along their length. Carbon's strong bonds within each sheet give very high strength and stiffness per kg."},
+      {"title": "Carbon-carbon heat shields", "why": "Carbon doesn't melt at normal pressure. Above about 3,600 °C it turns straight to vapor. Reinforced carbon-carbon guarded the Shuttle's nose cap and wing leading (front) edges."},
+      {"title": "Activated carbon", "why": "Charcoal etched full of tiny pores can have over 1,000 m² of surface per gram. All that surface traps unwanted stuff from water and gas."}
+    ],
+    "bonds": [
+      {"partners": ["C"], "formula": "C (diamond, graphite)", "name": "Diamond and graphite", "note": "Same atom, different handholds. Diamond uses all 4 hands in a 3D frame and is the hardest natural material. Graphite uses 3 in flat sheets with one loose electron, so it conducts and slides."},
+      {"partners": ["H"], "formula": "CH4", "name": "Methane", "note": "One carbon with each hand holding a hydrogen. Natural gas, Raptor's fuel, and the lightest pyrolysis gas."},
+      {"partners": ["O"], "formula": "CO2, CO", "name": "Carbon oxides", "note": "CO2 is fully burned carbon, gripping each oxygen with two hands (two double bonds). CO is carbon short of oxygen. It is toxic, and a building block for making fuels."},
+      {"partners": ["H"], "formula": "(CH2)n", "name": "Polyethylene", "note": "Thousands of carbons in a chain. Each uses 2 hands for its neighbors and 2 for hydrogens. The most common plastic."}
+    ],
+    "number": {"value": "≈350 vs ≈410 kJ/mol", "label": "Average energy to break a C–C vs a C–H bond: why chains crack before hydrogens strip off"},
+    "source": "Made in stars when three helium nuclei (atom centers) fuse. On Earth it cycles through air (CO2), living things, limestone and fossil fuels. Graphite and diamond are mined or made in factories.",
+    "lenses": {
+      "nexus": "At your plant, pyrolysis heat snaps the weaker C–C bonds in plastic chains first. That gives shorter pieces: gas, oil and wax. If hydrogen gets stripped off too, the leftover carbons bond to each other in sheets. That is char.",
+      "rocket": "Starship burns methane (one carbon) instead of Falcon 9's RP-1 kerosene (about 12 carbons per molecule). Methane leaves far less coke (sooty buildup) in hot cooling channels. Starship's hull began as 304L stainless. The L means low carbon, so chromium carbides don't form at welds and invite rust. SpaceX has since moved to an in-house alloy reportedly called 30X."
+    }
+  },
+  {
+    "z": 7,
+    "tier": "deep",
+    "tagline": "The locked-up gas: three hands, and in air it uses all three to grip one partner.",
+    "atomStory": "Nitrogen has 5 electrons (tiny − particles) on its outer ring and 3 hands. Two nitrogen atoms hold all 3 hands with each other. That triple bond is one of the strongest in chemistry. So the N2 that makes up 78% of air barely reacts. And any reaction that ends in N2 releases a lot of energy.",
+    "uses": [
+      {"title": "Fertilizer", "why": "The Haber-Bosch process forces N2 and H2 together over an iron catalyst (a helper that speeds the reaction). It runs near 450 °C and about 200 atmospheres. That breaks the triple bond and makes ammonia."},
+      {"title": "Keeping oxygen out (purging)", "why": "N2 barely reacts, so plants flood tanks, pipes and reactors with it. It pushes out oxygen and prevents fires."},
+      {"title": "Liquid nitrogen", "why": "It boils at -196 °C and is cheap because it comes straight from air. It is used to freeze food, cool equipment and run super-cold tests."},
+      {"title": "Explosives", "why": "TNT and ammonium nitrate hold nitrogen in weakly bonded forms. When the atoms snap together into N2, the triple bond's energy and the sudden burst of gas do the work."}
+    ],
+    "bonds": [
+      {"partners": ["N"], "formula": "N2", "name": "Nitrogen gas", "note": "Two atoms in a three-handed grip (a triple bond). 78% of air and very hard to break apart."},
+      {"partners": ["H"], "formula": "NH3", "name": "Ammonia", "note": "Three hydrogens hold nitrogen's 3 hands. One unshared electron pair is left, which makes ammonia a base (the opposite of an acid). Nearly all fertilizer starts here."},
+      {"partners": ["O", "H"], "formula": "N2O4 + N2H4", "name": "Nitrogen tetroxide and hydrazine", "note": "A hypergolic pair: they ignite the moment they touch, no igniter needed. Hydrazine-family fuels power many spacecraft thrusters."},
+      {"partners": ["O"], "formula": "NO, NO2", "name": "Nitrogen oxides (NOx)", "note": "Made when air's N2 and O2 meet in very hot flames. A smog source and a key emissions limit for furnaces and engines."}
+    ],
+    "number": {"value": "945 kJ/mol", "label": "Energy to break the N≡N triple bond, about 2.7× a C–C bond"},
+    "source": "78% of air by volume. Air is chilled until it turns liquid, then distilled (separated by boiling point). The same plants make liquid oxygen.",
+    "lenses": {
+      "nexus": "Pyrolysis reactors are flushed with nitrogen so the plastic cracks instead of burning. Plastics that contain nitrogen, like nylon and polyurethane, carry nitrogen compounds into the oil. Refiners don't want that contaminant.",
+      "rocket": "Falcon 9 steers with nitrogen cold-gas thrusters (puffs of gas, no burning). Dragon's Draco thrusters burn nitrogen tetroxide with monomethylhydrazine. That hypergolic pair ignites the moment the two meet."
+    }
+  },
+  {
+    "z": 8,
+    "tier": "deep",
+    "tagline": "The electron grabber: two hands and a hard pull, so it reacts with almost everything and gives off energy doing it.",
+    "atomStory": "Oxygen has 6 electrons (tiny − particles) on its outer ring and 2 hands. Its 8 protons (+ particles) pull hard on a small ring. Only fluorine tugs shared electrons toward itself harder. When oxygen takes a fuel's electrons, the new bonds are stronger than the old ones. The difference comes out as heat.",
+    "uses": [
+      {"title": "Rocket oxidizer", "why": "Liquid oxygen is what methane, kerosene or hydrogen burn with. Raptor reportedly uses about 3.6 kg of oxygen per kg of methane. So close to 80% of Starship's propellant weight is oxygen."},
+      {"title": "Steelmaking", "why": "Blowing pure oxygen through molten iron burns extra carbon out as CO and CO2. That turns brittle pig iron into steel in well under an hour."},
+      {"title": "Breathing and medicine", "why": "When your cells burn food for energy, oxygen is the final electron grabber. That is why medical oxygen keeps patients alive when lungs struggle."},
+      {"title": "Water treatment", "why": "Ozone (O3) holds its third oxygen loosely and hands it off easily. That makes it a stronger oxidizer than O2. It kills germs without leaving chlorine behind."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "O2, O3", "name": "Oxygen and ozone", "note": "In O2, two oxygens hold both hands (a double bond). O3 high in the stratosphere soaks up ultraviolet light before it reaches the ground."},
+      {"partners": ["H"], "formula": "H2O", "name": "Water", "note": "Oxygen's 2 hands each hold a hydrogen. Water is bent and its charge is lopsided, like a weak magnet. That gives water its unusual properties."},
+      {"partners": ["C"], "formula": "CO2", "name": "Carbon dioxide", "note": "Carbon grips each of two oxygens with two hands (double bonds). The end product of burning carbon, and the starting gas for the Sabatier reaction."},
+      {"partners": ["Si"], "formula": "SiO2", "name": "Silica", "note": "Each silicon holds 4 oxygens, and each oxygen bridges 2 silicons. That 3D net makes quartz, sand, glass and heat-shield tiles."}
+    ],
+    "number": {"value": "1.14 g/cm³", "label": "Density (weight for its size) of liquid oxygen, slightly more than water"},
+    "source": "21% of air by volume, almost all put there by photosynthesis (plants using sunlight). Industry separates it from liquefied air. It is also the most common element in Earth's crust, about 46% by weight, locked in rock as oxides and silicates.",
+    "lenses": {
+      "nexus": "Oxygen is what pyrolysis at your plant keeps out. With air present, plastic burns to CO2 and water instead of cracking into oil. Plastics with oxygen in them, like PET, still bring it in. That leaves CO2, water and acids such as benzoic acid that can clog lines.",
+      "rocket": "Liquid oxygen boils at -183 °C, so it is loaded close to launch and vents as white vapor. On Mars the plan is to make it there. The Sabatier reaction makes methane and water, and splitting that water gives oxygen."
+    }
+  },
+  {
+    "z": 9,
+    "tier": "deep",
+    "tagline": "The most aggressive atom: one hand and the strongest electron pull of any element.",
+    "atomStory": "Fluorine has 7 electrons (tiny − particles) on its outer ring and 1 hand. Its ring is small and close to 9 protons (+ particles). So it pulls on electrons harder than any other element and rips them from almost anything. But once it holds hands with carbon, it forms one of the strongest single bonds in chemistry. That is why Teflon barely reacts.",
+    "uses": [
+      {"title": "Nonstick coatings and seals", "why": "Teflon (PTFE) is a carbon chain fully wrapped in fluorine. The C–F bonds are so strong, and the fluorine coat so tight, that almost nothing sticks to it or attacks it."},
+      {"title": "Toothpaste", "why": "Fluoride swaps into tooth enamel to form fluorapatite. That stands up to acid better than the original mineral."},
+      {"title": "Uranium enrichment", "why": "UF6 turns to gas at about 56 °C. Fluorine has only one natural isotope (one atom weight). So weight differences between UF6 molecules come only from U-235 versus U-238. Centrifuges sort them by that tiny difference."},
+      {"title": "Refrigerants", "why": "Fluorinated hydrocarbons are stable gases that turn liquid easily under pressure. That makes them good working fluids for air conditioners and heat pumps."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "HF", "name": "Hydrogen fluoride", "note": "Hydrofluoric acid etches glass and soaks through skin to cause deep burns. It is the starting material for most fluorine chemicals."},
+      {"partners": ["C"], "formula": "(C2F4)n", "name": "PTFE (Teflon)", "note": "A polyethylene-like chain with fluorine in every spot a hydrogen would hold. Slippery, and it reacts with almost nothing."},
+      {"partners": ["U"], "formula": "UF6", "name": "Uranium hexafluoride", "note": "The only common uranium compound that turns to gas at a modest temperature. So it carries uranium through enrichment."},
+      {"partners": ["Ca"], "formula": "CaF2", "name": "Fluorite", "note": "The main fluorine ore. Clear crystals also make lenses that pass ultraviolet and infrared light."}
+    ],
+    "number": {"value": "3.98", "label": "Electronegativity (how hard it pulls electrons, Pauling scale), the highest of any element"},
+    "source": "Mined as fluorite (CaF2) and reacted with sulfuric acid to make HF. Pure fluorine gas is made by electrolysis (splitting with electricity), first done by Henri Moissan in 1886.",
+    "lenses": {
+      "nexus": "Many refineries use liquid HF as the acid catalyst (reaction helper) in alkylation units. These join isobutane to propylene and butylenes to make high-octane gasoline blendstock.",
+      "rocket": "Liquid fluorine was tested as an oxidizer (what fuel burns with) because it beats oxygen. But it is so toxic and corrosive, and its exhaust so full of HF, that no operational launch vehicle ever used it."
+    }
+  },
+  {
+    "z": 10,
+    "tier": "deep",
+    "tagline": "The sealed ring: its outer ring is full at 8, so it has no hands. It bonds with nothing and only glows.",
+    "atomStory": "Neon's outer ring is full, so it has no hands: nothing to share and no room to take. Its electrons (tiny − particles) are held very tightly. Neon has no known stable compounds. Run electricity through it and its electrons jump to higher rings. Then they drop back and give off red-orange light at wavelengths (exact shades) unique to neon.",
+    "uses": [
+      {"title": "Neon signs", "why": "Excited neon electrons fall back to their normal rings and give off red-orange light. Other sign colors come from other gases or from coatings on the tube."},
+      {"title": "Chip-making lasers", "why": "Neon is the main filler gas in the excimer lasers used to print computer chips. It carries energy around the laser without reacting."},
+      {"title": "Helium-neon lasers", "why": "Helium passes energy to neon atoms. Neon then gives off steady red light at 632.8 nm for alignment and measuring tools."},
+      {"title": "Cryogenic cooling", "why": "Liquid neon boils at -246 °C. It fills the gap between liquid nitrogen and liquid helium for some cooling jobs."}
+    ],
+    "bonds": [],
+    "number": {"value": "21.6 eV", "label": "Energy to pull off one electron, second only to helium"},
+    "source": "Only about 18 parts per million of air. It is collected as a side product of the big air-separation plants that make oxygen and nitrogen.",
+    "lenses": {}
+  },
+  {
+    "z": 11,
+    "tier": "deep",
+    "tagline": "The give-away metal: one lonely outer electron that it hands to almost anything.",
+    "atomStory": "Sodium has full inner rings of 2 and 8. Then one electron (tiny − particle) sits alone on a third ring, far from the center. It is easy to lose, so sodium gives it away and becomes Na+. That leaves a full ring underneath. The metal is soft enough to cut with a knife. It reacts with water hard enough to light the hydrogen it releases.",
+    "uses": [
+      {"title": "Salt and chemicals", "why": "Rock salt and seawater (NaCl) feed the chemical industry. Running electricity through salt water splits it into chlorine and caustic soda (NaOH)."},
+      {"title": "Street lamps", "why": "Sodium vapor lamps glow yellow at 589 nm as excited electrons drop back down. They are very efficient but show colors poorly."},
+      {"title": "Laser guide stars", "why": "Meteors leave a thin layer of sodium atoms about 90 km up, in the mesosphere. Observatories shine a 589 nm laser on it to make a fake star. That helps them correct blur from the air."},
+      {"title": "Heat-transfer coolant", "why": "Liquid sodium melts at 98 °C and stays liquid to 883 °C. Its loose electrons carry heat well. It cools some fast nuclear reactors and the hollow exhaust valves in some high-performance engines."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "NaCl", "name": "Sodium chloride", "note": "Sodium hands its electron to chlorine. Now one is + and one is −, and they stick like magnets. They stack into cube-shaped crystals: table salt."},
+      {"partners": ["O", "H"], "formula": "NaOH", "name": "Sodium hydroxide (caustic soda)", "note": "A strong base (the opposite of an acid). Used to make soap, pull alumina out of bauxite, and neutralize acids."},
+      {"partners": ["C", "O"], "formula": "Na2CO3", "name": "Sodium carbonate (soda ash)", "note": "The main flux in ordinary glass: it lowers the heat needed to melt sand."}
+    ],
+    "number": {"value": "97.8 °C", "label": "Melting point, below the boiling point of water"},
+    "source": "Made by running electricity through melted sodium chloride. Sodium metal forms at one end and chlorine gas at the other.",
+    "lenses": {
+      "nexus": "Refineries and pyrolysis plants use caustic soda washes to neutralize acids and scrub out hydrogen sulfide. One such acid is HCl, which comes from PVC in the plastic feed."
+    }
+  },
+  {
+    "z": 12,
+    "tier": "deep",
+    "tagline": "The light structural metal: two loose electrons to give away, and two-thirds the weight of aluminum.",
+    "atomStory": "Magnesium has 2 loosely held electrons (tiny − particles) on its third ring. It gives both away and becomes Mg2+. Joining with oxygen releases so much energy that magnesium burns with a blinding white flame. It keeps burning even in CO2. As a solid, it is the lightest metal used for structures.",
+    "uses": [
+      {"title": "Lightweight castings", "why": "Car parts, laptop and camera bodies, and aircraft gearbox housings use magnesium alloys (metal mixes). They weigh less than aluminum ones."},
+      {"title": "Aluminum alloys", "why": "A few percent magnesium in aluminum, often with silicon as in 6061, forms tiny specks. These stop layers of atoms from slipping, making the alloy much stronger."},
+      {"title": "Titanium production", "why": "The Kroll process uses molten magnesium to pull chlorine off TiCl4, leaving titanium metal. It works because magnesium holds chlorine tighter than titanium does."},
+      {"title": "Flares and fireworks", "why": "Burning magnesium gives off so much heat that the MgO it forms glows brilliant white."},
+      {"title": "Furnace linings", "why": "Magnesium oxide melts at about 2,850 °C. So MgO bricks line steel furnaces and cement kilns."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "MgO", "name": "Magnesium oxide", "note": "Mg2+ and O2- grip each other very tightly, like strong magnets. The result is a heat-proof ceramic that melts near 2,850 °C."},
+      {"partners": ["Cl"], "formula": "MgCl2", "name": "Magnesium chloride", "note": "Found in seawater and brines. Also the base that holds titanium in modern plastic-making catalysts."},
+      {"partners": ["C", "H", "N", "O"], "formula": "C55H72MgN4O5", "name": "Chlorophyll a", "note": "A single magnesium ion sits at the center of the molecule plants use to catch sunlight."}
+    ],
+    "number": {"value": "1.74 g/cm³", "label": "Density (weight for its size), about two-thirds of aluminum: the lightest structural metal"},
+    "source": "Made mostly by the Pidgeon process: roasted dolomite is heated with ferrosilicon to drive off magnesium vapor. It is also made by running electricity through magnesium chloride from seawater or brine.",
+    "lenses": {
+      "nexus": "Most polypropylene and much polyethylene are made on Ziegler-Natta catalysts (helpers that link the chains). These are titanium chloride spread on magnesium chloride, switched on by triethylaluminum. Much of the plastic arriving at your plant was built on magnesium."
+    }
+  },
+  {
+    "z": 13,
+    "tier": "deep",
+    "tagline": "The light, self-sealing metal: it gives away three electrons but hides under an oxide skin a few nanometers thick.",
+    "atomStory": "Aluminum has 3 electrons (tiny − particles) on its third ring. It gives them away to become Al3+. It reacts with oxygen instantly. But the oxide skin is tight and only a few nanometers thick. It seals the metal underneath instead of flaking off like rust. In the solid metal, each atom's 3 pooled electrons make aluminum a good conductor.",
+    "uses": [
+      {"title": "Aircraft and rocket structures", "why": "Aluminum is about a third as dense as steel, and strong once alloyed (mixed with other metals). Falcon 9's propellant tanks are an aluminum-lithium alloy."},
+      {"title": "Power lines", "why": "Aluminum conducts about 61% as well as the same volume of copper but weighs about a third as much. So it carries more current per kg and rules overhead lines."},
+      {"title": "Solid rocket propellant", "why": "Fine aluminum powder burns to Al2O3 and gives off a lot of heat. The Space Shuttle boosters' propellant was about 16% aluminum, mixed with ammonium perchlorate oxidizer."},
+      {"title": "Cans and foil", "why": "Aluminum rolls thinner than paper and blocks light, air and moisture. Recycling it takes only about 5% of the energy of making new metal."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Al2O3", "name": "Alumina", "note": "The protective skin on the metal. Also the hard mineral corundum (ruby and sapphire), a common catalyst support, and the white smoke from solid rocket boosters."},
+      {"partners": ["C", "H"], "formula": "Al(C2H5)3", "name": "Triethylaluminum (TEA)", "note": "A liquid that catches fire on contact with air. The TEA in Falcon 9's TEA-TEB igniter, and the activator in Ziegler-Natta catalysts."},
+      {"partners": ["Si", "O"], "formula": "(AlO2)x(SiO2)y framework", "name": "Aluminosilicates (zeolites, clays)", "note": "When Al3+ takes a Si4+ spot in a silica frame, the frame ends up one + charge short. An H+ fills the gap and becomes a strong acid spot for cracking."}
+    ],
+    "number": {"value": "2.70 g/cm³", "label": "Density (weight for its size), about a third of steel"},
+    "source": "The most common metal in Earth's crust, refined from bauxite ore. First the Bayer process dissolves out alumina with caustic soda. Then Hall-Héroult cells split melted alumina with electricity at about 960 °C. That takes roughly 13 to 15 kWh per kg of metal.",
+    "lenses": {
+      "nexus": "Zeolite and clay cracking catalysts (helpers that speed up chain-breaking) get their acid spots from aluminum atoms in a silica frame. More aluminum means more acid spots. Triethylaluminum also activates the catalysts that make polyethylene and polypropylene.",
+      "rocket": "Aluminum alloys lose much of their strength at a few hundred °C and melt at 660 °C. Stainless steel melts at about 1,400 °C. That is one reason Starship went with steel. Falcon 9 keeps aluminum-lithium tanks, and solid boosters burn aluminum powder."
+    }
+  },
+  {
+    "z": 14,
+    "tier": "deep",
+    "tagline": "Carbon's bigger cousin: four hands like carbon, but it prefers oxygen, so it builds rock and glass instead of chains.",
+    "atomStory": "Silicon has 4 electrons (tiny − particles) on its outer ring, so like carbon it has 4 hands. But that ring sits one ring farther out. So Si–Si handshakes are long and weak, while Si–O ones are about twice as strong. That is why Earth's silicon is locked in sand, quartz and clay, not long chains.",
+    "uses": [
+      {"title": "Computer chips", "why": "In a pure crystal, every silicon holds all 4 hands with neighbors, so few electrons are free. A trace of boron (3 outer electrons) leaves holes. Phosphorus (5) adds spare electrons. That lets engineers control exactly where current flows."},
+      {"title": "Solar cells", "why": "Silicon's band gap, about 1.1 eV, is the energy kick needed to free an electron. It suits sunlight: visible and near-infrared photons (light particles) carry enough to knock electrons loose and make current."},
+      {"title": "Heat-shield tiles", "why": "Space Shuttle tiles were over 90% empty space inside a mat of pure silica fibers. Silica moves heat poorly and barely grows when hot. A tile could be held by its edges seconds after leaving a 1,260 °C oven."},
+      {"title": "Silicones", "why": "A backbone of silicon and oxygen taking turns, with methyl groups attached. The strong Si–O chain makes sealants and rubbers that stay bendy across a wide range, roughly -50 to 200 °C and beyond."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "SiO2", "name": "Silica", "note": "Every silicon holds 4 oxygens in a 3D net: quartz, sand, glass, and the fibers in heat-shield tiles."},
+      {"partners": ["C"], "formula": "SiC", "name": "Silicon carbide", "note": "Silicon and carbon both have 4 hands, so they form a diamond-like frame. Very hard and heat resistant. Used in abrasives (grinding grit), brake discs and power electronics."},
+      {"partners": ["C", "H", "O"], "formula": "[(CH3)2SiO]n", "name": "Silicone (PDMS)", "note": "The most common silicone. The Shuttle glued its tiles to the airframe with a silicone adhesive."},
+      {"partners": ["Al", "O"], "formula": "(AlO2)x(SiO2)y framework", "name": "Zeolites and clays", "note": "Silica frames with some silicon swapped for aluminum. Their pores and acid spots make them cracking catalysts (helpers that speed up chain-breaking)."}
+    ],
+    "number": {"value": "0.55 × 10⁻⁶ /K", "label": "Thermal expansion (growth when heated) of fused silica, about 1/30 of stainless steel: the root of the tile-joint mismatch"},
+    "source": "About 28% of Earth's crust by weight, second only to oxygen. Quartz is heated with carbon in electric arc furnaces near 2,000 °C (SiO2 + 2C → Si + 2CO). For chips it is then purified to better than 99.9999999%.",
+    "lenses": {
+      "nexus": "Zeolite and clay catalysts are silicon-oxygen frames with pores that work like a sieve, letting only certain molecules in. Aluminum spots in the frame do the cracking. Together they steer which product sizes come out of the reactor.",
+      "rocket": "Starship's roughly 18,000 heat-shield tiles are reported to be silica-based, like the Shuttle's. Silica insulates and survives sudden temperature swings. The weak point is the joint. The steel hull grows about 30 times as much per degree as silica, so the attachment has to absorb the difference."
+    }
+  }
+]

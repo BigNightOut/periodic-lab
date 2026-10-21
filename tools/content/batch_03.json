@@ -1,0 +1,434 @@
+[
+  {
+    "z": 31,
+    "tier": "deep",
+    "tagline": "The metal that melts in your hand. It has 3 hands and an oddly loose crystal.",
+    "atomStory": "Gallium sits right under aluminum and has the same 3 hands. It can share its 3 outer electrons or give them away, so it makes 3 bonds. In solid gallium, atoms pair up loosely instead of packing tight like most metals. So it melts at about 30 °C but does not boil until about 2,400 °C. Like water, it gets bigger when it freezes.",
+    "uses": [
+      {"title": "LEDs and chips (GaN, GaAs)", "why": "Gallium joined with nitrogen or arsenic makes a crystal where electrons (tiny charged bits of atoms) jump a set energy step and give off one color of light. Gallium nitride made bright blue and white LEDs possible."},
+      {"title": "Space solar cells", "why": "Gallium-based layers are stacked, and each one catches a different slice of sunlight. Together they turn more of it into power than plain silicon. Power per kilogram matters most on satellites."},
+      {"title": "Liquid-metal thermometers (Galinstan)", "why": "A mix of gallium, indium and tin stays liquid down to about -19 °C. It replaces mercury because it is far less poisonous."},
+      {"title": "Fast power electronics", "why": "Gallium nitride switches (transistors) handle high voltage and flip very fast while wasting little energy. That is why phone chargers using them are smaller."}
+    ],
+    "bonds": [
+      {"partners": ["As"], "formula": "GaAs", "name": "Gallium arsenide", "note": "A semiconductor (a material that only partly conducts, so it can act as a switch). Ga brings 3 outer electrons and As brings 5, an average of 4 each, like silicon. Used in lasers, radio chips and space solar cells."},
+      {"partners": ["N"], "formula": "GaN", "name": "Gallium nitride", "note": "A hard semiconductor with a wide energy step. It is behind blue LEDs and small power chargers."},
+      {"partners": ["C", "H"], "formula": "Ga(CH3)3", "name": "Trimethylgallium", "note": "The gallium cousin of triethylaluminum. It catches fire in air. Chip factories use it as the gallium source when growing GaN and GaAs layers."}
+    ],
+    "number": {"value": "29.8 °C", "label": "Melting point, below body temperature"},
+    "source": "Collected as a leftover when making alumina (aluminum oxide) from bauxite ore. A smaller amount comes from zinc refining.",
+    "lenses": {
+      "rocket": "Many satellites, especially high-power ones, run on stacked (multi-junction) solar cells. The layers are gallium-indium-phosphide and gallium-arsenide on a germanium wafer. They turn about 30% of sunlight into power, versus about 20% for good silicon."
+    }
+  },
+  {
+    "z": 32,
+    "tier": "deep",
+    "tagline": "Silicon's bigger sibling. It made the first transistors and now makes infrared lenses.",
+    "atomStory": "Germanium has 4 hands, like carbon and silicon. So it holds hands with 4 neighbors in a diamond-shaped crystal. Its atom is bigger than silicon's, so its outer electrons are held more loosely and break free more easily. That makes it a semiconductor with a smaller energy step. When hot, it lets current through too easily.",
+    "uses": [
+      {"title": "Infrared optics", "why": "Because its energy step is small, long-wave infrared (heat light) passes right through it, while visible light is blocked. Thermal cameras and night-sight lenses are made of it."},
+      {"title": "Fiber-optic cable", "why": "A little germanium oxide in the glass core makes it bend light more. So light bounces along the core instead of leaking out."},
+      {"title": "Solar cell wafers for space", "why": "Its atoms are spaced almost the same as in gallium arsenide. So the high-efficiency cell layers can grow cleanly on top of it."},
+      {"title": "The first transistors", "why": "The 1947 Bell Labs transistor was germanium. Silicon replaced it because germanium parts leaked current as they warmed up."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "GeO2", "name": "Germanium dioxide", "note": "A glass-like oxide. Used in fiber cores and as a catalyst (a helper that speeds a reaction without being used up) for some PET plastic."},
+      {"partners": ["Cl"], "formula": "GeCl4", "name": "Germanium tetrachloride", "note": "A liquid that turns to gas easily. It is burned with oxygen to lay GeO2 into fiber-optic glass. It is also the main way germanium is purified."},
+      {"partners": ["H"], "formula": "GeH4", "name": "Germane", "note": "Germanium's version of methane: one Ge holding 4 hydrogens. Chip makers use this gas to lay down germanium."}
+    ],
+    "number": {"value": "0.67 eV", "label": "Energy step (band gap), vs about 1.1 eV for silicon"},
+    "source": "Collected as a leftover from refining zinc ore and from some coal fly ash.",
+    "lenses": {
+      "nexus": "Antimony is the usual catalyst for making PET plastic. Germanium dioxide is used for some clearer, higher-grade bottle plastic.",
+      "rocket": "Germanium wafers are the base layer of the stacked solar cells on many satellites. The bottom germanium layer also catches the infrared the upper layers miss."
+    }
+  },
+  {
+    "z": 33,
+    "tier": "deep",
+    "tagline": "The classic poison. It also tunes semiconductors, because it looks like phosphorus.",
+    "atomStory": "Arsenic has 5 outer electrons but 3 hands, just like phosphorus right above it. That likeness is the problem. Arsenate slips into spots in cells meant for phosphate and jams the chemistry that makes energy. In a silicon crystal, arsenic uses 4 electrons to hold hands and has 1 left over to carry current.",
+    "uses": [
+      {"title": "Doping silicon (n-type)", "why": "Each arsenic atom in silicon holds hands with 4 neighbors. Its 5th electron is free to move, adding extra negative charge carriers."},
+      {"title": "Gallium arsenide chips", "why": "Joined with gallium, it makes a fast semiconductor. It is used in radio chips, lasers and space solar cells."},
+      {"title": "Hardening lead", "why": "A little arsenic makes lead harder and helps melted lead form round drops. This is used in lead shot and some battery grids."},
+      {"title": "Leukemia treatment", "why": "Arsenic trioxide is an approved drug for one type of leukemia (a blood cancer). At a controlled dose, its poison is aimed at cancer cells."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "As2O3", "name": "Arsenic trioxide", "note": "The old 'white arsenic' poison and a modern cancer drug. It is also the main form sold."},
+      {"partners": ["H"], "formula": "AsH3", "name": "Arsine", "note": "Arsenic's version of ammonia: 3 hydrogens holding its 3 hands. An extremely toxic gas chip factories use to add arsenic to silicon."},
+      {"partners": ["Ga"], "formula": "GaAs", "name": "Gallium arsenide", "note": "The semiconductor where arsenic's 5 outer electrons and gallium's 3 average out to 4, like silicon."}
+    ],
+    "number": {"value": "615 °C", "label": "At normal pressure it skips liquid and turns straight to gas (sublimes)"},
+    "source": "Collected as a leftover from copper and lead smelting, mostly from the mineral arsenopyrite (FeAsS).",
+    "lenses": {
+      "nexus": "Tiny amounts of arsenic in crude oil and naphtha poison refinery catalysts. Arsine in propylene streams poisons the catalysts that link it into plastic. So plants run guard beds (filters) to strip it out."
+    }
+  },
+  {
+    "z": 34,
+    "tier": "deep",
+    "tagline": "Sulfur's heavier cousin. It conducts better in light, and a tiny bit is a nutrient that turns toxic.",
+    "atomStory": "Selenium has 6 outer electrons but 2 hands, like oxygen and sulfur above it. It is bigger, so its outer electrons are held more loosely. Light can knock them free to carry current. That is why it conducts much better when light hits it.",
+    "uses": [
+      {"title": "Glass color control", "why": "Selenium adds a faint pink that cancels the green tint iron gives glass. More of it makes red glass."},
+      {"title": "Early photocopiers and light meters", "why": "Light frees electrons in selenium, so a lit spot loses its static charge. Xerox machines used selenium drums to make the image."},
+      {"title": "Thin-film solar cells (CIGS)", "why": "Copper indium gallium selenide soaks up sunlight strongly, even in a very thin layer."},
+      {"title": "Nutrition", "why": "The body builds selenium into a few enzymes (helper proteins) that protect cells from oxidation damage. Too much is toxic."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "H2Se", "name": "Hydrogen selenide", "note": "Selenium's version of water and H2S: 2 hydrogens holding its 2 hands. A foul-smelling, toxic gas."},
+      {"partners": ["Zn"], "formula": "ZnSe", "name": "Zinc selenide", "note": "Infrared light passes through it, so it is used for windows and lenses in CO2 lasers."},
+      {"partners": ["Cd"], "formula": "CdSe", "name": "Cadmium selenide", "note": "Made as tiny crystals (quantum dots). Their color depends on their size."}
+    ],
+    "number": {"value": "55 µg/day", "label": "Daily need for US adults; the safe upper limit is 400 µg"},
+    "source": "Collected from the sludge left over when copper is purified with electricity (electrolysis).",
+    "lenses": {}
+  },
+  {
+    "z": 35,
+    "tier": "deep",
+    "tagline": "A red-brown liquid halogen. It stops flames by grabbing the radicals (atoms with an empty hand) that feed them.",
+    "atomStory": "Bromine has 7 outer electrons and 1 hand. Two bromine atoms hold hands to form Br2. It is bigger than chlorine, so Br2 molecules are heavy and cling together. That is why it is a liquid at room temperature. Its one empty hand makes it reactive, but less so than chlorine above it.",
+    "uses": [
+      {"title": "Flame retardants", "why": "When plastic heats up, bromine compounds release bromine. It grabs the H and OH radicals that keep a flame's chain reaction going."},
+      {"title": "Oil and gas drilling brines", "why": "Calcium and zinc bromide dissolve into very heavy, clear liquids. These hold back the pressure in a well without any solids."},
+      {"title": "Pool and spa disinfection", "why": "Bromine compounds kill germs like chlorine does but hold up better in hot water."},
+      {"title": "Halon fire suppression", "why": "Halon 1301 (CBrF3) puts out fires the same way, by grabbing radicals. It was mostly phased out for harming the ozone layer, except in aviation."}
+    ],
+    "bonds": [
+      {"partners": ["Br"], "formula": "Br2", "name": "Bromine", "note": "Two atoms holding hands, filling each other's last empty hand. A heavy, toxic red-brown liquid."},
+      {"partners": ["H"], "formula": "HBr", "name": "Hydrogen bromide", "note": "A strong acid gas. It is what a burning flame retardant releases to stop the fire."},
+      {"partners": ["Ca"], "formula": "CaBr2", "name": "Calcium bromide", "note": "A salt that makes the heavy brines (salty water) used to finish oil and gas wells."},
+      {"partners": ["C", "H", "O"], "formula": "C15H12Br4O2", "name": "Tetrabromobisphenol A (TBBPA)", "note": "One of the most common flame retardants. It is built into circuit-board plastic."}
+    ],
+    "number": {"value": "-7.2 °C", "label": "Melting point. With mercury, one of only two elements liquid at room temperature"},
+    "source": "Pulled from salty water, like the Dead Sea and underground brines in Arkansas. Chlorine is bubbled in. It takes bromide's extra electron and frees Br2.",
+    "lenses": {
+      "nexus": "Flame retardants in electronics plastics carry bromine into pyrolysis. There it forms HBr and bromine-laced oils that eat away equipment and spoil the product. So plants like Nexus usually keep this feed out or treat it first."
+    }
+  },
+  {
+    "z": 36,
+    "tier": "deep",
+    "tagline": "A heavy noble gas, used where argon is too light and xenon costs too much.",
+    "atomStory": "Krypton's outer ring is full at 8, so it has 0 hands and almost never bonds. It is bigger than argon, so its outer electrons are a little easier to pull. That lets fluorine force it into a few rare compounds. Its heavy atoms move slowly, so they carry heat poorly.",
+    "uses": [
+      {"title": "Insulated windows", "why": "Heavy, slow krypton atoms carry heat across the narrow gap between panes worse than air or argon do."},
+      {"title": "Lighting", "why": "As a fill gas, it slows a hot tungsten filament from boiling away. It also gives some flash and specialty lamps their light."},
+      {"title": "Chip lithography lasers", "why": "Krypton fluoride excimer lasers give off 248 nm ultraviolet light, used to draw patterns on chips."},
+      {"title": "Electric spacecraft thrusters", "why": "It is heavy enough to give a useful push per ion (charged atom), and much cheaper than xenon."}
+    ],
+    "bonds": [
+      {"partners": ["F"], "formula": "KrF2", "name": "Krypton difluoride", "note": "One of very few krypton compounds. A strong oxidizer (it rips electrons off other things) that slowly falls apart even at room temperature."}
+    ],
+    "number": {"value": "1.1 ppm", "label": "Share of Earth's air"},
+    "source": "Separated by distilling liquid air. It is a small leftover from making liquid oxygen and nitrogen.",
+    "lenses": {
+      "rocket": "Early Starlink satellites used Hall thrusters fed with krypton. They strip electrons off krypton and shoot the charged atoms out with an electric field. Later versions moved to even cheaper argon."
+    }
+  },
+  {
+    "z": 37,
+    "tier": "deep",
+    "tagline": "An alkali metal whose one loose electron keeps time in GPS satellites.",
+    "atomStory": "Rubidium has a single outer electron in its 5th shell. It sits far from the nucleus (the atom's center), shielded by all the shells beneath. It leaves very easily, so rubidium catches fire in air and explodes in water. That lone electron makes a tiny energy flip, linked to the nucleus, that ticks at a fixed rate. That works as a clock.",
+    "uses": [
+      {"title": "Atomic clocks", "why": "The lone outer electron flips between two energy states at 6.834 GHz. Nature sets that rate, so it makes a small, steady clock."},
+      {"title": "Quantum physics research", "why": "Rubidium-87 was used to make the first Bose-Einstein condensate in 1995, because lasers can easily cool its atoms."},
+      {"title": "Dating rocks", "why": "Rubidium-87 slowly turns into strontium-87. Half of it changes in about 49 billion years, which lets geologists date very old rocks."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "RbCl", "name": "Rubidium chloride", "note": "A simple salt, Rb+ and Cl-. Rubidium hands its one electron to chlorine, and the + and - stick like magnets."},
+      {"partners": ["O", "H"], "formula": "RbOH", "name": "Rubidium hydroxide", "note": "A very strong base (the opposite of an acid), made when rubidium reacts violently with water."}
+    ],
+    "number": {"value": "6.834 GHz", "label": "Clock rate of the rubidium-87 atom"},
+    "source": "Collected as a leftover from mining lithium and cesium minerals, like lepidolite and pollucite.",
+    "lenses": {
+      "rocket": "GPS satellites carry rubidium and cesium atomic clocks. Their timing must be corrected by about 38 microseconds per day for Einstein's relativity effects."
+    }
+  },
+  {
+    "z": 38,
+    "tier": "deep",
+    "tagline": "Calcium's heavier twin. It glows red in fireworks and gets built into bone.",
+    "atomStory": "Strontium has 2 outer electrons in its 5th shell. It gives both away to become Sr2+. It sits right under calcium with the same charge, so the body treats it like calcium and builds it into bone. Heated strontium atoms let go of energy as red light.",
+    "uses": [
+      {"title": "Red fireworks and flares", "why": "Heat bumps strontium's electrons up to higher levels. As they fall back, they give off red light."},
+      {"title": "Ceramic magnets", "why": "Strontium ferrite is a cheap, strong permanent magnet. It is in fridge magnets, speakers and small motors."},
+      {"title": "Bone-cancer pain treatment", "why": "Radioactive strontium-89 goes to bone like calcium does. It delivers radiation where tumors have spread."},
+      {"title": "Optical clocks", "why": "Strontium atoms held in laser traps tick at light-wave speeds (optical frequencies). They make some of the most precise clocks built."}
+    ],
+    "bonds": [
+      {"partners": ["N", "O"], "formula": "Sr(NO3)2", "name": "Strontium nitrate", "note": "Gives flares and fireworks both their red color and the oxygen they burn."},
+      {"partners": ["C", "O"], "formula": "SrCO3", "name": "Strontium carbonate", "note": "The main form bought and sold. Used to make ferrite magnets and other strontium compounds."},
+      {"partners": ["Fe", "O"], "formula": "SrFe12O19", "name": "Strontium ferrite", "note": "The ceramic in common permanent magnets."}
+    ],
+    "number": {"value": "28.8 years", "label": "Half-life of strontium-90, a leftover of nuclear fission that settles in bone"},
+    "source": "Mined as the minerals celestine (SrSO4) and strontianite (SrCO3).",
+    "lenses": {}
+  },
+  {
+    "z": 39,
+    "tier": "deep",
+    "tagline": "A stand-in for rare earths. It makes lasers, red glowing coatings and tough ceramics.",
+    "atomStory": "Yttrium is a transition metal with 3 electrons to give: 2 from its outer ring plus 1 from an inner d layer. So simple hand counting doesn't work here. It almost always ends up as Y3+, the same size as some rare-earth ions (charged atoms). That is why it shows up in the same ores and acts like them.",
+    "uses": [
+      {"title": "YAG lasers", "why": "Yttrium aluminum garnet is a hard, clear crystal that holds laser-making ions like neodymium. Nd:YAG lasers cut, weld and treat skin."},
+      {"title": "Thermal and oxygen-sensing ceramics", "why": "A few percent yttria in zirconia locks its crystal shape. It also leaves gaps oxygen ions can hop through. Used in turbine heat coatings and car oxygen sensors."},
+      {"title": "Red phosphors", "why": "Yttrium oxide with a bit of europium glows red under ultraviolet or electron beams. It was used in old TV screens and some lamps."},
+      {"title": "High-temperature superconductor", "why": "YBCO carries current with zero resistance when cooled by cheap liquid nitrogen."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Y2O3", "name": "Yttria", "note": "The stable oxide. It is the starting point for phosphors and stabilized zirconia."},
+      {"partners": ["Al", "O"], "formula": "Y3Al5O12", "name": "Yttrium aluminum garnet (YAG)", "note": "The crystal that holds the active ions in lasers. With cerium added, it is the yellow phosphor in many white LEDs."},
+      {"partners": ["Ba", "Cu", "O"], "formula": "YBa2Cu3O7", "name": "YBCO", "note": "The first superconductor (zero-resistance material) to work above liquid nitrogen's 77 K."}
+    ],
+    "number": {"value": "93 K", "label": "YBCO superconducts below this, above liquid nitrogen's 77 K"},
+    "source": "Collected along with rare earths from minerals like xenotime and monazite, and from ion-adsorption clays.",
+    "lenses": {}
+  },
+  {
+    "z": 40,
+    "tier": "deep",
+    "tagline": "Rust-proof and nearly invisible to neutrons. It is the metal that wraps nuclear fuel.",
+    "atomStory": "Zirconium gives up 4 electrons to become Zr4+: 2 from its outer ring plus 2 from an inner d layer. So simple hand counting doesn't work here. It grabs oxygen fast and forms a thin, tight oxide skin that stops more corrosion. Its nucleus rarely catches neutrons, which matters more in a reactor than its electrons do.",
+    "uses": [
+      {"title": "Nuclear fuel cladding", "why": "Zirconium alloys (metal mixes) let neutrons pass through to keep the chain reaction going. Their oxide skin resists hot water."},
+      {"title": "Plastic-making catalysts", "why": "Zirconium metallocene catalysts build polyethylene and polypropylene chains of very even length."},
+      {"title": "Tough ceramics and gems", "why": "Zirconia is hard and resists cracking. It is used in dental crowns, ceramic knives and cubic zirconia."},
+      {"title": "Chemical plant equipment", "why": "Its oxide skin survives strong acids that eat through stainless steel."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "ZrO2", "name": "Zirconia", "note": "The oxide: a tough ceramic, and the protective skin on zirconium metal."},
+      {"partners": ["Si", "O"], "formula": "ZrSiO4", "name": "Zircon", "note": "The main ore. Its crystals take in uranium but reject lead, so they work as clocks. Some are 4.4 billion years old."},
+      {"partners": ["C", "H", "Cl"], "formula": "Zr(C5H5)2Cl2", "name": "Zirconocene dichloride", "note": "Zirconium sandwiched between two carbon rings. Once activated, it becomes a metallocene catalyst for polyethylene."}
+    ],
+    "number": {"value": "0.18 barn", "label": "Odds of catching a neutron (capture cross-section), about 1/14 of iron's"},
+    "source": "Mined as zircon from beach and mineral sands, then refined to metal. Its twin, hafnium, must be removed for nuclear use because hafnium soaks up neutrons strongly.",
+    "lenses": {
+      "nexus": "Zirconium metallocene catalysts are one of the main 'single-site' catalysts for polyethylene and polypropylene. Their more even chains make tougher film."
+    }
+  },
+  {
+    "z": 41,
+    "tier": "deep",
+    "tagline": "A pinch makes pipeline steel stronger, and its alloys make glowing rocket nozzles.",
+    "atomStory": "Niobium has 5 electrons to use: 4 from an inner d layer plus 1 from its outer ring. So simple hand counting doesn't work here. It forms a protective oxide skin and very stable carbides (compounds with carbon). Cooled to 9.2 K, its electrons pair up and flow with zero resistance.",
+    "uses": [
+      {"title": "Microalloyed steel", "why": "A few hundredths of a percent forms tiny niobium carbide grains. These keep steel's crystals small, making pipelines and car frames stronger and tougher."},
+      {"title": "Superconducting magnets", "why": "Niobium-titanium wire carries huge currents with zero resistance in MRI machines and particle accelerators."},
+      {"title": "Jet engine superalloys", "why": "Nickel alloys with niobium, like Inconel 718, stay strong at high temperature."},
+      {"title": "Rocket nozzle extensions", "why": "Niobium alloys are lighter than tungsten and stay strong while glowing red-hot."}
+    ],
+    "bonds": [
+      {"partners": ["Ti"], "formula": "NbTi", "name": "Niobium-titanium", "note": "The workhorse superconducting wire for MRI magnets."},
+      {"partners": ["Sn"], "formula": "Nb3Sn", "name": "Niobium-tin", "note": "A brittle superconductor that handles stronger magnetic fields than NbTi."},
+      {"partners": ["O"], "formula": "Nb2O5", "name": "Niobium pentoxide", "note": "The oxide skin on the metal and the main processed form."}
+    ],
+    "number": {"value": "9.2 K", "label": "Superconducting temperature, highest of any pure element at normal pressure"},
+    "source": "Mined mostly as the mineral pyrochlore. Brazil is the main source.",
+    "lenses": {
+      "rocket": "Upper-stage engines often use nozzle extensions of niobium alloy (such as C-103) that cool themselves by glowing off heat. The Merlin Vacuum's large extension is reported to be niobium."
+    }
+  },
+  {
+    "z": 42,
+    "tier": "deep",
+    "tagline": "A steel ingredient for high heat, and the sulfur-stripping catalyst of every refinery.",
+    "atomStory": "Molybdenum has 6 electrons to share: 5 from an inner d layer plus 1 from its outer ring. So simple hand counting doesn't work here. Sharing so many electrons makes strong metal bonds, so it melts at 2,623 °C. With sulfur, it forms flat sheets that slide over each other like graphite (pencil lead).",
+    "uses": [
+      {"title": "Stainless and alloy steel", "why": "2-3% molybdenum in 316 stainless helps it resist pitting from salt. Chrome-moly steel (4130) is strong and weldable for tubing and frames."},
+      {"title": "Hydrotreating catalyst", "why": "Cobalt-molybdenum and nickel-molybdenum sulfides pull sulfur and nitrogen out of fuels by reacting them with hydrogen."},
+      {"title": "Dry lubricant", "why": "Molybdenum disulfide sheets slide apart easily and work without oil or moisture."},
+      {"title": "Furnace and lighting parts", "why": "Its very high melting point suits heating elements, glass-melting electrodes and lamp supports."}
+    ],
+    "bonds": [
+      {"partners": ["S"], "formula": "MoS2", "name": "Molybdenum disulfide", "note": "The ore (molybdenite), the dry lubricant, and the working part of hydrotreating catalysts."},
+      {"partners": ["O"], "formula": "MoO3", "name": "Molybdenum trioxide", "note": "Made by roasting the ore. The main form sold for steelmaking and catalysts."},
+      {"partners": ["Co", "S"], "formula": "Co-Mo-S", "name": "Cobalt-molybdenum sulfide", "note": "The active edge spots in refinery sulfur-removing catalysts, set on alumina."}
+    ],
+    "number": {"value": "2,623 °C", "label": "Melting point, one of the highest of any metal"},
+    "source": "Mined as molybdenite (MoS2), often as a side product of large copper mines.",
+    "lenses": {
+      "nexus": "Refineries remove sulfur with CoMo or NiMo catalysts. The same hydrotreating is used to clean up plastic pyrolysis oil like yours before it goes to a cracker. It removes chlorine, nitrogen and olefins (double-bond molecules).",
+      "rocket": "MoS2 is a standard dry lubricant for spacecraft moving parts. Unlike graphite, it works in vacuum without moisture."
+    }
+  },
+  {
+    "z": 43,
+    "tier": "deep",
+    "tagline": "The lightest element with no stable form. One version lights up hospital scans.",
+    "atomStory": "Technetium has 43 protons (positive bits in the atom's center). No number of neutrons makes that center stable, so every atom eventually decays. Its electrons act like manganese above it: 7 outer electrons counting d ones, so simple hand counting doesn't work here. Its most common form in water is TcO4-.",
+    "uses": [
+      {"title": "Medical imaging", "why": "Technetium-99m gives off one clean gamma ray and loses half its strength in 6 hours. So it images organs, then fades fast. It is the most used medical isotope."},
+      {"title": "Bone and heart scans", "why": "Attached to carrier molecules, it collects in bone or heart muscle. It shows where blood flow or bone activity is off."},
+      {"title": "Corrosion research", "why": "Tiny amounts of pertechnetate stop steel from rusting. Radioactivity limits this to sealed systems."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "TcO4-", "name": "Pertechnetate", "note": "The form that comes out of a hospital generator, before it is attached to an imaging agent."},
+      {"partners": ["C", "H", "N", "O"], "formula": "Tc-99m sestamibi", "name": "Technetium sestamibi", "note": "A technetium complex that collects in healthy heart muscle. Used in heart stress tests."}
+    ],
+    "number": {"value": "6.0 hours", "label": "Half-life of technetium-99m, the medical isotope"},
+    "source": "Made in nuclear reactors. Molybdenum-99 from splitting uranium (fission) decays into technetium-99m inside a hospital 'generator.' Traces exist in uranium ores. Its light fingerprint (spectral lines) in some red giant stars proved stars make new elements.",
+    "lenses": {}
+  },
+  {
+    "z": 44,
+    "tier": "deep",
+    "tagline": "A rare platinum-group metal and a top catalyst for turning CO2 and CO into fuels.",
+    "atomStory": "Ruthenium's inner d electrons do most of its chemistry, so simple hand counting doesn't work here. Its metal surface grabs molecules like H2, CO and CO2 just firmly enough to split them. But it doesn't grip so hard that the products get stuck. That middle ground is what makes a good catalyst (a helper that speeds a reaction without being used up).",
+    "uses": [
+      {"title": "Methanation and fuel synthesis", "why": "Ruthenium is one of the most active catalysts for the Sabatier reaction and for building hydrocarbons from CO and H2."},
+      {"title": "Olefin metathesis (Grubbs catalyst)", "why": "A ruthenium complex swaps the ends of carbon-carbon double bonds. It is used to make specialty chemicals and drugs, and it won the 2005 Nobel Prize."},
+      {"title": "Chlorine production anodes", "why": "Ruthenium oxide coatings on titanium electrodes make chlorine efficiently and last for years."},
+      {"title": "Hard drives and electronics", "why": "A layer a few atoms thick links the magnetic layers in disk platters. Ruthenium oxide also makes stable thick-film resistors."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "RuO2", "name": "Ruthenium dioxide", "note": "An oxide that conducts electricity. Used in chlorine-cell anodes and chip resistors."},
+      {"partners": ["O"], "formula": "RuO4", "name": "Ruthenium tetroxide", "note": "A toxic oxidizer that turns to gas easily. Here ruthenium uses 8 electrons at once."},
+      {"partners": ["Cl", "P", "C", "H"], "formula": "RuCl2(PCy3)2(=CHPh)", "name": "Grubbs catalyst", "note": "Ruthenium holding a carbon with two hands (a double bond), so it can trade partners with other C=C bonds."}
+    ],
+    "number": {"value": "2,334 °C", "label": "Melting point of this hard, brittle platinum-group metal"},
+    "source": "Collected as a leftover from platinum and nickel mining.",
+    "lenses": {
+      "nexus": "Ruthenium catalysts can make methane from CO2 + H2 (Sabatier) and liquid hydrocarbons from CO + H2 (Fischer-Tropsch). Cheaper nickel, cobalt and iron do most of this work in industry. Grubbs-type catalysts reshuffle C=C bonds.",
+      "rocket": "NASA's Sabatier unit on the ISS reportedly uses ruthenium on alumina. It turns the CO2 astronauts breathe out into water and methane. The same reaction is proposed for making Starship's methane on Mars."
+    }
+  },
+  {
+    "z": 45,
+    "tier": "deep",
+    "tagline": "The rarest catalytic-converter metal. It breaks up NOx and adds CO to olefins (double-bond molecules).",
+    "atomStory": "Rhodium's chemistry runs through its inner d electrons, so simple hand counting doesn't work here. Its surface grips nitrogen oxides hard enough to pull the N and O apart, then lets N2 go. Dissolved in a liquid, one rhodium atom can hold CO, H2 and an olefin side by side and stitch them together.",
+    "uses": [
+      {"title": "Catalytic converters", "why": "In gasoline car exhaust, rhodium splits NOx into nitrogen and oxygen better than platinum or palladium."},
+      {"title": "Oxo chemistry (hydroformylation)", "why": "Rhodium catalysts add CO and H2 across an olefin's double bond. This turns propylene into butyraldehyde for plasticizers and solvents."},
+      {"title": "High-temperature thermocouples", "why": "These heat sensors use platinum-rhodium wires that give a steady voltage well above 1,400 °C."},
+      {"title": "Reflective plating", "why": "A hard, bright rhodium layer resists tarnish on mirrors and white-gold jewelry."}
+    ],
+    "bonds": [
+      {"partners": ["H", "C", "O", "P"], "formula": "HRh(CO)(PPh3)3", "name": "Oxo catalyst", "note": "The rhodium complex that turns propylene, CO and H2 into aldehydes."},
+      {"partners": ["Cl", "P", "C", "H"], "formula": "RhCl(PPh3)3", "name": "Wilkinson's catalyst", "note": "A classic catalyst for adding hydrogen to C=C double bonds."},
+      {"partners": ["O"], "formula": "Rh2O3", "name": "Rhodium(III) oxide", "note": "The stable oxide. Here rhodium is in the +3 state."}
+    ],
+    "number": {"value": "1,964 °C", "label": "Melting point"},
+    "source": "Collected as a leftover from platinum and nickel mining. It is one of the rarest non-radioactive metals in Earth's crust.",
+    "lenses": {
+      "nexus": "Rhodium hydroformylation turns propylene into butanol and 2-ethylhexanol. 2-ethylhexanol is the main building block of PVC plasticizers (softeners)."
+    }
+  },
+  {
+    "z": 46,
+    "tier": "deep",
+    "tagline": "The hydrogen sponge. It soaks up hundreds of times its own volume and moves it around.",
+    "atomStory": "Palladium is unusual. Its outer ring is empty and its inner d layer is full (4d10), so simple hand counting doesn't work here. Its metal has gaps just the right size for single hydrogen atoms. H2 splits apart at the surface and the atoms slip inside. That ease with hydrogen makes it a top catalyst for adding hydrogen (hydrogenation).",
+    "uses": [
+      {"title": "Catalytic converters", "why": "In gasoline car exhaust, palladium burns leftover CO and unburned hydrocarbons into CO2 and water."},
+      {"title": "Hydrogenation catalyst", "why": "It splits H2 on its surface and adds the H atoms to double and triple bonds."},
+      {"title": "Hydrogen purification", "why": "Only hydrogen can pass through a thin palladium-silver sheet (membrane), so it gives very pure H2."},
+      {"title": "Electronics", "why": "It resists corrosion and conducts well. It is used in capacitor electrodes and contact plating."}
+    ],
+    "bonds": [
+      {"partners": ["H"], "formula": "PdHx", "name": "Palladium hydride", "note": "Palladium with hydrogen atoms tucked inside its metal. The metal swells as it fills."},
+      {"partners": ["Cl"], "formula": "PdCl2", "name": "Palladium(II) chloride", "note": "The catalyst in the Wacker process, which oxidizes ethylene into acetaldehyde."},
+      {"partners": ["P", "C", "H"], "formula": "Pd(PPh3)4", "name": "Tetrakis palladium", "note": "A catalyst for joining two carbon pieces (cross-coupling, Nobel 2010). Common in drug making."}
+    ],
+    "number": {"value": "~900×", "label": "Volume of hydrogen gas palladium can soak up at room temperature"},
+    "source": "Collected mainly as a leftover from nickel and platinum mining.",
+    "lenses": {
+      "nexus": "Ethylene crackers pass their product over palladium catalysts. This turns trace acetylene into ethylene, because acetylene would poison the polyethylene catalysts further down the line."
+    }
+  },
+  {
+    "z": 47,
+    "tier": "deep",
+    "tagline": "The best conductor of any element, thanks to one loose outer electron over a full d shell.",
+    "atomStory": "Silver has one outer electron (5s1) sitting over a full inner d layer, just like copper above it. That lone electron leaves easily and joins a shared sea of electrons. So silver carries electricity and heat better than any other element. The same free electrons bounce back almost all visible light.",
+    "uses": [
+      {"title": "Electrical contacts and solar cells", "why": "It conducts best and resists oxidation. That makes it ideal for switch contacts and the printed lines on solar panels."},
+      {"title": "Mirrors", "why": "Its free electrons reflect more visible light than any other metal."},
+      {"title": "Ethylene oxide catalyst", "why": "Silver on alumina adds one oxygen atom to ethylene to make ethylene oxide. Few other metals do this well."},
+      {"title": "Photography", "why": "Light frees silver from silver halide crystals. That leaves dark specks that form the image."},
+      {"title": "Antimicrobial coatings", "why": "Silver ions (charged atoms) grab the sulfur in bacteria's proteins and disable them."}
+    ],
+    "bonds": [
+      {"partners": ["S"], "formula": "Ag2S", "name": "Silver sulfide", "note": "The black tarnish, formed by tiny amounts of sulfur gas in air."},
+      {"partners": ["Cl", "Br"], "formula": "AgCl, AgBr", "name": "Silver halides", "note": "Light-sensitive salts in photographic film."},
+      {"partners": ["N", "O"], "formula": "AgNO3", "name": "Silver nitrate", "note": "The main silver salt that dissolves in water. It is the starting point for most silver chemistry."}
+    ],
+    "number": {"value": "63 MS/m", "label": "Electrical conductivity, highest of any element (copper is second)"},
+    "source": "Mostly a side product of lead-zinc, copper and gold mining, plus some silver-rich ores.",
+    "lenses": {
+      "nexus": "Ethylene oxide, made over silver catalysts, is one of the biggest uses of ethylene after polyethylene. It becomes antifreeze and the glycol in PET.",
+      "rocket": "Silver-zinc batteries give a lot of power per kilogram. They powered the Apollo lunar module and many launch-vehicle flight systems."
+    }
+  },
+  {
+    "z": 48,
+    "tier": "deep",
+    "tagline": "Zinc's toxic twin. It soaks up neutrons, makes solar cells, and the body mistakes it for zinc.",
+    "atomStory": "Cadmium has 2 outer electrons over a full inner d layer. It gives up both to become Cd2+, exactly like zinc above it. Cd2+ is about the size and charge of Ca2+ and Zn2+. So the body takes it in their place, and it builds up in kidneys and bone. One of its isotopes (versions) swallows slow neutrons extremely well.",
+    "uses": [
+      {"title": "Reactor control rods", "why": "Cadmium soaks up slow neutrons, so it is used to absorb them and slow the chain reaction."},
+      {"title": "Thin-film solar cells (CdTe)", "why": "Cadmium telluride soaks up sunlight strongly in a layer only a few microns thick. That makes cheap panels."},
+      {"title": "Nickel-cadmium batteries", "why": "As the battery runs down, Cd metal gives up electrons and becomes Cd(OH)2. NiCd takes abuse well but has mostly been replaced."},
+      {"title": "Pigments", "why": "Cadmium sulfide and selenide make strong yellows, oranges and reds that do not fade."}
+    ],
+    "bonds": [
+      {"partners": ["Te"], "formula": "CdTe", "name": "Cadmium telluride", "note": "The light-catching layer in thin-film solar panels."},
+      {"partners": ["S"], "formula": "CdS", "name": "Cadmium sulfide", "note": "A bright yellow pigment and a semiconductor."},
+      {"partners": ["O"], "formula": "CdO", "name": "Cadmium oxide", "note": "Forms when cadmium is heated in air. Its fumes are highly toxic."}
+    ],
+    "number": {"value": "~2,500 barns", "label": "Natural cadmium's odds of catching a slow neutron (capture cross-section), about 1,000× iron's"},
+    "source": "Collected as a leftover from zinc refining. It hides in zinc ore because it acts like zinc.",
+    "lenses": {
+      "rocket": "Cadmium is restricted on spacecraft. In vacuum and heat it slowly evaporates and can coat optics. Cadmium plating can also grow metal whiskers that cause short circuits."
+    }
+  },
+  {
+    "z": 49,
+    "tier": "deep",
+    "tagline": "A soft metal whose oxide makes touchscreens both clear and conductive.",
+    "atomStory": "Indium has 3 hands, like aluminum and gallium above it. It gives away or shares its 3 outer electrons to make 3 bonds. Its atom is large, so its metal bonds are weak. The metal is soft enough to cut with a knife and melts at 157 °C. Bent indium makes a faint crackle, the same 'cry' tin makes.",
+    "uses": [
+      {"title": "Touchscreens and displays (ITO)", "why": "Indium tin oxide is a thin film that lets visible light through yet conducts electricity. So it can carry touch and pixel signals."},
+      {"title": "Fiber-optic lasers and detectors", "why": "Indium phosphide and indium gallium arsenide give off and sense the infrared light used in fiber networks."},
+      {"title": "Low-melting solders and thermal pads", "why": "It is soft and melts at a low temperature. So it joins heat-sensitive parts and fills gaps between chips and heat sinks."},
+      {"title": "Cryogenic seals", "why": "Indium wire stays soft when very cold. So it seals vacuum and super-cold joints where rubber would crack."}
+    ],
+    "bonds": [
+      {"partners": ["O", "Sn"], "formula": "In2O3:Sn", "name": "Indium tin oxide (ITO)", "note": "Indium oxide with a little tin added to supply extra free electrons. The result is a clear conductor."},
+      {"partners": ["P"], "formula": "InP", "name": "Indium phosphide", "note": "A semiconductor for fiber-optic lasers and high-speed chips."},
+      {"partners": ["Ga", "N"], "formula": "InGaN", "name": "Indium gallium nitride", "note": "The light-making layer in blue and green LEDs. More indium shifts the color toward green."}
+    ],
+    "number": {"value": "156.6 °C", "label": "Melting point"},
+    "source": "Collected as a leftover from zinc refining.",
+    "lenses": {}
+  },
+  {
+    "z": 50,
+    "tier": "deep",
+    "tagline": "Carbon's metal cousin: solder, can coatings, and a crystal that crumbles in the cold.",
+    "atomStory": "Tin has 4 hands, like carbon and silicon. Below 13.2 °C, it can hold hands in the same diamond-shaped crystal, as a grey, brittle powder. Above that, its large atom holds those electrons loosely enough to share them as a metal. So normal tin is shiny and soft.",
+    "uses": [
+      {"title": "Solder", "why": "Tin melts at 232 °C and sticks to copper well. With a little silver and copper, it makes the standard lead-free solder."},
+      {"title": "Tin cans", "why": "A thin tin coating keeps steel from rusting and does not react with food."},
+      {"title": "Bronze and pewter", "why": "Tin mixed into copper makes bronze, harder than either metal alone."},
+      {"title": "Float glass", "why": "Melted glass is poured onto a bath of melted tin, which is heavy and perfectly flat. That gives window glass its smooth surface."},
+      {"title": "Plastics additives and catalysts", "why": "Organotin compounds (tin bonded to carbon) protect PVC from heat. They also speed up making polyurethane and PLA."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "SnO2", "name": "Tin dioxide", "note": "The ore (cassiterite). Also key in gas sensors and clear glass that conducts."},
+      {"partners": ["Sn"], "formula": "α-Sn / β-Sn", "name": "Grey and white tin", "note": "The same atoms in a diamond crystal (grey, brittle) or a metal crystal (white, shiny). Old tin objects in cold places can crumble."},
+      {"partners": ["C", "H", "O"], "formula": "Sn(C8H15O2)2", "name": "Tin(II) 2-ethylhexanoate", "note": "Also called stannous octoate. The standard catalyst for making PLA bioplastic and many polyurethanes."}
+    ],
+    "number": {"value": "13.2 °C", "label": "Below this, shiny white tin can slowly turn into brittle grey tin"},
+    "source": "Mined as cassiterite (SnO2) and turned into metal using carbon.",
+    "lenses": {
+      "nexus": "Organotin heat stabilizers slow PVC from giving off HCl when heated. Tin catalysts help make PLA and polyurethanes.",
+      "rocket": "Pure tin plating is restricted in spacecraft electronics. It can grow thin whiskers that conduct electricity. Whisker shorts have been reported as the cause of some satellite failures."
+    }
+  }
+]

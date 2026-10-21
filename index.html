@@ -1,0 +1,1027 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E1217">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<title>Periodic Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout concept: a lab bench. Wall-chart table on the left, an instrument panel on the right
+   that shows the atom (or molecule) you put under the lens. Narrow screens: panel slides up as a sheet. */
+:root{
+  --bg:#EDF0F3; --surface:#F8FAFB; --ink:#141820; --muted:#5B6472; --line:#CDD3DB;
+  --accent:#2C66D9;            /* electron blue: valence electrons, active state */
+  --proton:#D4483A; --neutron:#8E959F; --electron-inner:#7FA2E6; --seat:#7B8492;
+  --atom-c:#3A3F47; --atom-text-dark:#141820; --atom-text-light:#FFFFFF;
+  --nexus:#C2561E; --rocket:#5B47C7; --good:#2E8A57; --warn:#B7791F;
+  --cat-alkali:#F4D2C3; --cat-alkaline:#F3E2B9; --cat-transition:#D8E1ED; --cat-post:#D3E5DC;
+  --cat-metalloid:#E2DBEE; --cat-nonmetal:#CBE6F1; --cat-halogen:#DAEAC3; --cat-noble:#E8D1E5;
+  --cat-lanthanide:#F1D8DC; --cat-actinide:#E9D6CA;
+  --st-solid:#DDE2E8; --st-liquid:#BFE3DC; --st-gas:#CFE1F7; --st-unknown:#E6E8EB;
+  --en-lo:#EEF3FA; --en-hi:#2C66D9;
+  --display:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E1217; --surface:#151B22; --ink:#E5E9EF; --muted:#97A1AE; --line:#2A333E;
+  --accent:#6E9BFF; --proton:#F0705F; --neutron:#7D8692; --electron-inner:#4F6FAF; --seat:#7B8492;
+  --atom-c:#A3ACB8; --nexus:#F08A4B; --rocket:#A394FF; --good:#5CC48A; --warn:#E3A84A;
+  --cat-alkali:#4A2B21; --cat-alkaline:#44381D; --cat-transition:#25303D; --cat-post:#21342B;
+  --cat-metalloid:#322A42; --cat-nonmetal:#1B3641; --cat-halogen:#2B3A1D; --cat-noble:#3D2539;
+  --cat-lanthanide:#40242A; --cat-actinide:#3A2A21;
+  --st-solid:#262E38; --st-liquid:#1D3D38; --st-gas:#1E3150; --st-unknown:#1D232A;
+  --en-lo:#18202A; --en-hi:#6E9BFF; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E1217; --surface:#151B22; --ink:#E5E9EF; --muted:#97A1AE; --line:#2A333E;
+  --accent:#6E9BFF; --proton:#F0705F; --neutron:#7D8692; --electron-inner:#4F6FAF; --seat:#7B8492;
+  --atom-c:#A3ACB8; --nexus:#F08A4B; --rocket:#A394FF; --good:#5CC48A; --warn:#E3A84A;
+  --cat-alkali:#4A2B21; --cat-alkaline:#44381D; --cat-transition:#25303D; --cat-post:#21342B;
+  --cat-metalloid:#322A42; --cat-nonmetal:#1B3641; --cat-halogen:#2B3A1D; --cat-noble:#3D2539;
+  --cat-lanthanide:#40242A; --cat-actinide:#3A2A21;
+  --st-solid:#262E38; --st-liquid:#1D3D38; --st-gas:#1E3150; --st-unknown:#1D232A;
+  --en-lo:#18202A; --en-hi:#6E9BFF; color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:15px;line-height:1.5;font-variation-settings:"wdth" 100;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 40px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;font-stretch:112%}
+
+/* ---------- header ---------- */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 24px;margin-bottom:14px}
+.brand h1{font-size:clamp(26px,3.4vw,38px);font-weight:800;font-stretch:118%;letter-spacing:-.01em;line-height:1}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:13.5px;max-width:60ch}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-left:auto}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:6px 13px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.select{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.select select,.search input{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.search input{width:min(220px,60vw)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{border-color:currentColor}
+.chip.nexus[aria-pressed="true"]{color:var(--nexus)} .chip.rocket[aria-pressed="true"]{color:var(--rocket)}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+
+/* ---------- bench layout ---------- */
+.bench{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+@media (min-width:1240px){ .bench{grid-template-columns:minmax(0,1fr) 410px} }
+
+/* ---------- table ---------- */
+.table-wrap{overflow-x:auto;padding-bottom:6px}
+.ptable{display:grid;grid-template-columns:repeat(18,minmax(40px,1fr));grid-template-rows:repeat(7,auto) 14px repeat(2,auto);gap:3px;min-width:740px}
+.cell{position:relative;aspect-ratio:1/1.12;border:1px solid transparent;border-radius:4px;background:var(--cat-bg,var(--st-unknown));
+  cursor:pointer;padding:3px 4px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;min-width:0;transition:transform .12s, opacity .15s, box-shadow .12s}
+.cell:hover{transform:translateY(-1px);box-shadow:0 2px 0 var(--line)}
+.cell .z{font-family:var(--mono);font-size:9.5px;color:var(--muted);line-height:1}
+.cell .sym{font-family:var(--display);font-weight:700;font-size:clamp(14px,1.45vw,20px);line-height:1;font-stretch:105%}
+.cell .nm{font-size:8.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.1}
+.cell.dim{opacity:.22}
+.cell.active{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.cell .marks{position:absolute;top:3px;right:3px;display:flex;gap:2px;align-items:center}
+.cell .marks i{width:5px;height:5px;border-radius:50%;display:block}
+.cell .flag{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1.5px var(--surface);order:9}
+.cell.discussed{box-shadow:inset 0 0 0 2px var(--accent)}
+.cell.discussed.active{box-shadow:inset 0 0 0 2px var(--accent),0 0 0 1.5px var(--ink)}
+.cell .count{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;border-radius:10px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;font-weight:600;display:grid;place-items:center;padding:0 5px;z-index:2}
+.cell.en-hot .sym,.cell.en-hot .z,.cell.en-hot .nm{color:#fff}
+.gap-label{grid-column:3;grid-row:6/8;align-self:center;justify-self:center;font-size:9px;color:var(--muted);text-align:center;line-height:1.2}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 0;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:12px;height:12px;border-radius:3px;border:1px solid var(--line)}
+
+/* ---------- panel ---------- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+@media (min-width:1240px){ .panel{position:sticky;top:max(12px,env(safe-area-inset-top,0px));max-height:calc(100vh - 24px);overflow:auto} .sheet-close{display:none} }
+@media (max-width:1239px){
+  .panel{position:fixed;left:0;right:0;bottom:0;z-index:20;max-height:88vh;overflow:auto;border-radius:14px 14px 0 0;
+    padding:16px max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+    transform:translateY(105%);transition:transform .25s ease;box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+  body.sheet-open .panel{transform:none}
+  body.sheet-open .scrim{display:block}
+}
+.scrim{display:none;position:fixed;inset:0;background:rgba(10,14,20,.35);z-index:15}
+.sheet-close{position:sticky;top:0;float:right;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px;z-index:3}
+.ph{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.bigtile{width:74px;height:82px;flex:none;border-radius:6px;background:var(--cat-bg);padding:6px 7px;display:flex;flex-direction:column;justify-content:space-between}
+.bigtile .z{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.bigtile .sym{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;font-stretch:110%}
+.bigtile .m{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.ph h2{font-size:24px;font-weight:750;font-stretch:112%;line-height:1.1}
+.pill{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--bg);color:var(--muted);margin-top:4px}
+.tagline{font-size:16px;font-weight:600;margin:6px 0 4px;line-height:1.35}
+.panel p{margin:6px 0}
+.panel section{margin-top:16px}
+.panel h3{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;font-stretch:112%;margin-bottom:6px}
+.atom-stage{position:relative;background:var(--bg);border-radius:10px;margin:8px 0 4px}
+.atom-stage canvas{display:block;width:100%;aspect-ratio:1/1}
+.stage-tools{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;gap:6px;pointer-events:none}
+.stage-tools>*{pointer-events:auto}
+.mini-seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px}
+.mini-seg button{border:0;background:transparent;padding:3px 9px;border-radius:999px;font-size:11.5px;cursor:pointer;color:var(--muted)}
+.mini-seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.atom-legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--muted);margin-top:4px}
+.atom-legend span{display:inline-flex;align-items:center;gap:5px}
+.seatline{font-size:14px;background:var(--bg);border-radius:8px;padding:10px 12px;margin-top:8px}
+.seatline b{font-family:var(--mono);font-weight:600}
+.uses,.bonds{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.uses li{padding-left:12px;border-left:2px solid var(--line)}
+.uses b,.bonds b{font-weight:650}
+.bonds li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;align-items:start}
+.bonds .f{font-family:var(--mono);font-size:12.5px;background:var(--bg);border-radius:4px;padding:1px 6px;white-space:nowrap}
+.bonds .partners{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}
+.ptn{border:1px solid var(--line);background:var(--surface);border-radius:4px;font-family:var(--display);font-weight:700;font-size:12px;padding:0 6px;cursor:pointer}
+.lensbox{border-radius:8px;padding:10px 12px;margin-top:8px;border:1px solid var(--line)}
+.lensbox .eyebrow{display:flex;align-items:center;gap:6px}
+.lensbox.nexus .eyebrow{color:var(--nexus)} .lensbox.rocket .eyebrow{color:var(--rocket)}
+.lensbox p{margin:3px 0 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.fact{background:var(--bg);border-radius:6px;padding:7px 9px;min-width:0}
+.fact .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.fact .v{font-family:var(--mono);font-size:13px;overflow-wrap:anywhere}
+.number{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.number .v{font-family:var(--mono);font-size:22px;font-weight:600}
+.number .l{color:var(--muted);font-size:13px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.log{border-left:2px solid var(--accent);padding-left:10px}
+.log .when{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:12.5px}
+
+/* builder */
+.tray{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)}
+.stepper .s{font-family:var(--display);font-weight:800;padding:4px 8px;min-width:34px;text-align:center}
+.stepper button{border:0;background:transparent;width:28px;height:30px;cursor:pointer;font-size:16px;color:var(--muted)}
+.stepper .n{font-family:var(--mono);min-width:22px;text-align:center;font-weight:600}
+.mol-stage{background:var(--bg);border-radius:10px;margin:10px 0 6px;position:relative}
+.mol-stage svg,.mol-stage canvas{display:block;width:100%}
+.verdict{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.verdict h2{font-size:22px;font-weight:750;font-stretch:110%}
+.verdict .fm{font-family:var(--mono);font-size:15px;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:650;border-radius:999px;padding:2px 9px;background:var(--bg)}
+.status.ok{color:var(--good)} .status.warn{color:var(--warn)} .status.info{color:var(--accent)}
+.seatbox{background:var(--bg);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:14px}
+.seatbox table{border-collapse:collapse;width:100%;font-size:13px;margin-bottom:6px}
+.seatbox td{padding:2px 0}
+.seatbox td.r{text-align:right;font-family:var(--mono)}
+.mlist{display:flex;flex-wrap:wrap;gap:6px}
+.mlist button{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 9px;cursor:pointer;font-size:12.5px;text-align:left}
+.mlist button .fm{font-family:var(--mono);color:var(--muted);margin-left:6px;font-size:11.5px}
+.examples{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+
+/* element log under the table */
+.logsec{margin-top:26px}
+.logsec h2{font-size:20px;font-weight:750;font-stretch:112%}
+.loggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:10px}
+.logcard{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;text-align:left;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start}
+.logcard .t{width:40px;height:44px;border-radius:5px;background:var(--cat-bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px}
+.logcard .n{font-weight:650}
+.logcard .x{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.empty{border:1px dashed var(--line);border-radius:8px;padding:14px;color:var(--muted);font-size:13.5px}
+.loading{color:var(--muted);padding:20px 0;grid-column:1/-1}
+
+/* ---------- Build mode: table becomes a strip, workbench takes the rest ---------- */
+body.build .bench{grid-template-columns:minmax(0,1fr)}
+body:not(.build) .wb-details{display:none}
+body.build .panel, body.build .legend, body.build .logsec, body.build .brand p, body.build .gap-label{display:none}
+body.build .top{margin-bottom:8px}
+body.build .brand h1{font-size:24px}
+body.build .ptable{grid-template-rows:repeat(7,auto) 6px repeat(2,auto);gap:2px;min-width:680px}
+body.build .cell{aspect-ratio:auto;height:27px;padding:2px 4px;flex-direction:row;align-items:center;gap:4px}
+body.build .cell .z,body.build .cell .nm,body.build .cell .marks{display:none}
+body.build .cell .sym{font-size:13px}
+body.build .cell .count{top:-5px;right:-5px;min-width:16px;height:16px;font-size:10px}
+body.build:not(.show-f) .cell[data-frow]{display:none}
+body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
+.cell.faded{opacity:.45}
+.cell.faded:hover{opacity:1}
+.workbench{position:relative;user-select:none;-webkit-user-select:none;margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;min-height:440px}
+.workbench canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+.wb-head{position:absolute;top:0;left:0;right:0;z-index:2;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;pointer-events:none;
+  background:linear-gradient(var(--surface) 70%, transparent)}
+.wb-status{margin:0;font-size:17px;line-height:1.35;max-width:70ch}
+.wb-chips{display:flex;gap:6px;flex-wrap:wrap}
+.wbchip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 8px;background:var(--bg)}
+.wbchip.ok{color:var(--good);border-color:currentColor}
+.wb-tools{position:absolute;left:12px;bottom:12px;z-index:2;display:flex;gap:6px;flex-wrap:wrap;align-items:center;max-width:calc(100% - 130px)}
+.wb-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;pointer-events:none;z-index:1}
+.wb-empty>*{max-width:52ch;margin:4px 0}
+.wb-empty .row{pointer-events:auto}
+.wb-tip{position:absolute;z-index:4;pointer-events:none;background:var(--ink);color:var(--bg);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.4;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.wb-pop{position:absolute;z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px;box-shadow:0 6px 20px rgba(0,0,0,.14);width:240px}
+.wb-card{position:absolute;right:12px;top:58px;z-index:3;width:min(320px,calc(100% - 24px));max-height:calc(100% - 140px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;box-shadow:0 6px 20px rgba(0,0,0,.10)}
+.wb-card p{margin:6px 0}
+.wb-card .wbname{font-family:var(--display);font-size:19px;font-weight:750}
+.lenstxt.nexus b{color:var(--nexus)} .lenstxt.rocket b{color:var(--rocket)}
+.wb-zoom{position:absolute;left:50%;transform:translateX(-50%);bottom:64px;z-index:3;width:min(560px,calc(100% - 24px));background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;box-shadow:0 6px 20px rgba(0,0,0,.12);display:flex;gap:12px;align-items:center}
+.wb-zoom p{margin:0;font-size:14px}
+.wb-zoom .btn{white-space:nowrap}
+.wb-recipes{position:absolute;top:0;right:0;bottom:0;z-index:6;width:min(380px,100%);background:var(--surface);border-left:1px solid var(--line);padding:14px;overflow:auto;box-shadow:-8px 0 24px rgba(0,0,0,.10)}
+/* idea cloud: a soft thought bubble on the right, away from the atoms */
+.wb-cloud{position:absolute;right:16px;top:58px;z-index:3;width:min(300px,calc(100% - 32px));max-height:calc(100% - 140px);overflow:auto;
+  padding:14px 16px 12px;border-radius:30px 36px 30px 26px;border:1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  background:radial-gradient(120% 90% at 20% 0%, color-mix(in srgb, var(--accent) 14%, var(--surface)), var(--surface) 70%);
+  box-shadow:0 10px 30px color-mix(in srgb, var(--accent) 16%, transparent)}
+.wb-cloud::before,.wb-cloud::after{content:"";position:fixed;display:none}
+.cl-head{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);font-stretch:112%;margin-bottom:4px}
+.cl-title{font-family:var(--display);font-size:19px;font-weight:750;margin-bottom:6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.cl-title .mono{font-size:13px;color:var(--muted);font-weight:500}
+.cl-sub{font-size:12px;color:var(--muted);font-weight:500;font-family:var(--body)}
+.cl-item{font-size:13.5px;line-height:1.45;padding:8px 0;border-top:1px dashed color-mix(in srgb, var(--accent) 25%, var(--line));animation:clIn .35s ease}
+.cl-item.now{border-top:0}
+.cl-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-right:6px;padding:1px 7px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.cl-tag.fact{color:var(--nexus)} .cl-tag.idea{color:var(--accent)}
+@keyframes clIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.linkbtn{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-size:12.5px;font-weight:650;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+/* "You just built ..." banner */
+.wb-banner{position:absolute;left:50%;top:64px;transform:translateX(-50%);z-index:4;pointer-events:none;text-align:center;
+  background:var(--ink);color:var(--bg);border-radius:16px;padding:10px 22px 12px;box-shadow:0 12px 34px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center}
+.wb-banner.go{animation:bnIn .5s cubic-bezier(.2,1.4,.4,1), bnOut .6s ease 3.6s forwards}
+.bn-small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.bn-big{font-family:var(--display);font-size:30px;font-weight:800;font-stretch:115%;line-height:1.1}
+.bn-f{font-size:13px;opacity:.75}
+@keyframes bnIn{from{opacity:0;transform:translate(-50%,-10px) scale(.85)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes bnOut{to{opacity:0;transform:translate(-50%,-8px)}}
+@media (prefers-reduced-motion:reduce){ .wb-banner.go,.cl-item{animation:none} }
+/* the full write-up under the bench */
+.wb-details{margin-top:16px}
+.dt-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:10px}
+.dt-head h2{font-size:24px;font-weight:750;font-stretch:112%}
+.dt-f{font-size:15px;font-weight:500}
+.dt-status{margin:4px 0 0;max-width:75ch}
+.dt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;align-items:start}
+.dt-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.dt-card h3{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;font-stretch:112%;margin:0 0 8px}
+.dt-card p{margin:6px 0}
+.dt-table{border-collapse:collapse;width:100%;font-size:14px}
+.dt-table td{padding:3px 0}
+.dt-table td.r{text-align:right;font-family:var(--mono)}
+.dt-el{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;padding:6px 0}
+.dt-tile{width:36px;height:40px;border-radius:5px;background:var(--cat-bg);display:grid;place-items:center;font-family:var(--display);font-weight:800}
+/* ---------- phones: Build mode ---------- */
+@media (max-width:760px){
+  body.build{padding-block:8px 24px}
+  body.build .top{gap:6px;margin-bottom:6px}
+  body.build .brand{display:none}
+  body.build .controls{margin-left:0;width:100%;gap:6px}
+  body.build .controls .select, body.build .controls .search, body.build .controls .chip{display:none}
+  body.build .seg{width:100%}
+  body.build .seg button{flex:1}
+  body.build .table-wrap{margin-inline:-4px}
+  body.build .ptable{min-width:560px}
+  body.build .cell{height:25px}
+  .workbench{min-height:380px;border-radius:10px}
+  .wb-head{padding:8px 10px}
+  .wb-status{font-size:14.5px}
+  .wb-tools{left:8px;right:8px;bottom:8px;max-width:none;gap:4px}
+  .wb-tools .btn{padding:4px 9px;font-size:12px}
+  .wb-tools .mini-seg button{padding:3px 7px;font-size:11px}
+  #wbShowF,#wbTidy{display:none}
+  .wb-trash{top:58px;bottom:auto;right:8px;width:70px;height:48px;font-size:10px}
+  .wb-cloud{left:8px;right:8px;top:auto;bottom:84px;width:auto;max-height:44px;overflow:hidden;border-radius:18px;padding:8px 14px}
+  .wb-cloud.open{max-height:52%;overflow:auto}
+  .wb-cloud:not(.open) .cl-item, .wb-cloud:not(.open) .cl-title{display:none}
+  .cl-head{width:100%;display:flex;justify-content:space-between;align-items:center;min-height:26px}
+  .cl-count{color:var(--muted);font-weight:600;letter-spacing:0}
+  .wb-banner{top:52px;padding:8px 16px 10px}
+  .bn-big{font-size:24px}
+  .wb-zoom{bottom:132px;flex-direction:column;align-items:stretch}
+  .wb-recipes{width:100%}
+  .dt-grid{grid-template-columns:minmax(0,1fr)}
+}
+.cl-head{border:0;background:none;padding:0;cursor:default;text-align:left;font-family:inherit}
+
+/* phones: in Build mode a row of common elements replaces the wide table (the table is one tap away) */
+.quick-els{display:none}
+@media (max-width:760px){
+  body.build .quick-els{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
+  body.build:not(.show-table) .table-wrap{display:none}
+  .quick-els .qe{flex:none;min-width:42px;height:40px;border-radius:8px;border:1px solid var(--line);background:var(--cat-bg);font-family:var(--display);font-weight:800;font-size:16px;cursor:pointer;position:relative}
+  .quick-els .qe.on{box-shadow:inset 0 0 0 2px var(--accent)}
+  .quick-els .qe .n{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:10px;font-family:var(--mono);display:grid;place-items:center;padding:0 4px}
+  .quick-els .qe.more{font-family:var(--body);font-size:12.5px;font-weight:650;padding:0 12px;background:var(--surface)}
+  body:not(.build) .ptable{min-width:600px}
+  body:not(.build) .cell .nm{display:none}
+}
+.wb-trash{position:absolute;right:12px;bottom:12px;z-index:2;width:84px;height:62px;border:1.5px dashed var(--line);border-radius:10px;display:grid;place-items:center;text-align:center;font-size:11px;color:var(--muted);line-height:1.2;pointer-events:none}
+.wb-trash.hot{border-color:var(--proton);color:var(--proton);background:color-mix(in srgb, var(--proton) 10%, transparent)}
+@media (prefers-reduced-motion:reduce){ .cell,.panel{transition:none} }
+</style>
+
+<div class="scrim" id="scrim"></div>
+
+<header class="top">
+  <div class="brand">
+    <h1>Periodic Lab</h1>
+    <p>Tap an element to see its atom and what it's good for. Switch to <b>Build</b> to put atoms on a bench and snap them together.</p>
+  </div>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="modeExplore" aria-pressed="true">Explore atoms</button>
+      <button id="modeBuild" aria-pressed="false">Build molecules</button>
+    </div>
+    <label class="select">Color by
+      <select id="colorBy">
+        <option value="category">Family</option>
+        <option value="discussed">Discussed</option>
+        <option value="en">Electron pull</option>
+        <option value="state">State at 25 °C</option>
+      </select>
+    </label>
+    <label class="search"><input id="search" type="search" placeholder="Search element or molecule" aria-label="Search"></label>
+    <button class="chip nexus" id="lensNexus" aria-pressed="false"><span class="dot" style="background:var(--nexus)"></span>Nexus</button>
+    <button class="chip rocket" id="lensRocket" aria-pressed="false"><span class="dot" style="background:var(--rocket)"></span>Rockets</button>
+  </div>
+</header>
+
+<div id="searchHits" class="mlist" style="margin:-4px 0 10px" hidden></div>
+
+<main class="bench">
+  <div style="min-width:0">
+    <div class="quick-els" id="quickEls" aria-label="Common elements"></div>
+    <div class="table-wrap"><div class="ptable" id="ptable"><div class="loading">Loading elements…</div></div></div>
+    <section class="workbench" id="workbench" hidden aria-label="Molecule workbench">
+      <div class="wb-head">
+        <p class="wb-status" id="wbStatus" aria-live="polite"></p>
+        <div class="wb-chips" id="wbChips"></div>
+      </div>
+      <canvas id="wbCanvas" aria-label="Workbench. Drag atoms together to bond them."></canvas>
+      <div class="wb-tools">
+        <div class="mini-seg" id="wbView" role="group" aria-label="View">
+          <button data-v="ball" aria-pressed="true">Balls &amp; sticks</button><button data-v="ring" aria-pressed="false">Ring view</button>
+        </div>
+        <button class="btn" id="wbBreak" title="Pop every bond in the selected molecule">Break apart</button>
+        <button class="btn" id="wbFill" title="Put a hydrogen on every empty hand">Fill with H</button>
+        <button class="btn" id="wbRecipesBtn">Recipes</button>
+        <button class="btn" id="wbTidy">Tidy</button>
+        <button class="btn" id="wbClear">Clear</button>
+        <button class="btn" id="wbShowF" aria-pressed="false" title="Show the two bottom rows of the table">Bottom rows</button>
+      </div>
+      <div class="wb-empty" id="wbEmpty">
+        <p><b>Your bench is empty.</b> Tap an element above to put an atom here. Tap it again for another one.</p>
+        <p class="small muted">Then drag one atom right next to another. If both have an empty hand, they hold on. Pull hard to break them apart.</p>
+        <div class="row" style="justify-content:center;margin-top:8px" id="wbQuick"></div>
+      </div>
+      <aside class="wb-cloud" id="wbCloud" hidden aria-live="polite"></aside>
+      <div class="wb-banner" id="wbBanner" hidden></div>
+      <div class="wb-pop" id="wbPop" hidden></div>
+      <div class="wb-zoom" id="wbZoom" hidden><p id="wbZoomText"></p><button class="btn" id="wbZoomOut">Zoom out</button></div>
+      <div class="wb-recipes" id="wbRecipes" hidden></div>
+      <div class="wb-trash" id="wbTrash" aria-hidden="true">Drop here<br>to remove</div>
+    </section>
+    <section class="wb-details" id="wbDetails" hidden></section>
+    <div class="legend" id="legend"></div>
+    <section class="logsec">
+      <div class="row" style="justify-content:space-between;align-items:baseline">
+        <h2>Your element log</h2>
+        <span class="small muted" id="logNote"></span>
+      </div>
+      <p class="small muted" style="margin:4px 0 0;max-width:70ch">Elements we've talked about in your threads, with what came up. Blue dots on the table mark them. New ones get added as we cover them.</p>
+      <div class="loggrid" id="loggrid"></div>
+    </section>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite">
+    <button class="sheet-close" id="sheetClose">Close</button>
+    <div id="panelBody"></div>
+  </aside>
+</main>
+
+<script>
+/* =====================================================================================
+   Periodic Lab. Plain JS, no framework, so it's easy to read and extend.
+   Data:   data/elements.json  (PubChem physical data + teaching content per element)
+           data/molecules.json (curated molecules/materials with RDKit-built 2D coordinates)
+   State:  the "discussed" log lives in the artifact's db (collection "discussed", one doc per
+           element symbol) so Claude can add entries from future chats without republishing.
+   ===================================================================================== */
+
+const S = {               // all UI state lives here
+  els: [], bySym: {}, byZ: {}, mols: [],
+  mode: "explore", colorBy: "category", lens: {nexus:false, rocket:false}, query: "",
+  current: "C", view: "bohr",
+  discussed: {}, db: null, dbReady: false,
+};
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const wide = () => matchMedia("(min-width:1240px)").matches;
+
+const CAT = {
+  "Alkali metal":["--cat-alkali","Alkali metal"], "Alkaline earth metal":["--cat-alkaline","Alkaline earth"],
+  "Transition metal":["--cat-transition","Transition metal"], "Post-transition metal":["--cat-post","Post-transition metal"],
+  "Metalloid":["--cat-metalloid","Metalloid"], "Nonmetal":["--cat-nonmetal","Nonmetal"], "Halogen":["--cat-halogen","Halogen"],
+  "Noble gas":["--cat-noble","Noble gas"], "Lanthanide":["--cat-lanthanide","Lanthanide"], "Actinide":["--cat-actinide","Actinide"],
+};
+const METAL_CATS = new Set(["Alkali metal","Alkaline earth metal","Transition metal","Post-transition metal","Lanthanide","Actinide"]);
+const isMetal = e => METAL_CATS.has(e.category);
+const isNoble = e => e.category === "Noble gas";
+
+/* ---------------- load ---------------- */
+async function load(){
+  const [els, mols] = await Promise.all([fetch("data/elements.json").then(r=>r.json()), fetch("data/molecules.json").then(r=>r.json())]);
+  S.els = els; S.mols = mols;
+  for (const e of els){ S.bySym[e.symbol] = e; S.byZ[e.z] = e; }
+  try { const saved = JSON.parse(localStorage.getItem("plab.prefs")||"{}"); Object.assign(S, saved.colorBy?{colorBy:saved.colorBy}:{}); } catch(_){}
+  $("colorBy").value = S.colorBy;
+  const h = location.hash.slice(1);
+  if (h && S.bySym[h]) { S.current = h; }
+  buildTable(); renderLegend(); renderPanel(); renderLog(); Bench.mount();
+  if (h && S.bySym[h] && !wide()) openSheet();
+  connectDb();
+}
+
+/* ---------------- discussed log (db capability) ---------------- */
+async function connectDb(){
+  let db = null;
+  try { db = window.claude?.use ? await window.claude.use("db") : null; } catch(_) { db = null; }
+  if (!db){
+    // Outside Claude (the phone app): the shared log ships as data/discussed.json, which Claude updates
+    // from chats. Flags you add on this device are kept in this browser on top of it.
+    let base = {};
+    try { const r = await fetch("data/discussed.json", {cache: "no-cache"}); if (r.ok) for (const d of await r.json()) base[d.symbol] = d; } catch(_){}
+    let mine = {};
+    try { mine = JSON.parse(localStorage.getItem("plab.discussed")||"{}"); } catch(_){}
+    S.discussed = {...base, ...mine};
+    for (const k of Object.keys(mine)) if (mine[k] === null) delete S.discussed[k];
+    $("logNote").textContent = Object.keys(base).length ? "Synced from your chats" : "Saved on this device";
+    S.dbReady = true; refreshFlags(); return;
+  }
+  S.db = db;
+  db.collection("discussed").onSnapshot(snap => {
+    const next = {};
+    for (const d of snap.docs){ if (d.exists) next[d.id] = d.data(); }
+    S.discussed = next; S.dbReady = true; refreshFlags();
+  }, err => { $("logNote").textContent = "Couldn't load the log (" + (err?.code||"error") + ")"; });
+}
+async function setDiscussed(sym, on){
+  const today = new Date().toISOString().slice(0,10);
+  if (!S.db){
+    let mine = {}; try { mine = JSON.parse(localStorage.getItem("plab.discussed")||"{}"); } catch(_){}
+    if (on){ S.discussed[sym] = {symbol:sym, z:S.bySym[sym].z, source:"you", notes:[{date:today, thread:"Marked by you", note:""}]}; mine[sym] = S.discussed[sym]; }
+    else { delete S.discussed[sym]; mine[sym] = null; }   // null = hidden on this device
+    try { localStorage.setItem("plab.discussed", JSON.stringify(mine)); } catch(_){}
+    refreshFlags(); return;
+  }
+  const ref = S.db.doc("discussed/" + sym);
+  try {
+    if (on) await ref.set({symbol:sym, z:S.bySym[sym].z, source:"you", firstDate:today, notes:[{date:today, thread:"Marked by you", note:""}]});
+    else await ref.delete();
+  } catch(err){ toastPanel("Couldn't save that change: " + (err?.message || err?.code || "unknown error")); }
+}
+function refreshFlags(){
+  document.querySelectorAll(".cell").forEach(c => {
+    const on = !!S.discussed[c.dataset.sym];
+    c.classList.toggle("discussed", on);
+    let f = c.querySelector(".flag");
+    if (on && !f){ f = document.createElement("span"); f.className = "flag"; f.title = "Discussed"; c.querySelector(".marks").appendChild(f); }
+    if (!on && f) f.remove();
+  });
+  applyColors(); renderLog();
+  if (S.mode === "explore") renderDiscussedBlock();
+}
+
+/* ---------------- table ---------------- */
+function buildTable(){
+  const t = $("ptable"); t.innerHTML = "";
+  for (const e of S.els){
+    const b = document.createElement("button");
+    b.className = "cell"; b.dataset.sym = e.symbol; if (e.row >= 9) b.dataset.frow = "1";
+    b.style.gridRow = e.row >= 9 ? e.row : e.row; b.style.gridColumn = e.col;
+    b.setAttribute("aria-label", `${e.name}, ${e.z}`);
+    const lens = e.lenses || {};
+    b.innerHTML = `<span class="z">${e.z}</span><span class="sym">${e.symbol}</span><span class="nm">${esc(e.name)}</span>` +
+      `<span class="marks">${lens.nexus?'<i style="background:var(--nexus)" title="Nexus angle"></i>':''}${lens.rocket?'<i style="background:var(--rocket)" title="Rocket angle"></i>':''}</span>`;
+    b.addEventListener("click", () => onCell(e.symbol));
+    t.appendChild(b);
+  }
+  const g = document.createElement("div"); g.className = "gap-label"; g.style.gridRow = "6 / 8"; g.style.gridColumn = "3";
+  t.appendChild(g);
+  applyColors(); markActive();
+}
+function onCell(sym){
+  if (S.mode === "build"){
+    Bench.add(sym);
+  } else {
+    S.current = sym; markActive(); renderPanel();
+    try { history.replaceState(null, "", "#" + sym); } catch(_){}
+    if (!wide()) openSheet();
+  }
+}
+const QUICK = ["H","C","N","O","F","Cl","S","P","Si","B","Na","K","Li","Mg","Ca","Al","Fe","Cu","Ni","Ti","Zn","Ag","Au","Br","I","Xe","Ne","He"];
+function renderQuick(onBench){
+  const q = $("quickEls"); if (!q || !S.els.length) return;
+  q.innerHTML = QUICK.map(sym => { const e = S.bySym[sym], n = onBench[sym] || 0;
+    return `<button class="qe ${n ? "on" : ""}" data-q="${sym}" style="--cat-bg:var(${(CAT[e.category]||["--st-unknown"])[0]})" aria-label="Add ${e.name}">${sym}${n ? `<span class="n">${n}</span>` : ""}</button>`; }).join("") +
+    `<button class="qe more" id="qeMore">${document.body.classList.contains("show-table") ? "Hide table" : "All elements"}</button>`;
+  q.querySelectorAll("[data-q]").forEach(b => b.addEventListener("click", () => Bench.add(b.dataset.q)));
+  $("qeMore").addEventListener("click", () => { document.body.classList.toggle("show-table"); renderQuick(Bench.counts()); });
+}
+function markActive(){
+  const onBench = S.mode === "build" ? Bench.counts() : {};
+  if (S.mode === "build") renderQuick(onBench);
+  const any = Object.keys(onBench).length > 0;
+  document.querySelectorAll(".cell").forEach(c => {
+    const sym = c.dataset.sym;
+    c.classList.toggle("active", S.mode === "explore" ? sym === S.current : !!onBench[sym]);
+    c.classList.toggle("faded", S.mode === "build" && any && !onBench[sym]);   // in Build, fade what you're not using
+    let badge = c.querySelector(".count");
+    const n = S.mode === "build" ? (onBench[sym]||0) : 0;
+    if (n && !badge){ badge = document.createElement("span"); badge.className = "count"; c.appendChild(badge); }
+    if (badge){ if (n) badge.textContent = "×" + n; else badge.remove(); }
+  });
+}
+function enColor(en){
+  // blend --en-lo -> --en-hi across Pauling 0.7..4.0
+  const t = Math.max(0, Math.min(1, (en - 0.7) / 3.3));
+  return `color-mix(in oklab, var(--en-hi) ${Math.round(t*100)}%, var(--en-lo))`;
+}
+function applyColors(){
+  const q = S.query.trim().toLowerCase();
+  const molHitEls = new Set();
+  if (q.length > 1) for (const m of S.mols) if (molMatchesQuery(m, q)) Object.keys(m.counts).forEach(s => molHitEls.add(s));
+  document.querySelectorAll(".cell").forEach(c => {
+    const e = S.bySym[c.dataset.sym];
+    let bg; c.classList.remove("en-hot");
+    if (S.colorBy === "category" || S.colorBy === "discussed") bg = `var(${(CAT[e.category]||["--st-unknown"])[0]})`;
+    else if (S.colorBy === "en"){ bg = e.en == null ? "var(--st-unknown)" : enColor(e.en); if (e.en != null && e.en > 2.6) c.classList.add("en-hot"); }
+    else { const st = e.state||""; bg = st.includes("solid") ? "var(--st-solid)" : st.includes("liquid") ? "var(--st-liquid)" : st.includes("gas") ? "var(--st-gas)" : "var(--st-unknown)"; }
+    c.style.setProperty("--cat-bg", bg);
+    let dim = false;
+    if (S.colorBy === "discussed" && !S.discussed[e.symbol]) dim = true;
+    if (S.lens.nexus || S.lens.rocket){
+      const L = e.lenses || {};
+      if (!((S.lens.nexus && L.nexus) || (S.lens.rocket && L.rocket))) dim = true;
+    }
+    if (q){
+      const hit = e.symbol.toLowerCase() === q || e.name.toLowerCase().includes(q) || String(e.z) === q || molHitEls.has(e.symbol);
+      if (!hit) dim = true;
+    }
+    c.classList.toggle("dim", dim);
+  });
+  renderLegend();
+}
+function renderLegend(){
+  const L = $("legend");
+  if (S.colorBy === "en"){
+    L.innerHTML = `<span><i class="sw" style="background:${enColor(0.8)}"></i>Weak pull (gives electrons away)</span>
+      <span><i class="sw" style="background:${enColor(2.4)}"></i>Medium (shares)</span><span><i class="sw" style="background:${enColor(3.9)}"></i>Strong pull (grabs electrons)</span>
+      <span><i class="sw" style="background:var(--st-unknown)"></i>Not measured</span><span>Electronegativity, Pauling scale. Big differences between two atoms mean ionic bonds.</span>`;
+  } else if (S.colorBy === "state"){
+    L.innerHTML = ["solid","liquid","gas","unknown"].map(s => `<span><i class="sw" style="background:var(--st-${s})"></i>${s === "unknown" ? "Unknown (too short-lived)" : s[0].toUpperCase()+s.slice(1)}</span>`).join("");
+  } else {
+    L.innerHTML = Object.values(CAT).map(([v, n]) => `<span><i class="sw" style="background:var(${v})"></i>${n}</span>`).join("") +
+      `<span><i class="sw" style="box-shadow:inset 0 0 0 2px var(--accent);background:transparent"></i>Discussed in your threads</span>` +
+      `<span><i class="dot" style="background:var(--nexus);width:6px;height:6px"></i>Nexus angle</span><span><i class="dot" style="background:var(--rocket);width:6px;height:6px"></i>Rocket angle</span>`;
+  }
+}
+
+/* ---------------- panel shell ---------------- */
+function openSheet(){ document.body.classList.add("sheet-open"); }
+function closeSheet(){ document.body.classList.remove("sheet-open"); }
+$("sheetClose").addEventListener("click", closeSheet);
+$("scrim").addEventListener("click", closeSheet);
+function toastPanel(msg){ const p = document.createElement("p"); p.className = "small"; p.style.color = "var(--proton)"; p.textContent = msg; $("panelBody").prepend(p); }
+function renderPanel(){
+  stopAnimations();
+  if (S.mode === "explore") renderElement(S.bySym[S.current]);
+}
+
+/* ---------------- explore: one element ---------------- */
+/* One plain sentence about how this atom bonds, in "hands" language. */
+function seatSummary(e){
+  const v = e.valence;
+  if (isNoble(e)) return `Its outer ring is already full. <b>No empty hands</b>, so it almost never joins other atoms.`;
+  if (e.block === "d" || e.block === "f")
+    return `Its outer ring has <b>${v}</b> electron${v>1?"s":""}, but electrons from the ring underneath can join in too. So hand-counting doesn't work well here. It gives away different numbers of electrons in different compounds.`;
+  if (isMetal(e)) return `<b>${v}</b> loose electron${v>1?"s":""} on its outer ring. It would rather <b>give ${v>1?"them":"it"} away</b> than hold hands, which leaves it with a + charge.`;
+  const h = e.covalentValence ?? (8 - v);
+  let s = `<b>${h} hand${h!==1?"s":""}.</b> It holds hands (bonds) with up to ${h} other atom${h!==1?"s":""}. Each dashed circle on the outer ring is an empty hand.`;
+  if (e.symbol === "B") s += " Boron runs out of electrons to share, so it's left with an extra empty spot. That makes it grabby.";
+  if (e.symbol === "H") s += " Its only ring holds just 2 electrons, so one handshake fills it.";
+  return s;
+}
+function fmt(v, unit, digits){ if (v == null) return "–"; return (digits!=null ? (+v).toFixed(digits) : v) + (unit||""); }
+function KtoC(k){ return k == null ? null : Math.round(k - 273.15); }
+function renderElement(e){
+  const L = e.lenses || {};
+  const catVar = (CAT[e.category]||["--st-unknown"])[0];
+  const uses = (e.uses||[]).map(u => `<li><b>${esc(u.title)}.</b> ${esc(u.why)}</li>`).join("");
+  const bonds = (e.bonds||[]).map(b => `<li><span class="f">${esc(b.formula)}</span><div><b>${esc(b.name)}</b> <span class="muted">${esc(b.note)}</span>
+      <div class="partners">${(b.partners||[]).filter(p=>S.bySym[p]).map(p => `<button class="ptn" data-go="${p}" title="Open ${esc(S.bySym[p].name)}">${p}</button>`).join("")}
+      <button class="ptn" data-build="${esc([e.symbol, ...(b.partners||[])].filter(p=>S.bySym[p]).join(","))}" title="Load into the builder">Build →</button></div></div></li>`).join("");
+  const melt = KtoC(e.melt), boil = KtoC(e.boil);
+  $("panelBody").innerHTML = `
+    <div class="ph">
+      <div class="bigtile" style="--cat-bg:var(${catVar})"><span class="z">${e.z}</span><span class="sym">${e.symbol}</span><span class="m">${(+e.mass).toFixed(e.mass>100?1:3)}</span></div>
+      <div style="min-width:0"><h2>${esc(e.name)}</h2><span class="pill">${esc(CAT[e.category]?.[1]||e.category)}</span> <span class="pill">${esc(e.state||"")}</span>
+        <div id="discussedBadge"></div></div>
+    </div>
+    ${e.tagline ? `<p class="tagline">${esc(e.tagline)}</p>` : ""}
+    <div class="atom-stage">
+      <canvas id="atomCanvas" aria-label="Animated model of a ${esc(e.name)} atom"></canvas>
+      <div class="stage-tools">
+        <div class="mini-seg" role="group" aria-label="Atom view">
+          <button data-view="bohr" aria-pressed="${S.view==="bohr"}">Bohr rings</button>
+          <button data-view="cloud" aria-pressed="${S.view==="cloud"}">Electron cloud</button>
+        </div>
+      </div>
+    </div>
+    <div class="atom-legend">
+      <span><i class="dot" style="background:var(--proton)"></i>${e.z} proton${e.z>1?"s":""}</span>
+      <span><i class="dot" style="background:var(--neutron)"></i>${e.neutrons} neutrons <span class="small">(common isotope)</span></span>
+      <span><i class="dot" style="background:var(--electron-inner)"></i>inner electrons</span>
+      <span><i class="dot" style="background:var(--accent)"></i>outer electrons</span>
+      ${(e.block==="s"||e.block==="p") && !isNoble(e) && !isMetal(e) ? `<span><i class="dot" style="border:1.5px dashed var(--seat);background:transparent"></i>empty hand</span>` : ""}
+    </div>
+    <p class="small muted" id="viewNote" style="margin-top:4px">${S.view==="bohr"
+      ? "Shells: " + e.shells.join(" · ") + ". Rings are a teaching model; electrons don't really orbit on tracks."
+      : "Closer to reality: each shell is a fuzzy region where electrons are likely to be, not a track. Outer shell in blue."}</p>
+    <div class="seatline">${seatSummary(e)}</div>
+    ${e.atomStory ? `<p>${esc(e.atomStory)}</p>` : ""}
+    ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
+    ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}
+    <div id="threadNotes"></div>
+    ${uses ? `<section><h3>What it's used for</h3><ul class="uses">${uses}</ul></section>` : ""}
+    ${bonds ? `<section><h3>Who it bonds with</h3><ul class="bonds">${bonds}</ul></section>` : ""}
+    ${moleculesWith(e.symbol)}
+    ${e.number ? `<section><h3>By the numbers</h3><div class="number"><span class="v">${esc(e.number.value)}</span><span class="l">${esc(e.number.label)}</span></div></section>` : ""}
+    <section><h3>Data</h3><div class="facts">
+      <div class="fact"><div class="k">Electron config</div><div class="v">${esc(e.config)}</div></div>
+      <div class="fact"><div class="k">Electron pull</div><div class="v">${fmt(e.en)}</div></div>
+      <div class="fact"><div class="k">Melts</div><div class="v">${melt==null?"–":melt.toLocaleString()+" °C"}</div></div>
+      <div class="fact"><div class="k">Boils</div><div class="v">${boil==null?"–":boil.toLocaleString()+" °C"}</div></div>
+      <div class="fact"><div class="k">Density</div><div class="v">${e.density==null?"–":(e.density<0.1? e.density.toExponential(2): +e.density.toPrecision(4)) + (e.state==="gas"?" g/L":" g/cm³")}</div></div>
+      <div class="fact"><div class="k">Discovered</div><div class="v">${esc(e.year)}</div></div>
+    </div>
+    ${e.source ? `<p class="small muted" style="margin-top:8px"><b>Where it comes from:</b> ${esc(e.source)}</p>` : ""}</section>
+    <p class="small muted" style="margin-top:14px">Data: PubChem periodic table (NIH). Melting/boiling in °C at 1 atm.</p>`;
+  $("panelBody").querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { S.view = b.dataset.view; renderPanel(); }));
+  $("panelBody").querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => onCellExplore(b.dataset.go)));
+  $("panelBody").querySelectorAll("[data-build]").forEach(b => b.addEventListener("click", () => loadBuilder(Object.fromEntries(b.dataset.build.split(",").map(s=>[s,1])))));
+  $("panelBody").querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => loadMolecule(b.dataset.mol)));
+  renderDiscussedBlock();
+  startAtom(e);
+}
+function onCellExplore(sym){ S.current = sym; markActive(); renderPanel(); try{history.replaceState(null,"","#"+sym);}catch(_){} $("panel").scrollTop = 0; }
+function moleculesWith(sym){
+  const list = S.mols.filter(m => m.counts[sym]).sort((a,b) => Object.keys(a.counts).length - Object.keys(b.counts).length).slice(0, 14);
+  if (!list.length) return "";
+  return `<section><h3>In the molecule library</h3><div class="mlist">${list.map(m => `<button data-mol="${m.id}">${esc(m.name)}<span class="fm">${esc(m.formula)}</span></button>`).join("")}</div></section>`;
+}
+function renderDiscussedBlock(){
+  const e = S.bySym[S.current]; if (!e || S.mode !== "explore") return;
+  const d = S.discussed[e.symbol];
+  const badge = $("discussedBadge"), notes = $("threadNotes");
+  if (!badge || !notes) return;
+  if (!S.dbReady){ badge.innerHTML = ""; return; }
+  badge.innerHTML = `<div class="row" style="margin-top:6px">${d ? `<span class="status info"><span class="dot" style="background:var(--accent)"></span>Discussed</span>` : ""}
+    <button class="btn" id="toggleDiscussed">${d ? "Remove flag" : "Mark as discussed"}</button></div>`;
+  $("toggleDiscussed").addEventListener("click", () => {
+    if (!d) return setDiscussed(e.symbol, true);
+    // inline confirm (dialogs don't work in artifacts)
+    badge.innerHTML = `<div class="row" style="margin-top:6px"><span class="small">Remove ${e.symbol} from your log${(d.notes||[]).some(n=>n.note)?" (its notes go too)":""}?</span>
+      <button class="btn" id="rmYes">Remove</button><button class="btn" id="rmNo">Keep</button></div>`;
+    $("rmYes").addEventListener("click", () => setDiscussed(e.symbol, false));
+    $("rmNo").addEventListener("click", renderDiscussedBlock);
+  });
+  const ns = (d?.notes||[]).filter(n => n.note);
+  notes.innerHTML = ns.length ? `<section><h3>From your threads</h3>${ns.map(n => `<div class="log" style="margin-bottom:8px"><div class="when">${esc(n.date)} · ${esc(n.thread)}</div><div>${esc(n.note)}</div></div>`).join("")}</section>` : "";
+}
+function renderLog(){
+  const g = $("loggrid"); if (!g) return;
+  const rows = Object.values(S.discussed).filter(d => S.bySym[d.symbol])
+    .sort((a,b) => (latest(b) > latest(a) ? 1 : -1) || a.z - b.z);
+  if (!S.dbReady){ g.innerHTML = `<div class="empty">Loading your log…</div>`; return; }
+  if (!rows.length){ g.innerHTML = `<div class="empty">Nothing logged yet. Open any element and tap <b>Mark as discussed</b>, or ask me in chat to log what we covered.</div>`; return; }
+  g.innerHTML = rows.map(d => { const e = S.bySym[d.symbol]; const n = (d.notes||[]).filter(x=>x.note).slice(-1)[0];
+    return `<button class="logcard" data-go="${e.symbol}"><span class="t" style="--cat-bg:var(${(CAT[e.category]||["--st-unknown"])[0]})">${e.symbol}</span>
+      <span style="min-width:0"><span class="n">${esc(e.name)}</span> <span class="mono small muted">${esc(latest(d))}</span><span class="x">${esc(n ? n.note : (d.notes?.[0]?.thread || ""))}</span></span></button>`; }).join("");
+  g.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => { setMode("explore"); onCell(b.dataset.go); }));
+}
+const latest = d => (d.notes||[]).map(n=>n.date).sort().slice(-1)[0] || d.firstDate || "";
+
+/* ---------------- Bohr / cloud atom (canvas) ---------------- */
+let anim = null;
+function stopAnimations(){ if (anim){ cancelAnimationFrame(anim.raf); anim = null; } }
+function setupCanvas(cv){
+  const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+  cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.width * dpr);
+  const ctx = cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  return {ctx, W: r.width};
+}
+function nucleusLayout(Z, N){
+  // golden-angle packing: protons and neutrons interleaved so the cluster looks mixed
+  const A = Z + N, pts = [];
+  let p = 0, n = 0;
+  for (let i = 0; i < A; i++){
+    const wantP = (p / Z) <= (n / Math.max(1,N)) || n >= N;
+    const isP = Z && (wantP && p < Z);
+    if (isP) p++; else n++;
+    const r = Math.sqrt((i + 0.5) / A), th = i * 2.39996323;
+    pts.push([r * Math.cos(th), r * Math.sin(th), isP]);
+  }
+  return pts;
+}
+function startAtom(e){
+  const cv = $("atomCanvas"); if (!cv) return;
+  const {ctx, W} = setupCanvas(cv);
+  const c = W / 2, A = e.z + e.neutrons;
+  const Rn = Math.min(W * 0.11, 9 + W * 0.075 * Math.sqrt(A / 240));
+  const ball = Math.max(1.6, Rn / Math.sqrt(A) * 0.98);
+  const nuc = nucleusLayout(e.z, e.neutrons);
+  const nSh = e.shells.length, maxR = W / 2 - 14;
+  const spacing = Math.min(W * 0.125, (maxR - Rn - 10) / (nSh + 0.25));
+  const ringR = k => Rn + 10 + spacing * (k + 0.75);
+  const mainGroup = (e.block === "s" || e.block === "p");
+  const showSeats = mainGroup && !isNoble(e) && !isMetal(e);
+  const cap = e.z <= 2 ? 2 : 8;
+  const col = {p: css("--proton"), n: css("--neutron"), ei: css("--electron-inner"), eo: css("--accent"), seat: css("--seat"), ring: css("--line"), ink: css("--ink"), bg: css("--bg")};
+  // Lewis-style slots on the outer ring: 4 sides, 2 slots each; fill singles first, then pairs.
+  function outerSlots(v){
+    if (cap === 2) return [[0, v >= 1], [Math.PI, v >= 2]];
+    const sides = [ -Math.PI/2, 0, Math.PI/2, Math.PI ], off = 0.17, slots = [];
+    for (let s = 0; s < 4; s++){ const a = sides[s]; slots.push([a - off, v > s], [a + off, v > s + 4]); }
+    return slots;
+  }
+  // cloud samples (static per shell, jittered each frame)
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const gauss = () => { let u = 0, v = 0; while(!u) u = rnd(); while(!v) v = rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  const t0 = performance.now();
+  function frame(now){
+    const t = reduceMotion ? 0 : (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, W);
+    // nucleus
+    for (const [x, y, isP] of nuc){
+      ctx.beginPath(); ctx.arc(c + x * Rn, c + y * Rn, ball, 0, Math.PI * 2);
+      ctx.fillStyle = isP ? col.p : col.n; ctx.fill();
+    }
+    if (S.view === "bohr"){
+      e.shells.forEach((count, k) => {
+        const R = ringR(k), outer = k === nSh - 1;
+        ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.strokeStyle = col.ring; ctx.lineWidth = 1; ctx.stroke();
+        const speed = 0.55 / (k + 1);
+        const rot = t * speed * (k % 2 ? -1 : 1);
+        const er = outer ? Math.max(3.4, W * 0.012) : Math.max(2.2, Math.min(3.2, W * 0.009 * (count > 18 ? 0.8 : 1)));
+        if (outer && mainGroup){
+          for (const [a, filled] of outerSlots(count)){
+            const ang = a + rot * 0.4, x = c + R * Math.cos(ang), y = c + R * Math.sin(ang);
+            if (filled){ ctx.beginPath(); ctx.arc(x, y, er, 0, Math.PI*2); ctx.fillStyle = col.eo; ctx.fill(); }
+            else if (showSeats){ ctx.beginPath(); ctx.arc(x, y, er, 0, Math.PI*2); ctx.setLineDash([2,2]); ctx.strokeStyle = col.seat; ctx.lineWidth = 1.3; ctx.stroke(); ctx.setLineDash([]); }
+          }
+        } else {
+          for (let i = 0; i < count; i++){
+            const ang = rot + i * 2 * Math.PI / count, x = c + R * Math.cos(ang), y = c + R * Math.sin(ang);
+            ctx.beginPath(); ctx.arc(x, y, er, 0, Math.PI*2); ctx.fillStyle = outer ? col.eo : col.ei; ctx.fill();
+          }
+        }
+      });
+    } else {
+      seed = 7 + Math.floor(t * 12);
+      e.shells.forEach((count, k) => {
+        const R = ringR(k), outer = k === nSh - 1, sigma = spacing * 0.32;
+        const nDots = Math.min(900, 70 + count * 26);
+        ctx.fillStyle = outer ? col.eo : col.ei; ctx.globalAlpha = outer ? 0.6 : 0.35;
+        for (let i = 0; i < nDots; i++){
+          const ang = rnd() * Math.PI * 2, rr = R + gauss() * sigma;
+          ctx.fillRect(c + rr * Math.cos(ang), c + rr * Math.sin(ang), 2, 2);
+        }
+        ctx.globalAlpha = 1;
+      });
+    }
+    if (!reduceMotion) anim.raf = requestAnimationFrame(frame);
+  }
+  anim = {raf: 0};
+  anim.raf = requestAnimationFrame(frame);
+}
+
+/* ---------------- build mode (the workbench lives in bench.js) ---------------- */
+function setMode(m){
+  S.mode = m; $("modeExplore").setAttribute("aria-pressed", m === "explore"); $("modeBuild").setAttribute("aria-pressed", m === "build");
+  document.body.classList.toggle("build", m === "build");
+  markActive();   // first, so the phone's element row is in place before the bench measures itself
+  if (m === "build"){ closeSheet(); stopAnimations(); Bench.show(); } else { Bench.hide(); renderPanel(); }
+  markActive();
+}
+$("modeExplore").addEventListener("click", () => setMode("explore"));
+$("modeBuild").addEventListener("click", () => setMode("build"));
+function loadBuilder(counts){
+  // from an element card: put one of each atom on the bench, unbonded, so you connect them yourself
+  if (S.mode !== "build") setMode("build");
+  for (const [sym, n] of Object.entries(counts)) for (let i = 0; i < n; i++) Bench.add(sym);
+}
+function loadMolecule(id){
+  const m = S.mols.find(x => x.id === id); if (!m) return;
+  if (Bench.benchable(m)){ if (S.mode !== "build") setMode("build"); Bench.addMolecule(m); }
+  else { if (S.mode !== "explore") setMode("explore"); renderMoleculePanel(m); if (!wide()) openSheet(); }
+}
+/* Crystals and metals aren't molecules you can snap together, so they get a picture card in the side panel. */
+function renderMoleculePanel(m){
+  stopAnimations();
+  const L = m.lens || {};
+  $("panelBody").innerHTML = `
+    <div class="row" style="justify-content:space-between;align-items:baseline"><span class="eyebrow">${m.kind === "lattice" ? "Crystal / material" : "Molecule"}</span>
+      <button class="btn" id="backToEl">Back to ${esc(S.bySym[S.current].name)}</button></div>
+    <div class="verdict" style="margin-top:6px"><h2>${esc(m.name)}</h2><span class="fm">${esc(m.formula)}</span></div>
+    <div class="mol-stage" id="molStage"></div>
+    <p>${esc(m.blurb)}</p><p class="small"><b>Used for:</b> ${esc(m.uses)}</p>
+    ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
+    ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}`;
+  $("backToEl").addEventListener("click", renderPanel);
+  if (m.kind === "lattice") drawLattice($("molStage"), m); else drawMolecule($("molStage"), m);
+}
+
+/* ---------------- molecule drawing (SVG from build-time coordinates) ---------------- */
+const ATOM_COL = {H:"#A6D0F7",O:"#E0533F",N:"#3E6BE6",S:"#E2BE34",Cl:"#4DAF57",F:"#86CB67",Br:"#A2462F",I:"#7A3FA6",P:"#EE8A2B",
+  Si:"#C59B70",B:"#EC9F9A",Na:"#9466DB",K:"#8150C8",Li:"#B07CE0",Mg:"#6FAE3E",Ca:"#5F9F5A",Al:"#9DA7B4",Fe:"#C46F37",Cu:"#C8803A",Ni:"#5FA58A",
+  Ti:"#8E99A6",Zn:"#7D8DBA",Xe:"#4FA3B3",Cr:"#7F8FB0",Sn:"#8C96A0",Ag:"#B8BEC6",Au:"#D4A62A",Pt:"#9AA3AD",W:"#5C7FA0",Ga:"#B5878A",As:"#9F70C9",Co:"#5068C0",U:"#4FA05C",Mn:"#9C78C8"};
+function atomColor(sym){
+  if (sym === "C") return css("--atom-c");
+  if (ATOM_COL[sym]) return ATOM_COL[sym];
+  const e = S.bySym[sym]; return e?.cpk ? "#" + e.cpk : "#8E959F";
+}
+function textOn(hex){
+  const h = hex.replace("#",""); if (h.length < 6) return "#fff";
+  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  return (0.299*r + 0.587*g + 0.114*b) > 150 ? "#141820" : "#FFFFFF";
+}
+function drawMolecule(stage, m){
+  const pts = m.atoms; if (!pts?.length) return;
+  const xs = pts.map(a=>a[1]), ys = pts.map(a=>a[2]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const span = Math.max(maxX - minX, maxY - minY, 1.5);
+  const W = 420, pad = 34, sc = Math.min((W - 2*pad) / Math.max(maxX-minX, 1.2), 70);
+  const H = Math.max(170, Math.min(420, (maxY - minY) * sc + 2*pad));
+  const ox = W/2 - (minX + maxX)/2 * sc, oy = H/2 - (minY + maxY)/2 * sc;
+  const P = i => [ox + pts[i][1]*sc, oy + pts[i][2]*sc];
+  const rOf = s => s === "H" ? 9 : s === "*" ? 0 : 14;
+  const line = css("--ink");
+  let svg = "";
+  for (const [i, j, o] of m.bonds){
+    const [x1,y1] = P(i), [x2,y2] = P(j), dx = x2-x1, dy = y2-y1, L = Math.hypot(dx,dy) || 1, nx = -dy/L, ny = dx/L;
+    const star = pts[i][0] === "*" || pts[j][0] === "*";
+    const offs = o === 2 ? [-3, 3] : o === 3 ? [-5, 0, 5] : [0];
+    for (const k of offs) svg += `<line x1="${x1+nx*k}" y1="${y1+ny*k}" x2="${x2+nx*k}" y2="${y2+ny*k}" stroke="${line}" stroke-width="2" ${star?'stroke-dasharray="3 4" opacity=".55"':''}/>`;
+  }
+  pts.forEach((a, i) => {
+    const [x,y] = P(i), s = a[0];
+    if (s === "*"){ svg += `<text x="${x}" y="${y+4}" text-anchor="middle" font-size="13" fill="${css("--muted")}">…</text>`; return; }
+    const col = atomColor(s), r = rOf(s);
+    svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="${col}"/><text x="${x}" y="${y + (s.length>1?3.5:4.5)}" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="${s==="H"?10:s.length>1?10.5:12.5}" fill="${textOn(col.startsWith("#")?col:"#3A3F47")}">${s}</text>`;
+    if (a[3]) svg += `<text x="${x + r}" y="${y - r + 4}" font-size="11" font-weight="700" fill="${line}">${a[3] > 0 ? "+" : "−"}</text>`;
+  });
+  stage.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Structure of ${esc(m.name)}">${svg}</svg>
+    <div class="small muted" style="padding:0 10px 8px">${m.kind === "polymer" ? "A short slice of a long chain. Dashed ends: the chain keeps going for thousands of carbons." : "Lines are shared electron pairs. Double lines = two pairs."}</div>`;
+}
+
+/* ---------------- lattice drawing (canvas; electron sea animates for metals) ---------------- */
+function drawLattice(stage, m){
+  stage.innerHTML = `<canvas aria-label="${esc(m.name)} lattice"></canvas><div class="small muted" style="padding:0 10px 8px" id="latNote"></div>`;
+  const cv = stage.querySelector("canvas"); cv.style.aspectRatio = "4/3";
+  const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio||1), W = r.width, H = W * 0.75;
+  cv.width = W*dpr; cv.height = H*dpr; const ctx = cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const st = m.lattice.style, comp = m.lattice.comp, syms = Object.keys(comp);
+  const ink = css("--ink"), line = css("--line"), eo = css("--accent");
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const cols = 7, rows = 5, gx = W / (cols + 1), gy = H / (rows + 1);
+  const sites = [];
+  // assign species to grid sites in proportion (largest remainder), interleaved for ionic so opposite charges alternate
+  const total = Object.values(comp).reduce((a,b)=>a+b,0);
+  function species(i, n){
+    if (syms.length === 1) return syms[0];
+    if (st === "ionic" || st === "network"){
+      const [a, b] = syms; const fa = comp[a] / total;
+      if (Math.abs(fa - 0.5) < 1e-6) return ((i % cols) + Math.floor(i / cols)) % 2 ? b : a;
+      return (Math.floor((i+1) * fa) - Math.floor(i * fa)) ? a : b;
+    }
+    let x = rnd() * total, acc = 0;
+    for (const s of syms){ acc += comp[s]; if (x <= acc) return s; } return syms[0];
+  }
+  const note = $("latNote");
+  const ionCharge = s => { const e = S.bySym[s]; return isMetal(e) ? "+" : (e.symbol === "H" && syms.some(x=>isMetal(S.bySym[x]))) ? "−" : "−"; };
+  let draw;
+  if (st === "graphite"){
+    const a = Math.min(W, H) / 9, pts = [];
+    for (let row = -1; row < 9; row++) for (let colI = -1; colI < 12; colI++){
+      const x0 = colI * a * Math.sqrt(3) + (row % 2 ? a * Math.sqrt(3) / 2 : 0), y0 = row * a * 1.5;
+      pts.push([x0, y0, 0], [x0, y0 + a, 1]);
+    }
+    const P = pts.filter(p => p[0] > 8 && p[0] < W - 8 && p[1] > 8 && p[1] < H - 8);
+    draw = (t) => {
+      ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle = ink; ctx.globalAlpha = .55; ctx.lineWidth = 1.5;
+      for (let i = 0; i < P.length; i++) for (let j = i+1; j < P.length; j++){ const d = Math.hypot(P[i][0]-P[j][0], P[i][1]-P[j][1]); if (d < a * 1.05){ ctx.beginPath(); ctx.moveTo(P[i][0],P[i][1]); ctx.lineTo(P[j][0],P[j][1]); ctx.stroke(); } }
+      ctx.globalAlpha = 1;
+      P.forEach((p,i) => { const s = syms.length === 2 ? syms[(p[2] + Math.round(p[0]/(a*Math.sqrt(3)/2))) % 2] : syms[0]; ctx.beginPath(); ctx.arc(p[0],p[1], 7, 0, 7); ctx.fillStyle = atomColor(s); ctx.fill(); });
+      if (syms[0] === "C"){ for (let k = 0; k < 26; k++){ const x = (k * 97 + t * 40) % W, y = (k * 53) % H; ctx.beginPath(); ctx.arc(x, y, 2.2, 0, 7); ctx.fillStyle = eo; ctx.globalAlpha = .7; ctx.fill(); ctx.globalAlpha = 1; } }
+    };
+    note.textContent = syms[0] === "C" ? "Flat hexagon sheets (one shown). Each carbon uses 3 seats; its 4th electron roams across the sheet (blue dots), so graphite conducts." : "Hexagon sheets of alternating atoms, stacked like pages.";
+  } else {
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) sites.push({x: gx * (i + 1), y: gy * (j + 1), s: species(j * cols + i)});
+    const electrons = Array.from({length: 40}, () => ({x: rnd() * W, y: rnd() * H, vx: (rnd() - .5) * 30, vy: (rnd() - .5) * 30}));
+    const interstitial = st === "interstitial" ? sites.filter((_, k) => k % 6 === 2).map(s => ({x: s.x + gx/2, y: s.y + gy/2})) : [];
+    const sea = ["metal","alloy","interstitial"].includes(st);
+    draw = (t, dt) => {
+      ctx.clearRect(0,0,W,H);
+      if (st === "network" || st === "bridge"){
+        ctx.strokeStyle = ink; ctx.globalAlpha = .5; ctx.lineWidth = 1.6;
+        for (const s of sites){ for (const [dx, dy] of [[gx,0],[0,gy]]){ const x2 = s.x + dx, y2 = s.y + dy; if (x2 < W - gx/2 && y2 < H - gy/2){ ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(x2, y2); ctx.stroke(); } } }
+        ctx.globalAlpha = 1;
+      }
+      if (sea){
+        for (const e of electrons){
+          e.x += e.vx * dt; e.y += e.vy * dt;
+          if (e.x < 0) e.x += W; if (e.x > W) e.x -= W; if (e.y < 0) e.y += H; if (e.y > H) e.y -= H;
+          ctx.beginPath(); ctx.arc(e.x, e.y, 2.4, 0, 7); ctx.fillStyle = eo; ctx.globalAlpha = .75; ctx.fill(); ctx.globalAlpha = 1;
+        }
+      }
+      const R = Math.min(gx, gy) * 0.3;
+      for (const s of sites){
+        const isBridgeCenter = st === "bridge" && s.s === "Na";
+        // anions are physically bigger than cations (extra electrons, less pull per electron)
+        ctx.beginPath(); ctx.arc(s.x, s.y, st === "ionic" ? (isMetal(S.bySym[s.s]) ? R * 0.8 : R * 1.25) : R, 0, 7);
+        ctx.fillStyle = atomColor(isBridgeCenter ? "Si" : s.s); ctx.fill();
+        const label = (isBridgeCenter ? "Si" : s.s) + (st === "ionic" ? ionCharge(s.s) : sea ? "+" : "");
+        ctx.fillStyle = textOn(atomColor(isBridgeCenter ? "Si" : s.s).startsWith("#") ? atomColor(isBridgeCenter ? "Si" : s.s) : "#3A3F47");
+        ctx.font = `700 ${Math.max(9, R * 0.62)}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(label, s.x, s.y + 0.5);
+      }
+      if (st === "bridge"){
+        // oxygen bridges between neighbors (the 1:2 ratio in SiO2)
+        for (const s of sites) for (const [dx, dy] of [[gx,0],[0,gy]]){ const x2 = s.x + dx, y2 = s.y + dy; if (x2 < W - gx/2 && y2 < H - gy/2){ ctx.beginPath(); ctx.arc((s.x+x2)/2, (s.y+y2)/2, R*0.5, 0, 7); ctx.fillStyle = atomColor("O"); ctx.fill(); } }
+        if (comp.Na) sites.filter((_, k) => k % 9 === 4).forEach(s => { ctx.beginPath(); ctx.arc(s.x + gx/2, s.y + gy/2, R*0.45, 0, 7); ctx.fillStyle = atomColor("Na"); ctx.fill(); });
+      }
+      for (const p of interstitial){ ctx.beginPath(); ctx.arc(p.x, p.y, R * 0.45, 0, 7); ctx.fillStyle = atomColor("C"); ctx.fill(); }
+    };
+    if (st === "bridge" && comp.Al){
+      // swap a few Si nodes to Al for zeolite
+      sites.forEach((s, k) => { s.s = k % 4 === 1 ? "Al" : "Si"; });
+    } else if (st === "bridge"){ sites.forEach(s => s.s = Object.keys(comp)[0]); }
+    note.textContent = {
+      ionic: "No separate molecules: a repeating grid of + and − ions held by charge. The formula is just the ratio.",
+      network: "One giant molecule: every atom bonded to its neighbors in all directions (flattened to 2D here).",
+      bridge: comp.Al ? "Silicon (and some aluminum) nodes linked by oxygen bridges (red). Purple dots: sodium ions sitting in the pores." : "Silicon nodes linked by oxygen bridges (red). Each Si has 4 O neighbors in 3D; each O bridges 2 Si.",
+      metal: "Metal ions (+) in a grid, swimming in a shared sea of loose outer electrons (blue). Push the sea with a voltage and you get current.",
+      alloy: "Different metal atoms mixed into one grid, all sharing the electron sea. Odd-sized atoms jam the layers so they slide less: stronger metal.",
+      interstitial: "Iron grid with small carbon atoms (gray) wedged into the gaps. They pin the layers, making steel much stronger than pure iron.",
+    }[st] || "";
+  }
+  let last = performance.now(), t = 0;
+  function frame(now){ const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt; draw(t, reduceMotion ? 0 : dt); if (!reduceMotion) anim.raf = requestAnimationFrame(frame); }
+  anim = {raf: requestAnimationFrame(frame)};
+}
+
+/* ---------------- search / filters / misc ---------------- */
+function molMatchesQuery(m, q){ return m.name.toLowerCase().includes(q) || m.formula.toLowerCase() === q || (m.aliases||[]).some(a => a.toLowerCase().includes(q)); }
+$("search").addEventListener("input", (ev) => {
+  S.query = ev.target.value; applyColors();
+  const q = S.query.trim().toLowerCase(), hits = $("searchHits");
+  const ms = q.length > 1 ? S.mols.filter(m => molMatchesQuery(m, q)).slice(0, 8) : [];
+  hits.hidden = !ms.length;
+  hits.innerHTML = ms.map(m => `<button data-mol="${m.id}">${esc(m.name)}<span class="fm">${esc(m.formula)}</span></button>`).join("");
+  hits.querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => loadMolecule(b.dataset.mol)));
+});
+$("search").addEventListener("keydown", (ev) => {
+  if (ev.key !== "Enter") return;
+  const q = S.query.trim().toLowerCase();
+  const e = S.els.find(x => x.symbol.toLowerCase() === q || x.name.toLowerCase() === q) || S.els.find(x => x.name.toLowerCase().startsWith(q));
+  if (e){ setMode("explore"); onCell(e.symbol); return; }
+  const m = S.mols.find(x => molMatchesQuery(x, q)); if (m) loadMolecule(m.id);
+});
+$("colorBy").addEventListener("change", (ev) => { S.colorBy = ev.target.value; applyColors(); try { localStorage.setItem("plab.prefs", JSON.stringify({colorBy: S.colorBy})); } catch(_){} });
+for (const [id, k] of [["lensNexus","nexus"],["lensRocket","rocket"]]) $(id).addEventListener("click", () => { S.lens[k] = !S.lens[k]; $(id).setAttribute("aria-pressed", S.lens[k]); applyColors(); });
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (S.mode === "explore") renderPanel(); }, 200); });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (S.bySym[h]){ setMode("explore"); onCell(h); } });
+const rethemed = () => setTimeout(() => { if (S.mode === "explore") renderPanel(); }, 50);
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", rethemed);
+new MutationObserver(rethemed).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+document.addEventListener("keydown", ev => { if (ev.key === "Escape") closeSheet(); });
+addEventListener("hashchange", () => {});
+
+load().catch(err => { $("ptable").innerHTML = `<div class="loading">Couldn't load the element data (${esc(err.message)}). Reload the page to try again.</div>`; });
+</script>
+<script src="bench.js"></script>
+
+<script>
+/* offline support + "Install app" in Chrome */
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+</script>
+</body></html>

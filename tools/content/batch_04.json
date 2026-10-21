@@ -1,0 +1,450 @@
+[
+  {
+    "z": 51,
+    "tier": "deep",
+    "tagline": "A brittle part-metal with 5 outer electrons. It helps make PET and helps plastics resist fire.",
+    "atomStory": "Antimony has 5 electrons (tiny charged bits) on its outer shell, shell 5. That leaves 3 empty hands, just like nitrogen and phosphorus above it. It sits on the line between metals and nonmetals. It looks like shiny metal but is brittle and carries electricity poorly. In compounds it usually gives away 3 of those electrons (+3) or all 5 (+5).",
+    "uses": [
+      {"title": "Fire-stopping partner", "why": "Antimony trioxide (Sb2O3) goes into plastics along with bromine-based flame retardants. In a fire they make antimony halides (antimony joined to bromine-type atoms) that turn to gas. These grab the free radicals, atom pieces with an empty hand, that a flame needs to keep burning."},
+      {"title": "PET catalyst", "why": "Most PET for bottles and fiber is made with an antimony catalyst (a helper that speeds a reaction without being used up), such as Sb2O3. The antimony helps the ends of the plastic chains link up at around 280 °C."},
+      {"title": "Hardening lead", "why": "A few percent antimony stiffens soft lead for battery grids and bullets. The odd-sized antimony atoms jam the lead's neat rows, so its layers can't slide as easily."},
+      {"title": "Infrared detectors", "why": "Indium antimonide (InSb) needs very little energy to free an electron (a band gap of about 0.2 eV). So even weak infrared light can knock electrons loose. That makes it a classic heat-camera sensor."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Sb2O3", "name": "Antimony trioxide", "note": "White powder. It boosts flame retardants and helps make PET."},
+      {"partners": ["S"], "formula": "Sb2S3", "name": "Stibnite", "note": "The gray main ore (rock mined for metal) of antimony. In ancient times it was ground up as kohl eye makeup."},
+      {"partners": ["In"], "formula": "InSb", "name": "Indium antimonide", "note": "A semiconductor (partway between a metal and an insulator) used in infrared detectors."},
+      {"partners": ["H"], "formula": "SbH3", "name": "Stibine", "note": "Toxic gas. The heavier cousin of ammonia (NH3), holding 3 hydrogens with its 3 hands."}
+    ],
+    "number": {"value": "~200 ppm", "label": "Typical antimony left in PET plastic from its catalyst"},
+    "source": "Mostly mined as stibnite (Sb2S3). It's roasted into the oxide, then carbon pulls the oxygen off to leave the metal.",
+    "lenses": {
+      "nexus": "Most PET carries leftover catalyst antimony. Fire-resistant plastics, like electronics cases, carry Sb2O3 plus bromine. In your plant's feed these are contaminants that can end up in the oil and char.",
+      "rocket": "Indium antimonide detectors flew on NASA's Spitzer Space Telescope to see infrared (heat) light."
+    }
+  },
+  {
+    "z": 52,
+    "tier": "deep",
+    "tagline": "A rare part-metal left over from copper refining. It powers thin-film solar panels and Mars rover generators.",
+    "atomStory": "Tellurium has 6 outer electrons and 2 empty hands, like oxygen and sulfur above it. But its outer layer is far from the center, so it's held loosely. That makes tellurium act partly like a metal. Its big, soft electron cloud is why its compounds make good semiconductors (materials partway between a metal and an insulator).",
+    "uses": [
+      {"title": "Thin-film solar panels", "why": "Cadmium telluride soaks up sunlight in a layer just a few micrometers thick. Its band gap (about 1.5 eV, the energy needed to free an electron) matches sunlight well. It's the main thin-film rival to silicon panels."},
+      {"title": "Thermoelectric coolers", "why": "Bismuth telluride (Bi2Te3) turns electric current into a hot side and a cold side (Peltier coolers), and back again. Its heavy atoms jiggle slowly and block heat, but still let electrons through. Thermoelectrics need exactly that mix."},
+      {"title": "Phase-change memory and rewritable discs", "why": "A germanium-antimony-tellurium alloy (metal mix) flips between crystal and glass when hit by a laser or current pulse. The two states reflect light and carry current differently. That difference stores a bit."},
+      {"title": "Easy-to-machine metals", "why": "A pinch of tellurium makes steel and copper break into small chips when cut. So they machine faster and cleaner."}
+    ],
+    "bonds": [
+      {"partners": ["Cd"], "formula": "CdTe", "name": "Cadmium telluride", "note": "The sunlight-absorbing layer in thin-film solar panels."},
+      {"partners": ["Bi"], "formula": "Bi2Te3", "name": "Bismuth telluride", "note": "The standard room-temperature thermoelectric (heat-to-electricity material), used in Peltier coolers."},
+      {"partners": ["Pb"], "formula": "PbTe", "name": "Lead telluride", "note": "A thermoelectric that works hotter. Used in radioisotope power generators, which run on heat from radioactive decay."},
+      {"partners": ["C", "H"], "formula": "(CH3)2Te", "name": "Dimethyl telluride", "note": "The body makes this from tellurium it absorbs. It gives exposed workers strong garlic breath."}
+    ],
+    "number": {"value": "~1.5 eV", "label": "Cadmium telluride's band gap, close to ideal for sunlight"},
+    "source": "A byproduct of copper refining. It's recovered from the sludge (anode slimes) left when copper is refined with electricity.",
+    "lenses": {
+      "rocket": "The MMRTG power source on NASA's Curiosity and Perseverance rovers runs on heat from decaying plutonium-238. Lead telluride and TAGS (Te-Ag-Ge-Sb) thermocouples turn that heat into electricity, with no moving parts."
+    }
+  },
+  {
+    "z": 53,
+    "tier": "deep",
+    "tagline": "The heaviest everyday halogen: one empty hand, a purple vapor, and a nutrient your thyroid needs.",
+    "atomStory": "Iodine has 7 outer electrons and 1 empty hand. So two iodine atoms hold hands to make I2, just like chlorine. Its outer layer is far from the center, so it pulls on electrons more gently than fluorine or chlorine. It's the mildest common halogen. Its big electron clouds cling together enough to make it a solid at room temperature. Even so, it gives off purple vapor without melting.",
+    "uses": [
+      {"title": "Thyroid hormones and iodized salt", "why": "The thyroid builds iodine into the hormones T4 and T3, which set how fast your body burns energy. Salt gets potassium iodide or iodate added because many inland soils are short of iodine."},
+      {"title": "Disinfectant", "why": "Iodine solutions (tincture, povidone-iodine) kill germs. Iodine steals electrons from their proteins (oxidizing them) and sticks to them."},
+      {"title": "X-ray contrast dye", "why": "Each iodine atom has 53 electrons, enough to soak up X-rays strongly. Iodine dyes injected into blood vessels show up bright on CT scans."},
+      {"title": "Radiation protection", "why": "Potassium iodide pills fill the thyroid with normal iodine. Then it won't take up radioactive iodine-131 after a reactor accident."}
+    ],
+    "bonds": [
+      {"partners": ["I"], "formula": "I2", "name": "Elemental iodine", "note": "Two atoms holding hands. A shiny gray-black solid that gives off purple vapor."},
+      {"partners": ["K"], "formula": "KI", "name": "Potassium iodide", "note": "The iodine source in iodized salt and radiation-protection pills."},
+      {"partners": ["C", "H"], "formula": "CH3I", "name": "Methyl iodide", "note": "The helper (promoter) in the catalyst process that makes most of the world's acetic acid."},
+      {"partners": ["Ag"], "formula": "AgI", "name": "Silver iodide", "note": "Used to seed clouds. Its crystal shape is close to ice's, so water droplets get a pattern to freeze on."}
+    ],
+    "number": {"value": "150 μg/day", "label": "Recommended iodine per day for adults (US)"},
+    "source": "Pulled from underground salty water (brines) and from iodate in Chilean nitrate deposits. Seaweed ash was the first source.",
+    "lenses": {
+      "nexus": "Acetic acid is made from methanol plus CO over a rhodium or iridium catalyst, with methyl iodide as a helper. These are the Monsanto and Cativa processes. Acetic acid is the solvent for making PTA, one of PET's two building blocks.",
+      "rocket": "Small electric thrusters use iodine as propellant. It stores as a dense solid, so no high-pressure tank is needed. It first flew on a small satellite in 2020."
+    }
+  },
+  {
+    "z": 54,
+    "tier": "deep",
+    "tagline": "A heavy noble gas that fuels ion thrusters. Unlike its lighter cousins, it can be forced to bond.",
+    "atomStory": "Xenon's outer layer is full at 8, so it has 0 hands and normally never bonds. But that layer is shell 5, far from the center. So fluorine, the strongest electron grabber, can tug its electrons into real bonds like XeF2. Its heavy atom (131 u) and easy-to-pull outer electron make it the classic ion-thruster fuel.",
+    "uses": [
+      {"title": "Ion and Hall thrusters", "why": "Electric thrusters pull one electron off each atom, making an ion (a charged atom). An electric field fires the ions out the back. Xenon is heavy (more push per ion), easy to ionize, unreactive, and packs densely."},
+      {"title": "Bright white lamps", "why": "Xenon arc lamps, camera flashes and HID headlights use xenon. Energized at high pressure, it glows across all visible colors, close to daylight."},
+      {"title": "Anesthesia", "why": "Xenon puts people fully under (general anesthesia) without reacting chemically. Its big, squishy electron cloud blocks certain nerve receptors. Cost limits its use."},
+      {"title": "Dark matter detectors", "why": "Tonnes of ultra-pure liquid xenon sit in underground detectors. It's dense, and it flashes light when a particle hits one of its nuclei (atom centers)."}
+    ],
+    "bonds": [
+      {"partners": ["F"], "formula": "XeF2", "name": "Xenon difluoride", "note": "A stable white solid, proof a noble gas can bond. Used to etch silicon when making chips and MEMS (tiny machines)."},
+      {"partners": ["F"], "formula": "XeF4", "name": "Xenon tetrafluoride", "note": "Xenon holds 4 fluorines in a flat square."},
+      {"partners": ["O"], "formula": "XeO3", "name": "Xenon trioxide", "note": "A dangerously explosive solid."}
+    ],
+    "number": {"value": "87 ppb", "label": "Xenon in air by volume, which is why it's expensive"},
+    "source": "Separated from liquid air as a byproduct of big oxygen plants.",
+    "lenses": {
+      "rocket": "NASA's Dawn spacecraft used xenon ion engines to orbit both Vesta and Ceres. The push is tiny, but it runs for months. Per kilogram of propellant, it gains far more speed than any chemical engine."
+    }
+  },
+  {
+    "z": 55,
+    "tier": "deep",
+    "tagline": "The loosest outer electron of any stable element. It melts in a warm hand and defines the second.",
+    "atomStory": "Cesium has one electron on its 6th shell, far from the center. 54 inner electrons shield it from the center's pull. It's easier to remove (3.9 eV) than from any other stable element. So cesium explodes in water and melts at 28.5 °C. That lone electron's spin flipping against the nucleus (the atom's center) is the tick of an atomic clock.",
+    "uses": [
+      {"title": "Atomic clocks", "why": "One second is defined as 9,192,631,770 waves of the microwave that flips the cesium-133 outer electron's spin against its nucleus. Every cesium atom is identical, so every clock agrees."},
+      {"title": "Drilling fluid", "why": "Cesium formate brine (salty liquid) is very dense, up to about 2.3 g/cm³, with no solids floating in it. It holds back pressure in deep, hot oil and gas wells without clogging the rock."},
+      {"title": "Light sensors", "why": "Its loose electron jumps off the surface easily when light hits. So cesium is used in the light-catching layer (photocathode) of light detectors."},
+      {"title": "Gamma sources", "why": "Radioactive cesium-137 has a 30-year half-life (time for half of it to decay). It gives off steady gamma rays for factory density gauges and medical irradiators."}
+    ],
+    "bonds": [
+      {"partners": ["Cl"], "formula": "CsCl", "name": "Cesium chloride", "note": "A textbook ionic crystal, + and − ions stuck like magnets. Its dense solutions separate DNA in lab centrifuges."},
+      {"partners": ["O", "H"], "formula": "CsOH", "name": "Cesium hydroxide", "note": "One of the strongest bases (the opposite of an acid). Strong enough to eat into glass."},
+      {"partners": ["C", "H", "O"], "formula": "HCOOCs", "name": "Cesium formate", "note": "The salt behind heavy drilling brines."}
+    ],
+    "number": {"value": "9,192,631,770 Hz", "label": "Cesium-133 frequency that defines one SI second"},
+    "source": "Mined mostly from pollucite, a mineral of cesium, aluminum, silicon and oxygen. It's found in pegmatite rock.",
+    "lenses": {
+      "rocket": "GPS satellites carry cesium and rubidium atomic clocks. Their timing must be corrected for relativity by about 38 microseconds a day. Otherwise positions would drift by kilometers each day."
+    }
+  },
+  {
+    "z": 56,
+    "tier": "deep",
+    "tagline": "A heavy alkaline-earth metal. Its sulfate won't dissolve, so it's safe to drink for an X-ray.",
+    "atomStory": "Barium has 2 outer electrons, held loosely, so it gives both away to become Ba2+. The ion is big and heavy (56 electrons). That's why barium compounds are dense and block X-rays. Loose Ba2+ is toxic, so what matters is whether a compound dissolves.",
+    "uses": [
+      {"title": "Drilling mud weight", "why": "Ground barite (BaSO4) is added to drilling fluid to make it heavy. That holds back high-pressure oil and gas. This is barium's biggest use."},
+      {"title": "Barium meal X-rays", "why": "Patients drink barium sulfate to outline the gut on X-rays. Its heavy atoms block X-rays. It dissolves so little that almost no toxic Ba2+ reaches the body."},
+      {"title": "Green fireworks", "why": "Barium nitrate and chlorate turn flames green. In the flame, energized barium monochloride (BaCl) molecules give off green light."},
+      {"title": "Ceramic capacitors", "why": "Barium titanate (BaTiO3) has a very high dielectric constant, meaning it helps store a lot of charge. So the tiny ceramic capacitors in phones and cars hold a lot in little space."}
+    ],
+    "bonds": [
+      {"partners": ["S", "O"], "formula": "BaSO4", "name": "Barium sulfate (barite)", "note": "The dense ore that won't dissolve. Used in drilling mud, X-ray contrast and as a plastic filler."},
+      {"partners": ["Ti", "O"], "formula": "BaTiO3", "name": "Barium titanate", "note": "The charge-storing insulator (dielectric) in ceramic capacitors."},
+      {"partners": ["C", "O"], "formula": "BaCO3", "name": "Barium carbonate", "note": "Used in glass and ceramics. Poisonous, because stomach acid dissolves it."},
+      {"partners": ["N", "O"], "formula": "Ba(NO3)2", "name": "Barium nitrate", "note": "Green color and oxygen supplier (oxidizer) in fireworks."}
+    ],
+    "number": {"value": "4.5 g/cm³", "label": "Density of barite, about 1.7× ordinary rock"},
+    "source": "Mined as barite (BaSO4), a common mineral found in rock veins. Barium metal itself is rarely made."
+  },
+  {
+    "z": 57,
+    "tier": "deep",
+    "tagline": "First of the lanthanides. It's in refinery cracking catalysts, hybrid-car batteries and camera lenses.",
+    "atomStory": "Lanthanum has 2 outer electrons plus 1 in the layer just below (the d orbitals). It gives all 3 away to become La3+. It starts the lanthanide row. Each next element adds electrons to a hidden inner layer (4f, in shell 4), not the outside. That's why lanthanides all act almost the same, and simple hand-counting doesn't work for them.",
+    "uses": [
+      {"title": "FCC catalysts", "why": "Lanthanum ions are swapped into the zeolite Y crystals (rock-like sponges full of tiny cages) in fluid catalytic cracking catalyst. The La3+ ions brace the cages so they survive steam at about 700 °C in the regenerator. They also make cracking more active."},
+      {"title": "Nickel-metal hydride batteries", "why": "LaNi5-type alloys soak hydrogen atoms into gaps in their crystal and let them out on demand. That's the negative side of NiMH batteries used in many hybrid cars."},
+      {"title": "High-end lenses", "why": "Lanthanum oxide makes glass bend light more without splitting colors much. So camera lenses can be thinner and sharper."},
+      {"title": "Electron emitters", "why": "Lanthanum hexaboride (LaB6) lets go of electrons easily when heated. It's the filament in high-end electron microscopes."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "La2O3", "name": "Lanthanum oxide", "note": "The additive in high-end optical glass that bends light strongly."},
+      {"partners": ["Ni"], "formula": "LaNi5", "name": "Lanthanum nickel alloy", "note": "The hydrogen-storing alloy in NiMH batteries."},
+      {"partners": ["B"], "formula": "LaB6", "name": "Lanthanum hexaboride", "note": "A hard electron emitter with a high melting point."}
+    ],
+    "number": {"value": "6 H per LaNi5", "label": "Hydrogen soaked into the alloy. That's more H per liter than liquid hydrogen."},
+    "source": "Separated from monazite and bastnäsite ores, where the rare earths come mixed together. It takes many rounds of solvent extraction (washing them apart with liquids).",
+    "lenses": {
+      "nexus": "Rare earths, mainly lanthanum, are standard in FCC catalysts. These crack (break) heavy gas oil into gasoline and propylene. The cracking happens on acid spots inside zeolite cages. La keeps those cages whole through thousands of hot cleaning (regeneration) cycles.",
+      "rocket": "Hall-effect thrusters need a hot cathode to supply electrons that cancel out the ion beam's charge. Many use lanthanum hexaboride emitters."
+    }
+  },
+  {
+    "z": 58,
+    "tier": "deep",
+    "tagline": "The most common rare earth. An oxygen sponge in catalytic converters and the polish on precision glass.",
+    "atomStory": "Cerium has 2 outer electrons, 1 in the 5d layer and 1 in the hidden 4f layer. Losing 3 gives Ce3+, the usual lanthanide charge. But cerium can also give up that lone 4f electron to reach Ce4+, with the same neat core as xenon. Switching between +3 and +4 is cerium's main trick.",
+    "uses": [
+      {"title": "Catalytic converters", "why": "Cerium oxide stores oxygen when exhaust has extra air (lean) and gives it back when it has extra fuel (rich). It does this by switching between Ce4+ and Ce3+. That keeps the precious-metal catalyst cleaning up CO and NOx as the engine swings."},
+      {"title": "Glass polishing", "why": "Cerium oxide powder is the standard for polishing lenses, mirrors and screen glass. It reacts with the glass (silica) surface while grinding it. That gives a smoother finish than grit alone."},
+      {"title": "Lighter flints", "why": "Ferrocerium (mostly cerium plus iron) throws sparks when scraped. Tiny cerium shavings catch fire in air at low temperature."},
+      {"title": "UV-blocking glass", "why": "Cerium in glass soaks up ultraviolet light. It also keeps the glass from darkening under radiation."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "CeO2", "name": "Ceria", "note": "The oxide that stores oxygen and polishes glass, with cerium at +4."},
+      {"partners": ["O"], "formula": "Ce2O3", "name": "Cerium(III) oxide", "note": "The form ceria shifts toward when it gives up oxygen."},
+      {"partners": ["Fe"], "formula": "Ce-Fe alloy", "name": "Ferrocerium", "note": "The spark-throwing 'flint' in lighters and fire starters."},
+      {"partners": ["N", "H", "O"], "formula": "(NH4)2Ce(NO3)6", "name": "Ceric ammonium nitrate", "note": "A strong Ce4+ electron stealer (oxidizer) used in labs. It also etches chromium on the stencils (photomasks) used to make chips."}
+    ],
+    "number": {"value": "~60 ppm", "label": "Amount in Earth's crust, about the same as copper"},
+    "source": "The most plentiful rare earth in bastnäsite and monazite. It's often pulled out first by turning it into Ce4+, which acts differently from its +3 neighbors.",
+    "lenses": {
+      "nexus": "FCC units use de-SOx additives that contain ceria. Ceria helps turn SO2 into SO3 in the regenerator. Then a magnesium-aluminum oxide can trap it as sulfate instead of letting it out the stack.",
+      "rocket": "The cover glass on satellite solar cells has cerium added, so it doesn't turn brown from radiation in orbit."
+    }
+  },
+  {
+    "z": 59,
+    "tier": "deep",
+    "tagline": "Neodymium's twin. It strengthens magnets, colors yellow glazes and protects glassblowers' eyes.",
+    "atomStory": "Praseodymium has 2 outer electrons and 3 in the hidden 4f layer. It usually gives up 3 to become Pr3+. The 4f electrons sit deep in shell 4, shielded by the layers around them. So they soak up light only at very sharp, exact wavelengths (colors). That's where Pr's green and yellow colors come from.",
+    "uses": [
+      {"title": "Magnets", "why": "Pr can stand in for part of the neodymium in NdFeB magnets with similar strength. So magnet makers often buy a mixed 'PrNd' feedstock instead of paying to separate them."},
+      {"title": "Didymium glassblower glasses", "why": "Glass with Pr and Nd added soaks up the harsh yellow sodium light (589 nm) that hot glass gives off. So glassworkers can see their work without the glare."},
+      {"title": "Yellow ceramic pigment", "why": "Pr locked inside zircon crystals gives a bright yellow that survives kiln heat. The crystal shields the Pr ions from the glaze."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Pr6O11", "name": "Praseodymium oxide", "note": "Dark brown oxide with a mix of Pr3+ and Pr4+. The usual form sold."},
+      {"partners": ["Nd", "Fe", "B"], "formula": "(Pr,Nd)2Fe14B", "name": "PrNd magnet alloy", "note": "Neodymium magnet with some Pr swapped in."},
+      {"partners": ["Zr", "Si", "O"], "formula": "Pr:ZrSiO4", "name": "Praseodymium yellow", "note": "Zircon with Pr added, a standard yellow for ceramic glazes."}
+    ],
+    "number": {"value": "1885", "label": "Year Carl Auer von Welsbach split 'didymium' into Pr and Nd"},
+    "source": "Mined in bastnäsite and monazite ores. Usually separated together with neodymium."
+  },
+  {
+    "z": 60,
+    "tier": "deep",
+    "tagline": "The heart of the strongest permanent magnets. Found in most EV motors, many wind turbines and earbuds.",
+    "atomStory": "Neodymium has 2 outer electrons and 4 unpaired electrons in the hidden 4f layer. Unpaired electrons act like tiny bar magnets. Being buried, they resist being turned. In Nd2Fe14B, iron supplies most of the magnetism and neodymium locks it pointing one way.",
+    "uses": [
+      {"title": "EV motors and wind turbines", "why": "NdFeB magnets pack the most magnetic energy for their size of any magnet sold. So a motor can be smaller and lighter for the same turning force (torque)."},
+      {"title": "Speakers, earbuds and hard drives", "why": "A tiny Nd magnet is strong enough to drive a speaker cone or a hard drive's head arm. That's why earbuds can be so small."},
+      {"title": "Nd:YAG lasers", "why": "Nd3+ ions in a garnet crystal give off infrared light at 1064 nm. These solid-state lasers cut and mark metal and remove tattoos."},
+      {"title": "Colored glass", "why": "Neodymium gives glass a violet tint that seems to change color under different lights. Its hidden f electrons soak up a few narrow slices of the color spectrum."}
+    ],
+    "bonds": [
+      {"partners": ["Fe", "B"], "formula": "Nd2Fe14B", "name": "Neodymium magnet", "note": "The strongest common permanent magnet. It weakens when hot unless dysprosium or terbium is added."},
+      {"partners": ["Y", "Al", "O"], "formula": "Nd:Y3Al5O12", "name": "Nd:YAG", "note": "Yttrium aluminum garnet crystal with neodymium added. The classic laser crystal."},
+      {"partners": ["O"], "formula": "Nd2O3", "name": "Neodymium oxide", "note": "Pale lavender oxide. Nd is sold this way before being made into metal."}
+    ],
+    "number": {"value": "~1.4 T", "label": "Field left in top-grade NdFeB magnets (remanent field)"},
+    "source": "Mined in bastnäsite and monazite ores. It's separated from its near-identical neighbors through hundreds of solvent-extraction (liquid-washing) stages."
+  },
+  {
+    "z": 61,
+    "tier": "deep",
+    "tagline": "The lanthanide with no stable form. Every promethium atom is radioactive.",
+    "atomStory": "Promethium's electrons look like any lanthanide's: 2 outer and 5 in the hidden 4f layer, giving Pm3+. The problem is the nucleus, the atom's center. With 61 protons, no number of neutrons makes it stable, so all of it decays. Its chemistry is ordinary. Its nucleus is not.",
+    "uses": [
+      {"title": "Atomic batteries", "why": "Promethium-147 gives off weak beta particles (fast electrons). Betavoltaic cells turn them into a small current that lasts years. They powered some early pacemakers."},
+      {"title": "Luminous paint", "why": "Pm-147 mixed with a phosphor (glow material) shines on its own. It replaced radium on some watch dials and signs because its weak beta rays are easy to block."},
+      {"title": "Thickness gauges", "why": "Paper or plastic film soaks up more beta particles the thicker it is. So Pm-147 sources measure sheet thickness on production lines."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Pm2O3", "name": "Promethium oxide", "note": "The usual form used in radiation sources."},
+      {"partners": ["Cl"], "formula": "PmCl3", "name": "Promethium chloride", "note": "A typical +3 lanthanide salt. It glows faintly from its own radioactivity."}
+    ],
+    "number": {"value": "17.7 years", "label": "Half-life (time for half to decay) of promethium-145, its longest-lived isotope"},
+    "source": "Made in nuclear reactors when uranium splits (fission). Only traces exist naturally in uranium ore."
+  },
+  {
+    "z": 62,
+    "tier": "deep",
+    "tagline": "The heat-proof magnet metal. Samarium-cobalt keeps its pull where neodymium magnets give up.",
+    "atomStory": "Samarium has 2 outer electrons and 6 in the hidden 4f layer. It usually forms Sm3+ but can also stop at Sm2+. Paired with cobalt, its f electrons lock the magnet's direction, while cobalt's strong magnetic link survives heat. One isotope's nucleus, Sm-149, also soaks up neutrons very strongly.",
+    "uses": [
+      {"title": "High-temperature magnets", "why": "SmCo magnets keep most of their strength up to roughly 250-350 °C and resist corrosion. So they go in aerospace motors, sensors and guidance systems where NdFeB would weaken."},
+      {"title": "Reactor neutron poison", "why": "Samarium-149 builds up in reactor fuel as uranium splits, and it soaks up neutrons. Operators must account for it when running the reactor."},
+      {"title": "Bone cancer pain relief", "why": "Radioactive Sm-153 rides on a phosphonate molecule that collects where cancer has spread in bone. It irradiates the cancer from close range."},
+      {"title": "Chemistry reagent", "why": "Samarium(II) iodide hands over one electron at a time. Chemists use it as a gentle tool to join carbon atoms."}
+    ],
+    "bonds": [
+      {"partners": ["Co"], "formula": "SmCo5, Sm2Co17", "name": "Samarium-cobalt", "note": "Permanent magnets that handle heat and radiation."},
+      {"partners": ["I"], "formula": "SmI2", "name": "Samarium(II) iodide", "note": "Kagan's reagent, a mild one-electron giver for building molecules in the lab."},
+      {"partners": ["O"], "formula": "Sm2O3", "name": "Samarium oxide", "note": "The starting material for Sm metal and magnets."}
+    ],
+    "number": {"value": "~700-800 °C", "label": "Curie temperature (where magnetism is lost) of SmCo magnets (NdFeB: ~310 °C)"},
+    "source": "Separated from monazite and bastnäsite ores.",
+    "lenses": {
+      "rocket": "Many communication satellites boost their signals with traveling-wave tubes. These use SmCo magnets to focus their electron beams, because the magnets stay strong through heat and radiation in orbit."
+    }
+  },
+  {
+    "z": 63,
+    "tier": "deep",
+    "tagline": "The red and blue glow. Europium phosphors light screens, lamps and glow-in-the-dark signs.",
+    "atomStory": "Europium has 2 outer electrons and 7 in the hidden 4f layer, exactly half full. A half-full f layer is extra stable. So europium easily stops at Eu2+ as well as the usual Eu3+. Eu3+ gives off a pure red line. Eu2+ glows anywhere from blue to red, depending on the crystal around it.",
+    "uses": [
+      {"title": "Red phosphor", "why": "Yttrium oxide and oxysulfide with europium added made the red in color CRT TVs and fluorescent tubes. Its shielded f electrons give off a narrow line near 612 nm, a clean red."},
+      {"title": "Blue phosphor", "why": "In three-color fluorescent lamps, Eu2+ in barium magnesium aluminate makes the blue. Same element, different charge, different color."},
+      {"title": "Glow-in-the-dark", "why": "Strontium aluminate with Eu and Dy added traps energized electrons and lets them go slowly as light for hours. It replaced zinc sulfide in exit signs and watch dials."},
+      {"title": "White LEDs", "why": "Nitride phosphors with Eu2+ turn part of a blue LED's light into red. That warms up the white."}
+    ],
+    "bonds": [
+      {"partners": ["Y", "O"], "formula": "Y2O3:Eu", "name": "Europium-doped yttria", "note": "The classic red phosphor (glow material)."},
+      {"partners": ["Sr", "Al", "O", "Dy"], "formula": "SrAl2O4:Eu,Dy", "name": "Strontium aluminate phosphor", "note": "Long-lasting glow-in-the-dark pigment."},
+      {"partners": ["O"], "formula": "Eu2O3", "name": "Europium oxide", "note": "The starting material for europium phosphors."}
+    ],
+    "number": {"value": "~612 nm", "label": "Red light line given off by Eu3+ phosphors"},
+    "source": "One of the scarcer rare earths, separated from bastnäsite and monazite. It's easier to pull out than its neighbors because it can be turned into Eu2+."
+  },
+  {
+    "z": 64,
+    "tier": "deep",
+    "tagline": "Seven unpaired electrons. The MRI contrast metal and the hungriest neutron absorber.",
+    "atomStory": "Gadolinium has 2 outer electrons, 1 d electron and 7 in the 4f layer. The Gd3+ ion keeps all 7 f electrons unpaired, the most an f layer can have. That makes it strongly magnetic. The metal becomes a true magnet only below about 20 °C. So it acts differently near a magnet on a cold day than on a warm one.",
+    "uses": [
+      {"title": "MRI contrast agent", "why": "Gd3+'s seven unpaired electrons help the protons (hydrogen centers) in nearby water relax faster, which brightens tissue on MRI. The ion is wrapped in an organic cage (a chelate) because loose Gd3+ is toxic."},
+      {"title": "Neutron absorber", "why": "Gadolinium-157 catches slow neutrons better than any other stable isotope. Gd2O3 is mixed into some reactor fuel as a 'burnable poison.' It tames fresh fuel and then burns away."},
+      {"title": "X-ray detectors", "why": "Gadolinium oxysulfide with terbium added turns X-rays into green light in digital X-ray and CT detectors. Heavy Gd atoms stop X-rays well."},
+      {"title": "Magnetic refrigeration research", "why": "Gd warms up when magnetized and cools when the field is removed, right near room temperature. Researchers use it to build fridges without refrigerant gas."}
+    ],
+    "bonds": [
+      {"partners": ["C", "N", "O", "H"], "formula": "[Gd(DOTA)]-", "name": "Gadoterate", "note": "A typical MRI agent: Gd3+ locked in a ring-shaped organic cage."},
+      {"partners": ["O"], "formula": "Gd2O3", "name": "Gadolinium oxide", "note": "Burnable neutron poison in reactor fuel."},
+      {"partners": ["O", "S"], "formula": "Gd2O2S", "name": "Gadolinium oxysulfide", "note": "Turns X-rays into light (a scintillator). Usually has terbium added."}
+    ],
+    "number": {"value": "~20 °C", "label": "Curie point: below it, gadolinium is a true magnet (ferromagnetic)"},
+    "source": "Separated from monazite, bastnäsite and ion-adsorption clay ores."
+  },
+  {
+    "z": 65,
+    "tier": "deep",
+    "tagline": "The green glow and the shape-shifting alloy. Terbium lights lamps and drives sonar.",
+    "atomStory": "Terbium has 2 outer electrons and 9 in the hidden 4f layer. It forms Tb3+ and sometimes Tb4+. Its shielded f electrons give off a sharp green line near 545 nm. Its f-electron cloud is lopsided. So when a magnetic field turns it, the crystal around it stretches.",
+    "uses": [
+      {"title": "Green phosphor", "why": "Tb3+ is the green in three-color fluorescent lamps (in a phosphate with cerium) and in older color screens. Our eyes are most sensitive to green, so this phosphor gives much of a lamp's brightness."},
+      {"title": "Terfenol-D actuators", "why": "An alloy of terbium, dysprosium and iron stretches about 0.2% when magnetized. That's far more than normal magnetic metals. The push drives sonar transducers and precise actuators (tiny movers)."},
+      {"title": "Heat-resistant magnets", "why": "A thin layer of Tb is soaked into the edges between grains in NdFeB magnets. That keeps them from losing magnetism when hot. It uses less of this scarce metal than mixing it all the way through."}
+    ],
+    "bonds": [
+      {"partners": ["La", "P", "O", "Ce"], "formula": "LaPO4:Ce,Tb", "name": "Green lamp phosphor", "note": "Cerium soaks up the UV and passes the energy to terbium, which glows green."},
+      {"partners": ["Dy", "Fe"], "formula": "Tb0.3Dy0.7Fe2", "name": "Terfenol-D", "note": "Alloy that changes shape in a magnetic field. Named for terbium, iron (Fe), the Naval Ordnance Laboratory and dysprosium (D)."},
+      {"partners": ["O"], "formula": "Tb4O7", "name": "Terbium oxide", "note": "Dark brown oxide mixing Tb3+ and Tb4+."}
+    ],
+    "number": {"value": "545 nm", "label": "Green light line given off by Tb3+"},
+    "source": "Mostly from ion-adsorption clay deposits rich in heavy rare earths. One of the scarcer lanthanides."
+  },
+  {
+    "z": 66,
+    "tier": "deep",
+    "tagline": "The magnet's heat shield. Dysprosium keeps NdFeB motors strong when they run hot.",
+    "atomStory": "Dysprosium has 2 outer electrons and 10 in the hidden 4f layer, several unpaired. That gives it one of the biggest magnetic moments (magnetic strength) of any atom. Its f-electron cloud is very lopsided, so its magnetic direction is hard to flip. Swap some into a neodymium magnet, and the whole magnet holds its magnetism when hot.",
+    "uses": [
+      {"title": "High-temperature NdFeB magnets", "why": "Plain NdFeB magnets start losing strength above about 80 °C. Swapping a few percent of the Nd for Dy lets EV drive motors and wind generators run hot without losing magnetism."},
+      {"title": "Metal-halide lamps", "why": "Dysprosium iodide in stadium and film-set lamps adds many colors of light across the spectrum. That gives bright, near-daylight light."},
+      {"title": "Reactor control rods", "why": "Dysprosium titanate soaks up neutrons and keeps its shape under radiation without swelling much. So some reactors use it in control rods."},
+      {"title": "Terfenol-D", "why": "Dy makes up most of the rare earth in Terfenol-D. It tunes the alloy so its big shape change works at room temperature."}
+    ],
+    "bonds": [
+      {"partners": ["Nd", "Fe", "B"], "formula": "(Nd,Dy)2Fe14B", "name": "Dy-doped neodymium magnet", "note": "The heat-resistant magnet grade used in EV motors."},
+      {"partners": ["I"], "formula": "DyI3", "name": "Dysprosium iodide", "note": "The light-giving fill in metal-halide lamps."},
+      {"partners": ["Ti", "O"], "formula": "Dy2TiO5", "name": "Dysprosium titanate", "note": "Neutron-absorbing ceramic for control rods."}
+    ],
+    "number": {"value": "~80 → ~200 °C", "label": "Safe working limit of NdFeB magnets without and with Dy"},
+    "source": "Mainly from ion-adsorption clays. Its name is Greek for 'hard to get at.'"
+  },
+  {
+    "z": 67,
+    "tier": "deep",
+    "tagline": "The most magnetic atom in nature, and the laser that breaks up kidney stones.",
+    "atomStory": "Holmium has 2 outer electrons and 11 in the hidden 4f layer. The spin and motion of those electrons add up to the biggest magnetic moment (magnetic strength) of any natural element. The same shielded f electrons give holmium sharp, reliable lines of light it absorbs and gives off.",
+    "uses": [
+      {"title": "Magnet pole pieces", "why": "Holmium carries magnetic field lines so well that pole pieces made of it focus the field in the strongest static magnets."},
+      {"title": "Kidney stone laser", "why": "Holmium in a YAG crystal gives off light at 2.1 μm, which water soaks up strongly. Each pulse flashes the water at the target into steam. That shatters stones and cuts tissue with little damage nearby."},
+      {"title": "Spectrometer calibration", "why": "Holmium oxide in glass or liquid absorbs at sharp, well-known wavelengths. Labs use it to check that spectrometers (light-measuring tools) read wavelengths correctly."}
+    ],
+    "bonds": [
+      {"partners": ["Y", "Al", "O"], "formula": "Ho:Y3Al5O12", "name": "Ho:YAG", "note": "The surgical laser crystal."},
+      {"partners": ["O"], "formula": "Ho2O3", "name": "Holmium oxide", "note": "Used to check light-measuring tools. It looks yellow in daylight and pink under fluorescent light."}
+    ],
+    "number": {"value": "10.6 μB", "label": "Magnetic strength per atom, highest of any natural element"},
+    "source": "Separated in small amounts from monazite and other rare-earth ores. Named after Stockholm (Latin Holmia)."
+  },
+  {
+    "z": 68,
+    "tier": "deep",
+    "tagline": "The internet's amplifier. Erbium boosts the light signals in undersea fiber cables.",
+    "atomStory": "Erbium has 2 outer electrons and 12 in the hidden 4f layer, and forms Er3+. When one of its f electrons drops down, it gives off light at about 1550 nm. That happens to be where glass fiber is clearest. That's the whole reason erbium matters.",
+    "uses": [
+      {"title": "Fiber-optic amplifiers", "why": "A few meters of fiber with erbium added, pumped with a 980 or 1480 nm laser, boosts 1550 nm signals directly. It never turns them into electricity. Long-haul and undersea cables put one about every 50 to 100 km."},
+      {"title": "Skin and dental laser", "why": "Er:YAG gives off light at 2.94 μm, right where water absorbs infrared most strongly. So it removes very thin layers of skin or tooth with little heating underneath."},
+      {"title": "Eye-safe lidar", "why": "Erbium fiber lasers near 1.5 μm are used in rangefinders and lidar. The front of the eye soaks up that light before it reaches the retina."},
+      {"title": "Pink glass", "why": "Er3+ soaks up green light, which tints glass, sunglasses and cubic zirconia pink."}
+    ],
+    "bonds": [
+      {"partners": ["Si", "O"], "formula": "Er:SiO2", "name": "Erbium-doped silica fiber", "note": "The light-boosting core of fiber-optic amplifiers."},
+      {"partners": ["Y", "Al", "O"], "formula": "Er:Y3Al5O12", "name": "Er:YAG", "note": "Laser crystal for skin resurfacing and dentistry."},
+      {"partners": ["O"], "formula": "Er2O3", "name": "Erbium oxide", "note": "Pink powder used to color glass."}
+    ],
+    "number": {"value": "1550 nm", "label": "Erbium's light, right where glass fiber loses the least"},
+    "source": "Separated from rare-earth ores, including ion-adsorption clays. Named after Ytterby, Sweden."
+  },
+  {
+    "z": 69,
+    "tier": "deep",
+    "tagline": "One of the rarest lanthanides. A battery-free X-ray source and a 2-micron surgical laser.",
+    "atomStory": "Thulium has 2 outer electrons and 13 in the 4f layer, one short of full. It forms Tm3+. Its only natural isotope (version), Tm-169, can soak up a neutron in a reactor and become radioactive Tm-170. That nucleus gives off weak gamma rays and X-rays.",
+    "uses": [
+      {"title": "Portable X-ray source", "why": "Tm-170's soft gamma rays can image welds or thin metal parts, from a source that needs no power. Its 128-day half-life means sources need replacing every few months."},
+      {"title": "Thulium fiber laser", "why": "Fiber lasers with thulium added give off light near 1.94 μm. Water soaks that up even more strongly than holmium's 2.1 μm light. Urologists use them to grind kidney stones into fine dust."},
+      {"title": "X-ray intensifying screens", "why": "Lanthanum oxybromide with thulium added glows blue when hit by X-rays. It was used to expose film with a lower dose to the patient."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "Tm2O3", "name": "Thulium oxide", "note": "The form put in a reactor to make Tm-170 sources."},
+      {"partners": ["La", "O", "Br"], "formula": "LaOBr:Tm", "name": "Thulium-doped lanthanum oxybromide", "note": "Blue-glowing X-ray phosphor."}
+    ],
+    "number": {"value": "128.6 days", "label": "Half-life of Tm-170, used in portable X-ray sources"},
+    "source": "Separated in small amounts from rare-earth ores. Named after Thule, an old name for the far north."
+  },
+  {
+    "z": 70,
+    "tier": "deep",
+    "tagline": "The lanthanide with a full f layer. A workhorse of factory lasers and some of the most precise clocks ever built.",
+    "atomStory": "Ytterbium has 2 outer electrons and a completely full 4f layer of 14. A full layer is stable, so ytterbium easily stops at Yb2+, though Yb3+ is more common. Yb3+ has just one raised energy level in its f layer. So when it lases, very little pump energy is wasted as heat.",
+    "uses": [
+      {"title": "Fiber lasers", "why": "Ytterbium fiber lasers pumped at about 976 nm give off around 1030-1080 nm. They lose under 10% of the pump energy as heat. Kilowatt versions cut and weld steel in factories."},
+      {"title": "Optical clocks", "why": "Yb atoms held in a grid of laser light have an extremely narrow energy jump. So Yb lattice clocks are among the most precise ever built, far beyond cesium."},
+      {"title": "Shock pressure gauges", "why": "Ytterbium metal's electrical resistance changes sharply with pressure. So Yb foil gauges measure blast and shock waves."},
+      {"title": "Trapped-ion qubits", "why": "Single Yb+ ions held in electric fields act as qubits (quantum bits) in some quantum computers. Lasers and microwaves can control their energy levels cleanly."}
+    ],
+    "bonds": [
+      {"partners": ["Si", "O"], "formula": "Yb:SiO2", "name": "Ytterbium-doped silica fiber", "note": "The light-making core of factory fiber lasers."},
+      {"partners": ["Y", "Al", "O"], "formula": "Yb:Y3Al5O12", "name": "Yb:YAG", "note": "Laser crystal for high-power thin-disk lasers."},
+      {"partners": ["O"], "formula": "Yb2O3", "name": "Ytterbium oxide", "note": "The starting material for adding Yb to other materials."}
+    ],
+    "number": {"value": "~1030-1080 nm", "label": "Output of Yb fiber lasers pumped at ~976 nm, so little energy becomes heat"},
+    "source": "Separated from rare-earth ores. Named after Ytterby, the Swedish village whose quarry also named yttrium, terbium and erbium.",
+    "lenses": {
+      "rocket": "Laser powder-bed metal printers are widely used for rocket engine parts. They usually melt the metal powder with Yb fiber lasers near 1070 nm, a wavelength metals absorb well."
+    }
+  },
+  {
+    "z": 71,
+    "tier": "deep",
+    "tagline": "The last and smallest lanthanide. Inside PET scanners, targeted cancer drugs and rock clocks.",
+    "atomStory": "Lutetium has 2 outer electrons, 1 d electron and a full 4f layer of 14. It gives up 3 to form Lu3+. Across the lanthanide row, each added proton pulls the electron cloud in. The f electrons are poor shields and can't push back much. So lutetium ends up the smallest and densest lanthanide. That shrinking, the 'lanthanide contraction,' carries on to the elements after it.",
+    "uses": [
+      {"title": "PET scanner crystals", "why": "Lutetium silicate crystals with cerium added (LSO/LYSO) are dense enough to stop 511 keV gamma rays. They flash light within about 40 nanoseconds. So they're widely used in modern PET scanners."},
+      {"title": "Targeted cancer therapy", "why": "Lutetium-177 rides on molecules that seek out prostate or neuroendocrine tumors. Its beta radiation reaches only a few millimeters, killing the cells it sticks to."},
+      {"title": "Dating rocks", "why": "Lu-176 slowly turns into Hf-176, with a half-life of about 37 billion years. So the Lu-Hf ratio dates ancient rocks and meteorites."}
+    ],
+    "bonds": [
+      {"partners": ["Si", "O", "Ce"], "formula": "Lu2SiO5:Ce", "name": "LSO scintillator", "note": "Dense, fast crystal that turns gamma rays into light."},
+      {"partners": ["O"], "formula": "Lu2O3", "name": "Lutetium oxide", "note": "The raw material for Lu crystals and for making Lu isotopes."},
+      {"partners": ["C", "N", "O", "H"], "formula": "177Lu-PSMA-617", "name": "Lutetium-177 PSMA therapy", "note": "Radioactive Lu caged in a molecule that homes in on prostate cancer cells."}
+    ],
+    "number": {"value": "6.6 days", "label": "Half-life of Lu-177: long enough to ship, short enough to fade from the body"},
+    "source": "A tiny part of rare-earth ores and the last to be separated. Lu-177 is made by putting Lu-176 or Yb-176 in a reactor."
+  },
+  {
+    "z": 72,
+    "tier": "deep",
+    "tagline": "Zirconium's twin. It soaks up neutrons and forms one of the highest-melting compounds known.",
+    "atomStory": "Hafnium has 2 outer electrons and 2 in the d layer just below. It usually gives all 4 away to become Hf4+. With d electrons involved, simple hand-counting doesn't work. The lanthanide contraction shrank it to almost exactly zirconium's size. So the two act nearly the same and are always found together. The difference is in the nucleus: hafnium soaks up neutrons and zirconium barely does.",
+    "uses": [
+      {"title": "Reactor control rods", "why": "Hafnium soaks up neutrons strongly and resists corrosion in hot water. So it's used in control rods, especially in navy reactors. For the same reason, zirconium used to wrap fuel must have its hafnium removed."},
+      {"title": "Transistor gate insulators", "why": "Hafnium oxide replaced silicon dioxide as the insulating layer in modern transistors (tiny switches). It holds charge better (higher dielectric constant). So a thicker, less leaky film does the job of a thinner SiO2 one."},
+      {"title": "Superalloys", "why": "A small fraction of a percent of Hf in nickel superalloys (heat-proof metal mixes) strengthens the edges between metal grains. It also helps the protective oxide stay stuck on hot turbine blades."},
+      {"title": "Plasma cutter electrodes", "why": "Plasma torch electrodes use a hafnium tip. It gives off electrons easily and forms a high-melting surface skin that survives the arc."}
+    ],
+    "bonds": [
+      {"partners": ["O"], "formula": "HfO2", "name": "Hafnium oxide", "note": "The high-k (charge-holding) gate insulator in modern chips."},
+      {"partners": ["C"], "formula": "HfC", "name": "Hafnium carbide", "note": "A ceramic with one of the highest melting points of any compound."},
+      {"partners": ["Cl"], "formula": "HfCl4", "name": "Hafnium tetrachloride", "note": "A chloride that turns to gas easily. Used to make Hf metal and to lay down HfO2 films in chip factories."}
+    ],
+    "number": {"value": "~3,900 °C", "label": "Melting point of hafnium carbide, among the highest of any compound"},
+    "source": "Found in zirconium minerals like zircon, about 1-3 Hf atoms per 100 Zr. Mostly a byproduct of making nuclear-grade zirconium.",
+    "lenses": {
+      "rocket": "C-103 is a niobium alloy with about 10% hafnium. It's a standard material for thruster nozzles that cool by glowing red-hot in vacuum. Falcon 9's upper-stage nozzle extension is reported to be a niobium alloy."
+    }
+  }
+]

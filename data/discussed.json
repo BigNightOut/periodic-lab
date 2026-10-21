@@ -1,0 +1,167 @@
+[
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "One electron on a ring that holds 2, so 1 hand and exactly one bond. It's the plug that fills carbon's leftover hands.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-18",
+    "note": "Pyrolysis is hydrogen-limited: polyethylene has only 2 H per carbon, so not every broken chain can cap itself into methane. The shortfall pushes some carbon toward char.",
+    "thread": "Starship Raptor engine"
+   }
+  ],
+  "source": "claude",
+  "symbol": "H",
+  "z": 1
+ },
+ {
+  "firstDate": "2026-10-20",
+  "notes": [
+   {
+    "date": "2026-10-20",
+    "note": "Triethylborane is the TEB in TEA-TEB, the mix that ignites on contact with liquid oxygen and lights Merlin engines with a green flash.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "B",
+  "z": 5
+ },
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "4 hands, always 4 bonds. Methane gives all 4 hands to hydrogens; in a polyethylene chain, 2 hands hold the neighboring carbons and 2 hold hydrogens.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-18",
+    "note": "C-C bonds are weaker than C-H, so heat snaps chains first. Broken ends become methane, oil, wax or char depending on hydrogen and time at temperature.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-19",
+    "note": "Carbon is an atom, not a molecule. Each extra CH2 in a chain adds one carbon and two hydrogens.",
+    "thread": "Pyrolysis & Chemical"
+   },
+   {
+    "date": "2026-10-20",
+    "note": "CH2 on its own still has 2 empty hands, so it can't last. Two of them joined make ethylene; thousands in a row make polyethylene.",
+    "thread": "Periodic Lab build"
+   }
+  ],
+  "source": "claude",
+  "symbol": "C",
+  "z": 6
+ },
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "2 hands, 2 bonds. Double-bonds twice to carbon in CO2; holds one hydrogen in each hand in water. Sabatier swaps carbon's two oxygens for four hydrogens.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-20",
+    "note": "Liquid oxygen is most of a methalox rocket's propellant mass.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "O",
+  "z": 8
+ },
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "Aluminum swaps into zeolite frameworks and creates the acid sites that crack chains.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-20",
+    "note": "Falcon 9 uses aluminum-lithium tanks; Starship went to stainless steel instead. Triethylaluminum is the TEA in Falcon 9's TEA-TEB igniter.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Al",
+  "z": 13
+ },
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "Zeolite and clay catalyst powders, one lever for cutting char, are silicon-aluminum-oxygen frameworks with acid sites inside their pores.",
+    "thread": "Starship Raptor engine"
+   },
+   {
+    "date": "2026-10-20",
+    "note": "Starship's ~18,000 heat-shield tiles are reported to be silica-based ceramic. The weak point is the joint between brittle tile and steel, which expand very differently.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Si",
+  "z": 14
+ },
+ {
+  "firstDate": "2026-10-20",
+  "notes": [
+   {
+    "date": "2026-10-20",
+    "note": "The 'stainless' in Starship's stainless steel: chromium forms a thin oxide skin that heals itself and stops rust.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Cr",
+  "z": 24
+ },
+ {
+  "firstDate": "2026-10-20",
+  "notes": [
+   {
+    "date": "2026-10-20",
+    "note": "Starship is stainless steel, mostly iron. Steel stays strong both at cryogenic propellant temperatures and when hot on reentry, and it's cheap.",
+    "thread": "Rockets project"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Fe",
+  "z": 26
+ },
+ {
+  "firstDate": "2026-10-18",
+  "notes": [
+   {
+    "date": "2026-10-18",
+    "note": "The catalyst in the Sabatier reaction: CO2 + 4H2 → CH4 + 2H2O. SpaceX's planned route to making methane on Mars. Nickel is also in stainless steel.",
+    "thread": "Starship Raptor engine"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Ni",
+  "z": 28
+ },
+ {
+  "firstDate": "2026-10-20",
+  "notes": [
+   {
+    "date": "2026-10-20",
+    "note": "Your example: one loose 4s electron per atom joins a shared electron sea, which is why copper conducts. Copper alloys also line regeneratively cooled rocket chambers.",
+    "thread": "Periodic Lab build"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Cu",
+  "z": 29
+ }
+]
