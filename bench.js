@@ -113,7 +113,9 @@ const Bench = (() => {
     }
     return [cam.x + (Math.random() - .5) * 200, cam.y + (Math.random() - .5) * 120];
   }
-  const headH = () => (document.querySelector(".wb-head")?.offsetHeight || 50) + 12;
+  let headHc = 62;
+  const headH = () => headHc;
+  const measureHead = () => { headHc = (document.querySelector(".wb-head")?.offsetHeight || 50) + 12; $("workbench")?.style.setProperty("--headh", headHc + "px"); };
   function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : 150); }
   function add(sym, x, y, extra){
     if (x == null) [x, y] = freeSpot();
@@ -135,7 +137,7 @@ const Bench = (() => {
     if (selected === a) selected = null; if (lastTouched === a) lastTouched = atoms[atoms.length - 1] || null;
     update();
   }
-  function clear(){ atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
+  function clear(){ const bn = $("wbBanner"); if (bn) bn.hidden = true; atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
   function tryBond(a, b){
     if (bondBetween(a, b)) return false;
     const ka = kindOf(a.sym), kb = kindOf(b.sym);
@@ -232,10 +234,19 @@ const Bench = (() => {
   function buildRecipes(){
     const box = $("wbRecipes");
     const ok = S.mols.filter(benchable);
-    const groups = [["Your plant (Nexus)", m => m.lens?.nexus], ["Rockets", m => m.lens?.rocket && !m.lens?.nexus], ["Everything else", m => !m.lens?.nexus && !m.lens?.rocket]];
+    const ranked = ok.filter(m => m.rank).sort((p, q) => p.rank - q.rank);
+    const tabs = [["everyday", "Everyday, ranked"], ["nexus", "Plastics & fuels"], ["rocket", "Rockets"], ["all", "A to Z"]];
+    const tab = buildRecipes.tab || (ranked.length ? "everyday" : "all");
+    let body;
+    if (tab === "everyday") body = `<ol class="rank">${ranked.map(m => `<li><button data-r="${m.id}"><span class="rk">${m.rank}</span><span class="rn"><b>${esc(m.name)}</b> <span class="fm">${esc(m.formula)}</span><span class="rw">${esc(m.rankWhy || "")}</span></span></button></li>`).join("")}</ol>`;
+    else {
+      const list = ok.filter(tab === "nexus" ? (m => m.lens?.nexus) : tab === "rocket" ? (m => m.lens?.rocket) : (() => true)).sort((p, q) => p.name.localeCompare(q.name));
+      body = `<div class="mlist">${list.map(m => `<button data-r="${m.id}">${esc(m.name)}<span class="fm">${esc(m.formula)}</span></button>`).join("")}</div>`;
+    }
     box.innerHTML = `<div class="row" style="justify-content:space-between"><b>Recipes</b><button class="btn" id="wbRecipesClose">Close</button></div>
-      <p class="small muted" style="margin:4px 0 8px">Drops the real molecule on the bench. Then pull it apart.</p>` +
-      groups.map(([t, f]) => { const list = ok.filter(f); return list.length ? `<div class="eyebrow" style="margin:10px 0 4px">${t}</div><div class="mlist">${list.map(m => `<button data-r="${m.id}">${esc(m.name)}<span class="fm">${esc(m.formula)}</span></button>`).join("")}</div>` : ""; }).join("");
+      <p class="small muted" style="margin:4px 0 8px">Drops the finished molecule on the bench. Drag it, spin it, pull it apart.</p>
+      <div class="mini-seg rtabs" role="tablist">${tabs.filter(([k]) => k !== "everyday" || ranked.length).map(([k, t]) => `<button data-tab="${k}" aria-pressed="${k === tab}">${t}</button>`).join("")}</div>` + body;
+    box.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => { buildRecipes.tab = b.dataset.tab; buildRecipes(); }));
     box.querySelectorAll("[data-r]").forEach(b => b.addEventListener("click", () => { addMolecule(S.mols.find(m => m.id === b.dataset.r)); toggleRecipes(false); }));
     $("wbRecipesClose").addEventListener("click", () => toggleRecipes(false));
   }
@@ -318,7 +329,7 @@ const Bench = (() => {
     s += nonH.length ? " It can't last like this. Connect more atoms, or tap <b>Fill with H</b>." : " It can't last like this. Connect more atoms.";
     return s;
   }
-  let lastDone = new Set(), focusInfo = null;
+  let lastDone = new Set(), focusInfo = null, quiet = false;   // quiet: a reaction is playing, it shows its own banner
   function focusOf(comps){ return comps.find(c => c.comp.includes(selected)) || comps.find(c => c.comp.includes(lastTouched)) || comps[comps.length - 1]; }
   /* ---------- "how to read this" strip under the status line ---------- */
   let legendOpen = true;
@@ -341,9 +352,10 @@ const Bench = (() => {
     }
     $("lgToggle").addEventListener("click", () => { legendOpen = !legendOpen; try { localStorage.setItem("plab.legend", legendOpen ? "1" : "0"); } catch(_){} renderLegend(); });
   }
+  const hooks = [];   // other modules (lessons, reactions) listen here
   function update(){
     if (!visible) return;
-    renderLegend();
+    renderLegend(); measureHead();
     const comps = components().map(identify);
     const focus = focusOf(comps);
     focusInfo = focus || null;
@@ -353,12 +365,13 @@ const Bench = (() => {
     $("wbChips").innerHTML = real.length > 1 ? real.map(c => `<span class="wbchip ${c.done ? "ok" : ""}">${esc(c.match?.name || c.formula)}${c.done ? " ✓" : ""}</span>`).join("") : "";
     // a molecule just got finished -> "You built it!" banner
     const doneNow = new Set(comps.filter(c => c.done && c.match).map(c => c.match.id + ":" + c.comp.map(a => a.id).sort().join(",")));
-    for (const k of doneNow) if (!lastDone.has(k)){ const c = comps.find(x => x.match && k.startsWith(x.match.id + ":")); if (c && !loadingRecipe) celebrate(c.match); }
+    for (const k of doneNow) if (!lastDone.has(k)){ const c = comps.find(x => x.match && k.startsWith(x.match.id + ":")); if (c && !loadingRecipe && !quiet) celebrate(c.match); }
     lastDone = doneNow;
     $("wbBreak").disabled = !(focus && bonds.some(b => focus.comp.includes(b.a)));
     renderCloud(focus);
     renderDetails(focus);
     if (typeof markActive === "function") markActive();
+    for (const h of hooks) try { h(comps); } catch(e){ console.error(e); }
   }
   function counts(){ const c = {}; for (const a of atoms) if (a.sym !== "*") c[a.sym] = (c[a.sym]||0) + 1; return c; }
 
@@ -395,6 +408,7 @@ const Bench = (() => {
   function ideasFor(info){
     if (!info || !info.formula) return [];
     const c = info.counts, have = Object.keys(c), out = [];
+    if (info.done && !info.match && !info.ionic) return honestHints(info);
     if (info.done && info.match){
       const same = S.mols.filter(m => m !== info.match && m.kind !== "lattice" && Object.keys(m.counts).sort().join() === have.slice().sort().join()).slice(0, 2);
       for (const m of same) out.push({text: `Same elements, different molecule: try building <b>${esc(m.name)}</b> (${esc(m.formula)}).`, add: subtract(m.counts, c), id: m.id});
@@ -413,6 +427,7 @@ const Bench = (() => {
       cands.push({m, d, size: size + extra.length * 3});
     }
     cands.sort((p, q) => p.size - q.size);
+    if (!cands.length) return honestHints(info);
     for (const {m, d} of cands.slice(0, 3)){
       const k = have.length && have.every(s => m.counts[s] % c[s] === 0) && Object.keys(m.counts).length === have.length ? m.counts[have[0]] / c[have[0]] : 0;
       const twin = k >= 2 && have.every(s => m.counts[s] === k * c[s]);
@@ -421,6 +436,20 @@ const Bench = (() => {
         : {text: `Add ${diffText(d)} and connect ${Object.values(d).reduce((a, b) => a + b, 0) > 1 ? "them" : "it"}: that's <b>${esc(m.name)}</b> (${esc(m.formula)}).`, add: d, id: m.id});
     }
     return out;
+  }
+  /* When the bench holds something no real molecule grows from, say so, and point at real things nearby:
+     library molecules that share the most elements, plus the element's own best-known compounds. */
+  function honestHints(info){
+    const c = info.counts, have = Object.keys(c), out = [];
+    out.push({text: info.done
+      ? `Every hand is held, but this exact molecule isn't one I know to be real. Real chemistry is pickier than hand-counting: some atoms prefer certain partners.`
+      : `Heads up: no real molecule I know grows from this combination. It's a fine experiment, but here are real things close to it.`});
+    const scored = S.mols.filter(m => benchable(m)).map(m => { const ks = Object.keys(m.counts); const shared = have.filter(s => m.counts[s]).length; return {m, score: shared * 10 - Math.abs(ks.length - have.length) - Object.values(m.counts).reduce((a, b) => a + b, 0) / 40}; })
+      .filter(x => x.score >= 10).sort((p, q) => q.score - p.score).slice(0, 2);
+    for (const {m} of scored) out.push({text: `Real and close: <b>${esc(m.name)}</b> (${esc(m.formula)}). <button class="linkbtn" data-load="${m.id}">Load it</button>`});
+    const rare = have.filter(s => !["H", "C", "O"].includes(s)).slice(0, 2);
+    for (const s of rare){ const b = el(s)?.bonds?.[0]; if (b) out.push({text: `What ${nameOf(s)} really makes: <b>${esc(b.formula)}</b>, ${esc(b.name.toLowerCase())}. ${esc(b.note)}`}); }
+    return out.slice(0, 4);
   }
   function factsFor(info){
     if (!info) return [];
@@ -440,6 +469,11 @@ const Bench = (() => {
     if (info?.done && info.match) html += `<div class="cl-title">${esc(info.match.name)} <span class="mono">${esc(info.match.formula)}</span></div>`;
     else if (info?.formula) html += `<div class="cl-title">${esc(info.formula)}<span class="cl-sub">${info.open.length ? "still building" : ""}</span></div>`;
     if (fresh) html += `<div class="cl-item now"><span class="cl-tag">Just now</span>${fresh}</div>`;
+    const det = info?.done && info.match?.details;
+    if (det){
+      for (const [k, t] of [["what", "What it is"], ["where", "Where you meet it"], ["bonds", "Why the bonds work"], ["extra", "One more thing"]])
+        if (det[k]) html += `<div class="cl-item"><span class="cl-tag">${t}</span>${esc(det[k])}</div>`;
+    }
     for (const f of facts) html += `<div class="cl-item"><span class="cl-tag fact">Fun fact</span>${esc(f)}</div>`;
     for (const [i, it] of ideas.entries()) html += `<div class="cl-item idea"><span class="cl-tag idea">Idea</span>${it.text}${it.add && Object.keys(it.add).length ? ` <button class="linkbtn" data-idea="${i}">Add the atoms</button>` : ""}</div>`;
     const n = ideas.length + facts.length + (fresh ? 1 : 0);
@@ -447,6 +481,7 @@ const Bench = (() => {
     box.innerHTML = `<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button>${html}`;
     box.hidden = false;
     $("clToggle").addEventListener("click", () => { if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
+    box.querySelectorAll("[data-load]").forEach(b => b.addEventListener("click", () => { const m = S.mols.find(x => x.id === b.dataset.load); if (m) addMolecule(m); }));
     box.querySelectorAll("[data-idea]").forEach(b => b.addEventListener("click", () => {
       const it = ideas[+b.dataset.idea];
       for (const [sym, n] of Object.entries(it.add)) for (let i = 0; i < n; i++) add(sym);
@@ -454,9 +489,9 @@ const Bench = (() => {
     }));
   }
   let bannerTimer = 0;
-  function celebrate(m){
+  function celebrate(m, small, big, sub){
     const b = $("wbBanner");
-    b.innerHTML = `<span class="bn-small">You just built</span><span class="bn-big">${esc(m.name)}</span><span class="mono bn-f">${esc(m.formula)}</span>`;
+    b.innerHTML = `<span class="bn-small">${esc(small || "You just built")}</span><span class="bn-big">${esc(big || m.name)}</span><span class="mono bn-f">${esc(sub || m.formula)}</span>`;
     b.hidden = false; b.classList.remove("go"); void b.offsetWidth; b.classList.add("go");
     clearTimeout(bannerTimer); bannerTimer = setTimeout(() => { b.hidden = true; }, 4200);
     lastNote = null;
@@ -510,14 +545,37 @@ const Bench = (() => {
     box.querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => { loadMolecule(b.dataset.mol); scrollTo({top: 0, behavior: "smooth"}); }));
   }
   function showCard(){} function hideCard(){}
+  /* ---------- bond strength ----------
+     Average bond energies in kJ/mol: the energy to snap one mole of that bond. Textbook averages;
+     the real value shifts a little from molecule to molecule. Key: sorted symbols + order. */
+  const BOND_E = {
+    "H-H1":436,"C-H1":413,"C-C1":348,"C-C2":614,"C-C3":839,"C-O1":358,"C-O2":799,"C-O3":1072,"H-O1":463,"O-O1":146,"O-O2":495,
+    "H-N1":391,"N-N1":163,"N-N2":418,"N-N3":941,"C-N1":293,"C-N2":615,"C-N3":891,"F-H1":567,"Cl-H1":431,"Br-H1":366,"H-I1":299,
+    "C-F1":485,"C-Cl1":328,"Br-C1":276,"C-I1":240,"F-F1":155,"Cl-Cl1":242,"Br-Br1":193,"I-I1":151,"H-S1":339,"C-S1":259,"O-S2":523,
+    "H-P1":322,"Cl-P1":326,"H-Si1":323,"O-Si1":452,"Si-Si1":226,"N-O1":201,"N-O2":607,"F-S1":327,"F-Xe1":130,"B-C1":356
+  };
+  function bondEnergy(bd){ const [p, q] = [bd.a.sym, bd.b.sym].sort(); return BOND_E[`${p}-${q}${bd.order}`] ?? null; }
+  function meterHTML(bd){
+    if (bd.kind === "ion") return `<div class="meter-note">Not one bond: in a crystal every + pulls on every − around it. That's why salts melt so hot (table salt at 801 °C).</div>`;
+    const e = bondEnergy(bd);
+    if (e == null) return `<div class="meter-note">No common average value for this pair.</div>`;
+    const pct = Math.min(100, e / 1072 * 100);
+    const cmp = e < 200 ? "weak: snaps easily" : e < 380 ? "medium" : e < 600 ? "strong" : "very strong";
+    const name = `${bd.a.sym}${bd.order === 2 ? "=" : bd.order === 3 ? "≡" : "–"}${bd.b.sym}`;
+    let hint = "";
+    if (name === "C–C" || name === "C–H" || name === "H–C") hint = " C–C (348) is weaker than C–H (413), so heat snaps carbon chains before it strips hydrogens off.";
+    return `<div class="meter"><div class="meter-top"><span>Bond strength</span><span class="mono">${e} kJ/mol · ${cmp}</span></div>
+      <div class="meter-bar"><i style="width:${pct.toFixed(0)}%"></i></div>
+      <div class="meter-note">${esc(name)} average.${hint}</div></div>`;
+  }
   function openPop(bd){
     const p = $("wbPop"), [x, y] = toScreen((bd.a.x + bd.b.x) / 2, (bd.a.y + bd.b.y) / 2);
     const canAdd = bd.kind === "cov" && bd.order < 3 && free(bd.a) && free(bd.b);
     p.innerHTML = `<div class="small" style="margin-bottom:6px"><b>${Name(bd.a.sym)}–${Name(bd.b.sym)}</b>: ${bd.kind === "ion" ? "electron handed over" : bd.order === 1 ? "1 handshake" : bd.order + " handshakes"}</div>
       <div class="row">${bd.kind === "cov" ? `<button class="btn" data-act="more" ${canAdd ? "" : "disabled"}>+ handshake</button>` : ""}
-      <button class="btn" data-act="zoom">Zoom in</button><button class="btn" data-act="break">Break</button></div>`;
+      <button class="btn" data-act="zoom">Zoom in</button><button class="btn" data-act="break">Break</button></div>${meterHTML(bd)}`;
     p.hidden = false;
-    p.style.left = Math.max(8, Math.min(W - 250, x - 120)) + "px"; p.style.top = Math.max(56, y - 92) + "px";
+    p.style.left = Math.max(8, Math.min(W - 270, x - 130)) + "px"; p.style.top = Math.max(56, Math.min(H - p.offsetHeight - 10, y - 150)) + "px";
     p.querySelector('[data-act="more"]')?.addEventListener("click", () => { closePop(); addOrder(bd); });
     p.querySelector('[data-act="zoom"]').addEventListener("click", () => { closePop(); zoomTo(bd); });
     p.querySelector('[data-act="break"]').addEventListener("click", () => { closePop(); breakBond(bd, "click"); });
@@ -532,7 +590,7 @@ const Bench = (() => {
     let txt;
     if (bd.kind === "ion") txt = `<b>${A} handed ${bd.order === 1 ? "an electron" : bd.order + " electrons"} to ${B.toLowerCase()}.</b> The moved electron (outlined) now sits on ${B.toLowerCase()}'s ring. ${A} is left with a + charge, ${B.toLowerCase()} with a −, and opposite charges pull together. Nothing is shared.`;
     else txt = `<b>${A} and ${B.toLowerCase()} each put in ${bd.order === 1 ? "one electron" : bd.order + " electrons"}.</b> The ${bd.order * 2} electrons in the glowing overlap are shared, so <i>both</i> atoms get to count them. That's what fills their empty hands. ${bd.order > 1 ? `${bd.order} shared pairs = a ${bd.order === 2 ? "double" : "triple"} bond.` : "One shared pair = a single bond."}`;
-    $("wbZoomText").innerHTML = txt; $("wbZoom").hidden = false;
+    $("wbZoomText").innerHTML = txt + meterHTML(bd); $("wbZoom").hidden = false;
   }
   function unzoom(){ if (!zoomBond) return; zoomBond = null; Object.assign(camT, {x: cam.x, y: cam.y, s: 1}); fit(); $("wbZoom").hidden = true; }
   function setView(v){ view = v; fit(); renderLegend(); $("wbView").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
@@ -543,10 +601,11 @@ const Bench = (() => {
     const xs = atoms.map(a => a.x), ys = atoms.map(a => a.y);
     const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 160;
     const side = W > 760 ? 330 : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
+    const left = W > 760 && !$("wbLearn").hidden ? 350 : 0;   // lesson / reaction card on the left
     const bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : 130);   // phone: space the drawer + toolbar take
     const top = headH(), avail = H - top - (side ? 70 : 10) - bottom;
-    const s = Math.min(view === "ring" ? 2.1 : 1.7, Math.max(0.4, Math.min((W - side) / bw, avail / bh)));
-    Object.assign(camT, {x: (Math.max(...xs) + Math.min(...xs)) / 2 + side / 2 / s, y: (Math.max(...ys) + Math.min(...ys)) / 2 - (top - (side ? 70 : 10) - bottom) / 2 / s - (side ? 35 : 0) / s, s});
+    const s = Math.min(view === "ring" ? 2.1 : 1.7, Math.max(0.4, Math.min((W - side - left) / bw, avail / bh)));
+    Object.assign(camT, {x: (Math.max(...xs) + Math.min(...xs)) / 2 + (side - left) / 2 / s, y: (Math.max(...ys) + Math.min(...ys)) / 2 - (top - (side ? 70 : 10) - bottom) / 2 / s - (side ? 35 : 0) / s, s});
   }
 
   /* ---------- pointer ---------- */
@@ -635,6 +694,7 @@ const Bench = (() => {
   function step(dt){
     const K = 0.18, REP = 2600, DAMP = 0.78;
     for (const b of bonds){
+      if (b.a.tx != null || b.b.tx != null) continue;
       const dx = b.b.x - b.a.x, dy = b.b.y - b.a.y, d = Math.hypot(dx, dy) || 0.01, f = K * (d - rest(b)), ux = dx / d, uy = dy / d;
       b.a.vx += f * ux; b.a.vy += f * uy; b.b.vx -= f * ux; b.b.vy -= f * uy;
     }
@@ -657,6 +717,7 @@ const Bench = (() => {
     const [x0, y0] = toWorld(30, headH()), [x1, y1] = toWorld(W - 30 - (W > 760 ? 320 : 0), H - (W > 760 ? 70 : 150));
     for (const a of atoms){
       if (drag && drag.a === a) continue;
+      if (a.tx != null){ a.x += (a.tx - a.x) * 0.1; a.y += (a.ty - a.y) * 0.1; a.vx = a.vy = 0; continue; }
       a.vx *= DAMP; a.vy *= DAMP; a.x += a.vx * dt; a.y += a.vy * dt;
       if (x1 > x0 && y1 > y0){ if (a.x < x0) a.vx += (x0 - a.x) * .05; if (a.x > x1) a.vx -= (a.x - x1) * .05; if (a.y < y0) a.vy += (y0 - a.y) * .05; if (a.y > y1) a.vy -= (a.y - y1) * .05; }
     }
@@ -840,5 +901,8 @@ const Bench = (() => {
     return out;
   }
 
-  return {mount, show, hide, add, addMolecule, breakApart, benchable, clear, counts, setView, get atoms(){ return atoms; }, get bonds(){ return bonds; }, fillH, update, _identify: () => components().map(identify), _screenOf: (a) => { const r = cv.getBoundingClientRect(); const [x, y] = toScreen(a.x, a.y); return [r.left + x, r.top + y]; }, _status: () => $("wbStatus").textContent};
+  // internals other modules build on (lessons, reactions, 3D). Kept small on purpose.
+  const api = {setQuiet: (v) => { quiet = v; }, hooks, baseHands, neighbors, tryBond, addOrder, bondBetween, free, handsOf, kindOf, note, celebrate, fit, relax, components: () => components().map(identify),
+    removeAtom, rest, get cam(){ return cam; }, get W(){ return W; }, get H(){ return H; }, toWorld, toScreen, isVisible: () => visible, phone: () => phone()};
+  return {api, mount, show, hide, add, addMolecule, breakApart, benchable, clear, counts, setView, get atoms(){ return atoms; }, get bonds(){ return bonds; }, fillH, update, _identify: () => components().map(identify), _screenOf: (a) => { const r = cv.getBoundingClientRect(); const [x, y] = toScreen(a.x, a.y); return [r.left + x, r.top + y]; }, _status: () => $("wbStatus").textContent};
 })();

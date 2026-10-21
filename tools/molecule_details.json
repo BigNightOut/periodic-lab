@@ -1,0 +1,716 @@
+{
+ "h2": {
+  "what": "The smallest, lightest molecule there is: two hydrogen atoms holding hands. A colorless gas with no smell.",
+  "where": "Almost none floats free in our air, because it's light enough to drift up and escape to space. Factories make most of it from natural gas and coal.",
+  "bonds": "The single handshake sits very close to two tiny centers, so it's a strong grip. But the molecules barely pull on each other, so it only turns liquid about 20 degrees above the coldest possible temperature.",
+  "extra": "Hydrogen slips into tiny gaps in some steels and makes them brittle. That's one reason storing and piping hydrogen is harder and costlier than it sounds."
+ },
+ "o2": {
+  "what": "The oxygen we breathe: two oxygen atoms holding both hands. It makes up about 21% of air.",
+  "where": "Every breath, every flame and every rusting nail. Hospitals and steel mills buy it pure, separated out of air that has been chilled into a liquid.",
+  "bonds": "The double grip is solid, but two of its electrons stay unpaired. That makes O2 restless, ready to grab electrons from fuels, metals and food.",
+  "extra": "Carl Scheele and Joseph Priestley each made oxygen in the 1770s. Antoine Lavoisier named it in 1777 and showed that burning means joining with oxygen."
+ },
+ "o3": {
+  "what": "A molecule of three oxygen atoms. A pale blue gas, much less steady than the O2 we breathe.",
+  "where": "High in the sky, in the ozone layer, where it soaks up harmful UV light. Near the ground it's a pollutant in hot-weather smog.",
+  "bonds": "Its grips are in between single and double, shared over three atoms. That loose setup lets one oxygen break off easily, which is why ozone attacks rubber, germs and lungs.",
+  "extra": "In 1985 scientists reported a 'hole' in the ozone layer over Antarctica, caused by chlorine from spray cans and coolants. The 1987 Montreal Protocol phased those chemicals out, and the layer is slowly healing."
+ },
+ "n2": {
+  "what": "Two nitrogen atoms locked together. The most common gas in air, with no color, smell or taste.",
+  "where": "Every breath you take, and the puffy air inside a bag of chips, which keeps them from going stale. Liquid nitrogen flash-freezes food and stores samples in labs.",
+  "bonds": "Breaking that triple grip takes a lot of energy, so N2 just floats around doing nothing. Going the other way, nitrogen chemicals that snap back into N2 release a lot of energy. That's why many explosives contain nitrogen.",
+  "extra": "Car airbags fill with nitrogen gas, made in a split second when a solid chemical breaks apart. Older designs used sodium azide for this."
+ },
+ "cl2": {
+  "what": "Two chlorine atoms holding hands. A heavy, poisonous gas that's harsh to breathe.",
+  "where": "You meet it indirectly: pool sanitizer, household bleach and PVC pipe all trace back to chlorine gas made in factories.",
+  "bonds": "The single grip between two chlorines is fairly weak, and each chlorine badly wants one more electron. So Cl2 splits easily and grabs electrons from germs, dyes and metals. That's the idea behind bleaching.",
+  "extra": "Carl Scheele made chlorine in 1774 but thought it held oxygen. Humphry Davy showed in 1810 that it was its own element and gave it its name."
+ },
+ "f2": {
+  "what": "Two fluorine atoms holding hands. A pale yellow gas and the most reactive element in pure form.",
+  "where": "You never meet it free. You meet its tamed forms: fluoride in tap water, Teflon pans, and the coolant gas in air conditioners.",
+  "bonds": "The F-F grip is oddly weak, because the two small atoms crowd each other's electrons. But fluorine makes very strong grips with almost anything else. So F2 swaps partners eagerly.",
+  "extra": "Fluorine is so grabby that even water can't stand up to it. It pulls the hydrogen off water and sets the oxygen free."
+ },
+ "br2": {
+  "what": "Pairs of bromine atoms holding hands. A heavy, dark red-brown liquid that gives off reddish fumes.",
+  "where": "Mostly hidden inside other products, like flame-slowing chemicals in electronics and some hot tub sanitizers. It's pulled from very salty water, such as the Dead Sea.",
+  "bonds": "Bromine atoms are bigger than chlorine's, so the shared pair sits farther out and the grip is weaker. Bigger, softer molecules also cling to each other more, so it's a liquid while chlorine is a gas.",
+  "extra": "Antoine Balard found bromine in 1826 while studying seaweed ash from the salt marshes near Montpellier, France."
+ },
+ "i2": {
+  "what": "Pairs of iodine atoms holding hands. Shiny gray-black crystals, the heaviest everyday member of the chlorine family.",
+  "where": "The brown iodine tincture in a first-aid kit, iodized salt and seaweed. Much of the world's supply comes from Chile and Japan.",
+  "bonds": "Iodine's single grip is the weakest in its family, because its atoms are so big. But big, soft electron clouds make the molecules cling to each other, so it's a solid.",
+  "extra": "Iodine turns starch deep blue-black. Schools use a drop of iodine to test foods like bread and potato for starch."
+ },
+ "methane": {
+  "what": "The simplest carbon molecule: one carbon holding four hydrogens. The main gas in natural gas.",
+  "where": "Your gas stove, furnace and water heater. Microbes also make it in landfills, swamps and rice paddies, and it's a strong greenhouse gas.",
+  "bonds": "Its four C-H grips point to the corners of a little pyramid shape, spread as far apart as possible. The molecule is small and even, so molecules barely cling to each other, and it stays a gas until about -162 °C.",
+  "extra": "Natural gas is shipped across oceans as a cold liquid called LNG. Chilled to about -162 °C, it takes up about 600 times less space."
+ },
+ "ethane": {
+  "what": "Two carbons holding hands, each also holding three hydrogens. A colorless gas, the second-biggest part of natural gas.",
+  "where": "You rarely meet it directly. It's split from natural gas and turned into ethylene, which becomes bags, bottles and pipe.",
+  "bonds": "The single C-C grip works like an axle: each end can spin freely. Chemists use this spin as the simplest example of how molecules twist.",
+  "extra": "US ethane output soared with the shale boom. Some of it now crosses the ocean as a chilled liquid to plastics plants in Europe and China."
+ },
+ "ethylene": {
+  "what": "Two carbons holding hands twice, each also holding two hydrogens. A sweet-smelling gas and the starting block of most plastics.",
+  "where": "Polyethylene bags, PVC pipe, antifreeze and polyester clothing all start as ethylene.",
+  "bonds": "A double bond is one strong grip plus a weaker second one. The weaker grip opens easily so other atoms can link on. It also holds the molecule flat, so it can't spin like ethane.",
+  "extra": "In 1923, doctors in Chicago began using ethylene mixed with oxygen to put surgery patients to sleep."
+ },
+ "acetylene": {
+  "what": "Two carbons holding three hands together, each with one hydrogen. A gas that burns very hot with pure oxygen.",
+  "where": "Welding shops and metal-cutting torches. It's also a building block for some plastics and chemicals.",
+  "bonds": "The triple grip pulls the two carbons into a short, straight stick. Packing three grips that close strains them, so acetylene reacts readily, unlike nitrogen's calm triple bond.",
+  "extra": "Swedish engineer Gustaf Dalén won the 1912 Nobel Prize in Physics for acetylene lighthouse lamps that switched on and off by themselves with daylight."
+ },
+ "propane": {
+  "what": "Three carbons in a chain, every spare hand holding a hydrogen. A gas that's easy to store as a liquid, sold as LPG.",
+  "where": "Grill tanks, RV stoves, forklifts, patio heaters and rural home heating.",
+  "bonds": "All its grips are single, so there's no weak spot to attack. It just burns. Being a bit bigger than methane, its molecules cling more, so it liquefies with only mild pressure.",
+  "extra": "In 1910, US chemist Walter Snelling separated propane from the lightest part of gasoline. He's often called the father of the propane industry."
+ },
+ "propylene": {
+  "what": "Three carbons where one pair holds hands twice. A gas very much like ethylene, with an extra CH3 branch.",
+  "where": "Polypropylene yogurt cups, car bumpers and carpet fiber. It's also the starting point for acrylic fibers.",
+  "bonds": "The double grip is the reactive spot. The CH3 hanging next to it ends up as a branch on every other carbon of the plastic chain, and those branches change how the plastic packs.",
+  "extra": "Propylene and propane boil only a few degrees apart. Separating them takes some of the tallest distillation towers in a plant."
+ },
+ "butane": {
+  "what": "Four carbons in a chain, every spare hand holding a hydrogen. A gas that turns liquid with light pressure.",
+  "where": "Lighters, camp stove canisters and aerosol sprays. Refiners also blend more of it into gasoline in winter to help cold engines start.",
+  "bonds": "Each extra carbon in a chain makes molecules cling a bit more. That's why methane through butane are gases, but slightly longer chains are liquids at room temperature.",
+  "extra": "Butane's name traces back to butyric acid, the smell of rancid butter, which also has four carbons. 'Butyrum' is Latin for butter."
+ },
+ "butadiene": {
+  "what": "Four carbons with two double grips, one at each end. A gas used mainly to make rubber.",
+  "where": "Car tires, hoses, shoe soles and the nitrile gloves used in clinics and kitchens.",
+  "bonds": "Its two double grips sit on either side of a single one, so the electrons spread across all four carbons. Each molecule can link at both ends, giving bendy, stretchy rubber chains.",
+  "extra": "Most of it comes as a side product when crackers make ethylene from heavier liquid feeds like naphtha. Ethane-fed crackers make very little."
+ },
+ "isooctane": {
+  "what": "Eight carbons bunched into a branched shape, fully loaded with hydrogen. A clear liquid that acts like ideal gasoline.",
+  "where": "You don't buy it pure. Refineries build branched molecules like it on purpose and blend them into premium gasoline.",
+  "bonds": "The branches pull the molecule into a compact ball. Compact molecules resist breaking apart too early in a hot, squeezed engine, so they burn smoothly instead of knocking.",
+  "extra": "Before branched fuels were common, refiners added a lead chemical to stop knock. The US ban on leaded gasoline for cars took effect on January 1, 1996."
+ },
+ "dodecane": {
+  "what": "Twelve carbons in a straight chain, every spare hand holding a hydrogen. A clear, oily liquid.",
+  "where": "Kerosene lamps, space heaters and jet fuel are mixes of chains around this size. Labs use pure dodecane as a simple test fuel.",
+  "bonds": "Long chains of single grips are floppy, like string. Long strings tangle and cling, so it's oilier and boils much hotter than gasoline.",
+  "extra": "In the 1800s, kerosene lamps replaced whale oil as the common way to light homes."
+ },
+ "hexadecane": {
+  "what": "Sixteen carbons in a straight chain. An oily liquid right in the middle of the diesel size range.",
+  "where": "Diesel for trucks, trains, ships and backup generators is a mix of chains around this size.",
+  "bonds": "Long, straight chains break apart easily under heat and pressure. So they light quickly in a diesel engine, the opposite of what gasoline needs.",
+  "extra": "The bottom of the original cetane scale was 1-methylnaphthalene, a ring molecule that barely ignites. It was later swapped for a branched molecule called isocetane."
+ },
+ "benzene": {
+  "what": "Six carbons in a flat ring, each holding one hydrogen. A clear liquid with a sweet smell.",
+  "where": "Small amounts are in crude oil, gasoline and cigarette smoke. Factories turn it into styrene, nylon and detergents.",
+  "bonds": "The shared electrons spread evenly around the ring, so all six links are the same length. That even sharing makes the ring hard to break open, so benzene swaps its hydrogens instead.",
+  "extra": "The first commercial decaf coffee, from about 1905, used benzene to wash out the caffeine. It was dropped once benzene was found to cause cancer."
+ },
+ "toluene": {
+  "what": "A benzene ring with a CH3 (methyl) group stuck on. A clear liquid that smells like paint thinner.",
+  "where": "Paint thinner, nail polish, glues and gasoline.",
+  "bonds": "The ring keeps its evenly shared electrons. The CH3 pushes a little extra electron charge into the ring, so toluene reacts a bit more easily than benzene.",
+  "extra": "It does many of benzene's jobs as a solvent but is much less harmful. So it replaced benzene in many products."
+ },
+ "styrene": {
+  "what": "A benzene ring with a double-gripped CH=CH2 handle. A clear, oily liquid with a sweet smell.",
+  "where": "Foam cups, fridge liners and the resin in fiberglass boats and bathtubs.",
+  "bonds": "The double grip sits right next to the ring, and they share electrons a little. That makes the handle open easily, so styrene can link into chains just from warmth.",
+  "extra": "Because it links up on its own, stored styrene needs a small added chemical that keeps it from turning solid in the tank."
+ },
+ "naphthalene": {
+  "what": "Two benzene rings sharing one edge. A white solid with a strong mothball smell.",
+  "where": "Old-style mothballs, coal tar and car exhaust. Factories use it to make dyes and plastic softeners.",
+  "bonds": "The shared electrons spread over both rings. Flat molecules stack neatly like plates, so it's a solid at room temperature even though it's small.",
+  "extra": "Formosan subterranean termites fill their nests with naphthalene. Scientists think it helps keep out germs and invaders, just like a mothball."
+ },
+ "polyethylene": {
+  "what": "One carbon chain thousands of atoms long, wrapped in hydrogens. Soft, waxy and cheap.",
+  "where": "Grocery bags, milk jugs, cling wrap, squeeze bottles and the plastic gas pipe under streets.",
+  "bonds": "Inside a chain, the grips are strong. Between chains there's only weak cling, so heat lets chains slide and the plastic melts. Straight chains pack tight into stiff HDPE (high-density); branched chains give soft LDPE (low-density).",
+  "extra": "Made with extra-long chains and stretched into fibers, the same plastic is strong enough for body armor and ship ropes."
+ },
+ "polypropylene": {
+  "what": "A long carbon chain with a CH3 branch on every other carbon. A tough, light plastic.",
+  "where": "Yogurt cups, bottle caps, car bumpers, carpet, and the filter layer in face masks.",
+  "bonds": "How the branches line up matters. When they all point the same way, chains pack into a stiff plastic that melts high. When they point randomly, you get a soft, sticky goo.",
+  "extra": "Polypropylene and polyethylene are lighter than water, so they float. PET and PVC sink, which helps recyclers sort plastics in water tanks."
+ },
+ "polystyrene": {
+  "what": "A carbon chain with a benzene ring hanging off every other carbon. A hard, clear plastic, or a light foam when puffed with gas.",
+  "where": "Foam cups, packing peanuts, egg cartons, disposable cutlery and yogurt cups.",
+  "bonds": "The bulky rings keep chains from packing neatly. So solid polystyrene is glassy and clear, but brittle. It cracks instead of bending.",
+  "extra": "Without the foam, polystyrene is clear as glass. Lab petri dishes and old CD cases are made from it."
+ },
+ "pvc": {
+  "what": "A carbon chain where every other carbon holds a chlorine. A tough, cheap plastic that shrugs off water and rot.",
+  "where": "White plumbing pipe, vinyl siding, window frames, wire coatings and credit cards.",
+  "bonds": "Chlorine pulls electrons toward itself, leaving slightly charged spots along each chain. Chains cling to each other more, so PVC is stiff unless softeners (plasticizers) are mixed in.",
+  "extra": "The chlorine makes PVC hard to burn. It tends to put itself out once the flame is taken away."
+ },
+ "ptfe": {
+  "what": "A carbon chain completely wrapped in fluorine atoms. A slippery, white plastic.",
+  "where": "Non-stick pans, plumber's tape, waterproof breathable jackets like Gore-Tex, and wire coatings in aircraft.",
+  "bonds": "Fluorines pack tightly around the chain like armor, and the chain twists into a slow spiral so they fit. They hold their electrons so tightly that other molecules find nothing to cling to.",
+  "extra": "PTFE doesn't truly melt into a runny liquid. It only turns gel-like, so parts are made by pressing powder and baking it."
+ },
+ "pet": {
+  "what": "A chain of flat rings linked by oxygen-containing joints called esters. A clear, strong plastic.",
+  "where": "Soda and water bottles, food trays and the polyester in shirts.",
+  "bonds": "The flat rings stack, and the oxygen joints add extra cling between chains. That makes PET stiff enough to hold fizzy pressure. But water can slowly cut those ester joints.",
+  "extra": "PET is recycling code 1 and one of the most recycled plastics. Old bottles often come back as new bottles or as fiber."
+ },
+ "water": {
+  "what": "One oxygen holding two hydrogens in a bent shape. The only common substance we see as solid, liquid and gas in everyday life.",
+  "where": "Oceans, clouds, ice caps, and more than half of your own body.",
+  "bonds": "Oxygen pulls the shared electrons toward itself, so its end is slightly negative and the hydrogens slightly positive. Those ends stick to neighbors, called hydrogen bonds. Without them, a molecule this small would be a gas at room temperature.",
+  "extra": "Water dissolves more kinds of things than almost any other liquid. That's why chemists call it the universal solvent."
+ },
+ "h2o2": {
+  "what": "Water with one extra oxygen: H-O-O-H. It looks like water, but it's a strong bleach when concentrated.",
+  "where": "The brown drugstore bottle, hair bleach, teeth whiteners and paper mills.",
+  "bonds": "Light, heat and metals all help snap the weak O-O grip. That's why it's sold in brown bottles that block light.",
+  "extra": "Your own cells make small amounts. An enzyme in your body called catalase breaks it down fast, which is why it foams on a cut."
+ },
+ "co": {
+  "what": "One carbon and one oxygen gripped very tightly. A small, poisonous gas.",
+  "where": "Car exhaust, furnaces, grills and wood stoves when they burn without enough air. Factories also make it on purpose to build other chemicals.",
+  "bonds": "Its triple grip is one of the strongest known. Carbon also keeps a spare pair of electrons, which it uses to latch onto metals, like the iron in your blood.",
+  "extra": "Mixed with hydrogen as 'syngas,' CO can be rebuilt into liquid fuel. Germany did this on a large scale in World War II using the Fischer-Tropsch process."
+ },
+ "co2": {
+  "what": "One carbon holding two oxygens in a straight line. The colorless gas we breathe out.",
+  "where": "Your breath, soda fizz, fire extinguishers, and the air, where it's about 0.04% but matters a lot.",
+  "bonds": "The molecule is straight and even, so its pulls cancel out. But it can bend and stretch, and that wobbling soaks up heat rays (infrared). That's how it traps heat in the air.",
+  "extra": "Plants pull CO2 from the air and use sunlight to turn it into sugar. Nearly all the carbon in your body started out as CO2 that way."
+ },
+ "methanol": {
+  "what": "The simplest alcohol: one carbon holding three hydrogens and an OH group. A clear liquid that looks like water but is poisonous.",
+  "where": "Windshield washer fluid, camp stove fuel, and a raw material for glues and plastics.",
+  "bonds": "The OH end lets methanol molecules stick to each other and to water, like water does. That's why it mixes with water completely and boils far hotter than methane.",
+  "extra": "Today it's made mostly from natural gas or coal, turned first into syngas. Some new cargo ships are built to burn methanol as a cleaner fuel."
+ },
+ "ethanol": {
+  "what": "Two carbons with an OH group on one end. The alcohol in drinks, and a clean-burning fuel.",
+  "where": "Beer, wine, hand sanitizer, vanilla extract and most gas pumps.",
+  "bonds": "Its OH end sticks to water, and its carbon end mixes with oils. That two-sided nature lets it dissolve both, which is why it's used for extracts and sanitizers.",
+  "extra": "The CDC says hand sanitizer should be at least 60% alcohol to kill germs well."
+ },
+ "dme": {
+  "what": "Two CH3 groups joined through one oxygen. A gas at room temperature, with the same atoms as ethanol.",
+  "where": "Spray cans, and test trucks that run on it in place of diesel.",
+  "bonds": "There's no carbon-carbon grip anywhere in it. With nothing to build soot from, it burns with almost no smoke.",
+  "extra": "It's the simplest ether. Its bigger cousin, diethyl ether, was one of the first surgical anesthetics, starting in the 1840s."
+ },
+ "formaldehyde": {
+  "what": "The simplest molecule with a C=O end: one carbon holding an oxygen with two hands and two hydrogens. A sharp-smelling gas.",
+  "where": "Glues in plywood and particleboard, some wrinkle-free fabrics, and vaccines, where it's used to make germs or toxins harmless.",
+  "bonds": "Oxygen pulls the double grip toward itself, leaving the carbon a little positive. That carbon grabs other molecules, so formaldehyde links things together easily. That's why it makes strong glues.",
+  "extra": "In 1969 it became the first many-atom carbon molecule found in the clouds between stars."
+ },
+ "aceticacid": {
+  "what": "Two carbons where one end is an acid group (COOH). The sour taste in vinegar.",
+  "where": "Vinegar, ketchup, pickles, and the vinegar smell of some silicone caulks while they set.",
+  "bonds": "The OH on the acid end lets go of its hydrogen in water. That loose hydrogen is what tastes sour and what dissolves crusty mineral buildup.",
+  "extra": "Most factory acetic acid is made by joining methanol with carbon monoxide over a metal catalyst (a helper that isn't used up)."
+ },
+ "acetone": {
+  "what": "Three carbons, with an oxygen held by two hands on the middle carbon. A clear liquid that evaporates fast.",
+  "where": "Hardware store solvents, superglue remover and lab cleaning.",
+  "bonds": "The C=O end is slightly charged, so it mixes with water. The two CH3 ends dissolve oils, paints and plastics. Molecules cling only weakly, so it evaporates quickly and feels cold on skin.",
+  "extra": "It dissolves foam polystyrene so well that a foam cup collapses into a small, sticky blob."
+ },
+ "glycol": {
+  "what": "Two carbons with an OH group on each end. A thick, sweet, poisonous liquid.",
+  "where": "Car coolant, airplane de-icing fluid and PET bottles.",
+  "bonds": "Its two OH ends grip water at both ends. That gets in the way of water lining up into ice, so the mix freezes much colder. It also boils hotter than water, so coolant handles summer heat.",
+  "extra": "In PET, each of glycol's two OH ends grabs an acid. That links piece after piece into a long plastic chain."
+ },
+ "glucose": {
+  "what": "A ring of five carbons and one oxygen, with OH groups around it. The sugar your body runs on.",
+  "where": "Blood, fruit, honey and corn syrup. Plants make it from sunlight, water and CO2.",
+  "bonds": "All those OH groups stick to water, so glucose dissolves easily. Your cells break its grips one step at a time, releasing energy slowly instead of as a flame.",
+  "extra": "Blood sugar meters for diabetes measure glucose in one drop of blood. A test strip uses an enzyme that reacts only with glucose."
+ },
+ "ammonia": {
+  "what": "One nitrogen holding three hydrogens, shaped like a short pyramid. A gas with a sharp smell that stings the eyes.",
+  "where": "Window cleaners, farm fertilizer and smelling salts.",
+  "bonds": "Nitrogen's spare pair of electrons on top can grab a hydrogen ion (H+), turning it into ammonium (NH4+). That's why ammonia is a base, the opposite of an acid.",
+  "extra": "Ammonia holds lots of hydrogen and no carbon. Engineers are testing it as a carbon-free fuel for large ships."
+ },
+ "hcn": {
+  "what": "A hydrogen, a carbon and a nitrogen in a straight line. A very poisonous liquid that boils at about 26 °C, just above room temperature.",
+  "where": "Factories that make nylon and acrylic. Small amounts form when plastics and wool burn.",
+  "bonds": "The C≡N triple grip forms cyanide. Cyanide latches onto a key enzyme cells use to burn oxygen, so cells suffocate even with oxygen around.",
+  "extra": "Cyanide made from HCN is used to pull gold and silver out of crushed rock. It grabs the metal atoms and carries them into water."
+ },
+ "n2o": {
+  "what": "Two nitrogens and an oxygen in a line. A sweet-smelling gas called laughing gas.",
+  "where": "Dentist offices, whipped cream cans and racing cars. Fertilized soil also gives it off.",
+  "bonds": "The molecule holds its oxygen loosely. Heated, it breaks apart and releases that oxygen, which lets engines burn extra fuel.",
+  "extra": "A 2009 study found it's now the biggest human-made threat to the ozone layer. It's also a strong greenhouse gas."
+ },
+ "no2": {
+  "what": "One nitrogen holding two oxygens, with one electron left unpaired. A reddish-brown, sharp-smelling gas.",
+  "where": "Car and truck exhaust, power plants and gas stoves in homes.",
+  "bonds": "The unpaired electron is an empty hand looking for a partner. In sunlight NO2 breaks apart, and the loose oxygen helps make ground-level ozone.",
+  "extra": "Lightning makes nitrogen oxides like this naturally. Rain carries them down to soil as a natural fertilizer."
+ },
+ "n2o4": {
+  "what": "Two NO2 molecules joined by an N-N grip. A liquid that supplies oxygen for burning.",
+  "where": "Spacecraft and missile tanks. It's rarely seen outside aerospace and chemical plants.",
+  "bonds": "The link joining the two halves is much weaker than the grips inside each half. So it splits easily, and its many oxygens are easy to hand over.",
+  "extra": "The Titan II rockets that flew NASA's Gemini astronauts burned N2O4 with a hydrazine fuel. As missiles, they could sit fully fueled for long stretches."
+ },
+ "hydrazine": {
+  "what": "Two nitrogens holding hands, each also holding two hydrogens. A clear, fuming, toxic liquid.",
+  "where": "Satellite thrusters and power plant boilers, where a little of it strips oxygen out of the water to stop rust.",
+  "bonds": "The N-N grip is weak. Breaking it frees the nitrogens to form N2's super-strong triple grip. That swap releases a lot of energy, so hydrazine breaks down hot and fast.",
+  "extra": "The F-16 fighter jet carries hydrazine to run its emergency power unit if the main engine quits."
+ },
+ "mmh": {
+  "what": "Hydrazine with one hydrogen swapped for a CH3 group. A clear, toxic liquid used as rocket fuel.",
+  "where": "Almost only in spacecraft and the plants that make it: crew capsules, satellites and space probes.",
+  "bonds": "It keeps hydrazine's weak N-N grip. The added carbon brings a little more energy when it burns with an oxygen supplier.",
+  "extra": "NASA's Orion capsule rides on a European-built service module whose engines burn MMH."
+ },
+ "urea": {
+  "what": "A carbon with an oxygen and two NH2 groups. White crystals that dissolve easily in water.",
+  "where": "Fertilizer pellets, diesel exhaust fluid, skin creams and the glues in particleboard.",
+  "bonds": "Its N-H and C=O parts both stick to water, so it dissolves very easily. Nearly half its weight is nitrogen, which makes it a compact fertilizer.",
+  "extra": "Urea is made from ammonia and CO2. So urea plants usually sit right next to ammonia plants, using their CO2 by-product."
+ },
+ "nitricacid": {
+  "what": "One nitrogen holding three oxygens, one of which also holds a hydrogen. A strong, corrosive acid.",
+  "where": "Fertilizer plants, explosives factories, and jewelers testing whether gold is real.",
+  "bonds": "The nitrogen pulls hard on its oxygens, so the hydrogen comes off easily in water: a strong acid. It also hands out oxygen readily, which is why it eats metals like copper.",
+  "extra": "A drop on skin turns it yellow, because nitric acid reacts with the proteins in skin."
+ },
+ "h2s": {
+  "what": "One sulfur holding two hydrogens, bent like water. A toxic gas that smells like rotten eggs.",
+  "where": "Sewers, swamps, hot springs, and 'sour' oil and gas wells.",
+  "bonds": "Sulfur pulls on electrons much less than oxygen does. So H2S molecules barely stick to each other, and it's a gas while water is a liquid.",
+  "extra": "Refineries turn H2S into yellow sulfur using the Claus process. Most of the world's sulfur now comes from cleaning oil and gas this way."
+ },
+ "so2": {
+  "what": "One sulfur holding two oxygens in a bent shape. A choking gas with a sharp, burnt smell.",
+  "where": "Volcanoes and coal power plants. Small amounts keep wine and dried fruit fresh, listed as 'sulfites.'",
+  "bonds": "Sulfur can hold out more hands, so SO2 happily grabs another oxygen and becomes SO3. In damp air that turns into sulfuric acid, which falls as acid rain.",
+  "extra": "Power plant scrubbers spray a limestone slurry to catch SO2. The leftover is gypsum, which is used to make drywall."
+ },
+ "h2so4": {
+  "what": "One sulfur holding four oxygens, two of which hold hydrogens. A thick, oily, very strong acid.",
+  "where": "Car batteries, some drain cleaners, fertilizer plants and refineries.",
+  "bonds": "Its hydrogens come off easily in water. It also grabs water greedily and gives off a lot of heat doing it. That's why you always add acid to water, never water to acid.",
+  "extra": "Its old name was 'oil of vitriol,' from its oily look and the glassy crystals it was first made from."
+ },
+ "hcl": {
+  "what": "One hydrogen holding one chlorine. A gas with a stinging smell that fumes in damp air.",
+  "where": "Your stomach, pool chemicals that lower pH, and brick and concrete cleaners.",
+  "bonds": "Chlorine pulls the shared pair hard, so in water the hydrogen walks off as H+. Almost every molecule splits this way, which makes it a strong acid.",
+  "extra": "Hardware stores sell it as 'muriatic acid,' an old name from the Latin word for brine."
+ },
+ "hf": {
+  "what": "One hydrogen holding one fluorine. A fuming liquid or gas, and a very dangerous acid in water.",
+  "where": "Chip factories, some refineries, and a few heavy-duty rust stain removers.",
+  "bonds": "Fluorine pulls the pair so hard that HF molecules stick strongly to each other. So it boils near room temperature, far hotter than HCl.",
+  "extra": "The standard first aid for HF burns is calcium gluconate gel. It gives the fluoride calcium to grab before it takes calcium from the body."
+ },
+ "ccl4": {
+  "what": "One carbon holding four chlorines. A heavy, clear liquid that doesn't burn.",
+  "where": "Rarely seen now outside labs. It was once common in dry cleaning and spot removers.",
+  "bonds": "The four chlorines spread evenly around carbon, so their pulls cancel and the molecule isn't lopsided. That's why it dissolves grease and oils but not water.",
+  "extra": "Early lava lamps used it to make the wax heavier. A US ban on it in consumer products took effect in 1970."
+ },
+ "cf4": {
+  "what": "One carbon holding four fluorines. A colorless, odorless gas that hardly reacts with anything.",
+  "where": "Mostly inside chip factories. Tiny amounts float in the air from aluminum smelting.",
+  "bonds": "Carbon-fluorine grips are among the strongest single bonds. With fluorines covering all four sides, there's no weak spot to attack.",
+  "extra": "It's also a refrigerant, called R-14, used for very low-temperature cooling."
+ },
+ "chcl3": {
+  "what": "One carbon holding one hydrogen and three chlorines. A heavy, sweet-smelling liquid.",
+  "where": "Chemistry labs, where it dissolves fats and oils. Tiny amounts form in chlorinated tap water.",
+  "bonds": "The three chlorines pull electrons away from carbon, which makes the last hydrogen slightly positive. That lets chloroform cling a little to other molecules, helping it dissolve many things.",
+  "extra": "Light and air slowly turn it into phosgene, a poison gas. So it's stored in brown bottles with a little ethanol added."
+ },
+ "ph3": {
+  "what": "One phosphorus holding three hydrogens, shaped like ammonia. A toxic, flammable gas.",
+  "where": "Grain silo fumigation and chip factories. Rotting matter in swamps makes tiny amounts.",
+  "bonds": "Phosphorus is bigger than nitrogen, so its grips on hydrogen are weaker and its pyramid is squeezed narrower. Unlike ammonia, it barely acts as a base.",
+  "extra": "One old idea for the ghostly lights over marshes, called will-o'-the-wisps, is phosphine setting swamp methane alight."
+ },
+ "pcl3": {
+  "what": "One phosphorus holding three chlorines. A clear, fuming, toxic liquid.",
+  "where": "Chemical plants that make weed killers like glyphosate, flame retardants and plastic additives.",
+  "bonds": "Its grips on chlorine break easily when water comes along. Water swaps in for chlorine and releases HCl, so PCl3 must be kept bone-dry.",
+  "extra": "French chemists Gay-Lussac and Thénard first made it in 1808. Humphry Davy made it the same year by burning phosphorus in chlorine."
+ },
+ "sf6": {
+  "what": "One sulfur holding six fluorines, pointing out like a six-armed jack. A heavy gas with no color or smell.",
+  "where": "Sealed inside high-voltage switches at power substations.",
+  "bonds": "The six fluorines wrap sulfur completely, so nothing can reach it. It also soaks up stray electrons, which stops sparks from jumping inside electrical gear.",
+  "extra": "From 1989 to 2006, Nike filled its Air shoe cushions with SF6, because its big molecules leak out slowly. Nike switched because SF6 is such a strong greenhouse gas."
+ },
+ "silane": {
+  "what": "One silicon holding four hydrogens: silicon's version of methane. A colorless gas.",
+  "where": "Only in chip and solar panel factories, piped in to grow thin silicon layers.",
+  "bonds": "Silicon is bigger than carbon and holds hydrogen less tightly. Those weaker grips break easily, which is why silane bursts into flame in air while methane needs a spark.",
+  "extra": "Heated, it splits into silicon and hydrogen gas. That's how thin silicon films are laid down on solar cells and flat screens."
+ },
+ "teb": {
+  "what": "One boron holding three ethyl (C2H5) groups. A clear liquid that bursts into flame in air.",
+  "where": "Rocket and jet engine igniters, and some chemistry labs.",
+  "bonds": "Each boron-carbon grip is weak, while a boron-oxygen grip is very strong. Trading one for the other releases the heat that lights the flame.",
+  "extra": "Chemists use a dash of TEB plus air to make radicals (pieces with an empty hand). Those start chain reactions for building medicines and plastics."
+ },
+ "tea": {
+  "what": "One aluminum holding three ethyl groups. A clear liquid that bursts into flame in air and explodes with water.",
+  "where": "Shipped in sealed steel cylinders to plastics plants and rocket launch sites.",
+  "bonds": "Aluminum holds its carbon groups loosely and wants more electrons. So two molecules pair up, sharing groups as bridges between the aluminums. In the bottle it's really a double molecule.",
+  "extra": "Its fires can't be put out with water or CO2. Crews use dry sand or special powders instead."
+ },
+ "xef2": {
+  "what": "One xenon atom with a fluorine on each side, in a straight line. Colorless crystals.",
+  "where": "Research labs, and chip plants that carve tiny moving parts like the motion sensors in phones.",
+  "bonds": "Xenon keeps three pairs of its own electrons around its middle. They push the two fluorines to opposite ends, making a straight line.",
+  "extra": "Bartlett's first noble gas compound in 1962 was a xenon-platinum-fluorine solid. Simpler xenon fluorides like XeF2 followed that same year."
+ },
+ "xef4": {
+  "what": "One xenon with four fluorines around it in a flat square. Colorless crystals.",
+  "where": "Only in research labs. It's a chemistry curiosity, not an everyday material.",
+  "bonds": "Its grips with fluorine are fragile compared with most bonds. Even moist air starts breaking it down, so it's kept bone-dry.",
+  "extra": "Water turns part of it into xenon trioxide, a solid that can explode when dry."
+ },
+ "nickelcarbonyl": {
+  "what": "One nickel atom with four CO molecules around it. A colorless, extremely toxic liquid that evaporates easily.",
+  "where": "Only inside nickel refineries. The Clydach refinery in Wales has run on the Mond process since 1902.",
+  "bonds": "Each CO hands nickel a pair of electrons, and nickel hands some back. This two-way sharing holds the molecule together, and gentle heat undoes it.",
+  "extra": "It's far more dangerous than CO alone. Breathing small amounts can cause lung damage that shows up days later."
+ },
+ "ap": {
+  "what": "A white salt of ammonium (NH4+) and perchlorate (ClO4-) pieces. It packs something to burn and an oxygen supplier into one crystal.",
+  "where": "Solid rocket motors, from high-power hobby rockets to missiles and space boosters, and some fireworks.",
+  "bonds": "Inside each piece, atoms hold hands. Between pieces, opposite charges stick like magnets. The ClO4- holds its oxygens loosely enough to give them up in a fire.",
+  "extra": "Most solid motors can't be shut off once lit. That's a big difference from liquid engines, which can be throttled and stopped."
+ },
+ "nacl": {
+  "what": "Table salt: a grid of sodium and chloride ions (charged atoms), alternating + and -.",
+  "where": "Kitchen salt, seawater, road salt, and thick underground salt beds left by ancient seas.",
+  "bonds": "Every + sits surrounded by six -, and every - by six +. The grip is strong but rigid, so a salt crystal is hard but shatters when hit instead of bending.",
+  "extra": "About 3.5% of seawater's weight is dissolved salts, most of it sodium chloride."
+ },
+ "kcl": {
+  "what": "A grid of potassium and chloride ions, built just like table salt.",
+  "where": "Fertilizer bags, salt substitutes and water softener pellets.",
+  "bonds": "Potassium is bigger than sodium, so its ions sit farther apart and the grid grips a bit less tightly. That's why KCl melts at a lower temperature than table salt.",
+  "extra": "Saskatchewan, in western Canada, sits on the largest known potash deposits in the world."
+ },
+ "lif": {
+  "what": "A grid of lithium and fluoride ions. A clear, very stable crystal.",
+  "where": "You won't find it at home. It's used in special optics, metal-joining fluxes and research reactors.",
+  "bonds": "Both ions are tiny, so they sit very close and grip hard. That tight hold makes the crystal tough to break down and lets even deep ultraviolet light pass through.",
+  "extra": "LiF chips in radiation badges store energy from radiation. Heated later, they glow, and the brightness tells the dose."
+ },
+ "mgo": {
+  "what": "A grid of magnesium and oxide ions. A white powder, or a very hard ceramic.",
+  "where": "Furnace linings, fireproof building boards, and magnesium supplement pills.",
+  "bonds": "Both ions carry a double charge, so they pull on each other much harder than the single charges in table salt. That's why it handles heat so well.",
+  "extra": "Electric stove and oven heating elements are packed with MgO powder. It blocks electricity but lets heat pass through."
+ },
+ "cao": {
+  "what": "A grid of calcium and oxide ions. A white, crumbly solid called quicklime.",
+  "where": "Cement, steel mills, paper mills and water treatment plants.",
+  "bonds": "Double charges grip tightly, so it takes extreme heat to melt it. But it grabs water eagerly and turns into slaked lime (calcium hydroxide).",
+  "extra": "Romans mixed lime with volcanic ash to make concrete that still stands today, like the dome of the Pantheon."
+ },
+ "caf2": {
+  "what": "A grid with two fluoride ions for every calcium ion. The mineral fluorite.",
+  "where": "Colorful fluorite crystals in rock shops, in purple, green and blue, and high-end camera and telescope lenses.",
+  "bonds": "Calcium's double charge pulls in two fluorides. Small, tightly held ions make a clear crystal that lets ultraviolet and infrared light through.",
+  "extra": "Fluorite is the 4 on the Mohs scratch-hardness scale used by rock collectors."
+ },
+ "mgcl2": {
+  "what": "A grid of magnesium ions with two chloride ions each. White crystals that dissolve easily.",
+  "where": "Dust control on dirt roads, bath flakes, and seawater.",
+  "bonds": "Magnesium's small size and double charge hold water molecules tightly around it. So it pulls moisture from the air and gives off heat as it dissolves.",
+  "extra": "In 1941 Dow began making magnesium from seawater in Freeport, Texas. The process turns it into magnesium chloride, then splits out the metal with electricity."
+ },
+ "cacl2": {
+  "what": "A grid of calcium ions with two chloride ions each. White flakes or pellets.",
+  "where": "Ice-melt bags, moisture-soaking tubs in closets, and canned pickles and vegetables to keep them crisp.",
+  "bonds": "Dissolved, each unit splits into three loose pieces: one calcium and two chlorides. More pieces get in the way of ice forming, so it melts ice at colder temperatures than table salt.",
+  "extra": "Cheesemakers add a little to milk, especially store-bought milk, to help it set into firm curds."
+ },
+ "al2o3": {
+  "what": "A grid of aluminum and oxide ions, two aluminums for every three oxygens. A very hard white solid.",
+  "where": "Sandpaper, knife sharpeners, spark plug insulators and scratch-proof watch faces.",
+  "bonds": "Small, highly charged ions lock into a tight grid. That makes it a 9 on the Mohs hardness scale, second only to diamond among common minerals.",
+  "extra": "In 1902 Auguste Verneuil announced a way to melt alumina powder in a flame and grow crystals. Lab-made rubies and sapphires have been around ever since."
+ },
+ "fe2o3": {
+  "what": "Iron ions that each gave up 3 electrons, in a grid with oxide ions. Red-brown rust.",
+  "where": "Rusty cars, red soil and red bricks, and iron ore mines.",
+  "bonds": "Rust's grid takes up more room than the iron it came from, so it cracks and flakes off. That lets air and water reach fresh metal, and rust keeps spreading. Aluminum's oxide skin, by contrast, seals itself.",
+  "extra": "Thermite is iron oxide mixed with aluminum powder. Aluminum steals the oxygen so violently that melted iron pours out."
+ },
+ "fe3o4": {
+  "what": "A black, heavy iron oxide with a mix of iron ions, some that gave 2 electrons and some 3.",
+  "where": "Iron ore mines, black sand on beaches, and the dark finish on 'blued' steel tools and gun parts.",
+  "bonds": "Electrons hop back and forth between the 2+ and 3+ irons. That hopping lets magnetite carry some electricity, unlike most rocks.",
+  "extra": "Cooling lava locks in the direction its magnetite points. Those rocks showed that Earth's magnetic poles have flipped many times."
+ },
+ "cuo": {
+  "what": "A black powder of copper ions that each gave 2 electrons, held with oxide ions.",
+  "where": "The dark tarnish on heated copper pipe, some wood preservatives, and blue-green fireworks.",
+  "bonds": "Giving 2 electrons is copper's most common choice. Its +2 ions hold oxygen in a slightly squashed square, unlike salt's neat cube.",
+  "extra": "Heated with charcoal, copper oxide ores give up their oxygen and leave copper metal. That simple trick is how people first smelted copper."
+ },
+ "cu2o": {
+  "what": "A red solid where each copper ion gave up just 1 electron. Two coppers share each oxide ion.",
+  "where": "Red-brown patches on old copper, ship hull paint, and some red glass and glazes.",
+  "bonds": "With copper's 1-electron choice, the grid changes. Each copper sits between just two oxygens, in a straight line.",
+  "extra": "A new copper roof first darkens to brown as Cu2O forms. Over many years it turns the familiar green."
+ },
+ "tio2": {
+  "what": "A grid of titanium ions, each giving 4 electrons, with oxide ions. A bright white powder.",
+  "where": "Wall paint, sunscreen, toothpaste, paper and white plastics.",
+  "bonds": "Its electrons are held so tightly that only UV light has enough energy to free them. So it soaks up UV, while bending and scattering visible light so strongly that it looks bright white.",
+  "extra": "Over 90% of the titanium ore mined each year becomes this white pigment, not titanium metal."
+ },
+ "zno": {
+  "what": "A grid of zinc and oxide ions. A soft white powder.",
+  "where": "Mineral sunscreen, diaper cream, rubber tires and ceramics.",
+  "bonds": "Its electrons need UV energy to break free, so it absorbs UV and lets visible light pass. Very fine particles block sunburn without looking white on skin.",
+  "extra": "Power lines use zinc oxide parts called varistors. They block current normally but open a path to ground when lightning strikes."
+ },
+ "li2o": {
+  "what": "A grid of lithium and oxide ions, two lithiums per oxygen. A white powder.",
+  "where": "Rarely on its own. It hides inside ceramic glazes and heat-resistant glass.",
+  "bonds": "Tiny lithium ions carry only +1, so two are needed per oxide. They tuck into the gaps of the oxygen grid, the reverse of calcium fluoride's layout.",
+  "extra": "Its cousin, lithium hydroxide, scrubs CO2 from spacecraft air. Apollo 13's crew had to rig square canisters to fit round sockets to stay alive."
+ },
+ "naoh": {
+  "what": "Sodium ions and hydroxide (OH-) ions in a grid. White pellets or flakes that burn skin.",
+  "where": "Drain openers, oven cleaners, soap making and aluminum plants.",
+  "bonds": "The OH- is the opposite of an acid's H+. It grabs hydrogens and splits fats apart, which is how it turns oil into soap.",
+  "extra": "German pretzels get their dark, shiny crust from a quick dip in weak lye before baking."
+ },
+ "caco3": {
+  "what": "Calcium ions with carbonate ions (a carbon holding three oxygens). A white mineral that builds whole mountains.",
+  "where": "Limestone, marble, eggshells, seashells and pearls.",
+  "bonds": "Acid pulls the carbonate apart and releases CO2 bubbles. That's why limestone fizzes in acid and why statues slowly wear away in acid rain.",
+  "extra": "Marble is limestone that was squeezed and heated deep underground until its crystals grew together."
+ },
+ "nahco3": {
+  "what": "Sodium ions with bicarbonate ions (HCO3-). A white powder: baking soda.",
+  "where": "Kitchens, toothpaste, fridge odor boxes and some fire extinguishers.",
+  "bonds": "Bicarbonate can either take a hydrogen or give one away. So it calms both acids and bases, which is how it settles an upset stomach.",
+  "extra": "Your blood uses bicarbonate the same way, to keep its acidity steady."
+ },
+ "lih": {
+  "what": "A grid of lithium ions and hydride ions, which are hydrogens that took an extra electron. A gray-white solid.",
+  "where": "Labs and nuclear projects. Never at home.",
+  "bonds": "Lithium gives up its electron so easily that hydrogen takes it and turns negative. Add water, and that H- grabs a hydrogen from the water, making hydrogen gas.",
+  "extra": "About 13% of its weight is hydrogen. A cup of it holds more hydrogen than a cup of liquid hydrogen does."
+ },
+ "licoo2": {
+  "what": "Layers of cobalt and oxygen with lithium ions tucked between them. A dark gray powder.",
+  "where": "Phone, laptop and camera batteries. Most electric cars use other mixes with less cobalt.",
+  "bonds": "The lithium ions are small and held loosely between the sheets. They can slip out and back in hundreds of times without the layers falling apart.",
+  "extra": "Pull out too much lithium and the layers turn unstable and can release oxygen. That's one reason overcharged batteries can catch fire."
+ },
+ "uo2": {
+  "what": "A grid of uranium ions, each giving 4 electrons, with oxide ions. A black, very dense ceramic.",
+  "where": "Inside nuclear power plants, pressed into pellets and stacked in long metal fuel rods.",
+  "bonds": "The strong pull between its charged ions keeps it solid until about 2,865 °C. That matters, because the center of a fuel pellet runs very hot.",
+  "extra": "Its grid is built the same way as fluorite (CaF2), with uranium sitting where calcium would be."
+ },
+ "diamond": {
+  "what": "Pure carbon, with every atom holding four others in a 3D web. Clear, hard and sparkly.",
+  "where": "Jewelry, but mostly saw blades, drill bits and grinding wheels. Most industrial diamond is lab-made.",
+  "bonds": "Every grip is a strong single bond pointing in a fixed direction. To scratch it, you must break many grips at once. But a sharp blow can still split it along flat planes.",
+  "extra": "General Electric made the first reliable lab diamonds in December 1954, by squeezing carbon at huge pressure and heat."
+ },
+ "graphite": {
+  "what": "Pure carbon in flat sheets of hexagons, stacked loosely. Soft, black and slippery.",
+  "where": "Pencils, lithium-ion battery anodes, motor brushes and lock lubricant.",
+  "bonds": "Within a sheet, the grips are even stronger than in diamond. Between sheets there's only weak cling, so layers slide off and leave marks on paper.",
+  "extra": "At normal pressure, graphite is actually the more stable form of carbon. Diamonds should slowly turn into graphite, but the change is so slow it never happens in practice."
+ },
+ "si": {
+  "what": "Silicon atoms each holding four others, like diamond. A shiny gray, brittle solid.",
+  "where": "Inside every phone, computer and solar panel, and in aluminum alloys for engine parts.",
+  "bonds": "Adding a trace of boron or phosphorus, called doping, controls how many electrons can move. That's what turns plain silicon into switches and solar cells.",
+  "extra": "Chips start as one giant crystal pulled slowly from melted silicon, a method named for Polish chemist Jan Czochralski. The crystal is sliced into wafers 300 mm across."
+ },
+ "sio2": {
+  "what": "Silicon and oxygen in a 3D web. Clear quartz, white sand and window glass.",
+  "where": "Beach sand, concrete, windows, phone screens, and the insulating layers inside computer chips.",
+  "bonds": "That web of silicon-oxygen grips is strong in every direction. So quartz is a 7 on the hardness scale and melts only above 1,600 °C.",
+  "extra": "Opal is silica too. It's made of tiny stacked silica balls that split light into flashes of color."
+ },
+ "sic": {
+  "what": "Silicon and carbon taking turns in a diamond-like web. A very hard, dark crystal.",
+  "where": "Sandpaper, EV chargers and motor controllers, sports car brakes and kiln shelves.",
+  "bonds": "Each Si-C grip is strong and points in a fixed direction, like diamond. Its electrons need more energy to break free than in silicon, so SiC chips handle higher voltage and heat.",
+  "extra": "Edward Acheson made it by accident around 1890 while trying to make diamonds. He named it carborundum."
+ },
+ "bn": {
+  "what": "Boron and nitrogen taking turns in flat hexagon sheets, like graphite. A soft, slippery white powder.",
+  "where": "Makeup powders, high-temperature crucibles, and coatings that keep melted metal from sticking to molds.",
+  "bonds": "Nitrogen pulls the shared electrons toward itself, so they can't roam across the sheet the way they do in graphite. That's why BN doesn't carry electricity.",
+  "extra": "A boron plus a nitrogen has the same electron count as two carbons. That's why BN can copy both carbon's graphite form and its diamond form."
+ },
+ "gaas": {
+  "what": "Gallium and arsenic taking turns in a silicon-like crystal. A dark gray semiconductor (a material that carries current only partway).",
+  "where": "Red and infrared LEDs, laser pointers, TV remotes and space solar panels.",
+  "bonds": "In GaAs, an electron can drop down and release its energy as light in one simple step. In silicon that step is awkward, so silicon makes poor LEDs.",
+  "extra": "Gallium only comes as a by-product, mostly from refining aluminum ore. China produces most of the world's supply."
+ },
+ "wc": {
+  "what": "Tungsten and carbon packed together into a dense, very hard gray solid.",
+  "where": "Carbide drill bits, saw blades, mining tools and some wedding rings.",
+  "bonds": "Small carbons sit in the gaps between heavy tungsten atoms, mixing metal-like and shared grips. It stays hard even when red-hot, so cutting tools keep their edge.",
+  "extra": "It's about twice as dense as steel, so a tungsten carbide ring feels heavy. It's too hard to bend, so a hard enough blow can shatter it."
+ },
+ "zeolite": {
+  "what": "A silicon-aluminum-oxygen web full of tiny tunnels and cages. A crystal sponge for molecules.",
+  "where": "Laundry detergent, cat litter, aquarium filters and refinery catalysts.",
+  "bonds": "The web is strong and rigid, like quartz. So its holes keep the same size even when red-hot.",
+  "extra": "Detergent zeolites trap the calcium in hard water. They replaced phosphates, which were feeding algae blooms in lakes."
+ },
+ "cu_metal": {
+  "what": "Copper atoms packed in a grid, sharing their loose electrons. A soft, reddish metal.",
+  "where": "Water pipes, power cords, motors and the outer coat of pennies.",
+  "bonds": "The electron sea flows easily, so copper carries electricity better than any metal except silver. Its atoms can slide past each other without breaking the sea, so it bends and stretches into wire.",
+  "extra": "Electric cars use far more copper than gas cars, mostly in their motors, batteries and wiring."
+ },
+ "fe_metal": {
+  "what": "Iron atoms packed in a grid, sharing electrons. A gray, strong, magnetic metal.",
+  "where": "Cast-iron pans, nails, magnets, and inside every steel object.",
+  "bonds": "Iron can stack its atoms two different ways depending on temperature. Switching between them is what lets heat treatment make steel hard or soft.",
+  "extra": "The Iron Pillar of Delhi has stood outdoors for over 1,600 years without rusting away. Extra phosphorus in its iron forms a thin protective skin."
+ },
+ "al_metal": {
+  "what": "Aluminum atoms in a grid, each giving 3 electrons to the shared sea. A light, silvery metal.",
+  "where": "Cans, foil, car bodies, window frames and power lines.",
+  "bonds": "Aluminum actually reacts with oxygen instantly. But the oxide skin it forms is tight and seals the metal underneath, so it seems not to rust.",
+  "extra": "It's the most common metal in Earth's crust. For most of history it was locked in rocks, because it grips oxygen so hard."
+ },
+ "ni_metal": {
+  "what": "Nickel atoms in a grid, sharing electrons. A silvery, tough metal that resists rust.",
+  "where": "Stainless steel, coins, electric car batteries and guitar strings.",
+  "bonds": "Like iron, some of its electrons line up their tiny magnets together. So nickel is one of the few metals that a magnet attracts at room temperature.",
+  "extra": "King Tutankhamun's iron dagger has over 10% nickel. That high nickel showed in 2016 that it was made from a meteorite."
+ },
+ "pt_metal": {
+  "what": "Platinum atoms in a dense grid, sharing electrons. A heavy, silvery metal that never tarnishes.",
+  "where": "Car catalytic converters, jewelry, lab equipment, and a cancer drug called cisplatin.",
+  "bonds": "Its outer electrons are held tightly, so air and most acids can't pull them away. That's why it stays shiny forever.",
+  "extra": "About 70% of the world's platinum is mined in South Africa."
+ },
+ "na_metal": {
+  "what": "Sodium atoms in a grid, each giving 1 loose electron to the sea. A soft, silvery metal.",
+  "where": "You never meet it as metal. You meet sodium in salt, baking soda and soap.",
+  "bonds": "With only 1 electron each in the sea, the grip between atoms is weak. That's why sodium is soft and melts at just 98 °C.",
+  "extra": "Humphry Davy first made sodium metal in 1807 by running electricity through melted lye."
+ },
+ "li_metal": {
+  "what": "Lithium atoms in a loose grid. The lightest metal, soft and silvery.",
+  "where": "Coin and camera batteries that aren't rechargeable, and light alloys for aircraft.",
+  "bonds": "Small atoms with just one shared electron each give a weak grip, so it's soft enough to cut. It reacts with water, but more gently than sodium.",
+  "extra": "Lithium carbonate, a simple lithium salt, is a common medicine for bipolar disorder."
+ },
+ "ti_metal": {
+  "what": "Titanium atoms in a strong grid. A gray metal as strong as many steels but much lighter.",
+  "where": "Aircraft parts, hip and dental implants, eyeglass frames and golf clubs.",
+  "bonds": "The metal underneath is reactive. But the oxide skin it forms instantly is tight and tough, so it resists salt water and body fluids.",
+  "extra": "Titanium is common in rock but hard to free from oxygen. William Kroll's method from about 1940 is still the main way it's made."
+ },
+ "w_metal": {
+  "what": "Tungsten atoms in a very tightly gripped grid. A heavy gray metal.",
+  "where": "Old light bulb filaments, welding tips, the tiny weights in phone vibration motors, and darts.",
+  "bonds": "Each atom shares many electrons into the sea, making very strong grips. That gives it its huge melting point and its weight.",
+  "extra": "'Tungsten' means 'heavy stone' in Swedish."
+ },
+ "au_metal": {
+  "what": "Gold atoms in a grid, sharing electrons. A soft, heavy, yellow metal.",
+  "where": "Jewelry, coins, phone and computer connectors, and dental work.",
+  "bonds": "The electron sea lets gold atoms slide past each other very easily. So gold can be stretched into fine wire and pressed into shapes without cracking.",
+  "extra": "Much of the universe's gold may come from colliding neutron stars. A crash seen in 2017 showed heavy elements being made this way."
+ },
+ "ag_metal": {
+  "what": "Silver atoms in a grid, sharing electrons. A bright, white metal.",
+  "where": "Jewelry, silverware, mirrors, electronics and solar panels.",
+  "bonds": "Its electron sea reflects almost all visible light evenly. That's why silver makes the brightest mirrors.",
+  "extra": "Solar panels are now one of the biggest industrial uses of silver."
+ },
+ "mg_metal": {
+  "what": "Magnesium atoms in a grid, each sharing two electrons. A light, silvery metal.",
+  "where": "Laptop and camera bodies, car wheels, fireworks and fire-starter blocks.",
+  "bonds": "Its atoms stack in hexagon layers that only slide in a few directions. So magnesium is hard to bend at room temperature.",
+  "extra": "It's about two-thirds the weight of aluminum for the same size, the lightest metal used to build things."
+ },
+ "zn_metal": {
+  "what": "Zinc atoms in a grid, each sharing two electrons. A bluish-gray metal.",
+  "where": "Galvanized nails, fences and guard rails, batteries, pennies, and die-cast toy cars.",
+  "bonds": "For a metal, zinc's grip is weak, so it melts at just 420 °C. That makes it easy to cast into detailed shapes.",
+  "extra": "Zinc-air batteries in hearing aids breathe in oxygen through tiny holes to make power."
+ },
+ "steel": {
+  "what": "Iron with a little carbon wedged into its grid. The world's main building metal.",
+  "where": "Buildings, bridges, cars, rails, tools, cans and appliances.",
+  "bonds": "More carbon makes steel harder but more brittle. Low-carbon steel bends; high-carbon tool steel holds a sharp edge.",
+  "extra": "In 1856 Henry Bessemer patented a way to blow air through melted iron to burn off extra carbon. It made steel cheap for the first time."
+ },
+ "stainless": {
+  "what": "Iron mixed with chromium and nickel. A shiny steel that resists rust.",
+  "where": "Sinks, cookware, cutlery, medical tools, and food and chemical plants.",
+  "bonds": "Nickel holds the iron atoms in their high-temperature arrangement, even at room temperature. That arrangement isn't magnetic, so a fridge magnet barely sticks to 304 stainless.",
+  "extra": "The Chrysler Building's spire, finished in 1930, is clad in an 18% chromium, 8% nickel stainless steel. It still shines."
+ },
+ "bronze": {
+  "what": "Copper mixed with tin. A golden-brown metal harder than either one alone.",
+  "where": "Statues, bells, cymbals, medals and some boat propellers.",
+  "bonds": "Hard, stiff bronze rings clearly and long when struck. That's why bells and cymbals are made from it.",
+  "extra": "Bronze statues are often cast with the 'lost wax' method: a wax model is coated in clay, then the wax is melted out and replaced with metal."
+ },
+ "brass": {
+  "what": "Copper mixed with zinc. A bright yellow metal that looks a bit like gold.",
+  "where": "Trumpets, trombones, faucets, zippers and lamp fittings.",
+  "bonds": "Zinc atoms are close in size to copper's, so they swap into the grid easily. More zinc makes it harder and more yellow.",
+  "extra": "The brass section of an orchestra is named after this metal."
+ },
+ "alli": {
+  "what": "Aluminum with a little lithium mixed in. Lighter and stiffer than ordinary aluminum.",
+  "where": "Airliner wings and floors, rocket fuel tanks, and some fighter jets.",
+  "bonds": "Lithium atoms are tiny and light. They gather into very small clusters inside the aluminum grid that stiffen it.",
+  "extra": "Early versions cracked too easily. It took decades of work to make grades reliable enough for airliners."
+ },
+ "inconel": {
+  "what": "Nickel mixed with chromium and iron. A metal that stays strong when glowing hot.",
+  "where": "Jet engines, rocket engines, race car exhausts and furnace parts.",
+  "bonds": "Chromium forms a tight oxide skin that heals itself, like in stainless. The nickel grid stays stable and softens very little near red heat.",
+  "extra": "SpaceX 3D-prints the combustion chamber of its SuperDraco thruster from Inconel, melting metal powder layer by layer with a laser."
+ },
+ "solder": {
+  "what": "Mostly tin, with a little silver and copper. A soft metal that melts easily.",
+  "where": "Every circuit board in phones, computers and appliances.",
+  "bonds": "Melted solder wets the copper pads and forms a thin layer of a new copper-tin compound. That layer is the real glue of the joint.",
+  "extra": "This tin-silver-copper mix melts between about 217 and 220 °C, higher than old tin-lead solder."
+ }
+}

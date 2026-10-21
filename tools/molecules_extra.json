@@ -1,0 +1,373 @@
+[
+ {
+  "id": "sucrose",
+  "name": "Sucrose (table sugar)",
+  "formula": "C12H22O11",
+  "kind": "molecule",
+  "smiles": "OCC1OC(OC2(CO)OC(CO)C(O)C2O)C(O)C(O)C1O",
+  "blurb": "One glucose ring and one fructose ring each give up a hand to the same oxygen. That oxygen bridge holds the two rings together like a clasp.",
+  "uses": "Sweetening food and drinks, baking, candy, making ethanol from cane juice.",
+  "lens": {},
+  "aliases": [
+   "sugar",
+   "table sugar",
+   "cane sugar"
+  ],
+  "facts": [
+   "Most of the world's sugar comes from sugarcane. Most of the rest comes from sugar beets.",
+   "About 185 million tonnes of sugar were made worldwide in 2017.",
+   "Heat it to about 170 °C and it starts to break apart into caramel."
+  ],
+  "details": {
+   "what": "Two smaller sugars, glucose and fructose, joined into one molecule. It's the white sugar in your kitchen.",
+   "where": "In the sugar bowl, in sodas, candy and baked goods. Plants make it to move energy from leaves to roots and fruit.",
+   "bonds": "Every carbon holds 4 hands and every oxygen 2. Lots of O-H groups stick out, and water grabs onto them. That's why sugar dissolves so easily.",
+   "extra": "Your gut can't use it as-is. An enzyme (a helper protein) snips the oxygen bridge back into glucose and fructose first."
+  }
+ },
+ {
+  "id": "fructose",
+  "name": "Fructose (fruit sugar)",
+  "formula": "C6H12O6",
+  "kind": "molecule",
+  "smiles": "OCC1(O)OCC(O)C(O)C1O",
+  "blurb": "Same atoms as glucose, arranged differently. The carbons, oxygens and hydrogens still fill every hand, just in a different pattern.",
+  "uses": "Fruit, honey, high-fructose corn syrup, sweetening drinks.",
+  "lens": {},
+  "aliases": [
+   "fruit sugar",
+   "levulose"
+  ],
+  "facts": [
+   "It's the sweetest sugar found in nature, about 1.2 to 1.8 times as sweet as table sugar.",
+   "Honey has a little more fructose than glucose.",
+   "French chemist Augustin-Pierre Dubrunfaut discovered it in 1847."
+  ],
+  "details": {
+   "what": "A simple sugar with the same formula as glucose, C6H12O6. Same parts, different build.",
+   "where": "In fruit, honey and many sodas. Half of every table sugar molecule is fructose.",
+   "bonds": "Its ring holds one oxygen and five carbons, with O-H groups on the outside. Those O-H groups grab water, so it dissolves fast.",
+   "extra": "Two molecules with the same atoms but a different shape are called isomers. Glucose and fructose are a classic pair."
+  }
+ },
+ {
+  "id": "glycine",
+  "name": "Glycine",
+  "formula": "C2H5NO2",
+  "kind": "molecule",
+  "smiles": "NCC(=O)O",
+  "blurb": "The middle carbon uses its 4 hands on a nitrogen group, a carbon-oxygen group and two hydrogens. Nitrogen fills its 3 hands, and each oxygen fills its 2.",
+  "uses": "Building block of every protein; also used in food flavoring and supplements.",
+  "lens": {},
+  "aliases": [
+   "simplest amino acid",
+   "aminoacetic acid"
+  ],
+  "facts": [
+   "It's the only common amino acid with no left-handed or right-handed version.",
+   "About 35% of the amino acids in collagen, the protein in skin and tendons, are glycine.",
+   "In 2016 the Rosetta spacecraft found glycine in the gas around comet 67P."
+  ],
+  "details": {
+   "what": "The simplest amino acid. Amino acids are the beads your body strings together to make proteins.",
+   "where": "In every protein you eat or are made of. It's especially common in skin, tendons and gelatin.",
+   "bonds": "One end has a nitrogen with hydrogens (the amino part). The other end has the acid group, a carbon holding two oxygens. Those two ends link up with other amino acids like train cars.",
+   "extra": "It tastes mildly sweet. Its name comes from the Greek word for sweet."
+  }
+ },
+ {
+  "id": "alanine",
+  "name": "Alanine",
+  "formula": "C3H7NO2",
+  "kind": "molecule",
+  "smiles": "CC(N)C(=O)O",
+  "blurb": "It's glycine with one hydrogen swapped for a CH3 group. The middle carbon still holds 4 hands: nitrogen, the acid group, a hydrogen and that CH3.",
+  "uses": "Building block of proteins; a fuel your muscles and liver trade back and forth.",
+  "lens": {},
+  "aliases": [
+   "L-alanine"
+  ],
+  "facts": [
+   "Adolph Strecker first made it in 1850 from acetaldehyde, ammonia and hydrogen cyanide.",
+   "Because its middle carbon holds four different things, it comes in left- and right-handed versions. Life builds proteins with the left-handed one."
+  ],
+  "details": {
+   "what": "One of the 20 amino acids your body uses to build proteins.",
+   "where": "In nearly every protein in meat, eggs, beans and your own muscles.",
+   "bonds": "Same two ends as glycine: a nitrogen group and an acid group. Those ends let it link into long protein chains.",
+   "extra": "Its name was made from 'aldehyde,' the chemical it was first made from."
+  }
+ },
+ {
+  "id": "caffeine",
+  "name": "Caffeine",
+  "formula": "C8H10N4O2",
+  "kind": "molecule",
+  "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
+  "blurb": "Two rings of carbon and nitrogen share an edge. Nitrogen fills its 3 hands inside the rings, and some carbons use a double hand to an oxygen.",
+  "uses": "Coffee, tea, energy drinks, some pain relievers.",
+  "lens": {},
+  "aliases": [
+   "coffee",
+   "1,3,7-trimethylxanthine"
+  ],
+  "facts": [
+   "It's the world's most widely used mind-affecting drug.",
+   "Plants make it as a natural bug killer. It can paralyze and kill insects that chew on them.",
+   "An 8 oz cup of coffee has about 80 to 100 mg. The FDA says up to 400 mg a day appears safe for most healthy adults."
+  ],
+  "details": {
+   "what": "A small, bitter molecule made by coffee, tea and cacao plants. It keeps you alert.",
+   "where": "In coffee, tea, cola, energy drinks and chocolate.",
+   "bonds": "The two rings are flat and stiff because electrons spread across them. Small CH3 groups hang off three of the nitrogens.",
+   "extra": "It works by blocking the 'you're tired' signal in your brain, a molecule called adenosine."
+  }
+ },
+ {
+  "id": "aspirin",
+  "name": "Aspirin",
+  "formula": "C9H8O4",
+  "kind": "molecule",
+  "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O",
+  "blurb": "A benzene ring, a six-carbon ring with alternating double hands, carries two groups. One is an acid group, the other an acetyl group hooked on through an oxygen.",
+  "uses": "Pain and fever relief; low doses used for some heart patients.",
+  "lens": {},
+  "aliases": [
+   "acetylsalicylic acid",
+   "ASA"
+  ],
+  "facts": [
+   "Felix Hoffmann at Bayer made the first pure sample on 10 August 1897.",
+   "Bayer started selling it under the name Aspirin in 1899.",
+   "Willow bark contains a natural cousin of it, salicin. People chewed willow bark for pain long before aspirin."
+  ],
+  "details": {
+   "what": "A pain reliever made by adding an acetyl group to salicylic acid, a chemical related to one in willow bark.",
+   "where": "In medicine cabinets, as tablets for headaches, fever and inflammation.",
+   "bonds": "The ring is flat and stable. The acetyl group is held by an oxygen bridge that water can slowly snap. That's why old aspirin can smell like vinegar.",
+   "extra": "It blocks an enzyme the body uses to make pain and swelling signals."
+  }
+ },
+ {
+  "id": "ascorbic",
+  "name": "Vitamin C (ascorbic acid)",
+  "formula": "C6H8O6",
+  "kind": "molecule",
+  "smiles": "OCC(O)C1OC(=O)C(O)=C1O",
+  "blurb": "A five-member ring with one oxygen in it. Two ring carbons share a double hand, and a third holds an oxygen with a double hand. The O-H groups on the double-handed carbons give up hydrogen easily. That makes it an acid.",
+  "uses": "Vitamin supplements, keeping food from browning, preventing scurvy.",
+  "lens": {},
+  "aliases": [
+   "vitamin C",
+   "ascorbate"
+  ],
+  "facts": [
+   "Humans, other apes and monkeys, guinea pigs and most bats can't make their own. Most other animals can.",
+   "In 1747 ship's surgeon James Lind gave sailors with scurvy oranges and lemons. It was one of the first controlled experiments.",
+   "Albert Szent-Györgyi won the 1937 Nobel Prize, partly for his work on vitamin C."
+  ],
+  "details": {
+   "what": "A vitamin your body needs to build collagen, the protein that holds skin and blood vessels together.",
+   "where": "In citrus fruit, peppers, strawberries and broccoli. Also added to juices and foods.",
+   "bonds": "It gives away electrons easily. That lets it protect other molecules from oxygen, which is why it's added to food.",
+   "extra": "Its name means 'no scurvy.' Scurvy is the disease you get without it."
+  }
+ },
+ {
+  "id": "citricacid",
+  "name": "Citric acid",
+  "formula": "C6H8O7",
+  "kind": "molecule",
+  "smiles": "OC(=O)CC(O)(CC(=O)O)C(=O)O",
+  "blurb": "A short chain of carbons carrying three acid groups. In each acid group a carbon holds one oxygen with a double hand and another with a single hand.",
+  "uses": "Sour flavor in drinks and candy, cleaning products, preserving food.",
+  "lens": {},
+  "aliases": [
+   "lemon acid",
+   "citrate"
+  ],
+  "facts": [
+   "Most of it is made by a mold, Aspergillus niger, fed on sugar.",
+   "The world made over 2 million tons of it in 2018, more than half in China.",
+   "Every cell in your body runs a chain of reactions named after it, the citric acid cycle."
+  ],
+  "details": {
+   "what": "The acid that makes lemons and limes sour.",
+   "where": "In citrus fruit, sodas, sour candy, bath bombs and descaling cleaners.",
+   "bonds": "Its three acid groups can each let go of a hydrogen. That makes it a good grabber of metal atoms, so it dissolves scale and hard-water stains.",
+   "extra": "Lemons and limes can be up to 8% citric acid by dry weight."
+  }
+ },
+ {
+  "id": "isopropanol",
+  "name": "Isopropyl alcohol (rubbing alcohol)",
+  "formula": "C3H8O",
+  "kind": "molecule",
+  "smiles": "CC(C)O",
+  "blurb": "Three carbons in a bent row. The middle carbon uses one hand on an oxygen, and that oxygen's other hand holds a hydrogen.",
+  "uses": "Rubbing alcohol, hand sanitizer, cleaning electronics, solvent in labs and factories.",
+  "lens": {},
+  "aliases": [
+   "rubbing alcohol",
+   "isopropanol",
+   "IPA",
+   "2-propanol"
+  ],
+  "facts": [
+   "It's made by adding water to propylene.",
+   "Rubbing alcohol is usually 60 to 70% in water. The water helps it get into germs."
+  ],
+  "details": {
+   "what": "A simple alcohol, a cousin of ethanol with one more carbon.",
+   "where": "In first-aid kits, wipes, hand sanitizer and screen cleaners.",
+   "bonds": "The O-H group grabs water, and the carbon part grabs oils. So it mixes with both and cleans greasy dirt off fast.",
+   "extra": "It evaporates quickly and leaves almost nothing behind, which is why it's used on circuit boards."
+  }
+ },
+ {
+  "id": "lacticacid",
+  "name": "Lactic acid",
+  "formula": "C3H6O3",
+  "kind": "molecule",
+  "smiles": "CC(O)C(=O)O",
+  "blurb": "Three carbons in a row. The middle one holds an O-H, and the end carbon is an acid group holding two oxygens.",
+  "uses": "Yogurt and sourdough tang, food preservative, making PLA plastic.",
+  "lens": {},
+  "aliases": [
+   "lactate",
+   "milk acid"
+  ],
+  "facts": [
+   "It gives yogurt, kefir and sourdough bread their sour taste.",
+   "PLA, a plastic used in 3D printing, is made from lactic acid instead of oil."
+  ],
+  "details": {
+   "what": "A small acid made by bacteria when they ferment sugar. Your muscles make it too when working hard.",
+   "where": "In yogurt, sauerkraut, sour beer and pickles.",
+   "bonds": "The acid group lets go of a hydrogen, which makes food sour and slows the growth of germs that spoil it.",
+   "extra": "Its middle carbon holds four different things, so it comes in left- and right-handed versions."
+  }
+ },
+ {
+  "id": "acetaminophen",
+  "name": "Acetaminophen (paracetamol)",
+  "formula": "C8H9NO2",
+  "kind": "molecule",
+  "smiles": "CC(=O)NC1=CC=C(O)C=C1",
+  "blurb": "A benzene ring with an O-H on one side and an N-H group on the opposite side. The nitrogen uses its third hand on an acetyl group.",
+  "uses": "Pain and fever relief.",
+  "lens": {},
+  "aliases": [
+   "paracetamol",
+   "Tylenol",
+   "APAP"
+  ],
+  "facts": [
+   "It's called acetaminophen in the US, Canada and Japan, and paracetamol in most other places.",
+   "Too much of it is the leading cause of sudden liver failure in many countries."
+  ],
+  "details": {
+   "what": "A common pain and fever reliever.",
+   "where": "In medicine cabinets and in many cold and flu mixes.",
+   "bonds": "The flat ring holds the two groups in place. The liver breaks it down, and a big overdose makes a harmful leftover the liver can't clear.",
+   "extra": "It isn't a strong anti-swelling drug like aspirin or ibuprofen."
+  }
+ },
+ {
+  "id": "ibuprofen",
+  "name": "Ibuprofen",
+  "formula": "C13H18O2",
+  "kind": "molecule",
+  "smiles": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O",
+  "blurb": "A benzene ring with a branched carbon chain on one side and an acid group on the other. Every carbon fills its 4 hands.",
+  "uses": "Pain, fever and swelling relief.",
+  "lens": {},
+  "aliases": [
+   "Advil",
+   "Motrin",
+   "Nurofen"
+  ],
+  "facts": [
+   "Stewart Adams and John Nicholson found it at Boots in Nottingham, England, in 1961.",
+   "Adams tested an early dose on his own hangover."
+  ],
+  "details": {
+   "what": "A pain reliever that also calms swelling.",
+   "where": "In medicine cabinets as Advil, Motrin or store brands.",
+   "bonds": "The ring and the branched chain are oily and shun water. The acid group on the other end is the part that mixes with water.",
+   "extra": "Like aspirin, it blocks the enzyme that makes swelling and pain signals."
+  }
+ },
+ {
+  "id": "glycerol",
+  "name": "Glycerol (glycerin)",
+  "formula": "C3H8O3",
+  "kind": "molecule",
+  "smiles": "OCC(O)CO",
+  "blurb": "Three carbons in a row, each with an O-H group. Every hand is held.",
+  "uses": "Soaps, lotions, food sweetener, making nitroglycerin.",
+  "lens": {},
+  "aliases": [
+   "glycerin",
+   "glycerine"
+  ],
+  "facts": [
+   "Every fat or oil molecule is three fatty acids hung on a glycerol backbone.",
+   "Making soap or biodiesel from fats sets glycerol free as a leftover.",
+   "Adding nitric acid to it makes nitroglycerin, used in explosives and heart medicine."
+  ],
+  "details": {
+   "what": "A thick, sweet, clear liquid.",
+   "where": "In soaps, lotions, toothpaste, and as a sweetener and moisture keeper in foods.",
+   "bonds": "Three O-H groups grab water strongly. That's why it keeps skin and foods moist.",
+   "extra": "Swedish chemist Carl Wilhelm Scheele first found it. He called it the sweet part of fat."
+  }
+ },
+ {
+  "id": "phosphoricacid",
+  "name": "Phosphoric acid",
+  "formula": "H3PO4",
+  "kind": "molecule",
+  "smiles": "OP(=O)(O)O",
+  "blurb": "A phosphorus in the middle holds four oxygens, one with a double hand. Three of those oxygens hold a hydrogen with their other hand. Here phosphorus uses 5 hands, more than its usual 3.",
+  "uses": "Fertilizer, cola tang, rust removal, food additive.",
+  "lens": {},
+  "aliases": [
+   "orthophosphoric acid"
+  ],
+  "facts": [
+   "About 90% of it goes into fertilizer.",
+   "It gives colas their sharp, sour bite."
+  ],
+  "details": {
+   "what": "An acid built around one phosphorus atom.",
+   "where": "In fertilizer, colas, and rust removers.",
+   "bonds": "The three hydrogens can each let go, one at a time. Phosphorus is big enough to hold more than 3 hands' worth of bonds.",
+   "extra": "Plants need phosphorus to make DNA and to move energy around. Fertilizer is how farms supply it."
+  }
+ },
+ {
+  "id": "vinylchloride",
+  "name": "Vinyl chloride",
+  "formula": "C2H3Cl",
+  "kind": "molecule",
+  "smiles": "C=CCl",
+  "blurb": "Two carbons hold a double hand. One carbon uses its last hand on a chlorine. Open that double hand and the molecules link into PVC.",
+  "uses": "Making PVC pipe, siding and flooring.",
+  "lens": {},
+  "aliases": [
+   "chloroethene",
+   "VCM"
+  ],
+  "facts": [
+   "Nearly all of it is used to make PVC.",
+   "In 2023 a train derailed in Ohio, spilling about 100,000 gallons of hazardous chemicals including vinyl chloride."
+  ],
+  "details": {
+   "what": "A small gas that is the building block of PVC plastic.",
+   "where": "You meet it as PVC: pipes, window frames, flooring, cable coating.",
+   "bonds": "The double hand between the carbons can open up. Each carbon then grabs a neighbor molecule, building a long chain.",
+   "extra": "It's flammable and causes cancer, so it's handled in closed systems."
+  }
+ }
+]

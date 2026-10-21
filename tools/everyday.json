@@ -1,0 +1,170 @@
+[
+ {
+  "id": "water",
+  "why": "Every living thing runs on it, and it covers most of the planet."
+ },
+ {
+  "id": "o2",
+  "why": "About a fifth of the air. You breathe it, and every fire burns with it."
+ },
+ {
+  "id": "n2",
+  "why": "Most of the air. It's also the raw ingredient for all nitrogen fertilizer."
+ },
+ {
+  "id": "co2",
+  "why": "What breathing and burning give off, what plants eat, and the main gas behind climate change."
+ },
+ {
+  "id": "glucose",
+  "why": "The sugar every cell burns for energy. Plants make it from sunlight."
+ },
+ {
+  "id": "methane",
+  "why": "Natural gas: heats homes, makes electricity, and starts the chain to fertilizer and plastics."
+ },
+ {
+  "id": "nacl",
+  "why": "Table salt. Your body needs it, and it's the starting point for chlorine and lye."
+ },
+ {
+  "id": "ammonia",
+  "why": "Made from air and natural gas. Fertilizer from it helps feed a large share of humanity."
+ },
+ {
+  "id": "h2so4",
+  "why": "Made in larger amounts than almost any other chemical. Used for fertilizer, metals and batteries."
+ },
+ {
+  "id": "ethylene",
+  "why": "The most-made building block in the plastics industry."
+ },
+ {
+  "id": "polyethylene",
+  "why": "The most common plastic: bags, bottles, films and pipes."
+ },
+ {
+  "id": "h2",
+  "why": "Used to make ammonia and to clean up fuels at refineries. A possible clean fuel."
+ },
+ {
+  "id": "cao",
+  "why": "Lime: comes from limestone and goes into cement, steelmaking and water treatment."
+ },
+ {
+  "id": "fe2o3",
+  "why": "Rust, and the iron ore that steel is made from."
+ },
+ {
+  "id": "urea",
+  "why": "The world's most-used nitrogen fertilizer. Your body makes it too."
+ },
+ {
+  "id": "propylene",
+  "why": "The second big plastics building block after ethylene."
+ },
+ {
+  "id": "polypropylene",
+  "why": "Second most common plastic: food tubs, car parts, bottle caps."
+ },
+ {
+  "id": "sucrose",
+  "why": "Table sugar, one of the biggest farm products on Earth."
+ },
+ {
+  "id": "ethanol",
+  "why": "In every alcoholic drink and blended into gasoline as fuel."
+ },
+ {
+  "id": "phosphoricacid",
+  "why": "Mostly goes into fertilizer. Farms need phosphorus to grow food."
+ },
+ {
+  "id": "kcl",
+  "why": "Potash: the main way farms get potassium. Also a salt substitute."
+ },
+ {
+  "id": "cl2",
+  "why": "Keeps drinking water safe and is needed to make PVC."
+ },
+ {
+  "id": "isooctane",
+  "why": "The standard for gasoline. An octane rating compares fuel to it."
+ },
+ {
+  "id": "methanol",
+  "why": "A basic building block for plastics, glues and fuels."
+ },
+ {
+  "id": "al2o3",
+  "why": "The ore that aluminum metal is made from. Also sandpaper grit and sapphire."
+ },
+ {
+  "id": "nitricacid",
+  "why": "Turns ammonia into fertilizer and explosives."
+ },
+ {
+  "id": "benzene",
+  "why": "Starting ring for nylon, polystyrene, dyes and many medicines."
+ },
+ {
+  "id": "pvc",
+  "why": "Pipes, window frames, flooring and cable coating."
+ },
+ {
+  "id": "pet",
+  "why": "Water and soda bottles, and polyester clothing."
+ },
+ {
+  "id": "propane",
+  "why": "Grill and heating gas, and a fuel for forklifts."
+ },
+ {
+  "id": "glycine",
+  "why": "The simplest building block of the proteins you're made of."
+ },
+ {
+  "id": "co",
+  "why": "Poison gas from bad burning. Industry uses it to make steel and chemicals."
+ },
+ {
+  "id": "hcl",
+  "why": "Your stomach acid. Industry uses it to clean steel and make PVC."
+ },
+ {
+  "id": "aceticacid",
+  "why": "Vinegar, and a building block for PET plastic and paints."
+ },
+ {
+  "id": "tio2",
+  "why": "The white pigment in paint, sunscreen, paper and toothpaste."
+ },
+ {
+  "id": "caffeine",
+  "why": "The world's most widely used mind-affecting drug, in coffee and tea."
+ },
+ {
+  "id": "acetaminophen",
+  "why": "One of the most-used pain and fever medicines."
+ },
+ {
+  "id": "aspirin",
+  "why": "The classic pain reliever, sold for over 120 years."
+ },
+ {
+  "id": "ascorbic",
+  "why": "Vitamin C. You can't make it, so you have to eat it."
+ },
+ {
+  "id": "citricacid",
+  "why": "Lemon sourness. Added to drinks, candy and cleaners."
+ },
+ {
+  "id": "h2o2",
+  "why": "Bleaches paper and cleans cuts. Breaks down into just water and oxygen."
+ },
+ {
+  "id": "o3",
+  "why": "High up, the ozone layer shields life from harmful sunlight."
+ }
+]

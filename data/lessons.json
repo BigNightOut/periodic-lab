@@ -1,0 +1,2145 @@
+{
+ "units": [
+  {
+   "id": "u1",
+   "title": "First bonds",
+   "idea": "A bond is two atoms holding hands, and a molecule is finished when every hand is held.",
+   "lessons": [
+    {
+     "id": "h2",
+     "title": "Build hydrogen gas",
+     "target": "h2",
+     "level": 1,
+     "intro": "Hydrogen is the smallest atom. You'll join two of them into hydrogen gas, the lightest molecule there is.",
+     "steps": [
+      {
+       "say": "Tap hydrogen to put one on the bench.",
+       "why": "A hydrogen atom has just 1 hand. On its own that hand is empty, so it won't stay alone for long.",
+       "goal": {
+        "atoms": {
+         "H": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap hydrogen again to add a second one.",
+       "why": "Now there are two atoms, each with one empty hand. Each could hold the other.",
+       "goal": {
+        "atoms": {
+         "H": 2
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Drag one hydrogen right next to the other and let go.",
+       "why": "Both have an empty hand, so they grab each other. Each puts in one electron, and that shared pair is the handshake, or bond.",
+       "goal": {
+        "atoms": {
+         "H": 2
+        },
+        "bonds": [
+         [
+          "H",
+          "H",
+          1,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built H2, hydrogen gas. A bond is two atoms holding hands, and once every hand is held the molecule is settled.",
+     "check": {
+      "q": "Why do two hydrogen atoms join up instead of staying apart?",
+      "answer": "Each hydrogen has one empty hand. When they hold hands, each puts in one electron and they share the pair. Now neither has an empty hand, so the pair is settled.",
+      "points": [
+       "each hydrogen has one hand",
+       "they share a pair of electrons, one from each",
+       "once every hand is held, it is stable"
+      ]
+     }
+    },
+    {
+     "id": "hcl",
+     "title": "Build hydrogen chloride",
+     "target": "hcl",
+     "level": 1,
+     "intro": "Chlorine also has just 1 hand. Join it to a hydrogen and you get hydrogen chloride, the gas that becomes hydrochloric acid in water.",
+     "steps": [
+      {
+       "say": "Tap chlorine to put it on the bench.",
+       "why": "Chlorine is a much bigger atom than hydrogen, but it still has only 1 empty hand.",
+       "goal": {
+        "atoms": {
+         "Cl": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap hydrogen to add one.",
+       "why": "Hydrogen has 1 hand too. One hand plus one hand is a perfect match.",
+       "goal": {
+        "atoms": {
+         "Cl": 1,
+         "H": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Drag the hydrogen onto the chlorine.",
+       "why": "Each puts in one hand, and they share a pair of electrons. Size doesn't matter here, only the number of hands.",
+       "goal": {
+        "atoms": {
+         "Cl": 1,
+         "H": 1
+        },
+        "bonds": [
+         [
+          "H",
+          "Cl",
+          1,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built HCl, hydrogen chloride. Two different atoms hold hands the same way, as long as each has an empty hand.",
+     "check": {
+      "q": "Chlorine is much bigger than hydrogen. Why do they still make just one bond?",
+      "answer": "What matters is how many hands each atom has, not how big it is. Chlorine and hydrogen each have one hand, so they hold hands once and both are done.",
+      "points": [
+       "the number of hands decides the bonds, not size",
+       "each atom has one hand",
+       "one bond uses both hands"
+      ]
+     }
+    },
+    {
+     "id": "water",
+     "title": "Build water",
+     "target": "water",
+     "level": 1,
+     "intro": "Oxygen has 2 hands, so it can hold two partners at once. Give it two hydrogens and you have water.",
+     "steps": [
+      {
+       "say": "Tap oxygen to put it on the bench.",
+       "why": "Oxygen has 2 empty hands. It needs a partner for each one.",
+       "goal": {
+        "atoms": {
+         "O": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap hydrogen, then drag it onto the oxygen.",
+       "why": "One of oxygen's hands is now held. The other is still empty, so this isn't finished yet.",
+       "goal": {
+        "atoms": {
+         "O": 1,
+         "H": 1
+        },
+        "bonds": [
+         [
+          "O",
+          "H",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a second hydrogen and drag it onto the oxygen too.",
+       "why": "Now both of oxygen's hands are held, and each hydrogen's one hand is held. Every hand is full, so it's stable.",
+       "goal": {
+        "atoms": {
+         "O": 1,
+         "H": 2
+        },
+        "bonds": [
+         [
+          "O",
+          "H",
+          1,
+          2
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built H2O, water. An atom with 2 hands needs two bonds before it's settled.",
+     "check": {
+      "q": "Why does water have two hydrogens, and not one or three?",
+      "answer": "Oxygen has two hands and each hydrogen has one. Two hydrogens fill both of oxygen's hands exactly. One would leave a hand empty, and a third would have nothing to hold.",
+      "points": [
+       "oxygen has two hands",
+       "each hydrogen fills one hand",
+       "two hydrogens use every hand exactly"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "title": "Carbon's four hands",
+   "idea": "Every atom has to use all of its hands, either on several partners or by gripping one partner with two or three hands.",
+   "lessons": [
+    {
+     "id": "methane",
+     "title": "Build methane",
+     "target": "methane",
+     "level": 1,
+     "intro": "Carbon has 4 hands, more than any atom you've used so far. Fill them all with hydrogen and you get methane, natural gas and the fuel in SpaceX's Raptor engine.",
+     "steps": [
+      {
+       "say": "Tap carbon to put it on the bench.",
+       "why": "Carbon has 4 hands. That's why it can build so many different things.",
+       "goal": {
+        "atoms": {
+         "C": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap hydrogen and drag it onto the carbon.",
+       "why": "One hand held, three still empty. The bench will tell you it can't last like this.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "H": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "H",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add three more hydrogens, dragging each one onto the carbon.",
+       "why": "Each hydrogen fills one of carbon's hands. With four, every hand is held. In the real molecule they spread out to the corners of a three-sided pyramid.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "H": 4
+        },
+        "bonds": [
+         [
+          "C",
+          "H",
+          1,
+          4
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CH4, methane. Carbon's 4 hands are why it sits at the center of fuels, plastics and life.",
+     "check": {
+      "q": "Why does carbon end up holding four hydrogens?",
+      "answer": "Carbon has four hands and each hydrogen has one. It takes four hydrogens to fill all of carbon's hands. Then every hand is held and the molecule is stable.",
+      "points": [
+       "carbon has four hands",
+       "one hydrogen per hand",
+       "all hands held means stable"
+      ]
+     }
+    },
+    {
+     "id": "ammonia",
+     "title": "Build ammonia",
+     "target": "ammonia",
+     "level": 1,
+     "intro": "Nitrogen sits right next to carbon in the table but has only 3 hands. Fill them with hydrogen and you get ammonia, the starting point for nitrogen fertilizer.",
+     "steps": [
+      {
+       "say": "Tap nitrogen to put it on the bench.",
+       "why": "Nitrogen has 3 hands. It keeps its other two electrons as a pair it doesn't share.",
+       "goal": {
+        "atoms": {
+         "N": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Add a hydrogen and drag it onto the nitrogen.",
+       "why": "One hand held, two still empty.",
+       "goal": {
+        "atoms": {
+         "N": 1,
+         "H": 1
+        },
+        "bonds": [
+         [
+          "N",
+          "H",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add two more hydrogens and connect each one to the nitrogen.",
+       "why": "Three hydrogens fill three hands. The unshared pair sits on top and pushes the hydrogens down into a short pyramid.",
+       "goal": {
+        "atoms": {
+         "N": 1,
+         "H": 3
+        },
+        "bonds": [
+         [
+          "N",
+          "H",
+          1,
+          3
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built NH3, ammonia. Different elements have different hand counts, and that sets how many partners they take.",
+     "check": {
+      "q": "Methane has four hydrogens but ammonia has three. Why the difference?",
+      "answer": "Carbon has four hands, so it holds four hydrogens. Nitrogen has only three hands, so three hydrogens fill it. The hand count of the center atom decides how many partners fit.",
+      "points": [
+       "carbon has four hands, nitrogen has three",
+       "each hydrogen fills one hand",
+       "the center atom's hands set the number of partners"
+      ]
+     }
+    },
+    {
+     "id": "co2",
+     "title": "Build carbon dioxide",
+     "target": "co2",
+     "level": 1,
+     "intro": "What if carbon has only two partners but still needs all four hands held? It grips each one with two hands. That's carbon dioxide, the gas you breathe out.",
+     "steps": [
+      {
+       "say": "Tap carbon to put it on the bench.",
+       "why": "Carbon has 4 hands to fill.",
+       "goal": {
+        "atoms": {
+         "C": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Add two oxygens and drag each one onto the carbon.",
+       "why": "Carbon now holds 2 hands and each oxygen holds 1. Carbon still has 2 empty hands, and each oxygen has 1.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap one carbon-oxygen bond, then tap \"+ handshake\".",
+       "why": "Carbon and that oxygen both had an empty hand, so they grab each other a second time. Two handshakes between the same pair is a double bond.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Do the same for the other bond: tap it, then tap \"+ handshake\".",
+       "why": "Now carbon uses all 4 hands, two on each oxygen, and each oxygen uses both of its hands. Every hand is held.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          2
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CO2, written O=C=O. When there aren't enough partners, atoms hold the same partner with two hands: a double bond.",
+     "check": {
+      "q": "Carbon dioxide gives carbon only two partners. How does carbon still use all four hands?",
+      "answer": "Carbon holds each oxygen with two hands at once, which is a double bond. Two double bonds use all four of carbon's hands. Each oxygen also uses both of its hands on carbon.",
+      "points": [
+       "a double bond is two handshakes with one partner",
+       "two double bonds use carbon's four hands",
+       "each oxygen's two hands are both on carbon"
+      ]
+     }
+    },
+    {
+     "id": "n2",
+     "title": "Build nitrogen gas",
+     "target": "n2",
+     "level": 1,
+     "intro": "Most of the air you breathe is nitrogen gas, N2. Two nitrogens with 3 hands each use every one of them on each other.",
+     "steps": [
+      {
+       "say": "Tap nitrogen twice to put two on the bench.",
+       "why": "Each nitrogen has 3 empty hands.",
+       "goal": {
+        "atoms": {
+         "N": 2
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Drag one nitrogen onto the other.",
+       "why": "One handshake. Each nitrogen still has 2 empty hands.",
+       "goal": {
+        "atoms": {
+         "N": 2
+        },
+        "bonds": [
+         [
+          "N",
+          "N",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap the bond, then tap \"+ handshake\".",
+       "why": "Now it's a double bond. Each nitrogen still has 1 empty hand.",
+       "goal": {
+        "atoms": {
+         "N": 2
+        },
+        "bonds": [
+         [
+          "N",
+          "N",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap the bond and tap \"+ handshake\" once more.",
+       "why": "Three handshakes is a triple bond, the most two atoms can share. Every hand is now held.",
+       "goal": {
+        "atoms": {
+         "N": 2
+        },
+        "bonds": [
+         [
+          "N",
+          "N",
+          3,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built N2, nitrogen gas. Its triple bond is one of the strongest in chemistry, which is why the nitrogen in air barely reacts.",
+     "check": {
+      "q": "Why is nitrogen gas so hard to react with?",
+      "answer": "The two nitrogens hold each other with all three hands, a triple bond. That is one of the strongest bonds there is. Breaking it takes a lot of energy, so N2 mostly just sits there.",
+      "points": [
+       "a triple bond, three handshakes",
+       "a very strong bond",
+       "it takes a lot of energy to break, so it barely reacts"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "title": "Giving vs sharing",
+   "idea": "Metals don't share; they hand electrons over, and the + and − atoms left behind stick together like magnets.",
+   "lessons": [
+    {
+     "id": "nacl",
+     "title": "Build table salt",
+     "target": "nacl",
+     "level": 2,
+     "intro": "Sodium is a soft metal and chlorine is a poison gas. Put them together and you get table salt.",
+     "steps": [
+      {
+       "say": "Tap sodium to put it on the bench.",
+       "why": "Sodium is a metal. It doesn't hold hands. It has 1 loose electron it would rather give away.",
+       "goal": {
+        "atoms": {
+         "Na": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap chlorine to add one.",
+       "why": "Chlorine has 1 empty hand. It will happily take an electron to fill it.",
+       "goal": {
+        "atoms": {
+         "Na": 1,
+         "Cl": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Drag the chlorine onto the sodium.",
+       "why": "Sodium hands its electron to chlorine. Now sodium is + and chlorine is −, and they stick together like magnets.",
+       "goal": {
+        "atoms": {
+         "Na": 1,
+         "Cl": 1
+        },
+        "bonds": [
+         [
+          "Na",
+          "Cl",
+          1,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built NaCl, table salt. Sodium gave its electron away, and in a real salt crystal the + and − pieces stack into a grid held by their pull.",
+     "check": {
+      "q": "How is the bond in salt different from the bond in water?",
+      "answer": "In water, oxygen and hydrogen share a pair of electrons. In salt, sodium gives its electron away to chlorine. That leaves a + and a − that hold on like magnets instead of sharing.",
+      "points": [
+       "water shares electrons",
+       "sodium gives an electron to chlorine",
+       "opposite charges pull together like magnets"
+      ]
+     }
+    },
+    {
+     "id": "mgo",
+     "title": "Build magnesium oxide",
+     "target": "mgo",
+     "level": 2,
+     "intro": "Magnesium has 2 electrons to give, and oxygen has 2 empty hands. The result is a tough white solid used in heat-proof furnace bricks and some antacids.",
+     "steps": [
+      {
+       "say": "Tap magnesium to put it on the bench.",
+       "why": "Magnesium is a metal with 2 electrons it would rather give away.",
+       "goal": {
+        "atoms": {
+         "Mg": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Tap oxygen to add one.",
+       "why": "Oxygen has 2 empty hands.",
+       "goal": {
+        "atoms": {
+         "Mg": 1,
+         "O": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Drag the oxygen onto the magnesium.",
+       "why": "Magnesium hands over both electrons at once. That makes Mg 2+ and O 2−, and double charges pull harder than single ones.",
+       "goal": {
+        "atoms": {
+         "Mg": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "Mg",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built MgO, magnesium oxide. Bigger charges grip harder, which is why it doesn't melt until about 2,800 °C.",
+     "check": {
+      "q": "Why does magnesium oxide hold together much more tightly than table salt?",
+      "answer": "In salt, one electron moves, so the charges are +1 and −1. In magnesium oxide, two electrons move, making +2 and −2. Bigger charges pull on each other harder, so it takes far more heat to melt.",
+      "points": [
+       "two electrons are handed over, not one",
+       "the charges are +2 and −2",
+       "bigger charges pull harder, so it melts at a higher temperature"
+      ]
+     }
+    },
+    {
+     "id": "cacl2",
+     "title": "Build calcium chloride",
+     "target": "cacl2",
+     "level": 2,
+     "intro": "Calcium has 2 electrons to give, but a chlorine can take only 1. So calcium needs two chlorines. This salt is spread on roads to melt ice.",
+     "steps": [
+      {
+       "say": "Tap calcium to put it on the bench.",
+       "why": "Calcium is a metal with 2 electrons to give away.",
+       "goal": {
+        "atoms": {
+         "Ca": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Add a chlorine and drag it onto the calcium.",
+       "why": "Chlorine has only 1 empty hand, so it takes just 1 electron. Calcium still has one to give.",
+       "goal": {
+        "atoms": {
+         "Ca": 1,
+         "Cl": 1
+        },
+        "bonds": [
+         [
+          "Ca",
+          "Cl",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a second chlorine and drag it onto the calcium.",
+       "why": "The second chlorine takes calcium's last electron. Calcium is now 2+ and each chlorine is 1−, so the charges balance.",
+       "goal": {
+        "atoms": {
+         "Ca": 1,
+         "Cl": 2
+        },
+        "bonds": [
+         [
+          "Ca",
+          "Cl",
+          1,
+          2
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CaCl2, calcium chloride. The formula comes from making the electrons given equal the electrons taken.",
+     "check": {
+      "q": "Why is it CaCl2 and not CaCl?",
+      "answer": "Calcium gives away two electrons, but each chlorine can take only one. So it takes two chlorines to take both electrons. Then the + and − charges balance.",
+      "points": [
+       "calcium gives two electrons",
+       "each chlorine takes one",
+       "electrons given must equal electrons taken"
+      ]
+     }
+    },
+    {
+     "id": "fe2o3",
+     "title": "Build rust",
+     "target": "fe2o3",
+     "level": 2,
+     "intro": "Iron can give 3 electrons and oxygen takes 2. To make those numbers match you need 2 irons and 3 oxygens: Fe2O3, the red-brown part of rust.",
+     "steps": [
+      {
+       "say": "Tap iron to put it on the bench.",
+       "why": "Iron is a metal. It can give away 2 or 3 electrons. In red rust, each iron gives 3.",
+       "goal": {
+        "atoms": {
+         "Fe": 1
+        },
+        "bonds": []
+       }
+      },
+      {
+       "say": "Add an oxygen and drag it onto the iron.",
+       "why": "Oxygen has 2 empty hands, so it takes 2 electrons from the iron. The iron has 1 left to give.",
+       "goal": {
+        "atoms": {
+         "Fe": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "Fe",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a second oxygen and drag it onto the same iron.",
+       "why": "The iron gives its last electron. This oxygen got only 1, so it still has an empty hand.",
+       "goal": {
+        "atoms": {
+         "Fe": 1,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "Fe",
+          "O",
+          2,
+          1
+         ],
+         [
+          "Fe",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a second iron and drag it onto that second oxygen.",
+       "why": "The new iron fills the oxygen's last hand with 1 electron. It still has 2 to give.",
+       "goal": {
+        "atoms": {
+         "Fe": 2,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "Fe",
+          "O",
+          2,
+          1
+         ],
+         [
+          "Fe",
+          "O",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a third oxygen and drag it onto the second iron.",
+       "why": "The new oxygen takes the last 2 electrons. Two irons gave 6, and three oxygens took 6, so everything balances.",
+       "goal": {
+        "atoms": {
+         "Fe": 2,
+         "O": 3
+        },
+        "bonds": [
+         [
+          "Fe",
+          "O",
+          2,
+          2
+         ],
+         [
+          "Fe",
+          "O",
+          1,
+          2
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built Fe2O3, the red-brown part of rust. Two irons giving 3 each match three oxygens taking 2 each, which is why the formula is 2 to 3.",
+     "check": {
+      "q": "Why does rust have 2 iron atoms for every 3 oxygen atoms?",
+      "answer": "Each iron gives 3 electrons and each oxygen takes 2. The smallest totals that match are 6 and 6: two irons give 6, and three oxygens take 6. So the ratio is 2 to 3.",
+      "points": [
+       "iron gives 3 electrons, oxygen takes 2",
+       "electrons given must equal electrons taken",
+       "2 × 3 = 3 × 2 = 6"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "title": "Chains and fuels",
+   "idea": "Carbon can hold hands with other carbons, so atoms link into chains of any length.",
+   "lessons": [
+    {
+     "id": "ethane",
+     "title": "Build ethane",
+     "target": "ethane",
+     "level": 2,
+     "intro": "Two carbons can hold hands with each other. Fill the rest of their hands with hydrogen and you get ethane, a gas in natural gas that chemical plants crack into ethylene.",
+     "steps": [
+      {
+       "say": "Tap carbon twice, then drag one carbon onto the other.",
+       "why": "Carbon can hold carbon. Each uses 1 hand on the other, so each has 3 empty hands left.",
+       "goal": {
+        "atoms": {
+         "C": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a hydrogen and drag it onto either carbon.",
+       "why": "Same as methane: each hydrogen fills one carbon hand. Five empty hands still to go.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "H": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "This shortcut puts a hydrogen on every empty hand. Each carbon ends with 3 hydrogens plus its carbon partner, so all 4 hands are held.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "H": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          6
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C2H6, ethane. Once carbon can hold carbon, you can keep adding links, and that's how fuels and plastics are built.",
+     "check": {
+      "q": "Ethane has two carbons. Why does it have 6 hydrogens and not 8?",
+      "answer": "Each carbon has 4 hands, but one hand on each is used to hold the other carbon. That leaves 3 hands per carbon for hydrogen. Three times two is 6.",
+      "points": [
+       "the carbon-carbon bond uses one hand on each carbon",
+       "3 hands are left on each carbon",
+       "3 + 3 = 6 hydrogens"
+      ]
+     }
+    },
+    {
+     "id": "ethylene",
+     "title": "Build ethylene",
+     "target": "ethylene",
+     "level": 2,
+     "intro": "Ethylene is two carbons joined by a double bond. It's the building block of polyethylene, the most common plastic.",
+     "steps": [
+      {
+       "say": "Put two carbons on the bench and drag them together.",
+       "why": "One handshake between the carbons. Each has 3 empty hands.",
+       "goal": {
+        "atoms": {
+         "C": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap the carbon-carbon bond, then tap \"+ handshake\".",
+       "why": "Now they grip with two hands, a double bond. Each carbon has 2 empty hands left.",
+       "goal": {
+        "atoms": {
+         "C": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Two hydrogens per carbon fill the rest. Make the double bond first: if you fill first, no hands are left to double up.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "H": 4
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          2,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          4
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C2H4, ethylene. The second grip of a double bond is the weaker one, and opening it lets ethylenes link into long plastic chains.",
+     "check": {
+      "q": "Why does ethylene have fewer hydrogens than ethane?",
+      "answer": "In ethylene the two carbons hold each other with two hands instead of one. That uses one extra hand on each carbon. So each carbon has room for only 2 hydrogens instead of 3.",
+      "points": [
+       "the double bond uses two hands on each carbon",
+       "fewer hands are left for hydrogen",
+       "2 hydrogens per carbon instead of 3"
+      ]
+     }
+    },
+    {
+     "id": "propane",
+     "title": "Build propane",
+     "target": "propane",
+     "level": 2,
+     "intro": "Add a third carbon to the chain and you get propane, the fuel in grill tanks.",
+     "steps": [
+      {
+       "say": "Put three carbons on the bench and link them into a row: first to second, second to third.",
+       "why": "The middle carbon uses 2 hands on its neighbors. The two end carbons use 1 each.",
+       "goal": {
+        "atoms": {
+         "C": 3
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "The ends get 3 hydrogens each and the middle gets 2. That's 8 in all.",
+       "goal": {
+        "atoms": {
+         "C": 3,
+         "H": 8
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          2
+         ],
+         [
+          "C",
+          "H",
+          1,
+          8
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C3H8, propane. Each carbon you add to a straight chain brings 2 more hydrogens with it.",
+     "check": {
+      "q": "Why does the middle carbon in propane hold only 2 hydrogens while the end carbons hold 3?",
+      "answer": "The middle carbon holds a carbon on each side, which uses 2 of its 4 hands. The end carbons hold only one carbon, so they have 3 hands free. Hydrogen fills whatever hands are left.",
+      "points": [
+       "the middle carbon uses 2 hands on carbons",
+       "the end carbons use 1 hand on a carbon",
+       "hydrogens fill the leftover hands"
+      ]
+     }
+    },
+    {
+     "id": "butane",
+     "title": "Build butane",
+     "target": "butane",
+     "level": 2,
+     "intro": "Four carbons in a row is butane, the fuel in a pocket lighter.",
+     "steps": [
+      {
+       "say": "Put four carbons on the bench and link them into a straight row.",
+       "why": "Three links join four carbons. Keep them in a line: a branched shape would be a different molecule with the same atoms.",
+       "goal": {
+        "atoms": {
+         "C": 4
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          3
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "The two end carbons get 3 hydrogens each and the two middle ones get 2 each. That's 10.",
+       "goal": {
+        "atoms": {
+         "C": 4,
+         "H": 10
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          3
+         ],
+         [
+          "C",
+          "H",
+          1,
+          10
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C4H10, butane. A straight chain of n carbons always holds 2n + 2 hydrogens, so you can predict the formula before you build it.",
+     "check": {
+      "q": "Without building it, how many hydrogens would a straight chain of 5 carbons hold, and why?",
+      "answer": "It would hold 12. The two end carbons each use 1 hand on a neighbor, so they get 3 hydrogens. The three middle carbons use 2 hands on neighbors, so they get 2 each. That's 3 + 2 + 2 + 2 + 3 = 12, which matches 2n + 2.",
+      "points": [
+       "12 hydrogens",
+       "end carbons get 3, middle carbons get 2",
+       "it follows the 2n + 2 rule"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "title": "Everyday molecules",
+   "idea": "Put oxygen or nitrogen into a carbon frame and you get a whole new substance, and where it sits matters as much as which atoms you use.",
+   "lessons": [
+    {
+     "id": "ethanol",
+     "title": "Build ethanol",
+     "target": "ethanol",
+     "level": 2,
+     "intro": "Take ethane and put an oxygen between one carbon and one of its hydrogens. That's ethanol, the alcohol in drinks and a fuel additive.",
+     "steps": [
+      {
+       "say": "Put two carbons on the bench and drag them together.",
+       "why": "The same carbon backbone as ethane.",
+       "goal": {
+        "atoms": {
+         "C": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add an oxygen and drag it onto one of the carbons.",
+       "why": "Oxygen uses 1 of its 2 hands on carbon. Its other hand is still empty.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "The oxygen's empty hand gets a hydrogen, making an OH group. The carbons fill up with 5 more.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "H": 6,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "O",
+          1,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          5
+         ],
+         [
+          "H",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C2H5OH, ethanol. Adding one OH group turns ethane, a gas, into a liquid that mixes with water.",
+     "check": {
+      "q": "Ethanol and dimethyl ether both have the atoms C2H6O. What makes them different molecules?",
+      "answer": "The atoms are arranged differently. In ethanol the oxygen sits at the end with a hydrogen on it, an OH group. In dimethyl ether the oxygen sits between the two carbons. A different arrangement means a different substance.",
+      "points": [
+       "same atoms, different arrangement",
+       "ethanol has an OH group at the end",
+       "in the ether the oxygen sits between the carbons"
+      ]
+     }
+    },
+    {
+     "id": "formaldehyde",
+     "title": "Build formaldehyde",
+     "target": "formaldehyde",
+     "level": 2,
+     "intro": "Formaldehyde is one carbon holding an oxygen with two hands and two hydrogens. It's used in plywood glue and as a preservative.",
+     "steps": [
+      {
+       "say": "Tap carbon, then add an oxygen and drag it onto the carbon.",
+       "why": "One handshake. Carbon has 3 empty hands and oxygen has 1.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap the carbon-oxygen bond, then tap \"+ handshake\".",
+       "why": "A C=O double bond. Both of oxygen's hands are used, and carbon has 2 left.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Two hydrogens fill carbon's last two hands.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "H": 2,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          2
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CH2O, formaldehyde. The C=O double bond is a part you'll keep seeing: in vinegar, nail polish remover and fertilizer.",
+     "check": {
+      "q": "Why does formaldehyde have only 2 hydrogens when methane has 4?",
+      "answer": "Oxygen holds carbon with two hands, a double bond. That uses 2 of carbon's 4 hands. Only 2 hands are left for hydrogen.",
+      "points": [
+       "the C=O double bond uses two of carbon's hands",
+       "2 hands are left",
+       "so only 2 hydrogens fit"
+      ]
+     }
+    },
+    {
+     "id": "aceticacid",
+     "title": "Build vinegar's acid",
+     "target": "aceticacid",
+     "level": 2,
+     "intro": "Vinegar is mostly water with some acetic acid in it. In acetic acid, one carbon holds two oxygens: one with a double grip and one as an OH.",
+     "steps": [
+      {
+       "say": "Put two carbons on the bench and drag them together.",
+       "why": "The carbon backbone.",
+       "goal": {
+        "atoms": {
+         "C": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add an oxygen to one carbon, then tap that bond and tap \"+ handshake\".",
+       "why": "A C=O double bond. That carbon now has 1 empty hand left.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add a second oxygen and drag it onto the same carbon.",
+       "why": "That carbon is now full: a carbon, a double-bonded oxygen and a single-bonded oxygen. The new oxygen still has 1 empty hand.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "The other carbon gets 3 hydrogens and the oxygen gets 1. That OH next to the C=O lets go of its hydrogen easily in water, which is what makes it an acid.",
+       "goal": {
+        "atoms": {
+         "C": 2,
+         "H": 4,
+         "O": 2
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          1
+         ],
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "O",
+          1,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          3
+         ],
+         [
+          "H",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CH3COOH, acetic acid. A C=O and an OH on the same carbon make a COOH group, and that group is what makes it sour.",
+     "check": {
+      "q": "Which part of acetic acid makes it an acid, and what does that part do?",
+      "answer": "The COOH group at one end: a carbon holding a double-bonded oxygen and an OH. In water, the hydrogen on that OH comes off easily. Loose hydrogens like that are what make something acidic and sour.",
+      "points": [
+       "the COOH group, a C=O plus an OH on one carbon",
+       "its hydrogen comes off in water",
+       "those freed hydrogens make it acidic"
+      ]
+     }
+    },
+    {
+     "id": "acetone",
+     "title": "Build acetone",
+     "target": "acetone",
+     "level": 2,
+     "intro": "Acetone is the solvent in nail polish remover. It's a C=O carbon with a carbon on each side.",
+     "steps": [
+      {
+       "say": "Put three carbons on the bench and link them into a row.",
+       "why": "The middle carbon uses 2 hands on its neighbors and has 2 left.",
+       "goal": {
+        "atoms": {
+         "C": 3
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add an oxygen to the middle carbon, then tap that bond and tap \"+ handshake\".",
+       "why": "The double bond uses both of the middle carbon's spare hands. It's now full.",
+       "goal": {
+        "atoms": {
+         "C": 3,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          2
+         ],
+         [
+          "C",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Only the end carbons have empty hands, 3 each, so you get 6 hydrogens.",
+       "goal": {
+        "atoms": {
+         "C": 3,
+         "H": 6,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          2
+         ],
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "H",
+          1,
+          6
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C3H6O, acetone. It has the same C=O as formaldehyde, but carbons on both sides make it a different substance.",
+     "check": {
+      "q": "Formaldehyde and acetone both have a C=O. Why is acetone a different molecule?",
+      "answer": "In formaldehyde, the C=O carbon holds two hydrogens. In acetone, it holds two carbon groups instead. Changing what's attached around the C=O changes the molecule and how it behaves.",
+      "points": [
+       "both have a C=O carbon",
+       "acetone has carbons where formaldehyde has hydrogens",
+       "what's attached changes the substance"
+      ]
+     }
+    },
+    {
+     "id": "urea",
+     "title": "Build urea",
+     "target": "urea",
+     "level": 2,
+     "intro": "Urea is a C=O carbon with two nitrogen groups. It's a common farm fertilizer and the active ingredient in the diesel exhaust fluid (DEF) that trucks use.",
+     "steps": [
+      {
+       "say": "Tap carbon, then add an oxygen and drag it onto the carbon.",
+       "why": "One handshake to start.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          1,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap the bond, then tap \"+ handshake\".",
+       "why": "A C=O again. Carbon has 2 hands left.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add two nitrogens and drag each one onto the carbon.",
+       "why": "Each nitrogen uses 1 of its 3 hands on carbon. Carbon is now full, and each nitrogen has 2 empty hands.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "N": 2,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "N",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Each nitrogen gets 2 hydrogens, making two NH2 groups.",
+       "goal": {
+        "atoms": {
+         "C": 1,
+         "H": 4,
+         "N": 2,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "O",
+          2,
+          1
+         ],
+         [
+          "C",
+          "N",
+          1,
+          2
+         ],
+         [
+          "H",
+          "N",
+          1,
+          4
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built CH4N2O, urea. Nitrogen fits into carbon frames just like oxygen does, and that nitrogen is what feeds crops.",
+     "check": {
+      "q": "After the C=O and the two nitrogens are on, why does each nitrogen still need 2 hydrogens?",
+      "answer": "Nitrogen has 3 hands. It uses one to hold the carbon. That leaves 2 empty hands, and a hydrogen fills each one.",
+      "points": [
+       "nitrogen has three hands",
+       "one hand holds the carbon",
+       "two hands are left for hydrogen"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "title": "Rings and life",
+   "idea": "A chain can loop around and hold its own other end, making a ring.",
+   "lessons": [
+    {
+     "id": "benzene",
+     "title": "Build benzene",
+     "target": "benzene",
+     "level": 3,
+     "intro": "Benzene is six carbons in a ring, a starting point for plastics, dyes and nylon. In your plant's reactor heat, broken pieces can curl up into rings like it.",
+     "steps": [
+      {
+       "say": "Put six carbons on the bench and link them into a row.",
+       "why": "A chain of six. The two end carbons have 3 empty hands each, and the inner ones have 2.",
+       "goal": {
+        "atoms": {
+         "C": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Drag the last carbon onto the first to close the ring.",
+       "why": "Now every carbon holds two neighbors and has 2 empty hands. There are no ends anymore.",
+       "goal": {
+        "atoms": {
+         "C": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          6
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Make every other bond a double bond: tap a bond and tap \"+ handshake\", skip the next bond, and repeat around the ring. You need 3 doubles.",
+       "why": "Each carbon should get exactly one double bond. That uses one more hand on every carbon, leaving each with 1.",
+       "goal": {
+        "atoms": {
+         "C": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          3
+         ],
+         [
+          "C",
+          "C",
+          2,
+          3
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "One hydrogen per carbon fills the last hand.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "H": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          3
+         ],
+         [
+          "C",
+          "C",
+          2,
+          3
+         ],
+         [
+          "C",
+          "H",
+          1,
+          6
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C6H6, benzene. The bench draws single and double bonds taking turns, but in the real molecule those extra handshakes are spread evenly around the ring, which makes it very stable.",
+     "check": {
+      "q": "Why does each carbon in benzene hold only one hydrogen?",
+      "answer": "Each carbon uses 2 hands on its two ring neighbors and 1 more for its share of the double bonds. That's 3 of its 4 hands. Only 1 is left for hydrogen.",
+      "points": [
+       "two hands on its ring neighbors",
+       "one more hand for the double bond",
+       "one hand left for hydrogen"
+      ]
+     }
+    },
+    {
+     "id": "glucose",
+     "title": "Build glucose",
+     "target": "glucose",
+     "level": 3,
+     "intro": "Glucose is the sugar in your blood. Plants make it from carbon dioxide and water using sunlight, then link it into starch and wood fiber.",
+     "steps": [
+      {
+       "say": "Put five carbons on the bench and link them into a row.",
+       "why": "Most of the ring will be carbon.",
+       "goal": {
+        "atoms": {
+         "C": 5
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          4
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add an oxygen. Drag it onto one end carbon, then drag the other end carbon onto the oxygen to close the ring.",
+       "why": "Oxygen's 2 hands each hold a carbon, so it sits right in the ring. That makes a ring of six: five carbons and one oxygen.",
+       "goal": {
+        "atoms": {
+         "C": 5,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          4
+         ],
+         [
+          "C",
+          "O",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Pick one of the two carbons next to the ring oxygen. Add a sixth carbon and drag it onto that one.",
+       "why": "This sixth carbon sticks out from the ring like a handle.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "O": 1
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "O",
+          1,
+          2
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add five oxygens: one on the outside carbon, and one on each of the four ring carbons that don't hold the outside carbon.",
+       "why": "Each oxygen uses 1 hand on carbon and keeps 1 empty for a hydrogen. These will become OH groups.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "O": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "O",
+          1,
+          7
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Five OH groups form, and the carbons fill their last hands. You end with 12 hydrogens.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "H": 12,
+         "O": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "O",
+          1,
+          7
+         ],
+         [
+          "C",
+          "H",
+          1,
+          7
+         ],
+         [
+          "H",
+          "O",
+          1,
+          5
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C6H12O6, glucose, and its many OH groups are why sugar dissolves so well in water. The bench doesn't show it, but which side of the ring each OH points to also matters: flip one and you get a different sugar.",
+     "check": {
+      "q": "How does an oxygen end up inside glucose's ring, and why does it get no hydrogen?",
+      "answer": "Oxygen has 2 hands. In the ring, it uses one hand on the carbon on each side. That makes it a link in the ring just like a carbon, but it has no hands left over, so no hydrogen.",
+      "points": [
+       "oxygen has two hands",
+       "one hand holds each neighboring ring carbon",
+       "no hands are left, so no hydrogen"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "u7",
+   "title": "Big builds: fuel and plastic",
+   "idea": "Big molecules, even plastics, follow the same hand rules, just repeated many times.",
+   "lessons": [
+    {
+     "id": "isooctane",
+     "title": "Build octane",
+     "target": "isooctane",
+     "level": 3,
+     "intro": "Isooctane is the yardstick for gasoline: it's the 100 on the octane rating. Its 8 carbons sit in a branched shape that helps it resist engine knock.",
+     "steps": [
+      {
+       "say": "Put five carbons on the bench and link them into a row.",
+       "why": "This is the backbone. Number them 1 to 5 in your head, from one end to the other.",
+       "goal": {
+        "atoms": {
+         "C": 5
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          4
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add two more carbons and drag both onto carbon 2.",
+       "why": "Carbon 2 now holds four carbons and has no hands left for hydrogen. Branches like this are what help it resist knock.",
+       "goal": {
+        "atoms": {
+         "C": 7
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          6
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add one more carbon and drag it onto carbon 4.",
+       "why": "Eight carbons now. Carbon 4 holds three carbons and has 1 hand left.",
+       "goal": {
+        "atoms": {
+         "C": 8
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          7
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Tap \"Fill with H\".",
+       "why": "Every leftover hand gets a hydrogen, 18 in all. Same rule as methane, just more of it.",
+       "goal": {
+        "atoms": {
+         "C": 8,
+         "H": 18
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          7
+         ],
+         [
+          "C",
+          "H",
+          1,
+          18
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built C8H18, isooctane. Straight-chain octane has the same atoms but knocks much more in an engine, so the branching does real work.",
+     "check": {
+      "q": "Isooctane and straight-chain octane are both C8H18. Why is the hydrogen count the same even though the shapes differ?",
+      "answer": "Each carbon has 4 hands and each hydrogen has 1. Any 8 carbons joined with single bonds and no rings use 7 carbon-carbon links, whatever the shape. That leaves the same 18 empty hands for hydrogen.",
+      "points": [
+       "7 carbon-carbon links either way",
+       "the same number of hands is left over",
+       "shape changes the arrangement, not the count"
+      ]
+     }
+    },
+    {
+     "id": "polyethylene",
+     "title": "Build a slice of polyethylene",
+     "target": "polyethylene",
+     "level": 3,
+     "intro": "Polyethylene is the most common plastic, in bags, films and bottles, and it's the main feed at your plant. A real chain is thousands of carbons long, so you'll build a 6-carbon slice.",
+     "steps": [
+      {
+       "say": "Put six carbons on the bench and link them into a row.",
+       "why": "Each pair of carbons came from one ethylene that opened its double bond and used the freed hand to grab the next one.",
+       "goal": {
+        "atoms": {
+         "C": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Put two hydrogens on each of the first three carbons. Don't use \"Fill with H\" here.",
+       "why": "Every carbon in the chain holds 2 hydrogens. \"Fill with H\" would also cap the ends, but a real chain doesn't stop there.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "H": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "H",
+          1,
+          6
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Put two hydrogens on each of the last three carbons.",
+       "why": "Each end carbon now has one empty hand, so the bench will say it can't last like this. That's fine: in the real plastic, that hand holds the next carbon.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "H": 12
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "H",
+          1,
+          12
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built a slice of (C2H4)n, polyethylene: the same CH2 piece repeated. Your plant's reactor heats it until those carbon-carbon links snap at random spots, giving gas, oil, wax and char.",
+     "check": {
+      "q": "When your plant heats polyethylene, why does it break into pieces of many different sizes?",
+      "answer": "Polyethylene is one long chain of carbons, held together by the same kind of carbon-carbon link all the way along. Heat snaps those links at random spots. So the pieces come out in all lengths: short ones are gas, middle ones are oil, long ones are wax.",
+      "points": [
+       "it's one long chain of the same carbon-carbon links",
+       "heat breaks links at random spots",
+       "random breaks give many lengths: gas, oil, wax"
+      ]
+     }
+    },
+    {
+     "id": "pvc",
+     "title": "Build a slice of PVC",
+     "target": "pvc",
+     "level": 3,
+     "intro": "PVC is the plastic in pipes and siding. It's polyethylene with a chlorine in place of one hydrogen on every other carbon.",
+     "steps": [
+      {
+       "say": "Put six carbons on the bench and link them into a row. Number them 1 to 6 in your head.",
+       "why": "The same backbone as polyethylene.",
+       "goal": {
+        "atoms": {
+         "C": 6
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Add three chlorines: one on carbon 2, one on carbon 4 and one on carbon 6.",
+       "why": "Chlorine has 1 hand, just like hydrogen, so it can take a hydrogen's place.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "Cl": 3
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "Cl",
+          1,
+          3
+         ]
+        ]
+       }
+      },
+      {
+       "say": "Put two hydrogens on carbons 1, 3 and 5, and one hydrogen on carbons 2, 4 and 6. Skip \"Fill with H\".",
+       "why": "That's 9 hydrogens. Each end carbon keeps one empty hand for the next link in the chain.",
+       "goal": {
+        "atoms": {
+         "C": 6,
+         "Cl": 3,
+         "H": 9
+        },
+        "bonds": [
+         [
+          "C",
+          "C",
+          1,
+          5
+         ],
+         [
+          "C",
+          "Cl",
+          1,
+          3
+         ],
+         [
+          "C",
+          "H",
+          1,
+          9
+         ]
+        ]
+       }
+      }
+     ],
+     "done": "You just built a slice of (C2H3Cl)n, PVC. That chlorine is why plastics-to-oil plants like yours keep PVC out: heating it releases hydrogen chloride, which eats away equipment.",
+     "check": {
+      "q": "Why can a chlorine take the place of a hydrogen on the chain?",
+      "answer": "Chlorine has one hand, the same as hydrogen. So it can fill a single empty hand on a carbon. The carbon's four hands are still all held, so the chain stays stable.",
+      "points": [
+       "chlorine has one hand, like hydrogen",
+       "it fills one carbon hand",
+       "the carbon still has all four hands held"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

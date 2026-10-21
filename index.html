@@ -326,6 +326,54 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
   body:not(.build) .ptable{min-width:600px}
   body:not(.build) .cell .nm{display:none}
 }
+/* bond strength meter */
+.meter{margin-top:8px}
+.meter-top{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted)}
+.meter-bar{height:8px;border-radius:4px;background:var(--bg);overflow:hidden;margin-top:3px}
+.meter-bar i{display:block;height:100%;background:linear-gradient(90deg, var(--accent), var(--nexus))}
+.meter-note{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.35}
+.wb-pop{width:270px}
+/* ranked recipes */
+.rtabs{margin-bottom:8px;flex-wrap:wrap}
+ol.rank{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+ol.rank button{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 9px;cursor:pointer;font:inherit}
+ol.rank button:hover{border-color:var(--accent)}
+.rk{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13px;padding-top:1px}
+.rn .fm{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.rw{display:block;font-size:12px;color:var(--muted);line-height:1.35;margin-top:1px}
+
+/* lessons + reactions card (left side of the bench) */
+.wb-learn{position:absolute;left:12px;top:var(--headh,64px);z-index:3;width:min(340px,calc(100% - 24px));max-height:calc(100% - var(--headh,64px) - 70px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.10)}
+.lc-top{display:flex;justify-content:space-between;align-items:baseline}
+.lc-title{font-size:19px;font-weight:750;font-stretch:110%;margin:4px 0 6px}
+.lc-intro{margin:0 0 6px}
+.lc-steps{margin:6px 0 10px;padding-left:20px;display:grid;gap:6px;font-size:13.5px}
+.lc-steps li{color:var(--muted)}
+.lc-steps li.ok{color:var(--good)}
+.lc-steps li.now{color:var(--ink)}
+.lc-why{font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;border-left:2px solid var(--accent);padding-left:8px}
+.rx-eq{font-size:13px;margin-bottom:6px;color:var(--accent)}
+.xb{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.xb-q{font-weight:600;margin:4px 0}
+.xb textarea{width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;resize:vertical;margin-bottom:6px}
+.xb-out{margin-top:8px;font-size:13.5px}
+.xb-ans{margin-bottom:4px}
+.xb-pts{margin:4px 0 0;padding-left:18px;font-size:13px}
+.xb-verdict{display:inline-block;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 10px;margin-bottom:4px;background:var(--bg)}
+.xb-verdict.ok{color:var(--good)} .xb-verdict.mid{color:var(--warn)} .xb-verdict.no{color:var(--proton)}
+.unit{margin-bottom:10px}
+.lessonlist,.rxlist{display:grid;gap:4px}
+.lessonlist button,.rxlist button{display:flex;gap:8px;align-items:baseline;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 9px;cursor:pointer;font:inherit;font-size:13.5px}
+.rxlist button{flex-direction:column;gap:1px}
+.lessonlist button.done{color:var(--good)}
+.lessonlist button:hover,.rxlist button:hover{border-color:var(--accent)}
+.workbench.heat-in{box-shadow:inset 0 0 60px color-mix(in srgb, var(--nexus) 35%, transparent)}
+.workbench.heat-out{box-shadow:inset 0 0 70px color-mix(in srgb, var(--warn) 45%, transparent)}
+@media (max-width:760px){
+  .wb-learn{left:8px;right:8px;width:auto;max-height:42%;padding:10px 12px}
+  .lc-title{font-size:16px}
+}
 .wb-trash{position:absolute;right:12px;bottom:12px;z-index:2;width:84px;height:62px;border:1.5px dashed var(--line);border-radius:10px;display:grid;place-items:center;text-align:center;font-size:11px;color:var(--muted);line-height:1.2;pointer-events:none}
 .wb-trash.hot{border-color:var(--proton);color:var(--proton);background:color-mix(in srgb, var(--proton) 10%, transparent)}
 @media (prefers-reduced-motion:reduce){ .cell,.panel{transition:none} }
@@ -378,6 +426,9 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
         <button class="btn" id="wbBreak" title="Pop every bond in the selected molecule">Break apart</button>
         <button class="btn" id="wbFill" title="Put a hydrogen on every empty hand">Fill with H</button>
         <button class="btn" id="wbRecipesBtn">Recipes</button>
+        <button class="btn" id="wbLessonsBtn">Lessons</button>
+        <button class="btn" id="wbReactionsBtn">Reactions</button>
+        <button class="btn primary" id="wbReact" hidden>React</button>
         <button class="btn" id="wbTidy">Tidy</button>
         <button class="btn" id="wbClear">Clear</button>
         <button class="btn" id="wbShowF" aria-pressed="false" title="Show the two bottom rows of the table">Bottom rows</button>
@@ -392,6 +443,8 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
       <div class="wb-pop" id="wbPop" hidden></div>
       <div class="wb-zoom" id="wbZoom" hidden><p id="wbZoomText"></p><button class="btn" id="wbZoomOut">Zoom out</button></div>
       <div class="wb-recipes" id="wbRecipes" hidden></div>
+      <div class="wb-recipes" id="wbDrawer" hidden></div>
+      <aside class="wb-learn" id="wbLearn" hidden aria-live="polite"></aside>
       <div class="wb-trash" id="wbTrash" aria-hidden="true">Drop here<br>to remove</div>
     </section>
     <section class="wb-details" id="wbDetails" hidden></section>
@@ -1040,6 +1093,18 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", paintThe
 load().catch(err => { $("ptable").innerHTML = `<div class="loading">Couldn't load the element data (${esc(err.message)}). Reload the page to try again.</div>`; });
 </script>
 <script src="bench.js"></script>
+<script>
+/* Lessons + Reactions live in learn.js, fetched the first time Build mode opens (after the bench is drawn). */
+let learnLoading = null;
+function loadLearn(){
+  if (window.Learn) return Promise.resolve(window.Learn);
+  if (!learnLoading) learnLoading = new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "learn.js"; sc.onload = () => res(window.Learn); sc.onerror = rej; document.head.appendChild(sc); });
+  return learnLoading;
+}
+document.getElementById("wbLessonsBtn").addEventListener("click", () => loadLearn().then(L => L.openLessons()));
+document.getElementById("wbReactionsBtn").addEventListener("click", () => loadLearn().then(L => L.openReactions()));
+document.getElementById("modeBuild").addEventListener("click", () => (window.requestIdleCallback || setTimeout)(() => loadLearn().catch(() => {})));
+</script>
 
 <script>
 /* offline support + "Install app" in Chrome */

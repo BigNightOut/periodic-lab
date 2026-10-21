@@ -17,6 +17,21 @@ result = []
 # fun facts are written separately (molecule_facts.json) so the library file stays readable
 _fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "molecule_facts.json")
 FACTS = json.load(open(_fp)) if os.path.exists(_fp) else {}
+HERE = os.path.dirname(os.path.abspath(__file__))
+def _load(name, default):
+    p = os.path.join(HERE, name)
+    return json.load(open(p)) if os.path.exists(p) else default
+# newer content lives in separate files so each can be regenerated on its own
+EXTRA = _load("molecules_extra.json", [])          # new molecules (same fields as molecules_src + facts/details)
+DETAILS = _load("molecule_details.json", {})       # id -> {what, where, bonds, extra}
+EVERYDAY = _load("everyday.json", [])              # ranked list [{id, why}]
+RANK = {e["id"]: (i + 1, e.get("why", "")) for i, e in enumerate(EVERYDAY)}
+known = {m["id"] for m in M}
+for x in EXTRA:
+    if x["id"] in known: continue
+    M.append({k: x.get(k) for k in ("id", "name", "formula", "kind", "smiles", "blurb", "uses")} | {"lens": x.get("lens") or {}, "aliases": x.get("aliases") or []})
+    FACTS.setdefault(x["id"], x.get("facts") or [])
+    if x.get("details"): DETAILS.setdefault(x["id"], x["details"])
 
 for m in M:
     e = {k: v for k, v in m.items() if k not in ("smiles", "counts")}
@@ -46,6 +61,8 @@ for m in M:
             counts = Counter({k: 1 for k in counts})
     e["counts"] = dict(sorted(counts.items()))
     e["facts"] = FACTS.get(m["id"], [])
+    if m["id"] in DETAILS: e["details"] = DETAILS[m["id"]]
+    if m["id"] in RANK: e["rank"], e["rankWhy"] = RANK[m["id"]]
     result.append(e)
 
 ids = Counter(x["id"] for x in result)

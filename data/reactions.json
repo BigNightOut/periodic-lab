@@ -1,0 +1,324 @@
+[
+  {
+    "id": "hydrogen-burn",
+    "name": "Hydrogen meets oxygen",
+    "level": 1,
+    "equation": "2 H2 + O2 → 2 H2O",
+    "reactants": [["h2", 2], ["o2", 1]],
+    "products": [["water", 2]],
+    "energy": "gives off heat (needs a spark to start)",
+    "dH": "about −286 kJ per mole of hydrogen",
+    "story": [
+      "A spark gives the first few molecules a hard shake. Each H2 lets go of its one handshake, and O2 lets go of its two-handed grip.",
+      "Now there are loose hydrogen atoms with one empty hand and loose oxygen atoms with two empty hands.",
+      "Each oxygen grabs two hydrogens, one in each hand. That makes water, H2O.",
+      "The O-H grips are tighter than the grips that broke. The difference comes out as heat, which shakes loose the next molecules. That is why it keeps going on its own."
+    ],
+    "everyday": "A hydrogen fuel cell does this same swap slowly and turns the energy into electricity instead of a flame. The only exhaust is water.",
+    "lens": {
+      "rocket": "The Space Shuttle main engines burned liquid hydrogen with liquid oxygen. The exhaust was mostly hot steam."
+    }
+  },
+  {
+    "id": "hydrogen-chlorine",
+    "name": "Hydrogen meets chlorine",
+    "level": 1,
+    "equation": "H2 + Cl2 → 2 HCl",
+    "reactants": [["h2", 1], ["cl2", 1]],
+    "products": [["hcl", 2]],
+    "energy": "gives off heat (a spark or strong light starts it)",
+    "dH": "about −92 kJ per mole of HCl",
+    "story": [
+      "Light or a spark snaps the Cl-Cl handshake. That grip is fairly weak, so it breaks first.",
+      "A loose chlorine has one empty hand. It pulls a hydrogen away from an H2, leaving the other hydrogen with an empty hand.",
+      "That lonely hydrogen grabs a chlorine from the next Cl2. Each step frees a new atom, so it runs like a chain.",
+      "In the end every hydrogen holds one chlorine. The H-Cl grip is tighter than the old grips, so heat comes out."
+    ],
+    "everyday": "Burning hydrogen in chlorine is one way factories make hydrogen chloride. Dissolved in water, it becomes hydrochloric acid, used to clean steel and in many other jobs."
+  },
+  {
+    "id": "salt-from-elements",
+    "name": "Sodium meets chlorine",
+    "level": 1,
+    "equation": "2 Na + Cl2 → 2 NaCl",
+    "reactants": [["na_metal", 2], ["cl2", 1]],
+    "products": [["nacl", 2]],
+    "energy": "gives off heat",
+    "dH": "about −411 kJ per mole of salt",
+    "story": [
+      "Chlorine gas comes in pairs, Cl2, holding one handshake. That grip lets go so each chlorine is on its own.",
+      "Each sodium has one electron (a tiny bit of negative charge) it would rather give away than hold.",
+      "Sodium hands that electron to a chlorine. Sodium becomes Na+ and chlorine becomes Cl−.",
+      "Plus and minus pull on each other like magnets. Billions of them stack into a neat cube: table salt. This settled stack releases a lot of heat."
+    ],
+    "everyday": "The salt on your table is mined or dried from seawater, not made this way. But the demo shows why salt is so stable: both atoms got what they wanted."
+  },
+  {
+    "id": "peroxide-fizz",
+    "name": "Peroxide fizzing",
+    "level": 1,
+    "equation": "2 H2O2 → 2 H2O + O2",
+    "reactants": [["h2o2", 2]],
+    "products": [["water", 2], ["o2", 1]],
+    "energy": "gives off heat",
+    "dH": "about −98 kJ per mole of peroxide",
+    "story": [
+      "In hydrogen peroxide, two oxygens hold hands with each other. That O-O grip is weak and snaps easily, faster with a helper like an enzyme (a natural helper molecule) or a bit of metal.",
+      "After the snap, each oxygen still holds one hydrogen and has one empty hand.",
+      "Hydrogens get passed around until two oxygens end up holding two hydrogens each. Those are water molecules.",
+      "The leftover oxygens hold each other with two hands, making O2 gas. That is the bubbles. Water and O2 are both more settled, so heat comes out."
+    ],
+    "everyday": "Pour peroxide on a cut and it foams. An enzyme in your blood called catalase speeds up this exact reaction.",
+    "lens": {
+      "rocket": "The German V-2 used concentrated hydrogen peroxide, broken down this way, to make hot steam that spun its fuel pumps."
+    }
+  },
+  {
+    "id": "methane-burn",
+    "name": "Burning natural gas",
+    "level": 2,
+    "equation": "CH4 + 2 O2 → CO2 + 2 H2O",
+    "reactants": [["methane", 1], ["o2", 2]],
+    "products": [["co2", 1], ["water", 2]],
+    "energy": "gives off heat (needs a flame or spark to start)",
+    "dH": "about −890 kJ per mole of methane",
+    "story": [
+      "A flame shakes the molecules hard. Methane's carbon lets go of its four hydrogens, and each O2 lets go of its two-handed grip.",
+      "Carbon now has four empty hands. It grabs two oxygens, holding each with two hands. That is CO2.",
+      "The four loose hydrogens pair up with the other two oxygens. Each oxygen holds two hydrogens. That is two waters.",
+      "The new grips are much tighter than the old ones. The extra energy comes out as heat and light, which keeps the flame going."
+    ],
+    "everyday": "This is your gas stove, furnace, or water heater. Natural gas is mostly methane.",
+    "lens": {
+      "rocket": "Starship's Raptor engines burn methane with liquid oxygen. This is the same reaction, run at very high pressure."
+    }
+  },
+  {
+    "id": "rusting",
+    "name": "Iron rusting",
+    "level": 2,
+    "equation": "4 Fe + 3 O2 → 2 Fe2O3",
+    "reactants": [["fe_metal", 4], ["o2", 3]],
+    "products": [["fe2o3", 2]],
+    "energy": "gives off heat (slowly)",
+    "dH": "about −824 kJ per mole of Fe2O3",
+    "story": [
+      "Each O2 lets go of its two-handed grip. Now each oxygen wants two electrons.",
+      "Iron is a metal, so it gives electrons away instead of holding hands. Here each iron gives away three.",
+      "Four irons give 12 electrons. Six oxygens take 2 each, which is also 12. Every electron has a home.",
+      "Now iron is Fe3+ and oxygen is O2−. They pull together like magnets into a reddish solid. The heat leaks out so slowly you never feel it."
+    ],
+    "everyday": "Rust on cars, nails, and bridges. Real rust also needs water, and salt speeds it up. This shows only the iron and oxygen part. Hand warmer packets use fast rusting iron to make heat.",
+    "lens": {
+      "rocket": "Starship is built from stainless steel. Its chromium forms a very thin oxide skin that seals the surface and keeps rust from spreading."
+    }
+  },
+  {
+    "id": "ethanol-burn",
+    "name": "Burning alcohol",
+    "level": 2,
+    "equation": "C2H6O + 3 O2 → 2 CO2 + 3 H2O",
+    "reactants": [["ethanol", 1], ["o2", 3]],
+    "products": [["co2", 2], ["water", 3]],
+    "energy": "gives off heat (needs a flame to start)",
+    "dH": "about −1,367 kJ per mole of ethanol",
+    "story": [
+      "Heat shakes ethanol apart. The C-C grip, the C-H grips, and the C-O and O-H grips all let go. The O2 pairs let go too.",
+      "Ethanol already had one oxygen, so it needs a bit less help from the air than a plain fuel of the same size.",
+      "Each carbon grabs two oxygens with two hands each, making two CO2.",
+      "The six hydrogens pair up with three oxygens, making three waters. The new grips are tighter, so heat pours out."
+    ],
+    "everyday": "Alcohol burners, fondue pots, and the ethanol blended into most US gasoline.",
+    "lens": {
+      "rocket": "The German V-2 burned an ethanol and water mix with liquid oxygen. The water helped keep the engine cooler."
+    }
+  },
+  {
+    "id": "hydrogenation",
+    "name": "Adding hydrogen",
+    "level": 2,
+    "equation": "C2H4 + H2 → C2H6",
+    "reactants": [["ethylene", 1], ["h2", 1]],
+    "products": [["ethane", 1]],
+    "energy": "gives off heat (needs a metal catalyst to get going)",
+    "dH": "about −137 kJ per mole of ethylene",
+    "story": [
+      "The two carbons in ethylene hold each other with two hands. The second grip is the weaker one.",
+      "A metal surface like nickel or platinum acts as a catalyst (a helper that speeds things up and is not used up). It pulls the H2 handshake apart.",
+      "The second carbon-carbon grip lets go. Each carbon now has one empty hand.",
+      "Each carbon grabs one hydrogen. Now every hand is held with a single grip. That is ethane, and it is more settled, so heat comes out."
+    ],
+    "everyday": "Food makers add hydrogen to vegetable oils this same way to make them more solid, as in margarine.",
+    "lens": {
+      "nexus": "Oil made from plastic often has leftover double grips that make it less stable. Refiners can add hydrogen like this to calm it down."
+    }
+  },
+  {
+    "id": "ethane-crack",
+    "name": "Making ethylene",
+    "level": 2,
+    "equation": "C2H6 → C2H4 + H2",
+    "reactants": [["ethane", 1]],
+    "products": [["ethylene", 1], ["h2", 1]],
+    "energy": "needs heat (around 800 °C)",
+    "dH": "about +137 kJ per mole of ethane",
+    "story": [
+      "Ethane is very content. Every hand is held. To change it, you have to pour in a lot of heat.",
+      "At around 800 °C, the shaking pulls one hydrogen off each carbon. Each carbon now has one empty hand.",
+      "The two loose hydrogens grab each other and leave as H2 gas.",
+      "The two carbons use their empty hands to grab each other a second time. That double grip makes ethylene. It holds less tightly overall, which is why the heat had to go in."
+    ],
+    "everyday": "This is the main step in a steam cracker, a giant furnace that makes ethylene. Ethylene is the starting block for most plastic bags and bottles.",
+    "lens": {
+      "nexus": "Ethylene is one of the light gases that can show up when plastic is heated at your plant. Here it is made on purpose."
+    }
+  },
+  {
+    "id": "butane-crack",
+    "name": "Cracking a chain",
+    "level": 3,
+    "equation": "C4H10 → C2H4 + C2H6",
+    "reactants": [["butane", 1]],
+    "products": [["ethylene", 1], ["ethane", 1]],
+    "energy": "needs heat",
+    "story": [
+      "Butane is a chain of four carbons. Strong heat makes the chain shake until the middle C-C grip snaps.",
+      "Now there are two 2-carbon pieces. Each one has an empty hand where the chain broke.",
+      "One piece grabs a hydrogen from the other piece. With every hand held, it becomes ethane.",
+      "The piece that lost a hydrogen now has two carbons, each with an empty hand. They grab each other a second time. That makes ethylene."
+    ],
+    "everyday": "Refineries crack long, heavy molecules into shorter ones like this to make more gasoline and gases.",
+    "lens": {
+      "nexus": "This is a tiny version of what heat does to plastic at your plant. Long chains snap into shorter pieces. Some pieces get extra hydrogen, and some end up with double grips."
+    }
+  },
+  {
+    "id": "polymerize-ethylene",
+    "name": "Making polyethylene",
+    "level": 3,
+    "equation": "3 C2H4 → C6H12 (a slice of polyethylene)",
+    "reactants": [["ethylene", 3]],
+    "products": [["polyethylene", 1]],
+    "energy": "gives off heat (needs a catalyst to start)",
+    "story": [
+      "Each ethylene holds its two carbons together with two hands. A catalyst (a helper that is not used up) gets the first one to let go of its second grip.",
+      "That carbon now has an empty hand, so it reaches out and grabs the next ethylene.",
+      "That ethylene lets go of its own second grip, which leaves a new empty hand at the far end. It grabs the next one. Like a zipper, it keeps going.",
+      "Three ethylenes become one six-carbon slice. In a real chain this repeats thousands of times. Single grips are more settled than double ones, so heat comes out."
+    ],
+    "everyday": "Grocery bags, milk jugs, and squeeze bottles are polyethylene, the most common plastic.",
+    "lens": {
+      "nexus": "Your plant runs the story backwards. Heat snaps these long chains apart again, into shorter pieces that make up oil and gas."
+    }
+  },
+  {
+    "id": "acetylene-burn",
+    "name": "Welding torch flame",
+    "level": 3,
+    "equation": "2 C2H2 + 5 O2 → 4 CO2 + 2 H2O",
+    "reactants": [["acetylene", 2], ["o2", 5]],
+    "products": [["co2", 4], ["water", 2]],
+    "energy": "gives off heat (needs a flame to start)",
+    "dH": "about −1,301 kJ per mole of acetylene",
+    "story": [
+      "In acetylene, the two carbons hold each other with three hands at once. That triple grip is packed with energy.",
+      "The flame shakes it apart. The triple grip and the C-H grips let go, and the O2 pairs let go too.",
+      "Each carbon grabs two oxygens with two hands each, making CO2. Four carbons make four CO2.",
+      "The four hydrogens pair up with two oxygens to make two waters. So much energy comes out that the flame is hot enough to melt steel."
+    ],
+    "everyday": "Oxy-acetylene torches used for welding and cutting metal."
+  },
+  {
+    "id": "steam-reforming",
+    "name": "Making hydrogen from gas",
+    "level": 3,
+    "equation": "CH4 + H2O → CO + 3 H2",
+    "reactants": [["methane", 1], ["water", 1]],
+    "products": [["co", 1], ["h2", 3]],
+    "energy": "needs heat (about 800-900 °C with a nickel catalyst)",
+    "dH": "about +206 kJ per mole of methane",
+    "story": [
+      "Methane and steam are both content, every hand held. A hot nickel catalyst (a helper that is not used up) and a lot of heat pull them apart.",
+      "Carbon lets go of its four hydrogens. Water's oxygen lets go of its two.",
+      "Carbon and oxygen grab each other tightly, making carbon monoxide, CO.",
+      "The six loose hydrogens pair up into three H2. The new set holds less tightly than the old one, so heat has to keep going in."
+    ],
+    "everyday": "Most of the hydrogen made today starts this way. Much of it goes into making ammonia for fertilizer.",
+    "lens": {
+      "nexus": "A good example of a 'needs heat' step. Like pyrolysis, it only runs while you keep paying for heat."
+    }
+  },
+  {
+    "id": "haber",
+    "name": "Making ammonia",
+    "level": 3,
+    "equation": "N2 + 3 H2 → 2 NH3",
+    "reactants": [["n2", 1], ["h2", 3]],
+    "products": [["ammonia", 2]],
+    "energy": "gives off heat (needs an iron catalyst, heat, and high pressure)",
+    "dH": "about −92 kJ per mole of nitrogen",
+    "story": [
+      "N2 holds its two nitrogens with three hands each. That triple grip is one of the hardest to break in all of chemistry.",
+      "An iron catalyst (a helper that is not used up) grips the nitrogens and loosens them, at about 400-450 °C and about 200 times normal air pressure.",
+      "The H2 pairs also let go. Each nitrogen now has three empty hands.",
+      "Each nitrogen grabs three hydrogens, making ammonia, NH3. Overall it gives off a bit of heat, but it would almost never start without the catalyst."
+    ],
+    "everyday": "This is how fertilizer nitrogen is made. Much of the world's food is grown with ammonia from this process."
+  },
+  {
+    "id": "sabatier",
+    "name": "Making methane from CO2",
+    "level": 3,
+    "equation": "CO2 + 4 H2 → CH4 + 2 H2O",
+    "reactants": [["co2", 1], ["h2", 4]],
+    "products": [["methane", 1], ["water", 2]],
+    "energy": "gives off heat (needs a warm nickel catalyst, about 300-400 °C)",
+    "dH": "about −165 kJ per mole of CO2",
+    "story": [
+      "A nickel catalyst (a helper that is not used up) loosens the CO2. Carbon lets go of both oxygens, freeing all four of its hands.",
+      "The four H2 pairs let go too. That gives eight loose hydrogens.",
+      "Carbon grabs four hydrogens, one in each hand. That is methane.",
+      "Each of the two oxygens grabs two of the remaining hydrogens. That is two waters, and heat comes out."
+    ],
+    "everyday": "The International Space Station uses this reaction to turn the CO2 astronauts breathe out back into water.",
+    "lens": {
+      "rocket": "The plan for refueling Starship on Mars. Pull CO2 from the Martian air, add hydrogen from Martian water, and make methane. Splitting the water also gives the oxygen."
+    }
+  },
+  {
+    "id": "hypergolic",
+    "name": "Fuels that light on touch",
+    "level": 4,
+    "equation": "2 N2H4 + N2O4 → 3 N2 + 4 H2O",
+    "reactants": [["hydrazine", 2], ["n2o4", 1]],
+    "products": [["n2", 3], ["water", 4]],
+    "energy": "gives off heat (lights on contact, no spark needed)",
+    "story": [
+      "Hydrazine and nitrogen tetroxide are both uneasy molecules. The moment they touch, they start tearing each other apart. No spark is needed.",
+      "The weak N-N grip in N2O4 breaks, and so do the N-O grips. Hydrazine loses its hydrogens, and its N-N grip breaks too.",
+      "Nitrogens find each other and hold on with three hands each. That makes N2, one of the most settled molecules there is.",
+      "The hydrogens and oxygens team up as water. Going from uneasy to very settled releases a lot of heat all at once."
+    ],
+    "everyday": "Satellites and space probes use hydrazine-type fuels for small steering thrusters, because the fuels stay liquid for years without cooling.",
+    "lens": {
+      "rocket": "The Apollo lunar module burned a hydrazine mix with nitrogen tetroxide. SpaceX's Dragon thrusters use a close cousin, MMH, with the same oxidizer. These fuels are very toxic."
+    }
+  },
+  {
+    "id": "photosynthesis",
+    "name": "Photosynthesis",
+    "level": 4,
+    "equation": "6 CO2 + 6 H2O → C6H12O6 + 6 O2",
+    "reactants": [["co2", 6], ["water", 6]],
+    "products": [["glucose", 1], ["o2", 6]],
+    "energy": "needs light",
+    "dH": "about +2,803 kJ per mole of glucose",
+    "story": [
+      "This is burning run backwards, so it needs a lot of energy put in. A plant catches that energy from sunlight.",
+      "Light energy is used to pull water apart. The hydrogens are kept for later. The oxygens pair up and float away as O2.",
+      "The plant grabs CO2 one at a time and uses the saved hydrogens to rework it. Six carbons get linked into a chain. Five of them and one oxygen close into a ring.",
+      "Hydrogens and OH groups fill the remaining hands. The result is glucose, a sugar that stores the sunlight's energy in its grips."
+    ],
+    "everyday": "Every leaf does this. When you eat, your body runs it in reverse to get that stored energy back, breathing out CO2 and water."
+  }
+]

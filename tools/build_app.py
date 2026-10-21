@@ -21,7 +21,7 @@ os.makedirs(os.path.join(out, "data"), exist_ok=True)
 os.makedirs(os.path.join(out, "icons"), exist_ok=True)
 
 # ---------- data + scripts ----------
-for f in ("bench.js", "data/elements.json", "data/molecules.json"):
+for f in ("bench.js", "learn.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json"):
     shutil.copyfile(os.path.join(site, f), os.path.join(out, f))
 log = []
 for f in sorted(glob.glob(os.path.join(log_dir, "*.json"))):
@@ -90,7 +90,7 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 open(os.path.join(out, "index.html"), "w").write(head + page + sw_reg)
 
 # ---------- service worker: cache the app so it opens offline ----------
-files = ["./", "index.html", "bench.js", "data/elements.json", "data/molecules.json", "manifest.webmanifest",
+files = ["./", "index.html", "bench.js", "learn.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "manifest.webmanifest",
          "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png"]
 digest = hashlib.sha1(b"".join(open(os.path.join(out, f), "rb").read() for f in files if f != "./")).hexdigest()[:10]
 open(os.path.join(out, "sw.js"), "w").write(f"""/* Periodic Lab service worker. The cache name changes whenever the app files change,
