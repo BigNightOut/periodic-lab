@@ -1,0 +1,1834 @@
+{
+ "elements": {
+  "H": [
+   {
+    "file": "photos/el/H-1.webp",
+    "kind": "portrait",
+    "caption": "A Space Shuttle Main Engine burns hydrogen with oxygen, producing a nearly invisible flame at full thrust.",
+    "credit": "NASA",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Shuttle_Main_Engine_Test_Firing_cropped_edited_and_reduced.jpg"
+   },
+   {
+    "file": "photos/el/H-3.webp",
+    "kind": "use",
+    "caption": "NGC 604, a giant region of ionized hydrogen in the Triangulum Galaxy",
+    "credit": "Hui Yang (University of Illinois) and NASA/ESA",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Nursery_of_New_Stars_-_GPN-2000-000972.jpg"
+   }
+  ],
+  "He": [
+   {
+    "file": "photos/el/He-1.webp",
+    "kind": "portrait",
+    "caption": "The cleveite sample from which Ramsay first purified helium",
+    "credit": "UCL Mathematical and Physical Sciences from London, UK",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clevite_sample_(35321726345).jpg"
+   }
+  ],
+  "Li": [
+   {
+    "file": "photos/el/Li-1.webp",
+    "kind": "portrait",
+    "caption": "Lithium ingots with a thin layer of black nitride tarnish",
+    "credit": "Dnn87",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Limetal.JPG"
+   },
+   {
+    "file": "photos/el/Li-2.webp",
+    "kind": "use",
+    "caption": "Lithium floating in oil",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lithium_element.jpg"
+   }
+  ],
+  "Be": [
+   {
+    "file": "photos/el/Be-1.webp",
+    "kind": "portrait",
+    "caption": "Beryllium, >99 % pure, crystalline big fragment >140 g",
+    "credit": "Alchemist-hp = Alchemist-hp (pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Be-140g.jpg"
+   }
+  ],
+  "B": [
+   {
+    "file": "photos/el/B-1.webp",
+    "kind": "portrait",
+    "caption": "Polycrystalline chunks of rhombohedral β-boron, net 25.5 grams",
+    "credit": "James L Marshall",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Boron_R105.jpg"
+   },
+   {
+    "file": "photos/el/B-2.webp",
+    "kind": "use",
+    "caption": "Amorphous boron powder",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Brown-boron.jpg"
+   },
+   {
+    "file": "photos/el/B-3.webp",
+    "kind": "use",
+    "caption": "Boron chunks",
+    "credit": "Unknown",
+    "license": "CC BY-SA 2.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Bor_1.jpg"
+   }
+  ],
+  "C": [
+   {
+    "file": "photos/el/C-1.webp",
+    "kind": "portrait",
+    "caption": "Diamond and graphite shown side by side, for illustrating carbon. Scale is based on a rough approximation. Diamond Locality: South Africa Size: 1.31…",
+    "credit": "Robert M. Lavinsky",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Graphite-and-diamond-with-scale.jpg"
+   },
+   {
+    "file": "photos/el/C-2.webp",
+    "kind": "use",
+    "caption": "Gross pathology of lung showing centrilobular emphysema characteristic of smoking. Closeup of fixed, cut surface shows multiple cavities lined by…",
+    "credit": "Dr. Edwin P. Ewing, Jr.",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Centrilobular_emphysema_865_lores.jpg"
+   }
+  ],
+  "N": [
+   {
+    "file": "photos/el/N-1.webp",
+    "kind": "portrait",
+    "caption": "Liquid nitrogen",
+    "credit": "Robin Müller",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fluessiger_Stickstoff.jpg"
+   },
+   {
+    "file": "photos/el/N-3.webp",
+    "kind": "use",
+    "caption": "Nitrogen trichloride",
+    "credit": "Daniel Grohmann",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nitrogen_trichloride.JPG"
+   }
+  ],
+  "O": [
+   {
+    "file": "photos/el/O-1.webp",
+    "kind": "portrait",
+    "caption": "Liquid oxygen",
+    "credit": "Staff Sgt. Nika Glover, U.S. Air Force",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Liquid_oxygen_in_a_beaker_(cropped_and_retouched).jpg"
+   },
+   {
+    "file": "photos/el/O-2.webp",
+    "kind": "origin",
+    "caption": "Water (H2O) is the most familiar oxygen compound.",
+    "credit": "Walter J. Pilsak, Waldsassen, Germany",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Stilles_Mineralwasser.jpg"
+   }
+  ],
+  "F": [
+   {
+    "file": "photos/el/F-1.webp",
+    "kind": "portrait",
+    "caption": "Liquid Fluorine at -196°C",
+    "credit": "Fulvio314",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fluoro_liquido_a_-196%C2%B0C_1.jpg"
+   },
+   {
+    "file": "photos/el/F-2.webp",
+    "kind": "use",
+    "caption": "Industrial fluorine cells at Preston",
+    "credit": "F2 Chemicals Ltd",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Fluorine_cell_room.jpg"
+   }
+  ],
+  "Ne": [
+   {
+    "file": "photos/el/Ne-1.webp",
+    "kind": "portrait",
+    "caption": "Neon gas-discharge lamps forming neon's element symbol",
+    "credit": "User:Pslawinski",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:NeTube.jpg"
+   },
+   {
+    "file": "photos/el/Ne-2.webp",
+    "kind": "use",
+    "caption": "Neon sign in a Hamden, Connecticut, florist shop",
+    "credit": "Karl Thomas Moore",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:FLORIST_(neon_sign).jpg"
+   }
+  ],
+  "Na": [
+   {
+    "file": "photos/el/Na-1.webp",
+    "kind": "portrait",
+    "caption": "Sodium (Na) metal from the Dennis S.K. collection. Selfmade photo.",
+    "credit": "The original uploader was Dnn87 at English Wikipedia.",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Na_(Sodium).jpg"
+   },
+   {
+    "file": "photos/el/Na-2.webp",
+    "kind": "use",
+    "caption": "Emission spectrum for sodium, showing the D line",
+    "credit": "Tfaub",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Na-D-sodium_D-lines-589nm.jpg"
+   },
+   {
+    "file": "photos/el/Na-3.webp",
+    "kind": "use",
+    "caption": "A positive flame test for sodium has a bright yellow color.",
+    "credit": "Søren Wedel Nielsen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Flametest--Na.swn.jpg"
+   }
+  ],
+  "Mg": [
+   {
+    "file": "photos/el/Mg-1.webp",
+    "kind": "portrait",
+    "caption": "Crystalised magnesium",
+    "credit": "Mark Fergus, CSIRO",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_2893_Crystalised_magnesium.jpg"
+   },
+   {
+    "file": "photos/el/Mg-2.webp",
+    "kind": "use",
+    "caption": "Magnesium sheets and ingots",
+    "credit": "Mark Fergus",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mg_sheets_and_ingots.jpg"
+   },
+   {
+    "file": "photos/el/Mg-3.webp",
+    "kind": "use",
+    "caption": "Products made of magnesium: firestarter and shavings, sharpener, magnesium ribbon",
+    "credit": "No machine-readable author provided. Firetwister assumed (based on copyright cla",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Magnesium-products.jpg"
+   }
+  ],
+  "Al": [
+   {
+    "file": "photos/el/Al-1.webp",
+    "kind": "portrait",
+    "caption": "Chunk of aluminium, 2.6 grams, 1 x 2 cm.",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aluminium-4.jpg"
+   },
+   {
+    "file": "photos/el/Al-2.webp",
+    "kind": "origin",
+    "caption": "Bauxite, a major aluminium ore. The red-brown color is due to the presence of iron oxide minerals.",
+    "credit": "saphon",
+    "license": "CC BY-SA 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bauxite_h%C3%A9rault.JPG"
+   }
+  ],
+  "Si": [
+   {
+    "file": "photos/el/Si-1.webp",
+    "kind": "portrait",
+    "caption": "A piece of zone refined silicon",
+    "credit": "Rasiel Suarez on behalf of Luciteria LLC",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_piece_of_zone_refined_silicon.JPG"
+   }
+  ],
+  "P": [
+   {
+    "file": "photos/el/P-1.webp",
+    "kind": "portrait",
+    "caption": "Red phosphor",
+    "credit": "Tomihahndorf",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Phosphor_rot.jpg"
+   },
+   {
+    "file": "photos/el/P-2.webp",
+    "kind": "use",
+    "caption": "Match striking surface made of a mixture of red phosphorus, glue and ground glass. The glass powder is used to increase the friction.",
+    "credit": "User:Startaq",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Match_striking_surface.jpg"
+   },
+   {
+    "file": "photos/el/P-3.webp",
+    "kind": "origin",
+    "caption": "Crystals of Black Phosphorus in sealed ampoule.",
+    "credit": "Alshaer666",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Black_Phosphorus_Ampoule.jpg"
+   }
+  ],
+  "S": [
+   {
+    "file": "photos/el/S-1.webp",
+    "kind": "portrait",
+    "caption": "Roman brooch in the form of a panther (copper alloy, 100-300 AD). The spots are made of niello, a black mixture of silver and copper metals and…",
+    "credit": "Unknown",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Brooch_in_the_Form_of_a_Panther_MET_sf47-100-18s3.jpg"
+   },
+   {
+    "file": "photos/el/S-2.webp",
+    "kind": "origin",
+    "caption": "Sulfur crystals on the matrix (4.8 × 3.5 × 3 cm). Found from El Desierto mine, San Pablo de Napa, Daniel Campos Province, Potosí, Bolivia",
+    "credit": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sulfur_-_El_Desierto_mine,_San_Pablo_de_Napa,_Daniel_Campos_Province,_Potos%C3%AD,_Bolivia.jpg"
+   },
+   {
+    "file": "photos/el/S-3.webp",
+    "kind": "use",
+    "caption": "Sulfur vat from which railroad cars are loaded, Freeport Sulphur Co., Hoskins Mound, Texas (1943)",
+    "credit": "John Vachon",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Nearly_exhausted_sulphur_vat_from_which_railroad_cars_are_loaded,_Freeport_Sulphur_Co.,_Hoskins_Mound,_Texas,_1a35438v.jpg"
+   }
+  ],
+  "Cl": [
+   {
+    "file": "photos/el/Cl-1.webp",
+    "kind": "portrait",
+    "caption": "Chlorine gas in a bottle",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chlorine_in_bottle.jpg"
+   },
+   {
+    "file": "photos/el/Cl-2.webp",
+    "kind": "use",
+    "caption": "Gaseous chlorine stored inside a spherical container.",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chlorine_sphere.jpg"
+   },
+   {
+    "file": "photos/el/Cl-3.webp",
+    "kind": "use",
+    "caption": "Chlorine \"attack\" on an acetal resin plumbing joint resulting from a fractured acetal joint in a water supply system which started at an injection…",
+    "credit": "Peterlewis (talk) (Uploads)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Chlorine_attack1.jpg"
+   }
+  ],
+  "Ar": [
+   {
+    "file": "photos/el/Ar-1.webp",
+    "kind": "portrait",
+    "caption": "A sample of caesium is packed under argon to avoid reactions with air",
+    "credit": "Dnn87",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:CsCrystals.JPG"
+   },
+   {
+    "file": "photos/el/Ar-2.webp",
+    "kind": "use",
+    "caption": "A small piece of rapidly melting solid argon",
+    "credit": "No machine-readable author provided. Deglr6328~commonswiki assumed (based on cop",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Argon_ice_1.jpg"
+   }
+  ],
+  "K": [
+   {
+    "file": "photos/el/K-1.webp",
+    "kind": "portrait",
+    "caption": "Potassium pearls under paraffin oil. Original size of the largest pearl: 0.5 cm.",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Potassium-2.jpg"
+   },
+   {
+    "file": "photos/el/K-2.webp",
+    "kind": "use",
+    "caption": "Pieces of potassium metal",
+    "credit": "Dnn87",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Potassium.JPG"
+   },
+   {
+    "file": "photos/el/K-3.webp",
+    "kind": "use",
+    "caption": "Potassium in feldspar",
+    "credit": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:PotassiumFeldsparUSGOV.jpg"
+   }
+  ],
+  "Ca": [
+   {
+    "file": "photos/el/Ca-1.webp",
+    "kind": "portrait",
+    "caption": "Sealed glass ampoule containing crystals of pure calcium metal.",
+    "credit": "Original upload by 范皓程",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Calcium_crystals_in_ampoule_cropped.jpg"
+   },
+   {
+    "file": "photos/el/Ca-2.webp",
+    "kind": "origin",
+    "caption": "Calcium crystals stored in mineral oil",
+    "credit": "2x910",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Calcium_crystals.jpg"
+   }
+  ],
+  "Ti": [
+   {
+    "file": "photos/el/Ti-1.webp",
+    "kind": "portrait",
+    "caption": "Basic titanium products: plate, tube, rods, and powder",
+    "credit": "Mark Fergus",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Titanium_products.jpg"
+   },
+   {
+    "file": "photos/el/Ti-2.webp",
+    "kind": "use",
+    "caption": "Titanium \"sponge\", made by the Kroll process",
+    "credit": "US gov",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Titanium_metal.jpg"
+   },
+   {
+    "file": "photos/el/Ti-3.webp",
+    "kind": "origin",
+    "caption": "Mineral concentrate of fine-grained titanium",
+    "credit": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:TitaniumUSGOV.jpg"
+   }
+  ],
+  "V": [
+   {
+    "file": "photos/el/V-1.webp",
+    "kind": "portrait",
+    "caption": "Polycrystalline high-purity (99.95%) vanadium cuboids, ebeam remelted and macro-etched",
+    "credit": "Alchemist-hp pse-mendelejew.de\n\nOriginal uploader was Alchemist-hp (www.pse-mend",
+    "license": "CC BY-SA 2.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Vanadium-bar.jpg"
+   }
+  ],
+  "Cr": [
+   {
+    "file": "photos/el/Cr-1.webp",
+    "kind": "portrait",
+    "caption": "Sample of chromium metal",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chromium.jpg"
+   },
+   {
+    "file": "photos/el/Cr-2.webp",
+    "kind": "use",
+    "caption": "Piece of chromium produced with aluminothermic reaction",
+    "credit": "de:Benutzer:Tomihahndorf",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Chrom_1.jpg"
+   }
+  ],
+  "Fe": [
+   {
+    "file": "photos/el/Fe-1.webp",
+    "kind": "portrait",
+    "caption": "A polished and chemically etched piece of an iron meteorite, believed to be similar in composition to the Earth's metallic core, showing individual…",
+    "credit": "Waifer X",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Widmanstatten_hand.jpg"
+   },
+   {
+    "file": "photos/el/Fe-2.webp",
+    "kind": "use",
+    "caption": "Iron",
+    "credit": "Photo by Lars Lentz",
+    "license": "CC BY-SA 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:LightningVolt_Iron_Ore_Pellets.jpg"
+   },
+   {
+    "file": "photos/el/Fe-3.webp",
+    "kind": "use",
+    "caption": "Iron(III) oxide sample",
+    "credit": "Benjah-bmm27",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Iron(III)-oxide-sample.jpg"
+   }
+  ],
+  "Co": [
+   {
+    "file": "photos/el/Co-1.webp",
+    "kind": "portrait",
+    "caption": "Cobalt(II) chloride hexahydrate",
+    "credit": "Benjah-bmm27",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Cobalt(II)-chloride-hexahydrate-sample.jpg"
+   },
+   {
+    "file": "photos/el/Co-2.webp",
+    "kind": "origin",
+    "caption": "Cobalt ore",
+    "credit": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Cobalt_OreUSGOV.jpg"
+   },
+   {
+    "file": "photos/el/Co-3.webp",
+    "kind": "use",
+    "caption": "Cobalt-colored glass",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cobalt_blue_flask.jpg"
+   }
+  ],
+  "Ni": [
+   {
+    "file": "photos/el/Ni-1.webp",
+    "kind": "portrait",
+    "caption": "Crystals of hydrated nickel(II) sulfate",
+    "credit": "Benjah-bmm27",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Nickel(II)-sulfate-hexahydrate-sample.jpg"
+   },
+   {
+    "file": "photos/el/Ni-2.webp",
+    "kind": "use",
+    "caption": "Dutch coins made of pure nickel",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nickel2.jpg"
+   },
+   {
+    "file": "photos/el/Ni-3.webp",
+    "kind": "origin",
+    "caption": "Electron micrograph of a Ni nanocrystal inside a single wall carbon nanotube; scale bar 5 nm",
+    "credit": "Hidetsugu Shiozawa et al.",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ni@CNT2.jpg"
+   }
+  ],
+  "Cu": [
+   {
+    "file": "photos/el/Cu-1.webp",
+    "kind": "portrait",
+    "caption": "Macro of native copper about 1 ½ inches (4 cm) in size.",
+    "credit": "Native_Copper_Macro_Digon3.jpg: “Jonathan Zander (Digon3)\"\nderivative work: Mate",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:NatCopper.jpg"
+   },
+   {
+    "file": "photos/el/Cu-2.webp",
+    "kind": "origin",
+    "caption": "A copper disc (99.95% pure) made by continuous casting; etched to reveal crystallites",
+    "credit": "Alchemist-hp (pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Cu-Scheibe.JPG"
+   },
+   {
+    "file": "photos/el/Cu-3.webp",
+    "kind": "use",
+    "caption": "Copper wire comparison",
+    "credit": "Chemicalinterest (talk)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Copper_wire_comparison.JPG"
+   }
+  ],
+  "Zn": [
+   {
+    "file": "photos/el/Zn-2.webp",
+    "kind": "use",
+    "caption": "Piece of zinc sheet",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zinc-sheet.jpg"
+   },
+   {
+    "file": "photos/el/Zn-3.webp",
+    "kind": "use",
+    "caption": "Hot-dipped galvanized steel tie plate. The steel is protected from corrosion by a coating of zinc, a process called galvanization.",
+    "credit": "The original uploader was Splarka at English Wikipedia.",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Galvanized_surface.jpg"
+   }
+  ],
+  "Ga": [
+   {
+    "file": "photos/el/Ga-1.webp",
+    "kind": "portrait",
+    "caption": "Gallium bar cracked open to show choncoidal fractures with scale (edited from original)",
+    "credit": "Arònel123",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gallium_bar_cracked_open_to_show_crystal_structure_with_scale_1.png"
+   },
+   {
+    "file": "photos/el/Ga-2.webp",
+    "kind": "origin",
+    "caption": "Crystals of 99.999% gallium.",
+    "credit": "en:user:foobar",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gallium_crystals.jpg"
+   },
+   {
+    "file": "photos/el/Ga-3.webp",
+    "kind": "origin",
+    "caption": "liquid en:Gallium (>99%-pure) begins with crystallization",
+    "credit": "Tmv23 & Dblay",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gallium_kristallisiert.JPG"
+   }
+  ],
+  "Ge": [
+   {
+    "file": "photos/el/Ge-1.webp",
+    "kind": "portrait",
+    "caption": "12 grams polycrystalline germanium, 2*3 cm.",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Polycrystalline-germanium.jpg"
+   }
+  ],
+  "As": [
+   {
+    "file": "photos/el/As-1.webp",
+    "kind": "portrait",
+    "caption": ";Description: Elemental arsenic — mineral specimen.",
+    "credit": "Arsen_1.jpg: Original uploader was Tomihahndorf at de.wikipedia\nderivative work:",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Arsen_1a.jpg"
+   }
+  ],
+  "Se": [
+   {
+    "file": "photos/el/Se-1.webp",
+    "kind": "portrait",
+    "caption": "Black, glassy amorphous (with thin layer of grey selenium) and red amorphous selenium",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SeBlackRed.jpg"
+   }
+  ],
+  "Br": [
+   {
+    "file": "photos/el/Br-1.webp",
+    "kind": "portrait",
+    "caption": "The chemical element bromine, purity 99,8%, amount ~2g, sealed in a borosilicate glass vial (ampoule), sealed in a 2-inch cube of acrylic.",
+    "credit": "Alchemist-hp (pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Bromine_vial_in_acrylic_cube.jpg"
+   }
+  ],
+  "Rb": [
+   {
+    "file": "photos/el/Rb-1.webp",
+    "kind": "portrait",
+    "caption": "Partially molten rubidium metal in an ampoule",
+    "credit": "Dnn87",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:RbH.JPG"
+   }
+  ],
+  "Y": [
+   {
+    "file": "photos/el/Y-1.webp",
+    "kind": "portrait",
+    "caption": "Left: Soluble yttrium salts reacts with carbonate, forming white precipitate yttrium carbonate. Right: Yttrium carbonate is soluble in excess alkali…",
+    "credit": "Leiem",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yttrium_%2B_carbonate.jpg"
+   }
+  ],
+  "Zr": [
+   {
+    "file": "photos/el/Zr-1.webp",
+    "kind": "portrait",
+    "caption": "Zirconium rod",
+    "credit": "Dschwen",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Zirconium_rod.jpg"
+   }
+  ],
+  "Nb": [
+   {
+    "file": "photos/el/Nb-1.webp",
+    "kind": "portrait",
+    "caption": "A very pure sample of niobium pentachloride",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Niobium_pentachloride_solid.jpg"
+   }
+  ],
+  "Tc": [
+   {
+    "file": "photos/el/Tc-1.webp",
+    "kind": "portrait",
+    "caption": "Technetium sample inside a sealed glass ampoule, filled with argon gas. 6x1 mm goldfoil covered with 99Tc powder (electroplated).",
+    "credit": "Marco Cardin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Technetium-sample-cropped.jpg"
+   }
+  ],
+  "Ru": [
+   {
+    "file": "photos/el/Ru-1.webp",
+    "kind": "portrait",
+    "caption": "Gas-phase-grown crystals of ruthenium metal",
+    "credit": "Periodictableru",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ruthenium_crystals.jpg"
+   }
+  ],
+  "Rh": [
+   {
+    "file": "photos/el/Rh-1.webp",
+    "kind": "portrait",
+    "caption": "Rhodium foil and wire. Image taken by User:Dschwen on January 12th 2006.",
+    "credit": "Dschwen",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Rhodium_foil_and_wire.jpg"
+   }
+  ],
+  "Pd": [
+   {
+    "file": "photos/el/Pd-1.webp",
+    "kind": "portrait",
+    "caption": "The noble metal palladium is very similar to platinum, and, like platinum, is often used for catalysts and for jewellery. Palladium is more reactive…",
+    "credit": "Hi-Res Images of\n\nChemical Elements",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palladium_(46_Pd).jpg"
+   }
+  ],
+  "Ag": [
+   {
+    "file": "photos/el/Ag-1.webp",
+    "kind": "portrait",
+    "caption": "A pure (>99.95%) silver crystal, synthetic electrolytic made with visible dendritic structures. Weight ≈11g. this image was made from 12 single…",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Silver_crystal.jpg"
+   },
+   {
+    "file": "photos/el/Ag-3.webp",
+    "kind": "origin",
+    "caption": "Crystals of silver nitrate",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Silver_nitrate_crystals.jpg"
+   }
+  ],
+  "Cd": [
+   {
+    "file": "photos/el/Cd-1.webp",
+    "kind": "portrait",
+    "caption": "Cadmium metal",
+    "credit": "Original uploader was User: at en.wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:CadmiumMetalUSGOV.jpg"
+   }
+  ],
+  "In": [
+   {
+    "file": "photos/el/In-1.webp",
+    "kind": "portrait",
+    "caption": "Pure indium bars, roughly one pound each.",
+    "credit": "Nerdtalker",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indium.jpg"
+   }
+  ],
+  "Sn": [
+   {
+    "file": "photos/el/Sn-1.webp",
+    "kind": "portrait",
+    "caption": "purest tin 99,999 % = 5N, beta (left, white) and alpha (right, gray) allotropes.",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Sn-Alpha-Beta.jpg"
+   },
+   {
+    "file": "photos/el/Sn-3.webp",
+    "kind": "use",
+    "caption": "A 21st-century reproduction barn lantern made of punched tin",
+    "credit": "OttawaAC",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Punched_tin_barn_lantern.jpeg"
+   }
+  ],
+  "Sb": [
+   {
+    "file": "photos/el/Sb-1.webp",
+    "kind": "portrait",
+    "caption": "Antimony crystal, 2 grams, 1 cm.",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Antimony-4.jpg"
+   }
+  ],
+  "Te": [
+   {
+    "file": "photos/el/Te-1.webp",
+    "kind": "portrait",
+    "caption": "Metallic tellurium, diameter 3.5 cm",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tellurium2.jpg"
+   }
+  ],
+  "I": [
+   {
+    "file": "photos/el/I-1.webp",
+    "kind": "portrait",
+    "caption": "sample of iodine",
+    "credit": "LHcheM",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sample_of_iodine.jpg"
+   },
+   {
+    "file": "photos/el/I-2.webp",
+    "kind": "origin",
+    "caption": "Iodine crystals sublimating into a purple gas",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Iodine-evaporating.jpg"
+   },
+   {
+    "file": "photos/el/I-3.webp",
+    "kind": "use",
+    "caption": "Iodine vapour in a flask, demonstrating its characteristic rich purple colour",
+    "credit": "Matias Molnar",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:IodoAtomico.JPG"
+   }
+  ],
+  "Xe": [
+   {
+    "file": "photos/el/Xe-1.webp",
+    "kind": "portrait",
+    "caption": "An acrylic cube specially prepared for element collectors containing a glass ampoule of liquefied xenon",
+    "credit": "Rasiel Suarez on behalf of Luciteria LLC",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:An_acrylic_cube_specially_prepared_for_element_collectors_containing_an_ampoule_filled_with_liquefied_xenon.JPG"
+   },
+   {
+    "file": "photos/el/Xe-2.webp",
+    "kind": "use",
+    "caption": "A layer of solid xenon building inside a high voltage apparatus. The layer of solid xenon (white color) is surrounded by liquid xenon (transparent).",
+    "credit": "Solypewo",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Solid_and_liquid_xenon.jpg"
+   }
+  ],
+  "Cs": [
+   {
+    "file": "photos/el/Cs-1.webp",
+    "kind": "portrait",
+    "caption": "Cesium/Caesium metal from the Dennis s.k collection.",
+    "credit": "Dnn87 Contact email: Dnn87yahoo.dk",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cesium.jpg"
+   }
+  ],
+  "Ba": [
+   {
+    "file": "photos/el/Ba-1.webp",
+    "kind": "portrait",
+    "caption": "Elementares Barium unter Argon Schutzgas / Pure barium in protective argon gas atmosphere.",
+    "credit": "Matthias Zepper",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Barium_unter_Argon_Schutzgas_Atmosph%C3%A4re.jpg"
+   }
+  ],
+  "La": [
+   {
+    "file": "photos/el/La-1.webp",
+    "kind": "portrait",
+    "caption": "1 cm big piece of pure lanthanum.",
+    "credit": "Jurii (Original uploader was Lanthanum-138 at en.wikipedia",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lanthanum-2.jpg"
+   }
+  ],
+  "Ce": [
+   {
+    "file": "photos/el/Ce-1.webp",
+    "kind": "portrait",
+    "caption": "Ultrapure cerium under argon, 1.5 grams. Original size in cm: 1 x 1",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cerium2.jpg"
+   }
+  ],
+  "Pr": [
+   {
+    "file": "photos/el/Pr-1.webp",
+    "kind": "portrait",
+    "caption": "1.5 grams praseodymium under argon, 0.5 cm big pieces.",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Praseodymium.jpg"
+   }
+  ],
+  "Nd": [
+   {
+    "file": "photos/el/Nd-1.webp",
+    "kind": "portrait",
+    "caption": "Neodymium is one of the more abundant lanthanoids and has many different applications. It is often used as colorant for glass and ceramic, because…",
+    "credit": "Hi-Res Images of\n\nChemical Elements",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ultrapure_neodymium_under_argon,_5_grams.jpg"
+   },
+   {
+    "file": "photos/el/Nd-2.webp",
+    "kind": "origin",
+    "caption": "A Nd:YAG laser rod. Neodymium ions provide the laser-active component of the crystal.",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yag-rod.jpg"
+   },
+   {
+    "file": "photos/el/Nd-3.webp",
+    "kind": "use",
+    "caption": "Neodymium sulfate, nitrate, and chloride solutions in energy-saving fluorescent light",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Neodymium_fluorescent1.jpg"
+   }
+  ],
+  "Sm": [
+   {
+    "file": "photos/el/Sm-1.webp",
+    "kind": "portrait",
+    "caption": "Ultrapure sublimated samarium, 2 grams. Original size in cm: 0.8 x 1.5",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Samarium-2.jpg"
+   }
+  ],
+  "Eu": [
+   {
+    "file": "photos/el/Eu-1.webp",
+    "kind": "portrait",
+    "caption": "Weakly oxidized europium, hence slightly yellowish. 1.5 grams, large piece 0.6 x 1.6 cm.",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Europium.jpg"
+   }
+  ],
+  "Gd": [
+   {
+    "file": "photos/el/Gd-1.webp",
+    "kind": "portrait",
+    "caption": "Gadolinium",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gadolinium-4.jpg"
+   }
+  ],
+  "Tb": [
+   {
+    "file": "photos/el/Tb-1.webp",
+    "kind": "portrait",
+    "caption": "Pure terbium, 3 grams. Original size: 1 cm",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Terbium-2.jpg"
+   }
+  ],
+  "Dy": [
+   {
+    "file": "photos/el/Dy-1.webp",
+    "kind": "portrait",
+    "caption": "Dysprosium chips",
+    "credit": "Materialscientist at en.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dy_chips.jpg"
+   }
+  ],
+  "Ho": [
+   {
+    "file": "photos/el/Ho-1.webp",
+    "kind": "portrait",
+    "caption": "Ultrapure holmium, 17 grams. Original size in cm: 1.5 x 2.5",
+    "credit": "Unknown authorUnknown author",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Holmium2.jpg"
+   }
+  ],
+  "Er": [
+   {
+    "file": "photos/el/Er-1.webp",
+    "kind": "portrait",
+    "caption": "Erbium is used for amplifiers in optical fibres and therefore is very important for the internet and the transcontinental data transfer. Erbium oxide…",
+    "credit": "Hi-Res Images of\n\nChemical Elements",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Erbium_(68_Er).jpg"
+   }
+  ],
+  "Tm": [
+   {
+    "file": "photos/el/Tm-1.webp",
+    "kind": "portrait",
+    "caption": "Thulium is found in the mineral monazite",
+    "credit": "Ra'ike (see also: de:Benutzer:Ra'ike)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Monazit_-_Madagaskar.jpg"
+   }
+  ],
+  "Yb": [
+   {
+    "file": "photos/el/Yb-1.webp",
+    "kind": "portrait",
+    "caption": "Ytterbium, 0.5 x 1 cm.",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ytterbium-3.jpg"
+   }
+  ],
+  "Hf": [
+   {
+    "file": "photos/el/Hf-1.webp",
+    "kind": "portrait",
+    "caption": "A sample of a 1,7kg Hafnium crystal bar, made by van Arkel-de Boer process. The real background is removed. The shadow is added via Photoshop.",
+    "credit": "Alchemist-hp (talk) (www.pse-mendelejew.de)",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Hf-crystal_bar.jpg"
+   }
+  ],
+  "Ta": [
+   {
+    "file": "photos/el/Ta-1.webp",
+    "kind": "portrait",
+    "caption": "Tantalum electrolytic capacitor",
+    "credit": "Elcap Jens Both",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tantal-Perle-Wiki-07-02-25-P1040364b.jpg"
+   }
+  ],
+  "W": [
+   {
+    "file": "photos/el/W-1.webp",
+    "kind": "portrait",
+    "caption": "Tungsten rod with oxidised surface",
+    "credit": "Jurii",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tungsten_rod_with_oxidised_surface.jpg"
+   },
+   {
+    "file": "photos/el/W-2.webp",
+    "kind": "use",
+    "caption": "Tungsten electrode used in a gas tungsten arc welding torch",
+    "credit": "TTLightningRod at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:TIG_torch_breakdown.JPG"
+   }
+  ],
+  "Re": [
+   {
+    "file": "photos/el/Re-1.webp",
+    "kind": "portrait",
+    "caption": "The Pratt & Whitney F-100 engine uses rhenium-containing second-generation superalloys",
+    "credit": "U.S. Air Force photo by Sue Sapp",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Pratt_%26_Whitney_F100_F-15_engine_undergoing_testing.jpg"
+   }
+  ],
+  "Os": [
+   {
+    "file": "photos/el/Os-1.webp",
+    "kind": "portrait",
+    "caption": "Osmium, remelted pellet",
+    "credit": "Tomihahndorf\n\nderivative work: Mav (talk)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Osmium_1-crop.jpg"
+   }
+  ],
+  "Ir": [
+   {
+    "file": "photos/el/Ir-1.webp",
+    "kind": "portrait",
+    "caption": "Iridium is a very hard, heavy, rare and expensive silvery metal and the most noble of all metals. It hardly reacts, but as a fine powder it is…",
+    "credit": "Hi-Res Images of\n\nChemical Elements",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Iridium_(77_Ir)_(cropped).jpg"
+   }
+  ],
+  "Pt": [
+   {
+    "file": "photos/el/Pt-1.webp",
+    "kind": "portrait",
+    "caption": "Crystals of pure platinum grown by gas phase transport.",
+    "credit": "Periodictableru",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Platinum_crystals.jpg"
+   },
+   {
+    "file": "photos/el/Pt-2.webp",
+    "kind": "origin",
+    "caption": "Platinum-palladium ore, Stillwater mine, Beartooth Mountains, Montana, US",
+    "credit": "James St. John",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Platinum-palladium_ore,_Stillwater_mine_MT.JPG"
+   },
+   {
+    "file": "photos/el/Pt-3.webp",
+    "kind": "origin",
+    "caption": "Sulfidic serpentinite (platinum-palladium ore) from Stillwater Mine, Beartooth Mountains, Montana, USA",
+    "credit": "James St. John",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sulfidic_serpentintite_(platinum-palladium_ore)_Johns-Manville_Reef,_Stillwater_Complex.jpg"
+   }
+  ],
+  "Au": [
+   {
+    "file": "photos/el/Au-1.webp",
+    "kind": "portrait",
+    "caption": "A 5 mm (0.20 in) gold nugget (dot in front of frame) can be hammered into a gold foil of about 0.5 m2 (5.4 sq ft) in area.",
+    "credit": "PHGCOM",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Small_gold_nugget_5mm_dia_and_corresponding_foil_surface_of_half_sq_meter.jpg"
+   },
+   {
+    "file": "photos/el/Au-2.webp",
+    "kind": "origin",
+    "caption": "Native gold",
+    "credit": "James St. John",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gold_nugget_(Australia)_4_(16848647509).jpg"
+   },
+   {
+    "file": "photos/el/Au-3.webp",
+    "kind": "origin",
+    "caption": "Synthetic made gold crystals by the chemical transport reaction in chlorine gas. Purity >99.99%",
+    "credit": "Alchemist-hp (talk) www.pse-mendelejew.de",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Gold-crystals.jpg"
+   }
+  ],
+  "Hg": [
+   {
+    "file": "photos/el/Hg-1.webp",
+    "kind": "portrait",
+    "caption": "Element mercury (Hg), liquid form.",
+    "credit": "Bionerd",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pouring_liquid_mercury_bionerd.jpg"
+   },
+   {
+    "file": "photos/el/Hg-2.webp",
+    "kind": "origin",
+    "caption": "Native mercury with cinnabar, Socrates mine, Sonoma County, California. Cinnabar sometimes alters to native mercury in the oxidized zone of mercury…",
+    "credit": "Robert M. Lavinsky",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercury-27128.jpg"
+   },
+   {
+    "file": "photos/el/Hg-3.webp",
+    "kind": "use",
+    "caption": "Manometer (with mercury column), after Bennert, scale 2-180 mbar, with ajustable mirror scale on wood base",
+    "credit": "Hannes Grobe 19:02, 3 September 2006 (UTC)",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Barometer_mercury_column_hg.jpg"
+   }
+  ],
+  "Tl": [
+   {
+    "file": "photos/el/Tl-1.webp",
+    "kind": "portrait",
+    "caption": "Pieces of very pure thallium in glass ampoule under argon.",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thallium_pieces_in_ampoule.jpg"
+   }
+  ],
+  "Pb": [
+   {
+    "file": "photos/el/Pb-1.webp",
+    "kind": "portrait",
+    "caption": "A sample of lead solidified from the molten state",
+    "credit": "Chemical Elements",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lead-2.jpg"
+   },
+   {
+    "file": "photos/el/Pb-2.webp",
+    "kind": "use",
+    "caption": "Lead ingot from Roman times, Cartagena, Spain",
+    "credit": "Nanosanchez",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lingot_de_plomb_de_l%27%C3%A9poque_romaine._Mines_de_Cartag%C3%A8ne_Espagne.jpg"
+   },
+   {
+    "file": "photos/el/Pb-3.webp",
+    "kind": "use",
+    "caption": "A 17th-century gold-coated lead sculpture",
+    "credit": "Jean-Baptiste Tuby / After Charles Le Brun",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Parc_de_Versailles,_Bassin_de_Flore,_Jean-Baptiste_Tuby_(1672-79)_07.jpg"
+   }
+  ],
+  "Bi": [
+   {
+    "file": "photos/el/Bi-1.webp",
+    "kind": "portrait",
+    "caption": "Chunk of a broken bismuth ingot",
+    "credit": "Unconventional2",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BrokenBismuthIngot.jpg"
+   }
+  ],
+  "Po": [
+   {
+    "file": "photos/el/Po-1.webp",
+    "kind": "portrait",
+    "caption": "Polonium deposited on the brass sheet",
+    "credit": "范皓程",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Polonium_on_brass_sheet.jpg"
+   }
+  ],
+  "At": [
+   {
+    "file": "photos/el/At-1.webp",
+    "kind": "portrait",
+    "caption": "3 gigabecquerels (approx. 40 ng) of astatine-211 were produced and isolated at the Forschungszentrum Jülich at the Institute of Neurosciences and…",
+    "credit": "NuclearAlex",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Glow_from_a_sample_of_astatine_(cropped).jpg"
+   }
+  ],
+  "Fr": [
+   {
+    "file": "photos/el/Fr-1.webp",
+    "kind": "portrait",
+    "caption": "This sample of uraninite contains about 100,000 atoms (3.7×10−17 g) of francium-223 at any given time.",
+    "credit": "Template:Farhan",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Pichblende.jpg"
+   }
+  ],
+  "Ra": [
+   {
+    "file": "photos/el/Ra-1.webp",
+    "kind": "portrait",
+    "caption": "Radium electroplated on a very small sample of copper foil and covered with polyurethane to prevent reaction with the air.",
+    "credit": "grenadier",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Radium226.jpg"
+   }
+  ],
+  "Ac": [
+   {
+    "file": "photos/el/Ac-1.webp",
+    "kind": "portrait",
+    "caption": "Actinium-225 medical radioisotope held in a v-vial at ORNL. The blue glow comes from the ionization of surrounding air by alpha particles.",
+    "credit": "Oak Ridge National Laboratory",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Actinium_sample_(31481701837).png"
+   }
+  ],
+  "Pa": [
+   {
+    "file": "photos/el/Pa-1.webp",
+    "kind": "portrait",
+    "caption": "Protactinium (Pa) is # 91 on the Periodic Table of Elements. Elemental protactinium is a radioactive, silvery-gray metal. Twenty-nine isotopes of…",
+    "credit": "James St. John",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Protactinium_(Element_-_91)_2.jpg"
+   }
+  ],
+  "U": [
+   {
+    "file": "photos/el/U-1.webp",
+    "kind": "portrait",
+    "caption": "A billet of highly enriched uranium that was recovered from scrap processed at the Y-12 National Security Complex Plant. Original and unrotated.",
+    "credit": "Unspecified",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:HEUraniumC.jpg"
+   },
+   {
+    "file": "photos/el/U-2.webp",
+    "kind": "use",
+    "caption": "Cuboids of uranium produced during the Manhattan Project",
+    "credit": "U.S. Department of Energy",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:UraniumCubesLarge.jpg"
+   },
+   {
+    "file": "photos/el/U-3.webp",
+    "kind": "origin",
+    "caption": "Uraninite, also known as pitchblende, is the most common ore mined to extract uranium.",
+    "credit": "Template:Farhan",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Pichblende.jpg"
+   }
+  ],
+  "Np": [
+   {
+    "file": "photos/el/Np-1.webp",
+    "kind": "portrait",
+    "caption": "Neptunium (Np) is 93rd on the Periodic Table. Elemental neptunium is a radioactive, silvery-gray metal.",
+    "credit": "Originally by James St. John, edited by Arònel123",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Neptunium_(Element_-_93)_3.jpg"
+   }
+  ],
+  "Am": [
+   {
+    "file": "photos/el/Am-1.webp",
+    "kind": "portrait",
+    "caption": "A small disc of Am-241 under the microscope.",
+    "credit": "Bionerd",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Americium_microscope.jpg"
+   }
+  ],
+  "Bk": [
+   {
+    "file": "photos/el/Bk-1.webp",
+    "kind": "portrait",
+    "caption": "A photomicrograph of the first isolated bulk (1.7 micrograms) sample of berkelium. The lump is 100 μm across.",
+    "credit": "Oak Ridge National Laboratory, US Department of Energy",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Berkelium_metal.jpg"
+   }
+  ],
+  "Cf": [
+   {
+    "file": "photos/el/Cf-1.webp",
+    "kind": "portrait",
+    "caption": "A disc of californium metal (249Cf, 10 mg). The source implies that the disc has a diameter about twice the thickness of a typical pin, or on the…",
+    "credit": "United States Department of Energy (see File:Einsteinium.jpg)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Californium.jpg"
+   }
+  ],
+  "Es": [
+   {
+    "file": "photos/el/Es-1.webp",
+    "kind": "portrait",
+    "caption": "Quartz vial (9 mm diameter) containing ~300 micrograms of Es-253 solid. The illumination produced is a result of the intense radiation from Es-253,…",
+    "credit": "Haire, R. G., US Department of Energy.\n\nTouched up by Materialscientist at en.wi",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Einsteinium.jpg"
+   }
+  ],
+  "Fm": [
+   {
+    "file": "photos/el/Fm-1.webp",
+    "kind": "portrait",
+    "caption": "A fermium-ytterbium alloy used for measuring the enthalpy of sublimation of fermium metal",
+    "credit": "Ben E. Lewis.",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Fermium-Ytterbium_Alloy.jpg"
+   }
+  ]
+ },
+ "molecules": {
+  "water": [
+   {
+    "file": "photos/mol/water.webp",
+    "kind": "real",
+    "caption": "A drop of water falling toward water in a glass",
+    "credit": "José Manuel Suárez from Spain",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Water_drop_001.jpg"
+   }
+  ],
+  "o2": [
+   {
+    "file": "photos/mol/o2.webp",
+    "kind": "real",
+    "caption": "Liquid oxygen",
+    "credit": "Staff Sgt. Nika Glover, U.S. Air Force",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Liquid_oxygen_in_a_beaker_(cropped_and_retouched).jpg"
+   }
+  ],
+  "n2": [
+   {
+    "file": "photos/mol/n2.webp",
+    "kind": "real",
+    "caption": "A container vehicle carrying liquid nitrogen",
+    "credit": "Editor General of Wiki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_cylinder_container,_containing_liquid_nitrogen.jpg"
+   }
+  ],
+  "co2": [
+   {
+    "file": "photos/mol/co2.webp",
+    "kind": "real",
+    "caption": "Pellets of \"dry ice\", a common form of solid carbon dioxide",
+    "credit": "Richard Wheeler (Zephyris) at en.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dry_Ice_Pellets_Subliming.jpg"
+   }
+  ],
+  "glucose": [
+   {
+    "file": "photos/mol/glucose.webp",
+    "kind": "real",
+    "caption": "Glucose, 5% solution for infusions",
+    "credit": "Bogdan29roman",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Solu%C5%A3ie_glucoz%C4%83_5%25.jpg"
+   }
+  ],
+  "methane": [
+   {
+    "file": "photos/mol/methane.webp",
+    "kind": "real",
+    "caption": "Methane bubbles can be burned on a wet hand without injury.",
+    "credit": "Scohen2017",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_fire_within_her.jpg"
+   }
+  ],
+  "nacl": [
+   {
+    "file": "photos/mol/nacl.webp",
+    "kind": "real",
+    "caption": "Mounds of road salt for use in winter",
+    "credit": "(U.S. Air National Guard Photo by Tech. Sgt. Jorge Intriago/Released)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Winter_road_salt.jpg"
+   }
+  ],
+  "ammonia": [
+   {
+    "file": "photos/mol/ammonia.webp",
+    "kind": "real",
+    "caption": "A train carrying anhydrous ammonia through Bray, Ireland",
+    "credit": "Albert Bridge",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ammonia_Train.jpg"
+   }
+  ],
+  "h2so4": [
+   {
+    "file": "photos/mol/h2so4.webp",
+    "kind": "real",
+    "caption": "Drops of concentrated sulfuric acid rapidly decompose a piece of cotton towel by dehydration.",
+    "credit": "Toxic Walker",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sulphuric_acid_on_a_piece_of_towel.JPG"
+   }
+  ],
+  "ethanol": [
+   {
+    "file": "photos/mol/ethanol.webp",
+    "kind": "real",
+    "caption": "USP grade ethanol for laboratory use",
+    "credit": "Diane A. Reid, Photographer",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Ethyl_alcohol_usp_grade.jpg"
+   }
+  ],
+  "sucrose": [
+   {
+    "file": "photos/mol/sucrose.webp",
+    "kind": "real",
+    "caption": "Grainy raw sugar",
+    "credit": "Editor at Large",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Raw_sugar_closeup.jpg"
+   }
+  ],
+  "polypropylene": [
+   {
+    "file": "photos/mol/polypropylene.webp",
+    "kind": "real",
+    "caption": "Effect of UV exposure on polypropylene rope",
+    "credit": "Peterlewis at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Failedrope1.jpg"
+   }
+  ],
+  "pvc": [
+   {
+    "file": "photos/mol/pvc.webp",
+    "kind": "real",
+    "caption": "\"A modern Tudorbethan\" house with uPVC gutters and downspouts, fascia, decorative imitation \"half-timbering\", windows, and doors",
+    "credit": "User:Dave souza",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Builder%27s_tudorbethan.jpg"
+   }
+  ],
+  "propane": [
+   {
+    "file": "photos/mol/propane.webp",
+    "kind": "real",
+    "caption": "A 20 lb (9.1 kg) steel propane cylinder. This cylinder is fitted with an overfill prevention device (OPD) valve, as evidenced by the trilobular…",
+    "credit": "Hustvedt",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Propane_tank_20lb.jpg"
+   }
+  ],
+  "aceticacid": [
+   {
+    "file": "photos/mol/aceticacid.webp",
+    "kind": "real",
+    "caption": "A variety of flavored vinegars, for culinary use, on sale in France",
+    "credit": "Georges Seguin (Okki)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Eguilles_20110828_14.jpg"
+   }
+  ],
+  "caffeine": [
+   {
+    "file": "photos/mol/caffeine.webp",
+    "kind": "real",
+    "caption": "Fibrous crystals of purified caffeine. Dark-field microscopy image, about 7 mm × 11 mm.",
+    "credit": "Zephyris",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:CaffeineCrystals_Fibrous_10xDarkField.jpg"
+   }
+  ],
+  "aspirin": [
+   {
+    "file": "photos/mol/aspirin.webp",
+    "kind": "real",
+    "caption": "1923 advertisement",
+    "credit": "unknown (no credits)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Aspirine-1923.jpg"
+   }
+  ],
+  "urea": [
+   {
+    "file": "photos/mol/urea.webp",
+    "kind": "real",
+    "caption": "Sample of urea in the form of granules",
+    "credit": "LHcheM",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sample_of_Urea.jpg"
+   }
+  ],
+  "hcl": [
+   {
+    "file": "photos/mol/hcl.webp",
+    "kind": "real",
+    "caption": "30% hydrochloric acid",
+    "credit": "W. Oelen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hydrochloric_acid_30_percent.jpg"
+   }
+  ],
+  "isooctane": [
+   {
+    "file": "photos/mol/isooctane.webp",
+    "kind": "real",
+    "caption": "A fuel pump with a large \"unleaded\" notice",
+    "credit": "UnifiedFunctionality",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Unleaded_gasoline_pump.jpg"
+   }
+  ],
+  "dodecane": [
+   {
+    "file": "photos/mol/dodecane.webp",
+    "kind": "real",
+    "caption": "A kerosene bottle, containing blue-dyed kerosene",
+    "credit": "Longhair at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kerosene_bottle.jpg"
+   }
+  ],
+  "benzene": [
+   {
+    "file": "photos/mol/benzene.webp",
+    "kind": "real",
+    "caption": "Sample of benzene",
+    "credit": "Saint concrete",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Benzene_sample.jpg"
+   }
+  ],
+  "polystyrene": [
+   {
+    "file": "photos/mol/polystyrene.webp",
+    "kind": "real",
+    "caption": "Discarded polystyrene cup on the shore of Lake Michigan",
+    "credit": "Visviva",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Physical_weathering_styrofoam_cup_Lake_MIchigan.jpg"
+   }
+  ],
+  "ptfe": [
+   {
+    "file": "photos/mol/ptfe.webp",
+    "kind": "real",
+    "caption": "Advertisement of the Happy Pan, a Teflon-coated pan from the 1960s",
+    "credit": "trozzolo",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Happy_Pan_Poster.jpg"
+   }
+  ],
+  "acetone": [
+   {
+    "file": "photos/mol/acetone.webp",
+    "kind": "real",
+    "caption": "Sample of acetone",
+    "credit": "LHcheM",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sample_of_Acetone.jpg"
+   }
+  ],
+  "h2o2": [
+   {
+    "file": "photos/mol/h2o2.webp",
+    "kind": "real",
+    "caption": "ISO tank container for hydrogen peroxide transportation",
+    "credit": "Chatama",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Container_JOTU501003_9.jpg"
+   }
+  ],
+  "o3": [
+   {
+    "file": "photos/mol/o3.webp",
+    "kind": "real",
+    "caption": "Ozone cracking in natural rubber tubing",
+    "credit": "Peterlewis at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Ozone_cracks_in_tube1.jpg"
+   }
+  ],
+  "citricacid": [
+   {
+    "file": "photos/mol/citricacid.webp",
+    "kind": "real",
+    "caption": "Lemons, oranges, limes, and other citrus fruits contain high concentrations of citric acid.",
+    "credit": "Scott Bauer, USDA",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Citrus_fruits.jpg"
+   }
+  ],
+  "ascorbic": [
+   {
+    "file": "photos/mol/ascorbic.webp",
+    "kind": "real",
+    "caption": "Vitamin C supplements",
+    "credit": "Mx. Granger",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vitamin_C_supplements_1.jpg"
+   }
+  ],
+  "acetaminophen": [
+   {
+    "file": "photos/mol/acetaminophen.webp",
+    "kind": "real",
+    "caption": "Brown tree snake aerial bait cartridges consisting of dead mice with 80 mg paracetamol tablets",
+    "credit": "U.S. Department of Agriculture\n\nWildlife Services/USDA photo by APHIS Wildlife S",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Brown_tree_snake_aerial_bait_cartridges.jpg"
+   }
+  ],
+  "fe2o3": [
+   {
+    "file": "photos/mol/fe2o3.webp",
+    "kind": "real",
+    "caption": "Heavy rust on the links of a chain near the Golden Gate Bridge in San Francisco; it was continuously exposed to moisture and salt spray, causing…",
+    "credit": "Marlith",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:RustyChainEdit1.jpg"
+   }
+  ],
+  "sio2": [
+   {
+    "file": "photos/mol/sio2.webp",
+    "kind": "real",
+    "caption": "Quartz",
+    "credit": "“Jon Zander (Digon3)\"",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Quartz_crystals_Macro_1.JPG"
+   }
+  ],
+  "diamond": [
+   {
+    "file": "photos/mol/diamond.webp",
+    "kind": "real",
+    "caption": "This specimen is a fragment of a much larger diamond that is thought to have been composed of yet another fragment that is mentioned historically…",
+    "credit": "DGPC/ADF Luísa Oliveira",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rough_Diamond.jpg"
+   }
+  ],
+  "graphite": [
+   {
+    "file": "photos/mol/graphite.webp",
+    "kind": "real",
+    "caption": "Graphite pencils",
+    "credit": "Original uploader was Dmgerman at en.wikipedia",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pencils_hb.jpg"
+   }
+  ],
+  "stainless": [
+   {
+    "file": "photos/mol/stainless.webp",
+    "kind": "real",
+    "caption": "Stainless steel taps and sink",
+    "credit": "W.carter",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sink_and_taps_in_the_men%27s_locker_room_3_BW.jpg"
+   }
+  ],
+  "cu_metal": [
+   {
+    "file": "photos/mol/cu_metal.webp",
+    "kind": "real",
+    "caption": "Power cable 5G16 (5 wires, green-yellow ground wire, 16mm2",
+    "credit": "Dmitry G",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Copper_cable_5G16.JPG"
+   }
+  ],
+  "brass": [
+   {
+    "file": "photos/mol/brass.webp",
+    "kind": "real",
+    "caption": "Islamic Golden Age brass astrolabe",
+    "credit": "Muhammad Zaman al-Munajjim al-Asturlabi",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Planispheric_Astrolabe_MET_DP105325.jpg"
+   }
+  ],
+  "bronze": [
+   {
+    "file": "photos/mol/bronze.webp",
+    "kind": "real",
+    "caption": "Houmuwu ding (Chinese: 后母戊鼎; pinyin: Hòumǔwù dǐng), the heaviest Chinese ritual bronze ever found; 1300–1046 BC; National Museum of China (Beijing).…",
+    "credit": "Mlogic",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg"
+   }
+  ],
+  "caco3": [
+   {
+    "file": "photos/mol/caco3.webp",
+    "kind": "real",
+    "caption": "This limestone deposit in the karst of Dinaric Alps near Sinj, Croatia, was formed in the Eocene.",
+    "credit": "Ponor",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Limestone_Eocene_deposit_at_Sinj_Stari_grad_-_Dalmatia_-_Croatia_IMG_20210820_083857.jpg"
+   }
+  ],
+  "nahco3": [
+   {
+    "file": "photos/mol/nahco3.webp",
+    "kind": "real",
+    "caption": "Cupcakes baked with baking soda as a raising agent",
+    "credit": "me",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cupcake2020.jpg"
+   }
+  ],
+  "naoh": [
+   {
+    "file": "photos/mol/naoh.webp",
+    "kind": "real",
+    "caption": "Sample of sodium hydroxide as pellets in a watchglass",
+    "credit": "Walkerma",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:SodiumHydroxide.jpg"
+   }
+  ],
+  "methanol": [
+   {
+    "file": "photos/mol/methanol.webp",
+    "kind": "real",
+    "caption": "A sample of methanol",
+    "credit": "Danny S.",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Methanol_by_Danny_S._-_001.JPG"
+   }
+  ],
+  "al2o3": [
+   {
+    "file": "photos/mol/al2o3.webp",
+    "kind": "real",
+    "caption": "several corundum crystals",
+    "credit": "Ra'ike (see also Ra'ike on de.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Several_corundum_crystals.jpg"
+   }
+  ],
+  "mgo": [
+   {
+    "file": "photos/mol/mgo.webp",
+    "kind": "real",
+    "caption": "A sample of magnesium oxide. Picture taken by User:Walkerma, March 2006.",
+    "credit": "No machine-readable author provided. Walkerma assumed (based on copyright claims",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Magnesium_oxide.jpg"
+   }
+  ],
+  "acetylene": [
+   {
+    "file": "photos/mol/acetylene.webp",
+    "kind": "real",
+    "caption": "A \"carbide lamp\", which burns acetylene produced by hydrolysis of calcium carbide.",
+    "credit": "Scott Ehardt",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Carbide_lamp_lit.jpg"
+   }
+  ],
+  "hexadecane": [
+   {
+    "file": "photos/mol/hexadecane.webp",
+    "kind": "real",
+    "caption": "A tank of diesel fuel on a truck",
+    "credit": "Meena Kadri",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_diesel_tank.jpg"
+   }
+  ],
+  "naphthalene": [
+   {
+    "file": "photos/mol/naphthalene.webp",
+    "kind": "real",
+    "caption": "Naphthalene crystals",
+    "credit": "TimJW12",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Naphthalene.jpg"
+   }
+  ],
+  "sic": [
+   {
+    "file": "photos/mol/sic.webp",
+    "kind": "real",
+    "caption": "Sample of silicon carbide as a boule",
+    "credit": "David Monniaux",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SiC_p1390066.jpg"
+   }
+  ],
+  "wc": [
+   {
+    "file": "photos/mol/wc.webp",
+    "kind": "real",
+    "caption": "Tungsten carbide inserts",
+    "credit": "Mauro Cateb",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tungsten_carbide_inserts.jpg"
+   }
+  ]
+ }
+}
