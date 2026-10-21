@@ -1,6 +1,6 @@
 /* Periodic Lab service worker. The cache name changes whenever the app files change,
    so a new version replaces the old one on the next launch. */
-const CACHE = "plab-7c55819149";
+const CACHE = "plab-84abea6efa";
 const APP = ["./", "index.html", "bench.js", "data/elements.json", "data/molecules.json", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(APP)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

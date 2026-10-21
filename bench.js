@@ -113,7 +113,8 @@ const Bench = (() => {
     }
     return [cam.x + (Math.random() - .5) * 200, cam.y + (Math.random() - .5) * 120];
   }
-  function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > 70 && sy < H - (W > 760 ? 60 : 150); }
+  const headH = () => (document.querySelector(".wb-head")?.offsetHeight || 50) + 12;
+  function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : 150); }
   function add(sym, x, y, extra){
     if (x == null) [x, y] = freeSpot();
     const a = {id: nextId++, sym, x, y, vx: 0, vy: 0, ...(extra||{})};
@@ -319,8 +320,30 @@ const Bench = (() => {
   }
   let lastDone = new Set(), focusInfo = null;
   function focusOf(comps){ return comps.find(c => c.comp.includes(selected)) || comps.find(c => c.comp.includes(lastTouched)) || comps[comps.length - 1]; }
+  /* ---------- "how to read this" strip under the status line ---------- */
+  let legendOpen = true;
+  try { legendOpen = localStorage.getItem("plab.legend") !== "0"; } catch(_){}
+  function renderLegend(){
+    const box = $("wbLegend"); if (!box) return;
+    if (!atoms.length){ box.innerHTML = ""; return; }
+    if (!legendOpen){ box.innerHTML = `<button class="lgbtn" id="lgToggle">How to read this</button>`; }
+    else {
+      const ink = "currentColor", acc = css("--accent"), seat = css("--seat");
+      const line = (n) => `<svg width="26" height="12" viewBox="0 0 26 12">${n === 2 ? `<line x1="2" y1="4" x2="24" y2="4" stroke="${ink}" stroke-width="2"/><line x1="2" y1="8" x2="24" y2="8" stroke="${ink}" stroke-width="2"/>` : `<line x1="2" y1="6" x2="24" y2="6" stroke="${ink}" stroke-width="2"/>`}</svg>`;
+      const dash = `<svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="none" stroke="${seat}" stroke-width="1.6" stroke-dasharray="2.5 2.5"/></svg>`;
+      const pair = `<svg width="22" height="14" viewBox="0 0 22 14"><circle cx="7" cy="7" r="3.3" fill="${acc}"/><circle cx="15" cy="7" r="3.3" fill="${acc}"/></svg>`;
+      const ion = `<svg width="26" height="12" viewBox="0 0 26 12"><line x1="2" y1="6" x2="24" y2="6" stroke="${ink}" stroke-width="2" stroke-dasharray="3 4"/></svg>`;
+      const items = view === "ring"
+        ? [[pair, "2 dots in an overlap = a shared pair (one bond)"], [dash, "empty hand: wants another electron"], [ion, "dashed line = electron handed over (+ and − stick)"]]
+        : [[line(1), "1 line = 1 handshake (2 shared electrons)"], [line(2), "2 lines = double bond"], [dash, "empty hand: it won't last like this"], [ion, "electron handed over"]];
+      box.innerHTML = items.map(([g, t]) => `<span class="lg">${g}${t}</span>`).join("") +
+        `<span class="lg">Drag gently to move. Yank hard to snap one bond. Tap a bond for more.</span> <button class="lgbtn" id="lgToggle">Hide</button>`;
+    }
+    $("lgToggle").addEventListener("click", () => { legendOpen = !legendOpen; try { localStorage.setItem("plab.legend", legendOpen ? "1" : "0"); } catch(_){} renderLegend(); });
+  }
   function update(){
     if (!visible) return;
+    renderLegend();
     const comps = components().map(identify);
     const focus = focusOf(comps);
     focusInfo = focus || null;
@@ -512,7 +535,7 @@ const Bench = (() => {
     $("wbZoomText").innerHTML = txt; $("wbZoom").hidden = false;
   }
   function unzoom(){ if (!zoomBond) return; zoomBond = null; Object.assign(camT, {x: cam.x, y: cam.y, s: 1}); fit(); $("wbZoom").hidden = true; }
-  function setView(v){ view = v; fit(); $("wbView").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  function setView(v){ view = v; fit(); renderLegend(); $("wbView").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
     if (v !== "ring") hideTip();
     if (v === "ring") tipCenter("Ring view: each atom shows its outer ring. Dots in an overlap are shared pairs (the bonds). Dashed circles are empty hands."); }
   function fit(){
@@ -521,8 +544,9 @@ const Bench = (() => {
     const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 160;
     const side = W > 760 ? 330 : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
     const bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : 130);   // phone: space the drawer + toolbar take
-    const s = Math.min(view === "ring" ? 2.1 : 1.7, Math.max(0.4, Math.min((W - side) / bw, (H - (side ? 140 : 60) - bottom) / bh)));
-    Object.assign(camT, {x: (Math.max(...xs) + Math.min(...xs)) / 2 + side / 2 / s, y: (Math.max(...ys) + Math.min(...ys)) / 2 + (bottom - (side ? 0 : 50)) / 2 / s, s});
+    const top = headH(), avail = H - top - (side ? 70 : 10) - bottom;
+    const s = Math.min(view === "ring" ? 2.1 : 1.7, Math.max(0.4, Math.min((W - side) / bw, avail / bh)));
+    Object.assign(camT, {x: (Math.max(...xs) + Math.min(...xs)) / 2 + side / 2 / s, y: (Math.max(...ys) + Math.min(...ys)) / 2 - (top - (side ? 70 : 10) - bottom) / 2 / s - (side ? 35 : 0) / s, s});
   }
 
   /* ---------- pointer ---------- */
@@ -630,7 +654,7 @@ const Bench = (() => {
       const d = Math.sqrt(d2) || 0.5, f = Math.min(6, REP / (d2 + 60)), ux = dx / d, uy = dy / d;
       p.vx -= f * ux; p.vy -= f * uy; q.vx += f * ux; q.vy += f * uy;
     }
-    const [x0, y0] = toWorld(30, 60), [x1, y1] = toWorld(W - 30 - (W > 760 ? 320 : 0), H - (W > 760 ? 70 : 150));
+    const [x0, y0] = toWorld(30, headH()), [x1, y1] = toWorld(W - 30 - (W > 760 ? 320 : 0), H - (W > 760 ? 70 : 150));
     for (const a of atoms){
       if (drag && drag.a === a) continue;
       a.vx *= DAMP; a.vy *= DAMP; a.x += a.vx * dt; a.y += a.vy * dt;
