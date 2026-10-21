@@ -80,7 +80,7 @@
  "propylene": {
   "what": "Three carbons where one pair holds hands twice. A gas very much like ethylene, with an extra CH3 branch.",
   "where": "Polypropylene yogurt cups, car bumpers and carpet fiber. It's also the starting point for acrylic fibers.",
-  "bonds": "The double grip is the reactive spot. The CH3 hanging next to it ends up as a branch on every other carbon of the plastic chain, and those branches change how the plastic packs.",
+  "bonds": "The double grip is the reactive spot. In the plastic, that CH3 becomes a branch on every other carbon. The branches change how the chains pack.",
   "extra": "Propylene and propane boil only a few degrees apart. Separating them takes some of the tallest distillation towers in a plant."
  },
  "butane": {
@@ -687,7 +687,7 @@
   "what": "Copper mixed with tin. A golden-brown metal harder than either one alone.",
   "where": "Statues, bells, cymbals, medals and some boat propellers.",
   "bonds": "Hard, stiff bronze rings clearly and long when struck. That's why bells and cymbals are made from it.",
-  "extra": "Bronze statues are often cast with the 'lost wax' method: a wax model is coated in clay, then the wax is melted out and replaced with metal."
+  "extra": "Bronze statues are often cast by the 'lost wax' method. A wax model is coated in clay, then the wax is melted out and metal poured in."
  },
  "brass": {
   "what": "Copper mixed with zinc. A bright yellow metal that looks a bit like gold.",

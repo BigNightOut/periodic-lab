@@ -215,7 +215,7 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
 .cell.faded{opacity:.45}
 .cell.faded:hover{opacity:1}
 .workbench{position:relative;user-select:none;-webkit-user-select:none;margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;min-height:440px}
-.workbench canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+#wbCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
 .wb-head{position:absolute;top:0;left:0;right:0;z-index:2;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;pointer-events:none;
   background:linear-gradient(var(--surface) 70%, transparent)}
 .wb-status{margin:0;font-size:17px;line-height:1.35;max-width:70ch}
@@ -374,6 +374,21 @@ ol.rank button:hover{border-color:var(--accent)}
   .wb-learn{left:8px;right:8px;width:auto;max-height:42%;padding:10px 12px}
   .lc-title{font-size:16px}
 }
+/* 3D viewer */
+.view3d{position:absolute;inset:0;z-index:8;background:var(--surface);display:flex;flex-direction:column;padding:12px 14px}
+.view3d canvas{flex:1;width:100%;min-height:0;touch-action:none;cursor:grab}
+.v3-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.v3-top b{font-family:var(--display);font-size:20px}
+.v3-foot{text-align:center;padding-top:6px}
+/* photo archive strip */
+.archive{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin:8px 0 4px;scroll-snap-type:x mandatory}
+.archive figure{margin:0;flex:none;width:min(240px,72%);scroll-snap-align:start}
+.archive img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;background:var(--bg);display:block}
+.archive figcaption{font-size:12px;line-height:1.35;margin-top:4px}
+.archive .kind{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.archive .credit{font-size:10.5px;color:var(--muted);display:block;margin-top:2px}
+.archive .credit a{color:inherit}
+.btn3d{margin-top:6px}
 .wb-trash{position:absolute;right:12px;bottom:12px;z-index:2;width:84px;height:62px;border:1.5px dashed var(--line);border-radius:10px;display:grid;place-items:center;text-align:center;font-size:11px;color:var(--muted);line-height:1.2;pointer-events:none}
 .wb-trash.hot{border-color:var(--proton);color:var(--proton);background:color-mix(in srgb, var(--proton) 10%, transparent)}
 @media (prefers-reduced-motion:reduce){ .cell,.panel{transition:none} }
@@ -445,6 +460,7 @@ ol.rank button:hover{border-color:var(--accent)}
       <div class="wb-recipes" id="wbRecipes" hidden></div>
       <div class="wb-recipes" id="wbDrawer" hidden></div>
       <aside class="wb-learn" id="wbLearn" hidden aria-live="polite"></aside>
+      <div class="view3d" id="view3d" hidden></div>
       <div class="wb-trash" id="wbTrash" aria-hidden="true">Drop here<br>to remove</div>
     </section>
     <section class="wb-details" id="wbDetails" hidden></section>
@@ -696,6 +712,7 @@ function renderElement(e){
         <div id="discussedBadge"></div></div>
     </div>
     ${e.tagline ? `<p class="tagline">${esc(e.tagline)}</p>` : ""}
+    <div id="elArchive">${photoFor("elements", e.symbol)}</div>
     <div class="atom-stage">
       <canvas id="atomCanvas" aria-label="Animated model of a ${esc(e.name)} atom"></canvas>
       <div class="stage-tools">
@@ -739,6 +756,7 @@ function renderElement(e){
   $("panelBody").querySelectorAll("[data-build]").forEach(b => b.addEventListener("click", () => loadBuilder(Object.fromEntries(b.dataset.build.split(",").map(s=>[s,1])))));
   $("panelBody").querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => loadMolecule(b.dataset.mol)));
   renderDiscussedBlock();
+  if (!PHOTOS) photosReady.then(() => { const box = $("elArchive"); if (box && S.current === e.symbol) box.innerHTML = photoFor("elements", e.symbol); });
   startAtom(e);
 }
 function onCellExplore(sym){ S.current = sym; markActive(); renderPanel(); try{history.replaceState(null,"","#"+sym);}catch(_){} $("panel").scrollTop = 0; }
@@ -902,6 +920,7 @@ function renderMoleculePanel(m){
       <button class="btn" id="backToEl">Back to ${esc(S.bySym[S.current].name)}</button></div>
     <div class="verdict" style="margin-top:6px"><h2>${esc(m.name)}</h2><span class="fm">${esc(m.formula)}</span></div>
     <div class="mol-stage" id="molStage"></div>
+    ${photoFor("molecules", m.id)}
     <p>${esc(m.blurb)}</p><p class="small"><b>Used for:</b> ${esc(m.uses)}</p>
     ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
     ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}`;
@@ -1075,6 +1094,22 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", rethemed
 new MutationObserver(rethemed).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
 document.addEventListener("keydown", ev => { if (ev.key === "Escape") closeSheet(); });
 addEventListener("hashchange", () => {});
+
+/* ---------------- photos (licensed Wikimedia Commons images, shipped with the app) ---------------- */
+let PHOTOS = null;
+const photosReady = fetch("data/photos.json").then(r => r.ok ? r.json() : null).then(j => { PHOTOS = j; }).catch(() => {});
+const KIND = {portrait: "The element", origin: "Where it comes from", use: "What it's used for", real: "In real life"};
+function photoFor(group, id){
+  const list = PHOTOS?.[group]?.[id]; if (!list?.length) return "";
+  return `<div class="archive">${list.map(p => `<figure><img src="${esc(p.file)}" alt="${esc(p.caption)}" loading="lazy" decoding="async">
+    <figcaption><span class="kind">${KIND[p.kind] || ""}</span><br>${esc(p.caption)}<span class="credit">Photo: ${esc(p.credit || "Unknown")}, ${esc(p.license || "")} · <a href="${esc(p.source)}" target="_blank" rel="noopener">source</a></span></figcaption></figure>`).join("")}</div>`;
+}
+/* ---------------- 3D viewer (view3d.js, loaded on first use) ---------------- */
+let v3Loading = null;
+function open3D(m){
+  if (!v3Loading) v3Loading = new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "view3d.js"; sc.onload = () => res(window.View3D); sc.onerror = rej; document.head.appendChild(sc); });
+  return v3Loading.then(V => V.open(m));
+}
 
 /* ---------------- light / dark switch ---------------- */
 // No choice saved = follow the device. A tap picks the opposite of what's showing and remembers it.

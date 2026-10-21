@@ -469,6 +469,8 @@ const Bench = (() => {
     if (info?.done && info.match) html += `<div class="cl-title">${esc(info.match.name)} <span class="mono">${esc(info.match.formula)}</span></div>`;
     else if (info?.formula) html += `<div class="cl-title">${esc(info.formula)}<span class="cl-sub">${info.open.length ? "still building" : ""}</span></div>`;
     if (fresh) html += `<div class="cl-item now"><span class="cl-tag">Just now</span>${fresh}</div>`;
+    if (info?.done && info.match && typeof photoFor === "function") html += photoFor("molecules", info.match.id);
+    if (info?.done && info.match && info.match.kind !== "lattice") html += `<div class="cl-item now"><button class="btn primary" data-spin>Spin in 3D</button></div>`;
     const det = info?.done && info.match?.details;
     if (det){
       for (const [k, t] of [["what", "What it is"], ["where", "Where you meet it"], ["bonds", "Why the bonds work"], ["extra", "One more thing"]])
@@ -481,6 +483,7 @@ const Bench = (() => {
     box.innerHTML = `<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button>${html}`;
     box.hidden = false;
     $("clToggle").addEventListener("click", () => { if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
+    box.querySelector("[data-spin]")?.addEventListener("click", () => typeof open3D === "function" && open3D(info.match));
     box.querySelectorAll("[data-load]").forEach(b => b.addEventListener("click", () => { const m = S.mols.find(x => x.id === b.dataset.load); if (m) addMolecule(m); }));
     box.querySelectorAll("[data-idea]").forEach(b => b.addEventListener("click", () => {
       const it = ideas[+b.dataset.idea];
@@ -532,15 +535,18 @@ const Bench = (() => {
           <p class="small" style="margin:6px 0 0">${shakes ? `<b>${shakes}</b> handshake${shakes > 1 ? "s" : ""} (bonds) use <b>${shakes * 2}</b> hands.` : ""} ${given ? `<b>${given}</b> electron${given > 1 ? "s" : ""} handed from metal to nonmetal.` : ""}
           ${emptyLeft ? `<b>${emptyLeft}</b> empty hand${emptyLeft > 1 ? "s" : ""} left.` : info.comp.length > 1 ? "No empty hands left." : ""}</p>
         </section>
-        ${m ? `<section class="dt-card"><h3>What it is</h3><p>${esc(m.blurb)}</p><p class="small"><b>Used for:</b> ${esc(m.uses)}</p>
+        ${m ? `<section class="dt-card"><h3>What it is</h3>${typeof photoFor === "function" ? photoFor("molecules", m.id) : ""}<p>${esc(m.blurb)}</p><p class="small"><b>Used for:</b> ${esc(m.uses)}</p>
+          ${m.kind !== "lattice" ? `<button class="btn btn3d" id="dt3d">Spin in 3D</button>` : ""}
           ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
           ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}</section>` : ""}
+        ${m?.details ? `<section class="dt-card"><h3>Read more</h3>${[["where", "Where you meet it"], ["bonds", "Why the bonds work"], ["extra", "One more thing"]].filter(([k]) => m.details[k]).map(([k, t]) => `<p><b>${t}.</b> ${esc(m.details[k])}</p>`).join("")}</section>` : ""}
         ${m && m.facts?.length ? `<section class="dt-card"><h3>Fun facts</h3><ul class="uses">${m.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul></section>` : ""}
         <section class="dt-card"><h3>The elements in it</h3>${els}</section>
         ${sameSet.length ? `<section class="dt-card"><h3>Also made from these elements</h3><div class="mlist">${list(sameSet)}</div></section>` : ""}
         ${plusOne.length ? `<section class="dt-card"><h3>Add one more element</h3><div class="mlist">${list(plusOne)}</div></section>` : ""}
       </div>`;
     $("dtBreak").addEventListener("click", breakApart);
+    $("dt3d")?.addEventListener("click", () => { scrollTo({top: 0, behavior: "smooth"}); open3D(m); });
     box.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => { setMode("explore"); onCell(b.dataset.open); scrollTo({top: 0, behavior: "smooth"}); }));
     box.querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => { loadMolecule(b.dataset.mol); scrollTo({top: 0, behavior: "smooth"}); }));
   }

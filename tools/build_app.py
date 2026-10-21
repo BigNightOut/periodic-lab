@@ -21,8 +21,10 @@ os.makedirs(os.path.join(out, "data"), exist_ok=True)
 os.makedirs(os.path.join(out, "icons"), exist_ok=True)
 
 # ---------- data + scripts ----------
-for f in ("bench.js", "learn.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json"):
-    shutil.copyfile(os.path.join(site, f), os.path.join(out, f))
+for f in ("bench.js", "learn.js", "view3d.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json"):
+    if os.path.exists(os.path.join(site, f)): shutil.copyfile(os.path.join(site, f), os.path.join(out, f))
+if os.path.isdir(os.path.join(site, "photos")):
+    shutil.copytree(os.path.join(site, "photos"), os.path.join(out, "photos"), dirs_exist_ok=True)
 log = []
 for f in sorted(glob.glob(os.path.join(log_dir, "*.json"))):
     d = json.load(open(f)); d.setdefault("symbol", os.path.basename(f)[:-5]); log.append(d)
@@ -90,8 +92,9 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 open(os.path.join(out, "index.html"), "w").write(head + page + sw_reg)
 
 # ---------- service worker: cache the app so it opens offline ----------
-files = ["./", "index.html", "bench.js", "learn.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "manifest.webmanifest",
+files = ["./", "index.html", "bench.js", "learn.js", "view3d.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json", "manifest.webmanifest",
          "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png"]
+files = [f for f in files if f == "./" or os.path.exists(os.path.join(out, f))]
 digest = hashlib.sha1(b"".join(open(os.path.join(out, f), "rb").read() for f in files if f != "./")).hexdigest()[:10]
 open(os.path.join(out, "sw.js"), "w").write(f"""/* Periodic Lab service worker. The cache name changes whenever the app files change,
    so a new version replaces the old one on the next launch. */
@@ -109,6 +112,11 @@ self.addEventListener("fetch", e => {{
   }}
   // fonts: keep a copy so the app looks right offline
   if (url.host.endsWith("fonts.googleapis.com") || url.host.endsWith("fonts.gstatic.com")) {{
+    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => {{ const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }})));
+    return;
+  }}
+  // photos: saved the first time you open them, so the gallery works offline after one look
+  if (url.pathname.includes("/photos/")) {{
     e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => {{ const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }})));
     return;
   }}
