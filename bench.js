@@ -315,6 +315,23 @@ const Bench = (() => {
       if (isomerOf) return `Every hand is held. Same atoms as <b>${esc(isomerOf.name)}</b>, but arranged differently, so it's a different molecule.`;
       return `Every hand is held. That's a stable ${esc(fm)}, but it isn't in my library yet.`;
     }
+    // already have exactly the right atoms for a known molecule? say so first, loud and clear
+    const near = almostFor(info);
+    if (near.length){
+      const names = near.map(m => `<b>${esc(m.name)}</b>`).join(" or ");
+      const lead = `<span class="almost">Almost there</span> You have all the atoms for ${names} (${esc(near[0].formula)}). `;
+      return lead + openHandsText(info);
+    }
+    return openHandsText(info);
+  }
+  /* library molecules whose atom counts match the bench piece exactly (not finished yet) */
+  function almostFor(info){
+    if (!info || info.done || info.comp.length < 2) return [];
+    const k = key(info.counts);
+    return S.mols.filter(m => benchable(m) && m.kind !== "polymer" && key(m.counts) === k).slice(0, 2);
+  }
+  function openHandsText(info){
+    const {open} = info;
     // what's still open, in plain words
     const bySym = {};
     for (const a of open){
@@ -482,7 +499,11 @@ const Bench = (() => {
     const ideas = ideasFor(info), facts = factsFor(info);
     let html = "";
     if (info?.done && info.match) html += `<div class="cl-title">${esc(info.match.name)} <span class="mono">${esc(info.match.formula)}</span></div>`;
-    else if (info?.formula) html += `<div class="cl-title">${esc(info.formula)}<span class="cl-sub">${info.open.length ? "still building" : ""}</span></div>`;
+    else if (info?.formula){
+      const near = almostFor(info);
+      html += `<div class="cl-title">${esc(info.formula)}<span class="cl-sub">${near.length ? `almost ${esc(near[0].name)}` : info.open.length ? "still building" : ""}</span></div>`;
+      if (near.length && near[0].blurb) html += `<div class="cl-item now"><span class="cl-tag idea">Almost</span>${esc(near[0].name)}: ${esc(near[0].blurb)}</div>`;
+    }
     if (fresh) html += `<div class="cl-item now"><span class="cl-tag">Just now</span>${fresh}</div>`;
     if (info?.done && info.match && typeof photoFor === "function") html += photoFor("molecules", info.match.id);
     if (info?.done && info.match && info.match.kind !== "lattice") html += `<div class="cl-item now"><button class="btn primary" data-spin>Spin in 3D</button></div>`;
@@ -494,7 +515,8 @@ const Bench = (() => {
     for (const f of facts) html += `<div class="cl-item"><span class="cl-tag fact">Fun fact</span>${esc(f)}</div>`;
     for (const [i, it] of ideas.entries()) html += `<div class="cl-item idea"><span class="cl-tag idea">Idea</span>${it.text}${it.add && Object.keys(it.add).length ? ` <button class="linkbtn" data-idea="${i}">Add the atoms</button>` : ""}</div>`;
     const n = ideas.length + facts.length + (fresh ? 1 : 0);
-    const label = info?.done && info.match ? info.match.name : info?.formula || "";
+    const nearL = almostFor(info)[0];
+    const label = info?.done && info.match ? info.match.name : nearL ? `Almost ${nearL.name}` : info?.formula || "";
     box.innerHTML = `<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button>${html}`;
     box.hidden = false;
     $("clToggle").addEventListener("click", () => { if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
@@ -647,7 +669,7 @@ const Bench = (() => {
   }
   const pos = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
   const phone = () => W <= 760;
-  const inTrash = (sx, sy) => phone() ? (sx > W - 96 && sy < 140 && sy > 50) : (sx > W - 96 && sy > H - 84);
+  const inTrash = (sx, sy) => phone() ? (sx > W - 96 && sy > headH() && sy < headH() + 70) : (sx > W - 96 && sy > H - 84);
   let lastBondTap = {b: null, t: 0};
   function onDown(ev){
     ev.preventDefault();
