@@ -318,22 +318,33 @@ const Bench = (() => {
     // what's still open, in plain words
     const bySym = {};
     for (const a of open){
-      if (kindOf(a.sym) === "metal"){ const left = handsOf(a) - used(a); (bySym[a.sym] ||= {metal: true, n: 0}).n = Math.max(bySym[a.sym].n, left); }
-      else (bySym[a.sym] ||= {metal: false, n: 0}).n += free(a);
+      const g = (bySym[a.sym] ||= {metal: kindOf(a.sym) === "metal", atoms: 0, hands: []});
+      g.atoms++; g.hands.push(g.metal ? handsOf(a) - used(a) : free(a));
     }
-    const parts = Object.entries(bySym).map(([s, v]) => v.metal ? `${nameOf(s)} still has an electron to give` : `${nameOf(s)} still has ${v.n} empty hand${v.n > 1 ? "s" : ""}`);
+    const parts = Object.entries(bySym).map(([s, v]) => {
+      if (v.metal) return `${nameOf(s)} still has an electron to give`;
+      const same = v.hands.every(h => h === v.hands[0]), h = v.hands[0];
+      if (v.atoms === 1) return `${nameOf(s)} still has ${h} empty hand${h > 1 ? "s" : ""}`;
+      return same ? `${v.atoms} ${nameOf(s)}s each still have ${h} empty hand${h > 1 ? "s" : ""}` : `${v.atoms} ${nameOf(s)}s still have ${v.hands.reduce((x, y) => x + y, 0)} empty hands between them`;
+    });
     const first = parts[0][0].toUpperCase() + parts[0].slice(1);
     const rest = parts.slice(1);
     let s = first + (rest.length ? (rest.length === 1 ? " and " : ", ") + rest.join(", ") : "") + ".";
     const nonH = open.filter(a => kindOf(a.sym) === "nonmetal" && a.sym !== "H");
+    // two atoms already holding hands, both with a hand left: the fix is to hold with the spare hands too
+    const dbl = bonds.find(b => b.kind === "cov" && b.order < 3 && info.comp.includes(b.a) && free(b.a) > 0 && free(b.b) > 0);
+    if (dbl){
+      const A = nameOf(dbl.a.sym), B = nameOf(dbl.b.sym), both = A === B ? `The two ${A}s` : `The ${A} and ${B}`;
+      return s + ` ${both} are already holding hands and each has a spare one, so they can hold with that too: a ${dbl.order === 1 ? "double" : "triple"} bond. <button class="statbtn" data-dbl>Make it a ${dbl.order === 1 ? "double" : "triple"} bond</button>`;
+    }
     s += nonH.length ? " It can't last like this. Connect more atoms, or tap <b>Fill with H</b>." : " It can't last like this. Connect more atoms.";
     return s;
   }
   let lastDone = new Set(), focusInfo = null, quiet = false;   // quiet: a reaction is playing, it shows its own banner
   function focusOf(comps){ return comps.find(c => c.comp.includes(selected)) || comps.find(c => c.comp.includes(lastTouched)) || comps[comps.length - 1]; }
   /* ---------- "how to read this" strip under the status line ---------- */
-  let legendOpen = true;
-  try { legendOpen = localStorage.getItem("plab.legend") !== "0"; } catch(_){}
+  let legendOpen = innerWidth > 760;   // folded by default on phones
+  try { const v = localStorage.getItem("plab.legend"); if (v != null) legendOpen = v !== "0"; } catch(_){}
   function renderLegend(){
     const box = $("wbLegend"); if (!box) return;
     if (!atoms.length){ box.innerHTML = ""; return; }
@@ -361,6 +372,10 @@ const Bench = (() => {
     focusInfo = focus || null;
     $("wbEmpty").hidden = atoms.length > 0;
     $("wbStatus").innerHTML = focus ? statusFor(focus) : "";
+    $("wbStatus").querySelector("[data-dbl]")?.addEventListener("click", () => {
+      const b = bonds.find(b => b.kind === "cov" && b.order < 3 && focus.comp.includes(b.a) && free(b.a) > 0 && free(b.b) > 0);
+      if (b) addOrder(b);
+    });
     const real = comps.filter(c => c.formula);
     $("wbChips").innerHTML = real.length > 1 ? real.map(c => `<span class="wbchip ${c.done ? "ok" : ""}">${esc(c.match?.name || c.formula)}${c.done ? " ✓" : ""}</span>`).join("") : "";
     // a molecule just got finished -> "You built it!" banner
@@ -663,8 +678,13 @@ const Bench = (() => {
     const nx = wx + drag.ox, ny = wy + drag.oy, ddx = nx - drag.a.x, ddy = ny - drag.a.y;
     drag.a.x = nx; drag.a.y = ny; drag.a.vx = drag.a.vy = 0;
     // atoms hanging only on this one (hydrogens, chain-end markers) come along for the ride
-    for (const n of neighbors(drag.a)) if (neighbors(n).length === 1){ n.x += ddx; n.y += ddy; }
+    // (only end caps like H, and never the very atom you might be pushing onto)
+    for (const n of neighbors(drag.a)) if ((n.sym === "H" || n.sym === "*") && neighbors(n).length === 1 && n !== drag.onto && drag.a.sym !== "H"){ n.x += ddx; n.y += ddy; }
     if (Math.hypot(sx - drag.sx, sy - drag.sy) > 3) drag.moved = true;
+    // pushed onto an atom it's already holding? remember it: letting go there adds a handshake
+    // (checked against the pointer, since the partner gets nudged away as they overlap)
+    drag.onto = null;
+    for (const b of neighbors(drag.a)){ const [bx, by] = toScreen(b.x, b.y); if (Math.hypot(bx - sx, by - sy) < (size(b.sym) + 16) * cam.s + touchPad){ drag.onto = b; break; } }
     hoverTrash = inTrash(sx, sy);
     $("wbTrash").classList.toggle("hot", hoverTrash);
     cv.style.cursor = "grabbing";
@@ -680,8 +700,12 @@ const Bench = (() => {
     else {
       // snap: closest unbonded atom within reach
       let best = null, bd = 1e9;
-      for (const b of atoms) if (b !== a && !bondBetween(a, b)){ const d = Math.hypot(a.x - b.x, a.y - b.y); if (d < Math.max(78, rest({a, b, kind: kindOf(a.sym) === "metal" || kindOf(b.sym) === "metal" ? "ion" : "cov"}) * 1.35) && d < bd){ best = b; bd = d; } }
-      if (best && tryBond(a, best) && phone()) fit();
+      const reach = (b) => Math.max(78, 70 / cam.s, rest({a, b, kind: kindOf(a.sym) === "metal" || kindOf(b.sym) === "metal" ? "ion" : "cov"}) * 1.35);
+      for (const b of atoms) if (b !== a && !bondBetween(a, b)){ const d = Math.hypot(a.x - b.x, a.y - b.y); if (d < reach(b) && d < bd){ best = b; bd = d; } }
+      // dropped right on top of an atom it's already holding? hold with another hand (double/triple bond)
+      const onto = drag.onto && bondBetween(a, drag.onto) ? drag.onto : null;
+      if (onto && drag.moved){ const bd2 = bondBetween(a, onto); addOrder(bd2); a.x += (a.x - onto.x) * 0.8 + 20; }
+      else if (best && tryBond(a, best) && phone()) fit();
       if (!drag.moved){
         const k = kindOf(a.sym);
         tipAt(a, null, `${Name(a.sym)}: ${k === "metal" ? `gives away ${used(a) ? "has given " + used(a) : "up to " + handsOf(a)} electron${handsOf(a) > 1 ? "s" : ""}` : k === "noble" ? "full, no hands" : `${handsOf(a)} hand${handsOf(a) > 1 ? "s" : ""}, ${free(a)} still empty`}. Drag to move it; drop it on the trash to remove it.`);
@@ -702,6 +726,7 @@ const Bench = (() => {
     for (const b of bonds){
       if (b.a.tx != null || b.b.tx != null) continue;
       const dx = b.b.x - b.a.x, dy = b.b.y - b.a.y, d = Math.hypot(dx, dy) || 0.01, f = K * (d - rest(b)), ux = dx / d, uy = dy / d;
+      if (drag && (b.a === drag.a || b.b === drag.a) && f < 0) continue;   // pushing partners together on purpose: hold still
       b.a.vx += f * ux; b.a.vy += f * uy; b.b.vx -= f * ux; b.b.vy -= f * uy;
     }
     // bent shapes: an atom with 2 neighbors and spare electron pairs (O in water, S in H2S) pushes them to ~105°
@@ -717,6 +742,8 @@ const Bench = (() => {
     for (let i = 0; i < atoms.length; i++) for (let j = i + 1; j < atoms.length; j++){
       const p = atoms[i], q = atoms[j], dx = q.x - p.x, dy = q.y - p.y, d2 = dx*dx + dy*dy;
       if (d2 > 160*160) continue;
+      // while you push an atom onto its own partner, don't let the partner run away
+      if (drag && (p === drag.a || q === drag.a) && bondBetween(p, q)) continue;
       const d = Math.sqrt(d2) || 0.5, f = Math.min(6, REP / (d2 + 60)), ux = dx / d, uy = dy / d;
       p.vx -= f * ux; p.vy -= f * uy; q.vx += f * ux; q.vy += f * uy;
     }
@@ -770,7 +797,7 @@ const Bench = (() => {
     const dimFor = (a) => focusSet && !focusSet.has(a) ? 0.18 : 1;
     // snap preview while dragging
     if (drag){
-      for (const b of atoms) if (b !== drag.a && !bondBetween(drag.a, b) && Math.hypot(drag.a.x - b.x, drag.a.y - b.y) < 80){
+      for (const b of atoms) if (b !== drag.a && !bondBetween(drag.a, b) && Math.hypot(drag.a.x - b.x, drag.a.y - b.y) < Math.max(80, 70 / cam.s)){
         ctx.setLineDash([4, 5]); ctx.strokeStyle = accent; ctx.lineWidth = 2 / cam.s; ctx.beginPath(); ctx.moveTo(drag.a.x, drag.a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); ctx.setLineDash([]);
       }
     }
