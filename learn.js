@@ -91,7 +91,19 @@ window.Learn = (() => {
   }
 
   /* ---------------- the side card (lessons + reactions share it) ---------------- */
-  function card(html){ const c = $("wbLearn"); c.innerHTML = html; c.hidden = false; return c; }
+  let expanded = false;   // phones: card shows only the current step unless "All steps" is on
+  function card(html){
+    const c = $("wbLearn"); c.innerHTML = html; c.hidden = false;
+    c.classList.toggle("expanded", expanded);
+    const top = c.querySelector(".lc-top");
+    if (top && c.querySelector(".lc-steps")){
+      const t = document.createElement("button"); t.className = "linkbtn lc-more"; t.style.marginLeft = "auto"; t.style.marginRight = "12px";
+      t.textContent = expanded ? "Less" : "All steps";
+      t.onclick = () => { expanded = !expanded; c.classList.toggle("expanded", expanded); t.textContent = expanded ? "Less" : "All steps"; B.fit(); };
+      top.insertBefore(t, top.lastElementChild);
+    }
+    return c;
+  }
   function closeCard(){ const c = $("wbLearn"); if (c){ c.hidden = true; c.innerHTML = ""; } }
 
   /* ---------------- lessons ---------------- */
@@ -238,11 +250,11 @@ Reply with only JSON: {"verdict":"got it"|"almost"|"not yet","right":["short phr
     quitLesson(); stopReaction();
     Bench.clear();
     for (const [id, n] of r.reactants){ const m = mol(id); for (let i = 0; i < n; i++){ if (m.lattice?.style === "metal") Bench.add(Object.keys(m.counts)[0]); else Bench.addMolecule(m); } }
-    B.fit(); Bench.update();
     card(`<div class="lc-top"><span class="eyebrow">Reaction</span><button class="linkbtn" data-quit>Close</button></div>
       <h3 class="lc-title">${esc(r.name)}</h3><div class="mono rx-eq">${esc(r.equation)}</div>
       <p class="small">The ingredients are on the bench. Press <b>React</b> to watch the bonds break and re-form.</p>
       <div class="row"><button class="btn primary" data-go>React</button></div>`);
+    B.fit(); Bench.update();   // after the card, so the camera knows how much room it takes
     $("wbLearn").querySelector("[data-quit]").onclick = () => { stopReaction(); closeCard(); };
     $("wbLearn").querySelector("[data-go]").onclick = () => playReaction(r);
   }
@@ -307,14 +319,15 @@ Reply with only JSON: {"verdict":"got it"|"almost"|"not yet","right":["short phr
     card(`<div class="lc-top"><span class="eyebrow">Reaction · step ${Math.min(k + 1, n)} of ${n}</span><button class="linkbtn" data-quit>Stop</button></div>
       <h3 class="lc-title">${esc(r.name)}</h3><div class="mono rx-eq">${esc(r.equation)}</div>
       <ol class="lc-steps">${r.story.map((s, i) => `<li class="${i < k ? "ok" : i === k ? "now" : ""}">${i === k ? `<b>${esc(s)}</b>` : esc(s)}</li>`).join("")}</ol>
-      ${k >= n - 1 ? `<p class="small"><b>Energy:</b> ${esc(r.energy)}${r.dH ? ` (${esc(r.dH)})` : ""}.</p>${r.everyday ? `<p class="small"><b>Where you see it:</b> ${esc(r.everyday)}</p>` : ""}
-        ${r.lens?.nexus ? `<p class="small lenstxt nexus"><b>Nexus:</b> ${esc(r.lens.nexus)}</p>` : ""}${r.lens?.rocket ? `<p class="small lenstxt rocket"><b>Rockets:</b> ${esc(r.lens.rocket)}</p>` : ""}` : ""}
+      ${k >= n - 1 ? `<p class="small"><b>Energy:</b> ${esc(r.energy)}${r.dH ? ` (${esc(r.dH)})` : ""}.</p>${r.everyday ? `<p class="small rx-more"><b>Where you see it:</b> ${esc(r.everyday)}</p>` : ""}
+        ${r.lens?.nexus ? `<p class="small lenstxt nexus rx-more"><b>Nexus:</b> ${esc(r.lens.nexus)}</p>` : ""}${r.lens?.rocket ? `<p class="small lenstxt rocket rx-more"><b>Rockets:</b> ${esc(r.lens.rocket)}</p>` : ""}` : ""}
       <div class="row">${k < n - 1 ? `<button class="btn primary" data-next>Next</button>` : `<button class="btn" data-again>Play again</button>`}</div>`);
     const c = $("wbLearn");
     c.querySelector("[data-quit]").onclick = () => { stopReaction(); closeCard(); };
     c.querySelector("[data-next]")?.addEventListener("click", () => { p.phase++; runPhase(); renderReactionStep(); });
     c.querySelector("[data-again]")?.addEventListener("click", () => { const r0 = p.r; stopReaction(); loadReaction(r0); });
     if (k === 0) runPhase();
+    B.fit();   // card height changed; reframe the atoms (and their destinations) above/beside it
     $("workbench").classList.toggle("heat-in", heat === "in" && k === 0);
     $("workbench").classList.toggle("heat-out", heat === "out" && k === n - 1);
   }

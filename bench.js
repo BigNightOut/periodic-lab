@@ -115,7 +115,13 @@ const Bench = (() => {
   }
   let headHc = 62;
   const headH = () => headHc;
-  const measureHead = () => { headHc = (document.querySelector(".wb-head")?.offsetHeight || 50) + 12; $("workbench")?.style.setProperty("--headh", headHc + "px"); };
+  const measureHead = () => {
+    headHc = (document.querySelector(".wb-head")?.offsetHeight || 50) + 12;
+    const wb = $("workbench"); if (!wb) return;
+    wb.style.setProperty("--headh", headHc + "px");
+    // the toolbar wraps to 2 rows on phones; the lesson/reaction card docks just above it
+    wb.style.setProperty("--toolsh", (document.querySelector(".wb-tools")?.offsetHeight || 48) + "px");
+  };
   function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : 150); }
   function add(sym, x, y, extra){
     if (x == null) [x, y] = freeSpot();
@@ -648,11 +654,17 @@ const Bench = (() => {
     if (v === "ring") tipCenter("Ring view: each atom shows its outer ring. Dots in an overlap are shared pairs (the bonds). Dashed circles are empty hands."); }
   function fit(){
     if (!atoms.length){ Object.assign(camT, {x: 0, y: 0, s: 1}); return; }
-    const xs = atoms.map(a => a.x), ys = atoms.map(a => a.y);
+    // frame where atoms are headed (a.tx/a.ty during a reaction), not where they are mid-glide
+    const xs = atoms.map(a => a.tx ?? a.x), ys = atoms.map(a => a.ty ?? a.y);
     const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 160;
     const side = W > 760 ? 330 : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
-    const left = W > 760 && !$("wbLearn").hidden ? 350 : 0;   // lesson / reaction card on the left
-    const bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : 130);   // phone: space the drawer + toolbar take
+    const lc = $("wbLearn"), cardOn = lc && !lc.hidden && lc.offsetHeight > 0;
+    const left = W > 760 && cardOn ? 350 : 0;   // lesson / reaction card on the left
+    let bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : 130);   // phone: space the drawer + toolbar take
+    if (!side && cardOn){   // phone: the card docks at the bottom, so keep the atoms above its top edge
+      const wr = $("workbench").getBoundingClientRect(), r = lc.getBoundingClientRect();
+      bottom = Math.max(bottom, wr.bottom - r.top + 8);
+    }
     const top = headH(), avail = H - top - (side ? 70 : 10) - bottom;
     const s = Math.min(view === "ring" ? 2.1 : 1.7, Math.max(0.4, Math.min((W - side - left) / bw, avail / bh)));
     Object.assign(camT, {x: (Math.max(...xs) + Math.min(...xs)) / 2 + (side - left) / 2 / s, y: (Math.max(...ys) + Math.min(...ys)) / 2 - (top - (side ? 70 : 10) - bottom) / 2 / s - (side ? 35 : 0) / s, s});
