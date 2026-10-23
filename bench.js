@@ -357,7 +357,7 @@ const Bench = (() => {
     s += nonH.length ? " It can't last like this. Connect more atoms, or tap <b>Fill with H</b>." : " It can't last like this. Connect more atoms.";
     return s;
   }
-  let lastDone = new Set(), focusInfo = null, quiet = false;   // quiet: a reaction is playing, it shows its own banner
+  let lastDone = new Set(), lastAlmost = new Set(), glowAtoms = new Set(), focusInfo = null, quiet = false;   // quiet: a reaction is playing, it shows its own banner
   function focusOf(comps){ return comps.find(c => c.comp.includes(selected)) || comps.find(c => c.comp.includes(lastTouched)) || comps[comps.length - 1]; }
   /* ---------- "how to read this" strip under the status line ---------- */
   let legendOpen = innerWidth > 760;   // folded by default on phones
@@ -399,6 +399,12 @@ const Bench = (() => {
     const doneNow = new Set(comps.filter(c => c.done && c.match).map(c => c.match.id + ":" + c.comp.map(a => a.id).sort().join(",")));
     for (const k of doneNow) if (!lastDone.has(k)){ const c = comps.find(x => x.match && k.startsWith(x.match.id + ":")); if (c && !loadingRecipe && !quiet) celebrate(c.match); }
     lastDone = doneNow;
+    const almostNow = new Map();
+    for (const c of comps){ const near = almostFor(c)[0]; if (near) almostNow.set(near.id + ":" + c.comp.map(a => a.id).sort().join(","), {m: near, c}); }
+    for (const [k, v] of almostNow) if (!lastAlmost.has(k) && !loadingRecipe && !quiet)
+      celebrate(v.m, "Almost there", v.m.name, "One more step: fill the glowing empty hands", "almost");
+    lastAlmost = new Set(almostNow.keys());
+    glowAtoms = new Set([...almostNow.values()].flatMap(v => v.c.open));
     $("wbBreak").disabled = !(focus && bonds.some(b => focus.comp.includes(b.a)));
     renderCloud(focus);
     renderDetails(focus);
@@ -529,8 +535,9 @@ const Bench = (() => {
     }));
   }
   let bannerTimer = 0;
-  function celebrate(m, small, big, sub){
+  function celebrate(m, small, big, sub, tone){
     const b = $("wbBanner");
+    b.classList.toggle("almost", tone === "almost");
     b.innerHTML = `<span class="bn-small">${esc(small || "You just built")}</span><span class="bn-big">${esc(big || m.name)}</span><span class="mono bn-f">${esc(sub || m.formula)}</span>`;
     b.hidden = false; b.classList.remove("go"); void b.offsetWidth; b.classList.add("go");
     clearTimeout(bannerTimer); bannerTimer = setTimeout(() => { b.hidden = true; }, 4200);
@@ -850,6 +857,10 @@ const Bench = (() => {
         if (k === "nonmetal"){
           for (const ang of freeAngles(a, free(a))){
             const hx = a.x + Math.cos(ang) * (r + 11), hy = a.y + Math.sin(ang) * (r + 11);
+            if (glowAtoms.has(a)){   // almost done: the hands that still need filling pulse
+              const pulse = 0.5 + 0.5 * Math.sin(performance.now() / 260);
+              ctx.beginPath(); ctx.arc(hx, hy, 7 + pulse * 3, 0, 7); ctx.fillStyle = css("--warn"); ctx.globalAlpha = 0.35 + pulse * 0.35; ctx.fill(); ctx.globalAlpha = dimFor(a);
+            }
             ctx.setLineDash([2.5, 2.5]); ctx.strokeStyle = seat; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(hx, hy, 5.5, 0, 7); ctx.stroke(); ctx.setLineDash([]);
           }
         } else if (k === "metal"){
