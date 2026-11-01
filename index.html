@@ -244,7 +244,7 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
 .wb-zoom .btn{white-space:nowrap}
 .wb-recipes{position:absolute;top:0;right:0;bottom:0;z-index:6;width:min(380px,100%);background:var(--surface);border-left:1px solid var(--line);padding:14px;overflow:auto;box-shadow:-8px 0 24px rgba(0,0,0,.10)}
 /* idea cloud: a soft thought bubble on the right, away from the atoms */
-.wb-cloud{position:absolute;right:16px;top:58px;z-index:3;width:min(300px,calc(100% - 32px));max-height:calc(100% - 140px);overflow:auto;
+.wb-cloud{position:absolute;right:16px;top:58px;z-index:3;width:min(300px,calc(100% - 32px));max-height:calc(100% - 180px);overflow:auto;
   padding:14px 16px 12px;border-radius:30px 36px 30px 26px;border:1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
   background:radial-gradient(120% 90% at 20% 0%, color-mix(in srgb, var(--accent) 14%, var(--surface)), var(--surface) 70%);
   box-shadow:0 10px 30px color-mix(in srgb, var(--accent) 16%, transparent)}
@@ -306,9 +306,9 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
   .wb-tools .mini-seg button{padding:3px 7px;font-size:11px}
   #wbShowF,#wbTidy{display:none}
   .wb-trash{top:calc(var(--headh,64px) + 4px);bottom:auto;right:8px;width:70px;height:48px;font-size:10px}
-  .wb-cloud{left:8px;right:8px;top:auto;bottom:84px;width:auto;max-height:44px;overflow:hidden;border-radius:18px;padding:8px 14px}
+  .wb-cloud{left:8px;right:8px;top:auto;bottom:calc(var(--toolsh,76px) + 14px);width:auto;max-height:44px;overflow:hidden;border-radius:18px;padding:8px 14px}
   .wb-cloud.open{max-height:52%;overflow:auto}
-  .wb-cloud:not(.open) .cl-item, .wb-cloud:not(.open) .cl-title{display:none}
+  .wb-cloud:not(.open) .cl-item, .wb-cloud:not(.open) .cl-title, .wb-cloud:not(.open) .cl-f{display:none}
   .cl-head{width:100%;display:flex;justify-content:space-between;align-items:center;min-height:26px}
   .cl-count{color:var(--muted);font-weight:600;letter-spacing:0}
   .wb-banner{top:52px;padding:8px 16px 10px}
@@ -324,7 +324,8 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
 @media (max-width:760px){
   body.build .quick-els{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
   body.build:not(.show-table) .table-wrap{display:none}
-  .quick-els .qe{flex:none;min-width:42px;height:40px;border-radius:8px;border:1px solid var(--line);background:var(--cat-bg);font-family:var(--display);font-weight:800;font-size:16px;cursor:pointer;position:relative}
+  .quick-els .qe{flex:none;min-width:50px;height:46px;border-radius:8px;border:1px solid var(--line);background:var(--cat-bg);font-family:var(--display);font-weight:800;font-size:16px;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;padding:0 4px}
+  .quick-els .qe .qn{font-family:var(--body);font-weight:600;font-size:9px;opacity:.8;margin-top:2px}
   .quick-els .qe.on{box-shadow:inset 0 0 0 2px var(--accent)}
   .quick-els .qe .n{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:10px;font-family:var(--mono);display:grid;place-items:center;padding:0 4px}
   .quick-els .qe.more{font-family:var(--body);font-size:12.5px;font-weight:650;padding:0 12px;background:var(--surface)}
@@ -404,6 +405,39 @@ ol.rank button:hover{border-color:var(--accent)}
 .archive .credit a{color:inherit}
 .btn3d{margin-top:6px}
 .wb-trash{position:absolute;right:12px;bottom:12px;z-index:2;width:84px;height:62px;border:1.5px dashed var(--line);border-radius:10px;display:grid;place-items:center;text-align:center;font-size:11px;color:var(--muted);line-height:1.2;pointer-events:none}
+/* idea cloud: name first, then the formula + plain words */
+.cl-f{font-size:12.5px;color:var(--muted);margin:-4px 0 6px}
+.cl-f .mono{font-size:12px}
+/* parts shelf */
+.parts{display:grid;gap:6px}
+.parts button{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 10px;cursor:pointer;font:inherit}
+.parts button:hover{border-color:var(--accent)}
+.parts .fm{font-family:var(--mono);color:var(--muted);font-size:12px}
+.parts .rw{grid-column:1 / -1;font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:2px}
+/* give / share / take */
+.gst{margin-top:12px}
+.gst-pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-right:4px;background:var(--bg);vertical-align:1px}
+.gst-pill.give{color:var(--proton)} .gst-pill.share{color:var(--accent)} .gst-pill.take{color:var(--nexus)} .gst-pill.full{color:var(--muted)}
+.gst details{margin-top:6px;font-size:13.5px}
+.gst summary{cursor:pointer;color:var(--accent);font-weight:650}
+.gst-rule{margin:6px 0;padding-left:18px;display:grid;gap:3px}
+/* reaction card: plain-words equation, intro, takeaway */
+.rx-words{font-weight:650;margin:2px 0}
+.rx-intro{margin:6px 0}
+.rx-bench{font-size:13px;color:var(--muted);margin:4px 0 8px}
+.rx-take{border-left:3px solid var(--accent);padding:4px 0 4px 10px;margin:8px 0;font-size:13.5px}
+.rx-now{font-size:14.5px;line-height:1.5;margin:6px 0}
+/* zoom buttons: a small strip above the trash on laptops, a column under it on phones */
+.wb-zoomctl{position:absolute;right:12px;bottom:82px;z-index:3;display:flex;width:84px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.wb-zoomctl button{flex:1;border:0;background:none;font:inherit;font-size:17px;line-height:1;padding:6px 0;cursor:pointer;color:var(--ink)}
+.wb-zoomctl button+button{border-left:1px solid var(--line)}
+.wb-zoomctl .fit{font-size:12px;font-weight:650}
+.wb-zoomctl button:hover{background:var(--bg)}
+@media (max-width:760px){
+  .wb-zoomctl{top:calc(var(--headh,64px) + 74px);bottom:auto;right:8px;width:44px;flex-direction:column}
+  .wb-zoomctl button{padding:10px 0}
+  .wb-zoomctl button+button{border-left:0;border-top:1px solid var(--line)}
+}
 .wb-trash.hot{border-color:var(--proton);color:var(--proton);background:color-mix(in srgb, var(--proton) 10%, transparent)}
 @media (prefers-reduced-motion:reduce){ .cell,.panel{transition:none} }
 </style>
@@ -453,6 +487,8 @@ ol.rank button:hover{border-color:var(--accent)}
           <button data-v="ball" aria-pressed="true">Balls &amp; sticks</button><button data-v="ring" aria-pressed="false">Ring view</button>
         </div>
         <button class="btn" id="wbBreak" title="Pop every bond in the selected molecule">Break apart</button>
+        <button class="btn" id="wbDup" title="Make a copy of the selected molecule">Duplicate</button>
+        <button class="btn" id="wbPartsBtn" title="Ready-made pieces to snap together">Parts</button>
         <button class="btn" id="wbFill" title="Put a hydrogen on every empty hand">Fill with H</button>
         <button class="btn" id="wbRecipesBtn">Recipes</button>
         <button class="btn" id="wbLessonsBtn">Lessons</button>
@@ -476,6 +512,12 @@ ol.rank button:hover{border-color:var(--accent)}
       <aside class="wb-learn" id="wbLearn" hidden aria-live="polite"></aside>
       <div class="view3d" id="view3d" hidden></div>
       <div class="wb-trash" id="wbTrash" aria-hidden="true">Drop here<br>to remove</div>
+      <div class="wb-zoomctl" role="group" aria-label="Zoom">
+        <button id="wbZoomIn" aria-label="Zoom in">+</button>
+        <button id="wbZoomOutBtn" aria-label="Zoom out">−</button>
+        <button id="wbFit" class="fit" aria-label="Fit everything in view">Fit</button>
+      </div>
+      <div class="wb-recipes" id="wbParts" hidden></div>
     </section>
     <section class="wb-details" id="wbDetails" hidden></section>
     <div class="legend" id="legend"></div>
@@ -620,7 +662,7 @@ const QUICK = ["H","C","N","O","F","Cl","S","P","Si","B","Na","K","Li","Mg","Ca"
 function renderQuick(onBench){
   const q = $("quickEls"); if (!q || !S.els.length) return;
   q.innerHTML = QUICK.map(sym => { const e = S.bySym[sym], n = onBench[sym] || 0;
-    return `<button class="qe ${n ? "on" : ""}" data-q="${sym}" style="--cat-bg:var(${(CAT[e.category]||["--st-unknown"])[0]})" aria-label="Add ${e.name}">${sym}${n ? `<span class="n">${n}</span>` : ""}</button>`; }).join("") +
+    return `<button class="qe ${n ? "on" : ""}" data-q="${sym}" style="--cat-bg:var(${(CAT[e.category]||["--st-unknown"])[0]})" aria-label="Add ${e.name}">${sym}<span class="qn">${e.name}</span>${n ? `<span class="n">${n}</span>` : ""}</button>`; }).join("") +
     `<button class="qe more" id="qeMore">${document.body.classList.contains("show-table") ? "Hide table" : "All elements"}</button>`;
   q.querySelectorAll("[data-q]").forEach(b => b.addEventListener("click", () => Bench.add(b.dataset.q)));
   $("qeMore").addEventListener("click", () => { document.body.classList.toggle("show-table"); renderQuick(Bench.counts()); });
@@ -709,6 +751,34 @@ function seatSummary(e){
   if (e.symbol === "H") s += " Its only ring holds just 2 electrons, so one handshake fills it.";
   return s;
 }
+/* Give, share, or take? Every atom wants a full outer shell, and it takes whichever route is less work.
+   1-3 outer electrons: give them away (metals). 4: share. 5-7: take or share. Full: none of the above.
+   The twist is grip (electronegativity): small atoms near the top hold on tighter, so boron shares
+   while aluminum, right below it with the same 3, gives. */
+function gstFor(e){
+  if (!e) return null;
+  const v = e.valence, n = e.name;
+  if (isNoble(e)) return {verdict: "Doesn't bond", cls: "full", text: `${n}'s outer shell is already full (${e.symbol === "He" ? 2 : 8} electrons). It has nothing to give, share, or take, so it almost never bonds.`};
+  if (e.symbol === "H") return {verdict: "Shares", cls: "share", text: "Hydrogen has 1 electron, and its only shell holds just 2. It's one away from full, so it shares: one handshake fills it."};
+  if (e.block === "d" || e.block === "f") return {verdict: "Gives", cls: "give", text: `${n} is a metal from the middle of the table. It gives electrons away, but how many changes (${(e.ox||[]).filter(x => x.startsWith("+")).join(" or ") || "it varies"}), because the shell underneath can join in.`};
+  if (isMetal(e)) return {verdict: "Gives", cls: "give", text: `${n} has ${v} outer electron${v > 1 ? "s" : ""}. Giving ${v > 1 ? "them" : "it"} away is far less work than finding ${8 - v} more, so it gives. That's what makes it a metal.`};
+  if (v <= 3) return {verdict: "Shares", cls: "share", text: `${n} has ${v} outer electrons, which usually means "give." But it's a small atom and grips them tightly, so it shares instead.`};
+  if (v === 4) return {verdict: "Shares", cls: "share", text: `${n} has 4 outer electrons: exactly halfway to 8. Giving 4 or taking 4 are both hard, so it shares, with up to 4 handshakes.`};
+  return {verdict: "Takes or shares", cls: "take", text: `${n} has ${v} outer electrons and needs ${8 - v} more to be full. It takes them from metals (ending up with a − charge) or shares with other nonmetals.`};
+}
+function gstHTML(e){
+  const g = gstFor(e); if (!g) return "";
+  return `<section class="gst"><h3>Give, share, or take?</h3>
+    <p><span class="gst-pill ${g.cls}">${g.verdict}</span> ${esc(g.text)}</p>
+    <details><summary>How to tell for any element</summary>
+      <p>Count the electrons in the outer shell. Every atom wants that shell full (8 for most, 2 for hydrogen and helium), and it takes whichever route is less work. Like paying off a bill: if you owe a little, you pay it; if you're owed a little, you collect.</p>
+      <ul class="gst-rule"><li><b>1 to 3:</b> giving them away is easiest, so it <b>gives</b>. These are metals, like lithium and sodium.</li>
+        <li><b>4:</b> right in the middle, so it <b>shares</b>. That's carbon.</li>
+        <li><b>5 to 7:</b> grabbing a few more is easiest, so it <b>takes or shares</b>. Oxygen and chlorine.</li>
+        <li><b>8 (full):</b> nothing to do, so it <b>doesn't bond</b>. Helium and neon.</li></ul>
+      <p><b>The twist: grip.</b> Small atoms near the top of the table hold their electrons tighter. So boron (3 outer electrons) shares, while aluminum right below it (also 3) gives. Chemists call this grip <b>electronegativity</b>. It's the "Electron pull" number in the data below: higher means it pulls harder.</p>
+    </details></section>`;
+}
 function fmt(v, unit, digits){ if (v == null) return "–"; return (digits!=null ? (+v).toFixed(digits) : v) + (unit||""); }
 function KtoC(k){ return k == null ? null : Math.round(k - 273.15); }
 function renderElement(e){
@@ -716,7 +786,7 @@ function renderElement(e){
   const catVar = (CAT[e.category]||["--st-unknown"])[0];
   const uses = (e.uses||[]).map(u => `<li><b>${esc(u.title)}.</b> ${esc(u.why)}</li>`).join("");
   const bonds = (e.bonds||[]).map(b => `<li><span class="f">${esc(b.formula)}</span><div><b>${esc(b.name)}</b> <span class="muted">${esc(b.note)}</span>
-      <div class="partners">${(b.partners||[]).filter(p=>S.bySym[p]).map(p => `<button class="ptn" data-go="${p}" title="Open ${esc(S.bySym[p].name)}">${p}</button>`).join("")}
+      <div class="partners">${(b.partners||[]).filter(p=>S.bySym[p]).map(p => `<button class="ptn" data-go="${p}" title="Open ${esc(S.bySym[p].name)}">${esc(S.bySym[p].name)}</button>`).join("")}
       <button class="ptn" data-build="${esc([e.symbol, ...(b.partners||[])].filter(p=>S.bySym[p]).join(","))}" title="Load into the builder">Build →</button></div></div></li>`).join("");
   const melt = KtoC(e.melt), boil = KtoC(e.boil);
   $("panelBody").innerHTML = `
@@ -747,6 +817,7 @@ function renderElement(e){
       ? "Shells: " + e.shells.join(" · ") + ". Rings are a teaching model; electrons don't really orbit on tracks."
       : "Closer to reality: each shell is a fuzzy region where electrons are likely to be, not a track. Outer shell in blue."}</p>
     <div class="seatline">${seatSummary(e)}</div>
+    ${gstHTML(e)}
     ${e.atomStory ? `<p>${esc(e.atomStory)}</p>` : ""}
     ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
     ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}
@@ -756,8 +827,9 @@ function renderElement(e){
     ${moleculesWith(e.symbol)}
     ${e.number ? `<section><h3>By the numbers</h3><div class="number"><span class="v">${esc(e.number.value)}</span><span class="l">${esc(e.number.label)}</span></div></section>` : ""}
     <section><h3>Data</h3><div class="facts">
-      <div class="fact"><div class="k">Electron config</div><div class="v">${esc(e.config)}</div></div>
-      <div class="fact"><div class="k">Electron pull</div><div class="v">${fmt(e.en)}</div></div>
+      <div class="fact"><div class="k">Electrons per shell</div><div class="v">${e.shells.join(" · ")}</div></div>
+      <div class="fact"><div class="k">Chemist's shorthand</div><div class="v">${esc(e.config)}</div></div>
+      <div class="fact"><div class="k">Electron pull (electronegativity)</div><div class="v">${fmt(e.en)}</div></div>
       <div class="fact"><div class="k">Melts</div><div class="v">${melt==null?"–":melt.toLocaleString()+" °C"}</div></div>
       <div class="fact"><div class="k">Boils</div><div class="v">${boil==null?"–":boil.toLocaleString()+" °C"}</div></div>
       <div class="fact"><div class="k">Density</div><div class="v">${e.density==null?"–":(e.density<0.1? e.density.toExponential(2): +e.density.toPrecision(4)) + (e.state==="gas"?" g/L":" g/cm³")}</div></div>

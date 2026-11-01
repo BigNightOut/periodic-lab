@@ -18,12 +18,56 @@
   "z": 1
  },
  {
+  "firstDate": "2026-10-23",
+  "notes": [
+   {
+    "date": "2026-10-23",
+    "note": "Full first shell (2 electrons), so it never bonds or burns. Falcon 9 uses it to pressurize its tanks. Liquid at −269 °C; solid only when also squeezed. Comes out of the ground with natural gas, from radioactive decay in rock.",
+    "thread": "Rockets project (voice)"
+   }
+  ],
+  "source": "claude",
+  "symbol": "He",
+  "z": 2
+ },
+ {
+  "firstDate": "2026-10-23",
+  "notes": [
+   {
+    "date": "2026-10-23",
+    "note": "One loose outer electron that it gives away easily: why it's so light, reactive, and great for batteries. In a battery, the electron takes the wire (powering the phone) while the Li+ ion crosses inside. Also in aluminum-lithium tank alloy (Falcon 9) and the LiOH CO2 scrubbers that saved Apollo 13.",
+    "thread": "Rockets project (voice)"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Li",
+  "z": 3
+ },
+ {
+  "firstDate": "2026-10-23",
+  "notes": [
+   {
+    "date": "2026-10-23",
+    "note": "2 outer electrons held tighter than lithium's (4 protons pulling), so it often shares instead of giving. Light and very stiff, but brittle, and its dust is toxic. James Webb's mirrors; the first Mercury capsules' heat shields.",
+    "thread": "Rockets project (voice)"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Be",
+  "z": 4
+ },
+ {
   "firstDate": "2026-10-20",
   "notes": [
    {
     "date": "2026-10-20",
     "note": "Triethylborane is the TEB in TEA-TEB, the mix that ignites on contact with liquid oxygen and lights Merlin engines with a green flash.",
     "thread": "Rockets project"
+   },
+   {
+    "date": "2026-10-23",
+    "note": "3 outer electrons, but it's small and grips them tightly, so it shares instead of giving. Mixed into silicon it makes the 'hole' side of a solar panel. After 3 handshakes it has only 6, so it's hungry for one more pair.",
+    "thread": "Rockets project (voice)"
    }
   ],
   "source": "claude",
@@ -163,5 +207,18 @@
   "source": "claude",
   "symbol": "Cu",
   "z": 29
+ },
+ {
+  "firstDate": "2026-11-01",
+  "notes": [
+   {
+    "date": "2026-11-01",
+    "note": "1 electron on a 7th shell, far out and loosely held, so it gives it away: no empty hands on the bench. This question led to the faint inner-shell rings on the bench and the give/share/take rule.",
+    "thread": "Rockets project (voice)"
+   }
+  ],
+  "source": "claude",
+  "symbol": "Fr",
+  "z": 87
  }
 ]

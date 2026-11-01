@@ -23,6 +23,12 @@ const Bench = (() => {
   let zoomBond = null;               // bond being inspected (double-click)
   let drag = null, selected = null, lastTouched = null, hoverTrash = false;
   let pendingBondClick = 0;
+  /* Zoom and pan. manualCam = you zoomed or panned yourself, so the auto-framing (fit) steps aside
+     until you press Fit. ptrs tracks fingers so two of them can pinch. */
+  let manualCam = false, pinch = null, pan = null;
+  const ptrs = new Map();
+  const ZMIN = 0.3, ZMAX = 6;
+  const clampS = (s) => Math.max(ZMIN, Math.min(ZMAX, s));
   const shownTips = new Set();
   const BREAK = 2.3;                 // stretch factor that breaks a bond while dragging
   const $ = (id) => document.getElementById(id);
@@ -67,6 +73,12 @@ const Bench = (() => {
     cv.addEventListener("pointerup", onUp);
     cv.addEventListener("pointercancel", onUp);
     cv.addEventListener("dblclick", onDbl);
+    cv.addEventListener("wheel", onWheel, {passive: false});
+    $("wbZoomIn").addEventListener("click", () => zoomBtn(1.35));
+    $("wbZoomOutBtn").addEventListener("click", () => zoomBtn(1 / 1.35));
+    $("wbFit").addEventListener("click", () => { manualCam = false; if (zoomBond) unzoom(); else fit(true); });
+    $("wbDup").addEventListener("click", duplicate);
+    $("wbPartsBtn").addEventListener("click", () => toggleParts());
     document.addEventListener("keydown", (ev) => {
       if (!visible) return;
       if (ev.key === "Escape"){ closePop(); unzoom(); }
@@ -74,7 +86,7 @@ const Bench = (() => {
     });
     $("wbView").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setView(b.dataset.v)));
     $("wbFill").addEventListener("click", fillH);
-    $("wbTidy").addEventListener("click", () => { relax(240); fit(); });
+    $("wbTidy").addEventListener("click", () => { relax(240); manualCam = false; fit(true); });
     $("wbClear").addEventListener("click", clear);
     $("wbBreak").addEventListener("click", breakApart);
     setInterval(() => { if (visible && atoms.length && !drag) renderCloud(focusInfo); }, 15000);   // rotate element facts
@@ -113,16 +125,17 @@ const Bench = (() => {
     }
     return [cam.x + (Math.random() - .5) * 200, cam.y + (Math.random() - .5) * 120];
   }
-  let headHc = 62;
+  let headHc = 62, toolsHc = 76;
   const headH = () => headHc;
   const measureHead = () => {
     headHc = (document.querySelector(".wb-head")?.offsetHeight || 50) + 12;
     const wb = $("workbench"); if (!wb) return;
     wb.style.setProperty("--headh", headHc + "px");
     // the toolbar wraps to 2 rows on phones; the lesson/reaction card docks just above it
-    wb.style.setProperty("--toolsh", (document.querySelector(".wb-tools")?.offsetHeight || 48) + "px");
+    toolsHc = document.querySelector(".wb-tools")?.offsetHeight || 48;
+    wb.style.setProperty("--toolsh", toolsHc + "px");
   };
-  function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : 150); }
+  function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : toolsHc + 70); }
   function add(sym, x, y, extra){
     if (x == null) [x, y] = freeSpot();
     const a = {id: nextId++, sym, x, y, vx: 0, vy: 0, ...(extra||{})};
@@ -143,7 +156,7 @@ const Bench = (() => {
     if (selected === a) selected = null; if (lastTouched === a) lastTouched = atoms[atoms.length - 1] || null;
     update();
   }
-  function clear(){ const bn = $("wbBanner"); if (bn) bn.hidden = true; atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
+  function clear(){ const bn = $("wbBanner"); if (bn) bn.hidden = true; atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; manualCam = false; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
   function tryBond(a, b){
     if (bondBetween(a, b)) return false;
     const ka = kindOf(a.sym), kb = kindOf(b.sym);
@@ -256,7 +269,7 @@ const Bench = (() => {
     box.querySelectorAll("[data-r]").forEach(b => b.addEventListener("click", () => { addMolecule(S.mols.find(m => m.id === b.dataset.r)); toggleRecipes(false); }));
     $("wbRecipesClose").addEventListener("click", () => toggleRecipes(false));
   }
-  function toggleRecipes(force){ const box = $("wbRecipes"); box.hidden = force === false ? true : force === true ? false : !box.hidden; }
+  function toggleRecipes(force){ const box = $("wbRecipes"); box.hidden = force === false ? true : force === true ? false : !box.hidden; if (!box.hidden) $("wbParts").hidden = true; }
 
   /* ---------- recognition ---------- */
   function components(){
@@ -317,7 +330,7 @@ const Bench = (() => {
       return `1 ${nameOf(a.sym)} atom with ${describeHands(a)}. Add atoms and drag them close.`;
     }
     if (done){
-      if (match) return `Every hand is held. This is <b>${esc(match.name)}</b> ${match.formula.startsWith("(") ? esc(match.formula) : "(" + esc(match.formula) + ")"}.`;
+      if (match) return `Every hand is held. This is <b>${esc(match.name)}</b> ${match.formula.startsWith("(") || match.name.includes("(") ? "· " + esc(match.formula) : "(" + esc(match.formula) + ")"}.`;
       if (isomerOf) return `Every hand is held. Same atoms as <b>${esc(isomerOf.name)}</b>, but arranged differently, so it's a different molecule.`;
       return `Every hand is held. That's a stable ${esc(fm)}, but it isn't in my library yet.`;
     }
@@ -400,10 +413,10 @@ const Bench = (() => {
       if (b) addOrder(b);
     });
     const real = comps.filter(c => c.formula);
-    $("wbChips").innerHTML = real.length > 1 ? real.map(c => `<span class="wbchip ${c.done ? "ok" : ""}">${esc(c.match?.name || c.formula)}${c.done ? " ✓" : ""}</span>`).join("") : "";
+    $("wbChips").innerHTML = real.length > 1 ? real.map(c => `<span class="wbchip ${c.done ? "ok" : ""}">${esc(c.match?.name || wordsFor(c.counts))}${c.done ? " ✓" : ""}</span>`).join("") : "";
     // a molecule just got finished -> "You built it!" banner
     const doneNow = new Set(comps.filter(c => c.done && c.match).map(c => c.match.id + ":" + c.comp.map(a => a.id).sort().join(",")));
-    for (const k of doneNow) if (!lastDone.has(k)){ const c = comps.find(x => x.match && k.startsWith(x.match.id + ":")); if (c && !loadingRecipe && !quiet) celebrate(c.match); }
+    for (const k of doneNow) if (!lastDone.has(k)){ const c = comps.find(x => x.match && k.startsWith(x.match.id + ":")); if (c && !loadingRecipe && !quiet){ celebrate(c.match); rememberBuilt(c.match); } }
     lastDone = doneNow;
     const almostNow = new Map();
     for (const c of comps){ const near = almostFor(c)[0]; if (near) almostNow.set(near.id + ":" + c.comp.map(a => a.id).sort().join(","), {m: near, c}); }
@@ -412,6 +425,7 @@ const Bench = (() => {
     lastAlmost = new Set(almostNow.keys());
     glowAtoms = new Set([...almostNow.values()].flatMap(v => v.c.open));
     $("wbBreak").disabled = !(focus && bonds.some(b => focus.comp.includes(b.a)));
+    $("wbDup").disabled = !(focus && focus.comp.length > 1);
     renderCloud(focus);
     renderDetails(focus);
     if (typeof markActive === "function") markActive();
@@ -432,6 +446,105 @@ const Bench = (() => {
     const hub = f.comp.filter(a => a.sym !== "*").sort((p, q) => handsOf(q) - handsOf(p))[0]; if (hub){ selected = lastTouched = hub; }
     note(null, `All ${had} bond${had > 1 ? "s" : ""} broken. Every atom has its hands back. That's like pyrolysis heat turned all the way up: in the reactor, bonds snap a few at a time.`);
     update();
+  }
+
+  /* ---------- duplicate: copy the selected molecule and set it beside the original ---------- */
+  function duplicate(){
+    const f = focusInfo; if (!f || !f.comp.length) return;
+    const comp = f.comp, xs = comp.map(a => a.x), shift = Math.max(...xs) - Math.min(...xs) + 110;
+    const map = new Map();
+    loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);   // a copy isn't a new build: no banner
+    for (const a of comp){
+      const c = {id: nextId++, sym: a.sym, x: a.x + shift, y: a.y + 16, vx: 0, vy: 0};
+      if (a.hands != null) c.hands = a.hands; if (a.charge) c.charge = a.charge;
+      atoms.push(c); map.set(a, c);
+    }
+    for (const b of bonds.slice()) if (map.has(b.a) && map.has(b.b)) bonds.push({a: map.get(b.a), b: map.get(b.b), order: b.order, kind: b.kind});
+    selected = lastTouched = map.get(comp.find(a => a.sym !== "H") || comp[0]);
+    const nm = f.match?.name || wordsFor(f.counts);
+    const dbl = bonds.some(b => map.has(b.a) && b.kind === "cov" && b.order >= 2);
+    note(null, `Copied <b>${esc(nm)}</b>. ${dbl
+      ? "To link copies into a chain (that's how plastic is made): tap a double bond and choose <b>Loosen one handshake</b>. Each carbon gets a free hand. Then drag a free carbon onto a free carbon in the other copy."
+      : "Drag the copy wherever you want it."}`);
+    fit(); update();
+  }
+  /* double -> single (or triple -> double): frees one hand on each atom without separating them */
+  function lessOrder(bd){
+    if (bd.kind !== "cov" || bd.order < 2) return;
+    bd.order--;
+    note(null, `Loosened one handshake. The ${nameOf(bd.a.sym)} and ${nameOf(bd.b.sym)} still hold on, and each now has a free hand to grab something new. That's exactly what happens when ethylene links up into polyethylene.`);
+    update();
+  }
+
+  /* ---------- parts shelf: ready-made pieces with free hands, plus things you've built ----------
+     Coordinates are in bond-length units; free hands point the open way. */
+  const PARTS = (() => {
+    const ring = [], rb = [];
+    for (let i = 0; i < 6; i++){ const t = i * Math.PI / 3; ring.push(["C", 1.15 * Math.cos(t), 1.15 * Math.sin(t)]); rb.push([i, (i + 1) % 6, i % 2 ? 1 : 2]); }
+    for (let i = 0; i < 6; i++){ if (i === 3) continue; const t = i * Math.PI / 3; rb.push([i, ring.length, 1]); ring.push(["H", 2.05 * Math.cos(t), 2.05 * Math.sin(t)]); }
+    return [
+      {id: "ch3", name: "Methyl group", f: "CH3", what: "A carbon holding 3 hydrogens, with 1 free hand. It caps the end of a chain.",
+        atoms: [["C", 0, 0], ["H", -0.5, -0.87], ["H", -1, 0], ["H", -0.5, 0.87]], bonds: [[0, 1, 1], [0, 2, 1], [0, 3, 1]]},
+      {id: "ch2", name: "Chain link", f: "CH2", what: "A carbon holding 2 hydrogens, with 2 free hands. Two of them with a double bond make ethylene. A long row of them is polyethylene.",
+        atoms: [["C", 0, 0], ["H", 0, -1], ["H", 0, 1]], bonds: [[0, 1, 1], [0, 2, 1]]},
+      {id: "oh", name: "Hydroxyl group", f: "OH", what: "An oxygen holding 1 hydrogen, with 1 free hand. Stick it on a carbon chain and you get an alcohol, like ethanol.",
+        atoms: [["O", 0, 0], ["H", -0.8, -0.6]], bonds: [[0, 1, 1]]},
+      {id: "nh2", name: "Amino group", f: "NH2", what: "A nitrogen holding 2 hydrogens, with 1 free hand. It's the nitrogen part of the amino acids your body builds proteins from.",
+        atoms: [["N", 0, 0], ["H", -0.8, -0.6], ["H", -0.8, 0.6]], bonds: [[0, 1, 1], [0, 2, 1]]},
+      {id: "co", name: "Carbonyl group", f: "C=O", what: "A carbon double-bonded to an oxygen, with 2 free hands on the carbon. It's in acetone, sugars, and plastics like PET.",
+        atoms: [["C", 0, 0], ["O", 0, -1.15]], bonds: [[0, 1, 2]]},
+      {id: "cooh", name: "Acid group", f: "COOH", what: "A carbon with a double-bonded oxygen and an O-H, with 1 free hand. It's what makes vinegar (acetic acid) sour.",
+        atoms: [["C", 0, 0], ["O", 0.9, -0.75], ["O", 0.9, 0.75], ["H", 1.75, 0.95]], bonds: [[0, 1, 2], [0, 2, 1], [2, 3, 1]]},
+      {id: "ph", name: "Benzene ring", f: "C6H5", what: "Six carbons in a flat ring, with 1 free hand. It's the ring in styrene, aspirin, and many plastics.",
+        atoms: ring, bonds: rb},
+    ];
+  })();
+  const BUILT_KEY = "plab.built";
+  let built = [];
+  try { built = JSON.parse(localStorage.getItem(BUILT_KEY) || "[]"); } catch(_){ built = []; }
+  function rememberBuilt(m){
+    built = [m.id, ...built.filter(id => id !== m.id)].slice(0, 12);
+    try { localStorage.setItem(BUILT_KEY, JSON.stringify(built)); } catch(_){}
+    if (!$("wbParts").hidden) buildParts();
+  }
+  function addPart(p){
+    loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);
+    const SC = 38, ox = atoms.length ? Math.max(...atoms.map(a => a.x)) + 130 : cam.x, oy = cam.y;
+    const made = p.atoms.map(([s, x, y]) => add(s, ox + x * SC, oy + y * SC));
+    for (const [i, j, o] of p.bonds) bonds.push({a: made[i], b: made[j], order: o, kind: "cov"});
+    selected = lastTouched = made[0];
+    relax(30); fit();
+    note(null, `Added a <b>${esc(p.name)}</b> (${esc(p.f)}). The dashed circles are its free hands: drag it onto another piece to connect them.`);
+    update();
+  }
+  function buildParts(){
+    const box = $("wbParts");
+    const mine = built.map(id => S.mols.find(m => m.id === id)).filter(Boolean);
+    box.innerHTML = `<div class="row" style="justify-content:space-between"><b>Parts shelf</b><button class="btn" id="wbPartsClose">Close</button></div>
+      <p class="small muted" style="margin:4px 0 8px">Ready-made pieces with free hands. Tap one to drop it on the bench, then snap pieces together.</p>
+      <div class="parts">${PARTS.map(p => `<button data-part="${p.id}"><b>${esc(p.name)}</b><span class="fm">${esc(p.f)}</span><span class="rw">${esc(p.what)}</span></button>`).join("")}</div>
+      <div class="eyebrow" style="margin:14px 0 6px">Things you've built</div>
+      ${mine.length ? `<div class="parts">${mine.map(m => `<button data-built="${m.id}"><b>${esc(m.name)}</b><span class="fm">${esc(m.formula)}</span></button>`).join("")}</div>`
+        : `<p class="small muted">Nothing yet. Every molecule you finish by hand lands here, so you can drop a whole one in with one tap.</p>`}`;
+    $("wbPartsClose").addEventListener("click", () => toggleParts(false));
+    box.querySelectorAll("[data-part]").forEach(b => b.addEventListener("click", () => { addPart(PARTS.find(p => p.id === b.dataset.part)); toggleParts(false); }));
+    box.querySelectorAll("[data-built]").forEach(b => b.addEventListener("click", () => { addMolecule(S.mols.find(m => m.id === b.dataset.built)); toggleParts(false); }));
+  }
+  function toggleParts(force){
+    const box = $("wbParts"), open = force === undefined ? box.hidden : force;
+    if (open){ buildParts(); toggleRecipes(false); }
+    box.hidden = !open;
+  }
+
+  /* ---------- names: say "2 carbons + 4 hydrogens", not just "C2H4" ---------- */
+  function orderSyms(c){
+    const ks = Object.keys(c), hasC = ks.includes("C");
+    return ks.sort((p, q) => { if (hasC){ const o = s => s === "C" ? 0 : s === "H" ? 1 : 2; if (o(p) !== o(q)) return o(p) - o(q); return p.localeCompare(q); }
+      const mp = isMetal(el(p)) ? 0 : 1, mq = isMetal(el(q)) ? 0 : 1; return mp - mq || (el(p).en||0) - (el(q).en||0); });
+  }
+  const cap = (t) => t ? t[0].toUpperCase() + t.slice(1) : t;
+  function wordsFor(c){
+    return orderSyms(c).map(s => `${c[s]} ${nameOf(s)}${c[s] > 1 ? "s" : ""}`).join(" + ");
   }
 
   /* ---------- idea cloud: hints, fun facts, what just happened ---------- */
@@ -510,10 +623,10 @@ const Bench = (() => {
     const fresh = lastNote && performance.now() - lastNote.t < 20000 ? lastNote.text : null;
     const ideas = ideasFor(info), facts = factsFor(info);
     let html = "";
-    if (info?.done && info.match) html += `<div class="cl-title">${esc(info.match.name)} <span class="mono">${esc(info.match.formula)}</span></div>`;
+    if (info?.done && info.match) html += `<div class="cl-title">${esc(info.match.name)}</div><div class="cl-f"><span class="mono">${esc(info.match.formula)}</span> · ${esc(wordsFor(info.counts))}</div>`;
     else if (info?.formula){
       const near = almostFor(info);
-      html += `<div class="cl-title">${esc(info.formula)}<span class="cl-sub">${near.length ? `almost ${esc(near[0].name)}` : info.open.length ? "still building" : ""}</span></div>`;
+      html += `<div class="cl-title">${esc(cap(wordsFor(info.counts)))}</div><div class="cl-f"><span class="mono">${esc(info.formula)}</span>${near.length ? ` · almost ${esc(near[0].name)}` : info.open.length ? " · still building" : ""}</div>`;
       if (near.length && near[0].blurb) html += `<div class="cl-item now"><span class="cl-tag idea">Almost</span>${esc(near[0].name)}: ${esc(near[0].blurb)}</div>`;
     }
     if (fresh) html += `<div class="cl-item now"><span class="cl-tag">Just now</span>${fresh}</div>`;
@@ -528,7 +641,7 @@ const Bench = (() => {
     for (const [i, it] of ideas.entries()) html += `<div class="cl-item idea"><span class="cl-tag idea">Idea</span>${it.text}${it.add && Object.keys(it.add).length ? ` <button class="linkbtn" data-idea="${i}">Add the atoms</button>` : ""}</div>`;
     const n = ideas.length + facts.length + (fresh ? 1 : 0);
     const nearL = almostFor(info)[0];
-    const label = info?.done && info.match ? info.match.name : nearL ? `Almost ${nearL.name}` : info?.formula || "";
+    const label = info?.done && info.match ? info.match.name : nearL ? `Almost ${nearL.name}` : info?.counts ? wordsFor(info.counts) : "";
     box.innerHTML = `<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button>${html}`;
     box.hidden = false;
     $("clToggle").addEventListener("click", () => { if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
@@ -564,7 +677,7 @@ const Bench = (() => {
       const k = kindOf(sym), h = baseHands(sym);
       const each = k === "noble" ? "0 hands (full)" : k === "metal" ? `gives up to ${h} electron${h > 1 ? "s" : ""}` : `${h} hand${h > 1 ? "s" : ""}`;
       const total = k === "nonmetal" ? c[sym] * h : "";
-      return `<tr><td><b>${sym}</b> × ${c[sym]}</td><td class="muted">${each}</td><td class="r">${total}</td></tr>`;
+      return `<tr><td><b>${esc(Name(sym))}</b> <span class="muted">(${sym})</span> × ${c[sym]}</td><td class="muted">${each}</td><td class="r">${total}</td></tr>`;
     }).join("");
     const shakes = cov.reduce((t, b) => t + b.order, 0), given = ion.reduce((t, b) => t + b.order, 0);
     const emptyLeft = comp.filter(a => kindOf(a.sym) === "nonmetal").reduce((t, a) => t + free(a), 0);
@@ -576,7 +689,7 @@ const Bench = (() => {
     const list = (arr) => arr.map(x => `<button data-mol="${x.id}">${esc(x.name)}<span class="fm">${esc(x.formula)}</span></button>`).join("");
     const L = m?.lens || {};
     box.innerHTML = `
-      <div class="dt-head"><div><span class="eyebrow">On your bench</span><h2>${esc(m ? m.name : info.formula)} ${m ? `<span class="mono muted dt-f">${esc(m.formula)}</span>` : ""}</h2>
+      <div class="dt-head"><div><span class="eyebrow">On your bench</span><h2>${esc(m ? m.name : cap(wordsFor(c)))} <span class="mono muted dt-f">${esc(m ? m.formula : info.formula)}</span></h2>
         <p class="dt-status">${statusFor(info)}</p></div>
         <button class="btn" id="dtBreak" ${bonds.some(b => info.comp.includes(b.a)) ? "" : "disabled"}>Break apart</button></div>
       <div class="dt-grid">
@@ -618,23 +731,25 @@ const Bench = (() => {
     const pct = Math.min(100, e / 1072 * 100);
     const cmp = e < 200 ? "weak: snaps easily" : e < 380 ? "medium" : e < 600 ? "strong" : "very strong";
     const name = `${bd.a.sym}${bd.order === 2 ? "=" : bd.order === 3 ? "≡" : "–"}${bd.b.sym}`;
+    const nice = `${Name(bd.a.sym)}–${nameOf(bd.b.sym)} ${bd.order === 2 ? "double" : bd.order === 3 ? "triple" : "single"} bond`;
     let hint = "";
-    if (name === "C–C" || name === "C–H" || name === "H–C") hint = " C–C (348) is weaker than C–H (413), so heat snaps carbon chains before it strips hydrogens off.";
+    if (name === "C–C" || name === "C–H" || name === "H–C") hint = " Carbon–carbon (348) is weaker than carbon–hydrogen (413), so heat snaps carbon chains before it strips hydrogens off.";
     return `<div class="meter"><div class="meter-top"><span>Bond strength</span><span class="mono">${e} kJ/mol · ${cmp}</span></div>
       <div class="meter-bar"><i style="width:${pct.toFixed(0)}%"></i></div>
-      <div class="meter-note">${esc(name)} average.${hint}</div></div>`;
+      <div class="meter-note">${esc(nice)} (${esc(name)}), average. kJ/mol means kilojoules per mole: the energy it takes to snap a big batch of these bonds. Bigger = harder to break.${hint}</div></div>`;
   }
   function openPop(bd){
     const p = $("wbPop"), [x, y] = toScreen((bd.a.x + bd.b.x) / 2, (bd.a.y + bd.b.y) / 2);
     const canAdd = bd.kind === "cov" && bd.order < 3 && free(bd.a) && free(bd.b);
     p.innerHTML = `<div class="small" style="margin-bottom:6px"><b>${Name(bd.a.sym)}–${Name(bd.b.sym)}</b>: ${bd.kind === "ion" ? "electron handed over" : bd.order === 1 ? "1 handshake" : bd.order + " handshakes"}</div>
       <div class="row">${bd.kind === "cov" ? `<button class="btn" data-act="more" ${canAdd ? "" : "disabled"}>+ handshake</button>` : ""}
-      <button class="btn" data-act="zoom">Zoom in</button><button class="btn" data-act="break">Break</button></div>${meterHTML(bd)}`;
+      <button class="btn" data-act="zoom">Zoom in</button>${bd.kind === "cov" && bd.order > 1 ? `<button class="btn" data-act="less">Loosen one handshake</button>` : ""}<button class="btn" data-act="break">Break</button></div>${meterHTML(bd)}`;
     p.hidden = false;
     p.style.left = Math.max(8, Math.min(W - 270, x - 130)) + "px"; p.style.top = Math.max(56, Math.min(H - p.offsetHeight - 10, y - 150)) + "px";
     p.querySelector('[data-act="more"]')?.addEventListener("click", () => { closePop(); addOrder(bd); });
     p.querySelector('[data-act="zoom"]').addEventListener("click", () => { closePop(); zoomTo(bd); });
     p.querySelector('[data-act="break"]').addEventListener("click", () => { closePop(); breakBond(bd, "click"); });
+    p.querySelector('[data-act="less"]')?.addEventListener("click", () => { closePop(); lessOrder(bd); });
   }
   function closePop(){ const p = $("wbPop"); if (p) p.hidden = true; }
 
@@ -648,11 +763,29 @@ const Bench = (() => {
     else txt = `<b>${A} and ${B.toLowerCase()} each put in ${bd.order === 1 ? "one electron" : bd.order + " electrons"}.</b> The ${bd.order * 2} electrons in the glowing overlap are shared, so <i>both</i> atoms get to count them. That's what fills their empty hands. ${bd.order > 1 ? `${bd.order} shared pairs = a ${bd.order === 2 ? "double" : "triple"} bond.` : "One shared pair = a single bond."}`;
     $("wbZoomText").innerHTML = txt + meterHTML(bd); $("wbZoom").hidden = false;
   }
-  function unzoom(){ if (!zoomBond) return; zoomBond = null; Object.assign(camT, {x: cam.x, y: cam.y, s: 1}); fit(); $("wbZoom").hidden = true; }
+  function unzoom(){ if (!zoomBond) return; zoomBond = null; manualCam = false; Object.assign(camT, {x: cam.x, y: cam.y, s: 1}); fit(true); $("wbZoom").hidden = true; }
+  /* ---------- zoom and pan by hand ---------- */
+  // zoom by factor f, keeping the world point under screen spot (sx, sy) fixed
+  function zoomAt(sx, sy, f){
+    const [wx, wy] = toWorld(sx, sy), s = clampS(cam.s * f);
+    cam.s = camT.s = s;
+    cam.x = camT.x = wx - (sx - W / 2) / s; cam.y = camT.y = wy - (sy - H / 2) / s;
+    manualCam = true;
+  }
+  function onWheel(ev){ ev.preventDefault(); const [sx, sy] = pos(ev); zoomAt(sx, sy, Math.exp(-ev.deltaY * 0.0015)); }
+  // buttons ease toward the new zoom around the current view center
+  // zooming in heads toward the atom you last tapped, so you land on something instead of empty bench
+  function zoomBtn(f){
+    camT.s = clampS(camT.s * f); manualCam = true;
+    const t = f > 1 && selected && atoms.includes(selected) ? selected : null;
+    if (t){ camT.x = t.x; camT.y = t.y; } else { camT.x = cam.x; camT.y = cam.y; }
+  }
   function setView(v){ view = v; fit(); renderLegend(); $("wbView").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
     if (v !== "ring") hideTip();
     if (v === "ring") tipCenter("Ring view: each atom shows its outer ring. Dots in an overlap are shared pairs (the bonds). Dashed circles are empty hands."); }
-  function fit(){
+  /* force = reframe even if you zoomed/panned yourself (Fit and Tidy buttons) */
+  function fit(force){
+    if (manualCam && !force) return;
     if (!atoms.length){ Object.assign(camT, {x: 0, y: 0, s: 1}); return; }
     // frame where atoms are headed (a.tx/a.ty during a reaction), not where they are mid-glide
     const xs = atoms.map(a => a.tx ?? a.x), ys = atoms.map(a => a.ty ?? a.y);
@@ -660,7 +793,8 @@ const Bench = (() => {
     const side = W > 760 ? 330 : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
     const lc = $("wbLearn"), cardOn = lc && !lc.hidden && lc.offsetHeight > 0;
     const left = W > 760 && cardOn ? 350 : 0;   // lesson / reaction card on the left
-    let bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : 130);   // phone: space the drawer + toolbar take
+    const toolsH = document.querySelector(".wb-tools")?.offsetHeight || 76;
+    let bottom = side ? 0 : ($("wbCloud").classList.contains("open") ? H * 0.55 : toolsH + 66);   // phone: space the cloud strip + toolbar take
     if (!side && cardOn){   // phone: the card docks at the bottom, so keep the atoms above its top edge
       const wr = $("workbench").getBoundingClientRect(), r = lc.getBoundingClientRect();
       bottom = Math.max(bottom, wr.bottom - r.top + 8);
@@ -694,6 +828,17 @@ const Bench = (() => {
     ev.preventDefault();
     touchPad = ev.pointerType === "touch" ? 12 : 0;
     const [sx, sy] = pos(ev); closePop();
+    ptrs.set(ev.pointerId, [sx, sy]);
+    try { cv.setPointerCapture(ev.pointerId); } catch(_){}
+    if (ptrs.size === 2){
+      // second finger down: whatever the first finger was doing becomes a pinch (the atom stays where it is)
+      if (drag){ drag = null; $("wbTrash").classList.remove("hot"); hoverTrash = false; }
+      pan = null; clearTimeout(pendingBondClick);
+      const [p, q] = [...ptrs.values()];
+      pinch = {d: Math.hypot(p[0] - q[0], p[1] - q[1]) || 1, s: cam.s, mid: toWorld((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)};
+      return;
+    }
+    if (ptrs.size > 2) return;
     const a = hitAtom(sx, sy);
     if (a){
       const [wx, wy] = toWorld(sx, sy);
@@ -709,11 +854,27 @@ const Bench = (() => {
       lastBondTap = {b: bd, t: now};
       pendingBondClick = setTimeout(() => openPop(bd), 300); return;
     }
-    selected = null;
-    if (zoomBond) unzoom();
+    // empty space: drag to pan. A plain tap (no movement) still deselects, like before.
+    pan = {sx, sy, cx: cam.x, cy: cam.y, moved: false};
   }
   function onMove(ev){
     const [sx, sy] = pos(ev);
+    if (ptrs.has(ev.pointerId)) ptrs.set(ev.pointerId, [sx, sy]);
+    if (pinch && ptrs.size >= 2){
+      const [p, q] = [...ptrs.values()], d = Math.hypot(p[0] - q[0], p[1] - q[1]) || 1;
+      const s = clampS(pinch.s * d / pinch.d), mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2;
+      cam.s = camT.s = s;
+      cam.x = camT.x = pinch.mid[0] - (mx - W / 2) / s; cam.y = camT.y = pinch.mid[1] - (my - H / 2) / s;
+      manualCam = true; return;
+    }
+    if (pan){
+      if (Math.hypot(sx - pan.sx, sy - pan.sy) > 4) pan.moved = true;
+      if (pan.moved){
+        cam.x = camT.x = pan.cx - (sx - pan.sx) / cam.s; cam.y = camT.y = pan.cy - (sy - pan.sy) / cam.s;
+        manualCam = true; cv.style.cursor = "grabbing";
+      }
+      return;
+    }
     if (!drag){ cv.style.cursor = hitAtom(sx, sy) ? "grab" : hitBond(sx, sy) ? "pointer" : "default"; return; }
     const [wx, wy] = toWorld(sx, sy);
     const nx = wx + drag.ox, ny = wy + drag.oy, ddx = nx - drag.a.x, ddy = ny - drag.a.y;
@@ -735,6 +896,12 @@ const Bench = (() => {
     if (worst) breakBond(worst, "pull");
   }
   function onUp(ev){
+    ptrs.delete(ev.pointerId);
+    if (pinch){ if (ptrs.size < 2) pinch = null; return; }   // lifting one finger ends the pinch; the other finger does nothing
+    if (pan){
+      if (!pan.moved){ selected = null; if (zoomBond) unzoom(); }
+      pan = null; cv.style.cursor = "default"; return;
+    }
     if (!drag) return;
     const a = drag.a, [sx, sy] = pos(ev);
     if (inTrash(sx, sy)){ removeAtom(a); }
@@ -749,7 +916,10 @@ const Bench = (() => {
       else if (best && tryBond(a, best) && phone()) fit();
       if (!drag.moved){
         const k = kindOf(a.sym);
-        tipAt(a, null, `${Name(a.sym)}: ${k === "metal" ? `gives away ${used(a) ? "has given " + used(a) : "up to " + handsOf(a)} electron${handsOf(a) > 1 ? "s" : ""}` : k === "noble" ? "full, no hands" : `${handsOf(a)} hand${handsOf(a) > 1 ? "s" : ""}, ${free(a)} still empty`}. Drag to move it; drop it on the trash to remove it.`);
+        const sh = el(a.sym)?.shells || [];
+        const shellTxt = sh.length > 1 ? ` ${sh.length} shells (the ${sh.length - 1} faint inner ring${sh.length > 2 ? "s" : ""} + the bold outer one). ` : " ";
+        const g = typeof gstFor === "function" ? gstFor(el(a.sym)) : null;
+        tipAt(a, null, `<b>${Name(a.sym)}</b> (${a.sym}).${shellTxt}${g ? `<b>${g.verdict}.</b> ` : ""}${k === "metal" ? (used(a) ? `It has given away ${used(a)} electron${used(a) > 1 ? "s" : ""}` : `It can give away up to ${handsOf(a)} electron${handsOf(a) > 1 ? "s" : ""}`) : k === "noble" ? "Full, no hands" : `${handsOf(a)} hand${handsOf(a) > 1 ? "s" : ""}, ${free(a)} still empty`}. Drag to move it; drop it on the trash to remove it.`);
       }
     }
     $("wbTrash").classList.remove("hot"); hoverTrash = false;
@@ -788,12 +958,13 @@ const Bench = (() => {
       const d = Math.sqrt(d2) || 0.5, f = Math.min(6, REP / (d2 + 60)), ux = dx / d, uy = dy / d;
       p.vx -= f * ux; p.vy -= f * uy; q.vx += f * ux; q.vy += f * uy;
     }
-    const [x0, y0] = toWorld(30, headH()), [x1, y1] = toWorld(W - 30 - (W > 760 ? 320 : 0), H - (W > 760 ? 70 : 150));
+    const [x0, y0] = toWorld(30, headH()), [x1, y1] = toWorld(W - 30 - (W > 760 ? 320 : 0), H - (W > 760 ? 70 : (toolsHc + 70)));
     for (const a of atoms){
       if (drag && drag.a === a) continue;
       if (a.tx != null){ a.x += (a.tx - a.x) * 0.1; a.y += (a.ty - a.y) * 0.1; a.vx = a.vy = 0; continue; }
       a.vx *= DAMP; a.vy *= DAMP; a.x += a.vx * dt; a.y += a.vy * dt;
-      if (x1 > x0 && y1 > y0){ if (a.x < x0) a.vx += (x0 - a.x) * .05; if (a.x > x1) a.vx -= (a.x - x1) * .05; if (a.y < y0) a.vy += (y0 - a.y) * .05; if (a.y > y1) a.vy -= (a.y - y1) * .05; }
+      // keep atoms on screen, but only while the bench frames itself (zoomed in by hand, the view is smaller than the bench)
+      if (!manualCam && x1 > x0 && y1 > y0){ if (a.x < x0) a.vx += (x0 - a.x) * .05; if (a.x > x1) a.vx -= (a.x - x1) * .05; if (a.y < y0) a.vy += (y0 - a.y) * .05; if (a.y > y1) a.vy -= (a.y - y1) * .05; }
     }
   }
   function relax(n){ for (let i = 0; i < n; i++) step(1); }
@@ -854,7 +1025,7 @@ const Bench = (() => {
           ctx.setLineDash([3, 5]); ctx.strokeStyle = muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(b.a.x, b.a.y); ctx.lineTo(b.b.x, b.b.y); ctx.stroke(); ctx.setLineDash([]);
         } else {
           const offs = b.order === 2 ? [-3.5, 3.5] : b.order === 3 ? [-6, 0, 6] : [0];
-          ctx.strokeStyle = stretch > 1.6 ? css("--proton") : ink; ctx.lineWidth = 2.6;
+          ctx.strokeStyle = stretch > 1.6 ? css("--proton") : ink; ctx.lineWidth = 2.6 * Math.min(1, 1.6 / cam.s);   // thinner when zoomed in, so it stays a line
           for (const k of offs){ ctx.beginPath(); ctx.moveTo(b.a.x + nx*k, b.a.y + ny*k); ctx.lineTo(b.b.x + nx*k, b.b.y + ny*k); ctx.stroke(); }
         }
         ctx.globalAlpha = 1;
@@ -873,22 +1044,106 @@ const Bench = (() => {
               const pulse = 0.5 + 0.5 * Math.sin(performance.now() / 260);
               ctx.beginPath(); ctx.arc(hx, hy, 7 + pulse * 3, 0, 7); ctx.fillStyle = css("--warn"); ctx.globalAlpha = 0.35 + pulse * 0.35; ctx.fill(); ctx.globalAlpha = dimFor(a);
             }
-            ctx.setLineDash([2.5, 2.5]); ctx.strokeStyle = seat; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(hx, hy, 5.5, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+            const k2 = Math.min(1, 1.6 / cam.s); ctx.setLineDash([2.5 * k2, 2.5 * k2]); ctx.strokeStyle = seat; ctx.lineWidth = 1.6 * k2; ctx.beginPath(); ctx.arc(hx, hy, 5.5, 0, 7); ctx.stroke(); ctx.setLineDash([]);
           }
         } else if (k === "metal"){
           const left = handsOf(a) - used(a);
           if (!metalHappy(a)) for (const ang of freeAngles(a, Math.max(0, left))){ ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * (r + 10), a.y + Math.sin(ang) * (r + 10), 4, 0, 7); ctx.fillStyle = accent; ctx.fill(); }
         }
         if (a === selected){ ctx.beginPath(); ctx.arc(a.x, a.y, r + 4, 0, 7); ctx.strokeStyle = accent; ctx.lineWidth = 2; ctx.stroke(); }
-        ctx.beginPath(); ctx.arc(a.x, a.y, r, 0, 7); ctx.fillStyle = col; ctx.fill();
-        ctx.fillStyle = textOn(col.startsWith("#") ? col : "#3A3F47"); ctx.font = `700 ${a.sym === "H" ? 12 : a.sym.length > 1 ? 13 : 15}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-        ctx.fillText(a.sym, a.x, a.y + 0.5);
+        drawShellAtom(a, r, col, t, dimFor(a), {ink, muted, accent});
         const ch = chargeOf(a);
-        if (ch){ ctx.fillStyle = ink; ctx.font = "700 12px Archivo, sans-serif"; ctx.fillText((Math.abs(ch) > 1 ? Math.abs(ch) : "") + (ch > 0 ? "+" : "−"), a.x + r + 2, a.y - r + 2); }
+        if (ch){ ctx.fillStyle = ink; ctx.font = "700 12px Archivo, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText((Math.abs(ch) > 1 ? Math.abs(ch) : "") + (ch > 0 ? "+" : "−"), a.x + r + 2, a.y - r + 2); }
         ctx.globalAlpha = 1;
       }
+      drawNames(surface, muted);
     }
     ctx.restore();
+  }
+  /* One atom in Balls & sticks view, drawn like a tiny Bohr model so you can see how big it really is:
+       nucleus disc with the symbol, faint rings for the inner shells (always), a bold ring for the outer shell.
+     Zoom changes the detail, not the layout (the atom's size on the bench never changes):
+       zoom < 1.6   rings only
+       zoom >= 1.6  electron dots on the inner rings
+       zoom >= 2.6  outer electrons too, and the inner dots drift slowly, like Explore (calmer) */
+  const DOTS_AT = 1.6, DEEP_AT = 2.6;
+  function drawShellAtom(a, r, col, t, alpha, c){
+    const sh = el(a.sym)?.shells || [1], inner = sh.length - 1;
+    const nucR = r * (a.sym === "H" ? 0.62 : 0.6), px = 1 / cam.s;   // px = one screen pixel in bench units
+    // the outer shell's space, lightly tinted with the element's color
+    ctx.beginPath(); ctx.arc(a.x, a.y, r, 0, 7); ctx.fillStyle = col; ctx.globalAlpha = alpha * 0.2; ctx.fill(); ctx.globalAlpha = alpha;
+    // inner shells: evenly spaced between the nucleus and the outer ring
+    const ringAt = (i) => nucR + (r - nucR) * (i + 1) / (inner + 1);
+    ctx.strokeStyle = c.muted; ctx.lineWidth = Math.max(0.5, 0.8 * px * Math.min(cam.s, 2));
+    for (let i = 0; i < inner; i++){ ctx.globalAlpha = alpha * 0.55; ctx.beginPath(); ctx.arc(a.x, a.y, ringAt(i), 0, 7); ctx.stroke(); }
+    ctx.globalAlpha = alpha;
+    // outer shell: bold, this is where bonding happens
+    ctx.beginPath(); ctx.arc(a.x, a.y, r, 0, 7); ctx.strokeStyle = col; ctx.lineWidth = 2.2 * Math.min(1, 1.6 / cam.s); ctx.stroke();
+    // electrons, only when zoomed in enough to see them (and only if this atom is on screen)
+    if (cam.s >= DOTS_AT){
+      const [sx, sy] = toScreen(a.x, a.y);
+      if (sx > -60 && sx < W + 60 && sy > -60 && sy < H + 60){
+        const dr = Math.max(0.9, 2.1 * px * Math.min(cam.s, 3));
+        const drift = cam.s >= DEEP_AT && !REDUCED ? t * 0.25 : 0;
+        ctx.fillStyle = css("--electron-inner");
+        for (let i = 0; i < inner; i++){
+          const n = sh[i], R = ringAt(i), off = drift * (i % 2 ? -1 : 1) + i * 0.4;
+          // a shell's dots appear once they'd sit at least ~5 screen px apart (big shells like francium's 32 need more zoom)
+          const gap = 2 * Math.PI * R / n;            // spacing between dots, in bench units
+          if (gap * cam.s < 5) continue;
+          const rr = Math.min(dr, gap * 0.3);
+          for (let k = 0; k < n; k++){ const ang = off + k * Math.PI * 2 / n; ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * R, a.y + Math.sin(ang) * R, rr, 0, 7); ctx.fill(); }
+        }
+        if (cam.s >= DEEP_AT) drawOuterElectrons(a, r, dr * 1.25, c.accent);
+      }
+    }
+    // nucleus with the symbol
+    ctx.beginPath(); ctx.arc(a.x, a.y, nucR, 0, 7); ctx.fillStyle = col; ctx.fill();
+    ctx.fillStyle = textOn(col.startsWith("#") ? col : "#3A3F47");
+    ctx.font = `700 ${a.sym === "H" ? 11 : a.sym.length > 1 ? 11 : 13}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(a.sym, a.x, a.y + 0.5);
+  }
+  const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Deep zoom: the outer electrons. Shared ones sit on the bond (a pair per handshake);
+     the rest sit on the outer ring, pointing away from the bonds. Same counting as Ring view. */
+  function drawOuterElectrons(a, R, dr, accent){
+    const items = outerItems(a), taken = neighbors(a).map(o => Math.atan2(o.y - a.y, o.x - a.x));
+    const angs = freeAnglesFrom(taken, items.length);
+    const dot = (x, y, fill) => { ctx.beginPath(); ctx.arc(x, y, dr, 0, 7); ctx.fillStyle = fill; ctx.fill(); };
+    items.forEach((it, i) => {
+      const ang = angs[i], px = a.x + Math.cos(ang) * R, py = a.y + Math.sin(ang) * R, tx = -Math.sin(ang) * dr * 1.3, ty = Math.cos(ang) * dr * 1.3;
+      if (it === "pair" || it === "got"){ dot(px + tx, py + ty, accent); dot(px - tx, py - ty, accent); }
+      else dot(px, py, accent);
+    });
+    // shared pairs: drawn once per bond, from the lower-id atom, on the bond line where the two rings meet
+    for (const b of bonds){
+      if (b.kind !== "cov" || (b.a !== a && b.b !== a)) continue;
+      const o = b.a === a ? b.b : b.a; if (o.id < a.id) continue;
+      const dx = o.x - a.x, dy = o.y - a.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d, nx = -uy, ny = ux;
+      const mx = a.x + ux * d / 2, my = a.y + uy * d / 2;
+      for (let k = 0; k < b.order; k++){
+        const off = (k - (b.order - 1) / 2) * dr * 4.5;
+        dot(mx + nx * off - ux * dr * 1.3, my + ny * off - uy * dr * 1.3, accent);
+        dot(mx + nx * off + ux * dr * 1.3, my + ny * off + uy * dr * 1.3, accent);
+      }
+    }
+  }
+  /* Names under atoms, so you don't have to know the symbols. Shown when there's room:
+     few atoms, or zoomed in. Hydrogens get labels only when zoomed in (there are a lot of them). */
+  function drawNames(surface, muted){
+    const many = atoms.length > 14;
+    const fs = 10.5 * Math.min(Math.max(cam.s, 1), 1.5) / cam.s;   // about 10-16 px on screen at any zoom
+    ctx.font = `600 ${fs}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.lineJoin = "round"; ctx.lineWidth = 3 / cam.s; ctx.strokeStyle = surface; ctx.fillStyle = muted;
+    for (const a of atoms){
+      if (a.sym === "*") continue;
+      const isH = a.sym === "H";
+      const show = a === selected || (isH ? (cam.s >= 1.6 || atoms.length <= 4) : (cam.s >= 1.25 || !many));
+      if (!show) continue;
+      const nm = Name(a.sym), y = a.y + size(a.sym) + 3 / cam.s;
+      ctx.strokeText(nm, a.x, y); ctx.fillText(nm, a.x, y);
+    }
+    ctx.textBaseline = "middle";
   }
   function chargeOf(a){
     if (a.charge) return a.charge;
@@ -933,24 +1188,7 @@ const Bench = (() => {
       // electrons that are not in a shared pair
       const myBonds = bonds.filter(b => b.a === a || b.b === a);
       const taken = myBonds.map(b => { const o = b.a === a ? b.b : b.a; return Math.atan2(o.y - a.y, o.x - a.x); });
-      const v = e.valence;
-      const items = [];   // "pair" | "single" | "given" (gave away) | "got" (received pair partner)
-      if (k === "metal"){
-        const given = myBonds.filter(b => b.kind === "ion").reduce((s, b) => s + b.order, 0);
-        for (let i = 0; i < Math.max(0, v - given); i++) items.push("dot");
-      } else if (k === "noble"){
-        for (let i = 0; i < v / 2; i++) items.push("pair");
-      } else {
-        const covUsed = myBonds.filter(b => b.kind === "cov").reduce((s, b) => s + b.order, 0);
-        const got = myBonds.filter(b => b.kind === "ion").reduce((s, b) => s + b.order, 0);
-        const own = Math.max(0, v - covUsed);
-        const singles = Math.max(0, handsOf(a) - covUsed - got);
-        const gotPairs = Math.min(got, Math.max(0, own - singles));
-        const lonePairs = Math.max(0, Math.round((own - singles - gotPairs) / 2));
-        for (let i = 0; i < lonePairs; i++) items.push("pair");
-        for (let i = 0; i < gotPairs; i++) items.push("got");
-        for (let i = 0; i < singles; i++) items.push("single");
-      }
+      const items = outerItems(a);
       const angs = freeAnglesFrom(taken, items.length);
       items.forEach((it, i) => {
         const ang = angs[i], px = a.x + Math.cos(ang) * R, py = a.y + Math.sin(ang) * R, tx = -Math.sin(ang), ty = Math.cos(ang);
@@ -964,6 +1202,30 @@ const Bench = (() => {
       if (ch){ ctx.fillStyle = col.ink; ctx.font = "700 13px Archivo, sans-serif"; ctx.fillText((Math.abs(ch) > 1 ? Math.abs(ch) : "") + (ch > 0 ? "+" : "−"), a.x + R * .78, a.y - R * .78); }
       ctx.globalAlpha = 1;
     }
+  }
+  /* The outer electrons that are NOT in a shared pair, as a list:
+     "pair" (two of its own), "single" (one, waiting for a partner), "got" (a pair completed by an electron
+     a metal handed over), "dot" (a metal's electron it hasn't given away yet). Used by Ring view and deep zoom. */
+  function outerItems(a){
+    const e = el(a.sym), k = kindOf(a.sym), v = e.valence, items = [];
+    const myBonds = bonds.filter(b => b.a === a || b.b === a);
+    if (k === "metal"){
+      const given = myBonds.filter(b => b.kind === "ion").reduce((s, b) => s + b.order, 0);
+      for (let i = 0; i < Math.max(0, v - given); i++) items.push("dot");
+    } else if (k === "noble"){
+      for (let i = 0; i < v / 2; i++) items.push("pair");
+    } else {
+      const covUsed = myBonds.filter(b => b.kind === "cov").reduce((s, b) => s + b.order, 0);
+      const got = myBonds.filter(b => b.kind === "ion").reduce((s, b) => s + b.order, 0);
+      const own = Math.max(0, v - covUsed);
+      const singles = Math.max(0, handsOf(a) - covUsed - got);
+      const gotPairs = Math.min(got, Math.max(0, own - singles));
+      const lonePairs = Math.max(0, Math.round((own - singles - gotPairs) / 2));
+      for (let i = 0; i < lonePairs; i++) items.push("pair");
+      for (let i = 0; i < gotPairs; i++) items.push("got");
+      for (let i = 0; i < singles; i++) items.push("single");
+    }
+    return items;
   }
   function freeAnglesFrom(taken, n){
     const out = [];

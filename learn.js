@@ -246,14 +246,25 @@ Reply with only JSON: {"verdict":"got it"|"almost"|"not yet","right":["short phr
     box.querySelector("[data-close]").onclick = () => box.hidden = true;
     box.querySelectorAll("[data-rx]").forEach(b => b.onclick = () => { box.hidden = true; loadReaction(reactions.find(r => r.id === b.dataset.rx)); });
   }
+  /* the equation in words: "methane + 2 oxygen pairs → carbon dioxide + 2 waters" */
+  const PLAIN = {h2: "hydrogen pair", o2: "oxygen pair", cl2: "chlorine pair", n2: "nitrogen pair", na_metal: "sodium atom", fe_metal: "iron atom",
+    fe2o3: "rust", nacl: "salt", n2o4: "nitrogen tetroxide"};
+  const PLURAL = {rust: "bits of rust", salt: "bits of salt"};
+  function nameIn(id, n){
+    const w = PLAIN[id] || (mol(id)?.name || id).toLowerCase();
+    return n > 1 ? `${n} ${PLURAL[w] || w + "s"}` : w;
+  }
+  const wordsEq = (r) => r.reactants.map(([id, n]) => nameIn(id, n)).join(" + ") + " → " + r.products.map(([id, n]) => nameIn(id, n)).join(" + ");
   function loadReaction(r){
     quitLesson(); stopReaction();
     Bench.clear();
     for (const [id, n] of r.reactants){ const m = mol(id); for (let i = 0; i < n; i++){ if (m.lattice?.style === "metal") Bench.add(Object.keys(m.counts)[0]); else Bench.addMolecule(m); } }
     card(`<div class="lc-top"><span class="eyebrow">Reaction</span><button class="linkbtn" data-quit>Close</button></div>
-      <h3 class="lc-title">${esc(r.name)}</h3><div class="mono rx-eq">${esc(r.equation)}</div>
-      <p class="small">The ingredients are on the bench. Press <b>React</b> to watch the bonds break and re-form.</p>
-      <div class="row"><button class="btn primary" data-go>React</button></div>`);
+      <h3 class="lc-title">${esc(r.name)}</h3>
+      <div class="rx-words">${esc(wordsEq(r))}</div><div class="mono rx-eq">${esc(r.equation)}</div>
+      <div class="row" style="margin:6px 0"><button class="btn primary" data-go>React</button><span class="small muted">One step at a time. Each waits for <b>Next step</b>.</span></div>
+      ${r.intro ? `<p class="rx-intro">${esc(r.intro)}</p>` : ""}
+      <p class="rx-bench">On the bench now: ${esc(r.reactants.map(([id, n]) => nameIn(id, n)).join(" and "))}.</p>`);
     B.fit(); Bench.update();   // after the card, so the camera knows how much room it takes
     $("wbLearn").querySelector("[data-quit]").onclick = () => { stopReaction(); closeCard(); };
     $("wbLearn").querySelector("[data-go]").onclick = () => playReaction(r);
@@ -317,11 +328,11 @@ Reply with only JSON: {"verdict":"got it"|"almost"|"not yet","right":["short phr
     const p = playing, r = p.r, n = r.story.length, k = p.phase;
     const heat = /gives off|releases/i.test(r.energy) ? "out" : /needs|takes/i.test(r.energy) ? "in" : "";
     card(`<div class="lc-top"><span class="eyebrow">Reaction · step ${Math.min(k + 1, n)} of ${n}</span><button class="linkbtn" data-quit>Stop</button></div>
-      <h3 class="lc-title">${esc(r.name)}</h3><div class="mono rx-eq">${esc(r.equation)}</div>
-      <ol class="lc-steps">${r.story.map((s, i) => `<li class="${i < k ? "ok" : i === k ? "now" : ""}">${i === k ? `<b>${esc(s)}</b>` : esc(s)}</li>`).join("")}</ol>
-      ${k >= n - 1 ? `<p class="small"><b>Energy:</b> ${esc(r.energy)}${r.dH ? ` (${esc(r.dH)})` : ""}.</p>${r.everyday ? `<p class="small rx-more"><b>Where you see it:</b> ${esc(r.everyday)}</p>` : ""}
+      <h3 class="lc-title">${esc(r.name)}</h3><div class="rx-words">${esc(wordsEq(r))}</div>
+      <ol class="lc-steps">${r.story.map((s, i) => `<li class="${i < k ? "ok" : i === k ? "now" : ""}">${i === k ? `<div class="rx-now">${esc(s)}</div>` : esc(s)}</li>`).join("")}</ol>
+      ${k >= n - 1 ? `${r.takeaway ? `<div class="rx-take"><b>Takeaway:</b> ${esc(r.takeaway)}</div>` : ""}<p class="small"><b>Energy:</b> ${esc(r.energy)}.</p>${r.everyday ? `<p class="small rx-more"><b>Where you see it:</b> ${esc(r.everyday)}</p>` : ""}
         ${r.lens?.nexus ? `<p class="small lenstxt nexus rx-more"><b>Nexus:</b> ${esc(r.lens.nexus)}</p>` : ""}${r.lens?.rocket ? `<p class="small lenstxt rocket rx-more"><b>Rockets:</b> ${esc(r.lens.rocket)}</p>` : ""}` : ""}
-      <div class="row">${k < n - 1 ? `<button class="btn primary" data-next>Next</button>` : `<button class="btn" data-again>Play again</button>`}</div>`);
+      <div class="row">${k < n - 1 ? `<button class="btn primary" data-next>Next step</button>` : `<button class="btn" data-again>Play again</button>`}</div>`);
     const c = $("wbLearn");
     c.querySelector("[data-quit]").onclick = () => { stopReaction(); closeCard(); };
     c.querySelector("[data-next]")?.addEventListener("click", () => { p.phase++; runPhase(); renderReactionStep(); });

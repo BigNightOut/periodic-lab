@@ -266,12 +266,12 @@ lat("al2o3", "Aluminum oxide", "Al2O3", "ionic", {"Al": 2, "O": 3},
     "Sapphire, grinding grit, catalyst supports, the protective skin on aluminum.",
     {"nexus": "Alumina is a common base for catalysts (reaction helpers), and part of zeolite and clay catalysts.",
      "rocket": "The white smoke from solid rocket boosters is mostly aluminum oxide particles."}, aliases=["alumina", "sapphire", "corundum"])
-lat("fe2o3", "Iron(III) oxide", "Fe2O3", "ionic", {"Fe": 2, "O": 3},
+lat("fe2o3", "Rust (iron oxide)", "Fe2O3", "ionic", {"Fe": 2, "O": 3},
     "Iron gives 3 electrons, oxygen takes 2, so 2 Fe balance 3 O. This is red rust.",
-    "Rust; iron ore (hematite); coloring.", aliases=["rust", "hematite"])
+    "Rust; iron ore (hematite); coloring.", aliases=["rust", "hematite", "Iron(III) oxide"])
 lat("fe3o4", "Magnetite", "Fe3O4", "ionic", {"Fe": 3, "O": 4}, "A mix of Fe2+ and Fe3+ ions with oxygen. Naturally magnetic.", "Iron ore; the first magnets (lodestone).")
-lat("cuo", "Copper(II) oxide", "CuO", "ionic", {"Cu": 1, "O": 1}, "Copper gives 2, oxygen takes 2. The black tarnish on hot copper.", "Coloring, catalysts.")
-lat("cu2o", "Copper(I) oxide", "Cu2O", "ionic", {"Cu": 2, "O": 1}, "Here copper gives just its 1 loose electron, so 2 Cu per O. Red-colored.", "Antifouling boat paint, early semiconductors.")
+lat("cuo", "Black copper oxide", "CuO", "ionic", {"Cu": 1, "O": 1}, "Copper gives 2, oxygen takes 2. The black tarnish on hot copper.", "Coloring, catalysts.")
+lat("cu2o", "Red copper oxide", "Cu2O", "ionic", {"Cu": 2, "O": 1}, "Here copper gives just its 1 loose electron, so 2 Cu per O. Red-colored.", "Antifouling boat paint, early semiconductors.")
 lat("tio2", "Titanium dioxide", "TiO2", "ionic", {"Ti": 1, "O": 2}, "Titanium gives 4 electrons, enough for 2 oxygens.", "White pigment in paint and sunscreen.")
 lat("zno", "Zinc oxide", "ZnO", "ionic", {"Zn": 1, "O": 1}, "Zinc gives 2 electrons, oxygen takes 2.", "Sunscreen, curing rubber.")
 lat("li2o", "Lithium oxide", "Li2O", "ionic", {"Li": 2, "O": 1}, "Each lithium gives 1 electron. Oxygen has 2 empty hands, so it needs two.", "Glass and ceramic glazes.")
