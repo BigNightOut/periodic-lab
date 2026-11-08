@@ -30,6 +30,11 @@ const Bench = (() => {
   const ZMIN = 0.3, ZMAX = 6;
   const clampS = (s) => Math.max(ZMIN, Math.min(ZMAX, s));
   const shownTips = new Set();
+  // grid lines on/off, and where you parked the idea cloud (both remembered on this device)
+  const store = {get(k, d){ try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch(_){ return d; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(_){} }};
+  let gridOn = store.get("plab.grid", 1) !== 0;
+  let cloudMini = !!store.get("plab.cloudMini", 0), cloudPos = store.get("plab.cloudPos", null), cloudDrag = null;
   const BREAK = 2.3;                 // stretch factor that breaks a bond while dragging
   const $ = (id) => document.getElementById(id);
 
@@ -47,7 +52,8 @@ const Bench = (() => {
     return e.valence >= 4 ? 8 - e.valence : e.valence;
   }
   const handsOf = (a) => a.hands ?? baseHands(a.sym);
-  function used(a){ let u = 0; for (const b of bonds) if (b.a === a || b.b === a) u += b.order; return u; }
+  // dative ("spare-pair") bonds don't use up hands: one atom brings both electrons from a pair it wasn't using
+  function used(a){ let u = 0; for (const b of bonds) if ((b.a === a || b.b === a) && b.kind !== "dat") u += b.order; return u; }
   const free = (a) => Math.max(0, handsOf(a) - used(a));
   function metalHappy(a){
     const g = used(a); if (!g) return false;
@@ -57,7 +63,16 @@ const Bench = (() => {
   const needsMore = (a) => kindOf(a.sym) === "metal" ? !metalHappy(a) : free(a) > 0;
   const size = (sym) => sym === "H" ? 13 : sym === "*" ? 6 : 19;
   const ringR = (sym) => sym === "H" ? 24 : 34;
-  function rest(b){ return b.kind === "ion" ? 82 : size(b.a.sym) + size(b.b.sym) + 14; }
+  function rest(b){ return b.kind === "ion" ? 82 : size(b.a.sym) + size(b.b.sym) + (b.kind === "dat" ? 22 : 14); }
+  /* Boron's empty spot: boron has 3 electrons for 4 places, so even with all 3 hands held its shell has only 6.
+     The 4th place is an empty socket that only a whole spare pair can fill (a dative bond). */
+  const hasSocket = (a) => kindOf(a.sym) === "nonmetal" && el(a.sym)?.valence === 3 && !bonds.some(b => b.kind === "dat" && b.b === a);
+  const sparePairs = (a) => kindOf(a.sym) === "nonmetal" && a.sym !== "H" ? outerItems(a).filter(i => i === "pair").length : 0;
+  function datPairFor(a, b){
+    if (hasSocket(a) && sparePairs(b) > 0) return {donor: b, acceptor: a};
+    if (hasSocket(b) && sparePairs(a) > 0) return {donor: a, acceptor: b};
+    return null;
+  }
   const bondBetween = (p, q) => bonds.find(b => (b.a === p && b.b === q) || (b.a === q && b.b === p));
   const neighbors = (a) => bonds.filter(b => b.a === a || b.b === a).map(b => b.a === a ? b.b : b.a);
 
@@ -79,9 +94,14 @@ const Bench = (() => {
     $("wbFit").addEventListener("click", () => { manualCam = false; if (zoomBond) unzoom(); else fit(true); });
     $("wbDup").addEventListener("click", duplicate);
     $("wbPartsBtn").addEventListener("click", () => toggleParts());
+    $("wbUndo").addEventListener("click", undo); undoBtn();
+    $("wbGrid").addEventListener("click", () => { gridOn = !gridOn; try { localStorage.setItem("plab.grid", gridOn ? "1" : "0"); } catch(_){} gridBtn(); });
+    gridBtn();
+    mountCloudDrag();
     document.addEventListener("keydown", (ev) => {
       if (!visible) return;
       if (ev.key === "Escape"){ closePop(); unzoom(); }
+      if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === "z" && !ev.target.closest?.("input,textarea,select")){ ev.preventDefault(); undo(); }
       if ((ev.key === "Delete" || ev.key === "Backspace") && selected && document.activeElement === document.body){ removeAtom(selected); ev.preventDefault(); }
     });
     $("wbView").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setView(b.dataset.v)));
@@ -93,7 +113,7 @@ const Bench = (() => {
     $("wbRecipesBtn").addEventListener("click", toggleRecipes);
     $("wbZoomOut").addEventListener("click", unzoom);
     $("wbShowF").addEventListener("click", () => { document.body.classList.toggle("show-f"); $("wbShowF").setAttribute("aria-pressed", document.body.classList.contains("show-f")); sizeToWindow(); });
-    addEventListener("resize", () => visible && sizeToWindow());
+    addEventListener("resize", () => { if (visible){ sizeToWindow(); placeCloud(); } });
     buildRecipes();
     // quick starts in the empty state: ready-made molecules to pull apart
     const quick = [["methane", "Methane"], ["water", "Water"], ["co2", "CO2"], ["nacl", "Table salt"], ["polyethylene", "Polyethylene"]];
@@ -110,10 +130,32 @@ const Bench = (() => {
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
   }
   function show(){
-    visible = true; $("workbench").hidden = false; sizeToWindow(); update();
+    visible = true; $("workbench").hidden = false; sizeToWindow(); update(); placeCloud();
     if (!raf) raf = requestAnimationFrame(loop);
   }
   function hide(){ visible = false; $("workbench").hidden = true; cancelAnimationFrame(raf); raf = 0; closePop(); }
+
+  /* ---------- undo: a snapshot of the bench before each change you make ---------- */
+  const history = [];
+  let histHold = 0;                      // >0 while one action adds many atoms (counts as one step)
+  function remember(){
+    if (histHold) return;
+    history.push({atoms: atoms.map(a => ({id: a.id, sym: a.sym, x: a.x, y: a.y, hands: a.hands, charge: a.charge})),
+      bonds: bonds.map(b => ({a: b.a.id, b: b.b.id, order: b.order, kind: b.kind}))});
+    if (history.length > 40) history.shift();
+    undoBtn();
+  }
+  function undo(){
+    const snapOf = history.pop(); undoBtn(); if (!snapOf) return;
+    const byId = new Map(); atoms.length = 0; bonds.length = 0;
+    for (const o of snapOf.atoms){ const a = {id: o.id, sym: o.sym, x: o.x, y: o.y, vx: 0, vy: 0}; if (o.hands != null) a.hands = o.hands; if (o.charge) a.charge = o.charge; atoms.push(a); byId.set(o.id, a); }
+    for (const o of snapOf.bonds) bonds.push({a: byId.get(o.a), b: byId.get(o.b), order: o.order, kind: o.kind});
+    selected = lastTouched = atoms[atoms.length - 1] || null; zoomBond = null; closePop();
+    loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);   // undoing back to a finished molecule isn't a new build
+    note(null, "Undone. Tap Undo again to step back further.");
+    fit(); update();
+  }
+  function undoBtn(){ const b = $("wbUndo"); if (b) b.disabled = !history.length; }
 
   /* ---------- editing ---------- */
   function freeSpot(){
@@ -137,6 +179,7 @@ const Bench = (() => {
   };
   function inBounds(x, y){ const [sx, sy] = toScreen(x, y); return sx > 40 && sx < W - 40 - (W > 760 ? 330 : 0) && sy > headH() + 20 && sy < H - (W > 760 ? 60 : toolsHc + 70); }
   function add(sym, x, y, extra){
+    remember();
     if (x == null) [x, y] = freeSpot();
     const a = {id: nextId++, sym, x, y, vx: 0, vy: 0, ...(extra||{})};
     atoms.push(a); lastTouched = a; selected = a;
@@ -151,12 +194,13 @@ const Bench = (() => {
     return `${h} hand${h === 1 ? "" : "s"}`;
   }
   function removeAtom(a){
+    remember();
     for (let i = bonds.length - 1; i >= 0; i--) if (bonds[i].a === a || bonds[i].b === a) bonds.splice(i, 1);
     atoms.splice(atoms.indexOf(a), 1);
     if (selected === a) selected = null; if (lastTouched === a) lastTouched = atoms[atoms.length - 1] || null;
     update();
   }
-  function clear(){ const bn = $("wbBanner"); if (bn) bn.hidden = true; atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; manualCam = false; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
+  function clear(){ if (atoms.length) remember(); lastNote = null; const bn = $("wbBanner"); if (bn) bn.hidden = true; atoms.length = 0; bonds.length = 0; selected = lastTouched = null; zoomBond = null; manualCam = false; Object.assign(camT, {x:0, y:0, s:1}); hideTip(); closePop(); hideCard(); update(); }
   function tryBond(a, b){
     if (bondBetween(a, b)) return false;
     const ka = kindOf(a.sym), kb = kindOf(b.sym);
@@ -166,25 +210,40 @@ const Bench = (() => {
       const m = ka === "metal" ? a : b, n = m === a ? b : a;
       const give = Math.min(free(m), free(n));
       if (give <= 0){ tipAt(n, null, free(n) ? `${Name(m.sym)} has no more electrons to give.` : `${Name(n.sym)}'s hands are all full already.`); return false; }
-      bonds.push({a: m, b: n, order: give, kind: "ion"});
+      remember(); bonds.push({a: m, b: n, order: give, kind: "ion"});
       tipAt(n, "ion", `${Name(m.sym)} doesn't share. It hands ${give === 1 ? "its electron" : give + " electrons"} to ${nameOf(n.sym)}. Now one is + and one is −, and they stick together like magnets.`);
       return true;
     }
-    if (!free(a) || !free(b)){ const f = free(a) ? b : a; tipAt(f, null, `${Name(f.sym)}'s ${handsOf(f) === 1 ? "only hand is" : "hands are all"} already held.`); return false; }
-    bonds.push({a, b, order: 1, kind: "cov"});
+    if (!free(a) || !free(b)){
+      // no free hand on one side: maybe one atom can lend a whole spare pair to boron's empty spot
+      const d = datPairFor(a, b);
+      if (d){
+        remember(); bonds.push({a: d.donor, b: d.acceptor, order: 1, kind: "dat"});
+        tipAt(d.acceptor, "dat", `The ${nameOf(d.donor.sym)} brought a whole spare pair and plugged it into the ${nameOf(d.acceptor.sym)}'s empty spot. Both electrons came from the ${nameOf(d.donor.sym)}, so the ${nameOf(d.acceptor.sym)} didn't have to put one in. Chemists call this a <b>dative bond</b>. The arrow points from the giver to the taker.`);
+        return true;
+      }
+      const sock = hasSocket(a) ? a : hasSocket(b) ? b : null, other = sock === a ? b : a;
+      if (sock && !free(sock)){
+        tipAt(sock, null, `The ${nameOf(sock.sym)} has an empty spot (the amber outline), but its hands are all used, so it has no electron to chip in. Only a partner that brings a whole spare pair can fill it. ${Name(other.sym)} ${other.sym === "H" ? "has just 1 electron, no spare pair" : "has no spare pair right now"}. Try ammonia's nitrogen or water's oxygen.`);
+        return false;
+      }
+      const f = free(a) ? b : a; tipAt(f, null, `${Name(f.sym)}'s ${handsOf(f) === 1 ? "only hand is" : "hands are all"} already held.`); return false;
+    }
+    remember(); bonds.push({a, b, order: 1, kind: "cov"});
     if (!shownTips.has("bond")) tipAt(b, "bond", "They're holding hands. Each atom put in one electron, and those two shared electrons are the bond. Turn on Ring view to see them sitting in the overlap.");
     return true;
   }
   function addOrder(bd){
     if (bd.kind !== "cov") return;
     if (bd.order >= 3 || !free(bd.a) || !free(bd.b)){ tipMid(bd, null, bd.order >= 3 ? "Three handshakes is the most two atoms can share." : "To add another handshake, both atoms need an empty hand."); return; }
-    bd.order++;
+    remember(); bd.order++;
     tipMid(bd, bd.order === 2 ? "double" : "triple", bd.order === 2
       ? "Double bond: two handshakes between the same two atoms. The second one is the weaker grip. Opening it is how ethylene links up into polyethylene."
       : "Triple bond: three handshakes. Very strong, and it packs a lot of energy, like in acetylene torches.");
     update();
   }
   function breakBond(bd, why){
+    remember();
     bonds.splice(bonds.indexOf(bd), 1);
     tipMid(bd, why === "pull" ? "break" : null, why === "pull"
       ? "You pulled hard enough to break the bond. Both atoms get their hands back. Heat does this in the reactor at Nexus: it shakes atoms until bonds snap."
@@ -194,6 +253,7 @@ const Bench = (() => {
   function fillH(){
     const targets = atoms.filter(a => a.sym !== "H" && a.sym !== "*" && kindOf(a.sym) === "nonmetal" && free(a) > 0);
     if (!targets.length){ tipCenter("Nothing to fill. Every nonmetal atom already has its hands held."); return; }
+    remember(); histHold++;
     for (const a of targets){
       const n = free(a), angs = freeAngles(a, n);
       for (const ang of angs){
@@ -201,7 +261,7 @@ const Bench = (() => {
         bonds.push({a, b: h, order: 1, kind: "cov"});
       }
     }
-    relax(120); update();
+    histHold--; relax(120); update();
   }
 
   /* ---------- recipes (library molecules) ---------- */
@@ -218,8 +278,13 @@ const Bench = (() => {
     return Number.isInteger(each) && pos.includes(each);
   }
   let loadingRecipe = false;
+  // one molecule = one Undo step, however many atoms it adds
   function addMolecule(m){
     if (!benchable(m)) return false;
+    remember(); histHold++;
+    try { return addMoleculeInner(m); } finally { histHold--; }
+  }
+  function addMoleculeInner(m){
     loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);
     hideCard();
     const ox = atoms.length ? Math.max(...atoms.map(a => a.x)) + 140 : cam.x;
@@ -330,6 +395,8 @@ const Bench = (() => {
       return `1 ${nameOf(a.sym)} atom with ${describeHands(a)}. Add atoms and drag them close.`;
     }
     if (done){
+      const extra = socketText(comp);
+      if (extra) return doneLine(info) + extra;
       if (match) return `Every hand is held. This is <b>${esc(match.name)}</b> ${match.formula.startsWith("(") || match.name.includes("(") ? "· " + esc(match.formula) : "(" + esc(match.formula) + ")"}.`;
       if (isomerOf) return `Every hand is held. Same atoms as <b>${esc(isomerOf.name)}</b>, but arranged differently, so it's a different molecule.`;
       return `Every hand is held. That's a stable ${esc(fm)}, but it isn't in my library yet.`;
@@ -342,6 +409,22 @@ const Bench = (() => {
       return lead + openHandsText(info);
     }
     return openHandsText(info);
+  }
+  function doneLine(info){
+    const {match, isomerOf, formula: fm} = info;
+    if (match) return `Every hand is held. This is <b>${esc(match.name)}</b> ${match.formula.startsWith("(") || match.name.includes("(") ? "· " + esc(match.formula) : "(" + esc(match.formula) + ")"}.`;
+    if (isomerOf) return `Every hand is held. Same atoms as <b>${esc(isomerOf.name)}</b>, but arranged differently.`;
+    const named = {B1H6N1: "ammonia borane, studied as a way to store hydrogen fuel", B1F3H3N1: "the BF3–ammonia pair", B1F3H2O1: "BF3 holding onto water"}[key(info.counts)];
+    return named ? `Every hand is held. This is <b>${named}</b>.` : `Every hand is held. That's a stable ${esc(fm)}, but it isn't in my library yet.`;
+  }
+  /* extra lines when boron is involved: its empty spot, or a spare-pair bond filling it */
+  function socketText(comp){
+    const dat = bonds.find(b => b.kind === "dat" && comp.includes(b.a));
+    const sock = comp.find(a => hasSocket(a) && free(a) === 0);
+    let t = "";
+    if (dat) t += ` The ${nameOf(dat.a.sym)} is lending its spare pair to the ${nameOf(dat.b.sym)} (the arrow), so now the ${nameOf(dat.b.sym)} has a full 8.`;
+    if (sock) t += ` The ${nameOf(sock.sym)}'s hands are all held, but its shell only has 6, not 8. The <b>amber outline</b> is room for one whole pair: drop on an atom with a spare pair, like ammonia's nitrogen or water's oxygen.`;
+    return t;
   }
   /* library molecules whose atom counts match the bench piece exactly (not finished yet) */
   function almostFor(info){
@@ -373,8 +456,39 @@ const Bench = (() => {
       const A = nameOf(dbl.a.sym), B = nameOf(dbl.b.sym), both = A === B ? `The two ${A}s` : `The ${A} and ${B}`;
       return s + ` ${both} are already holding hands and each has a spare one, so they can hold with that too: a ${dbl.order === 1 ? "double" : "triple"} bond. <button class="statbtn" data-dbl>Make it a ${dbl.order === 1 ? "double" : "triple"} bond</button>`;
     }
+    // empty hands on atoms that AREN'T neighbors (e.g. both ends of C-C-C): a double bond can't reach.
+    // Say why, and offer to move one hydrogen so two neighbors end up with the free hands.
+    const fix = neighborFix(info);
+    if (fix){
+      const X = nameOf(fix.x.sym), M = nameOf(fix.mid.sym);
+      return s + ` The empty hands are on two atoms that aren't holding each other: the ${M} sits between them. A double bond only forms between neighbors (like 3 people in a row: the two on the ends can't hold hands).` +
+        (fix.h ? ` Fix: move one hydrogen off the middle ${M} onto an end ${X} (yank it off, drop it on). Then the middle and the other end are neighbors with free hands. <button class="statbtn" data-fixmove>Move it for me</button>` : "");
+    }
     s += nonH.length ? " It can't last like this. Connect more atoms, or tap <b>Fill with H</b>." : " It can't last like this. Connect more atoms.";
     return s;
+  }
+  function neighborFix(info){
+    const openN = info.comp.filter(a => kindOf(a.sym) === "nonmetal" && a.sym !== "H" && free(a) > 0);
+    if (openN.length < 2 || openN.some(p => openN.some(q => p !== q && bondBetween(p, q)))) return null;
+    for (const x of openN) for (const z of openN){
+      if (x === z) continue;
+      const mid = neighbors(x).find(y => y.sym !== "H" && neighbors(z).includes(y));
+      if (!mid) continue;
+      const h = neighbors(mid).find(n => n.sym === "H" && bondBetween(mid, n)?.kind === "cov");
+      return {x, z, mid, h};
+    }
+    return null;
+  }
+  function applyNeighborFix(fix){
+    if (!fix?.h) return;
+    remember();
+    const bd = bondBetween(fix.mid, fix.h); bonds.splice(bonds.indexOf(bd), 1);
+    const ang = freeAngles(fix.x, 1)[0] ?? 0;
+    fix.h.x = fix.x.x + Math.cos(ang) * 40; fix.h.y = fix.x.y + Math.sin(ang) * 40;
+    bonds.push({a: fix.x, b: fix.h, order: 1, kind: "cov"});
+    relax(40);
+    note(null, `Moved a hydrogen from the middle ${nameOf(fix.mid.sym)} to the end ${nameOf(fix.x.sym)}. Now two neighbors each have a free hand, so they can make a double bond.`);
+    update();
   }
   let lastDone = new Set(), lastAlmost = new Set(), glowAtoms = new Set(), focusInfo = null, quiet = false;   // quiet: a reaction is playing, it shows its own banner
   function focusOf(comps){ return comps.find(c => c.comp.includes(selected)) || comps.find(c => c.comp.includes(lastTouched)) || comps[comps.length - 1]; }
@@ -394,6 +508,8 @@ const Bench = (() => {
       const items = view === "ring"
         ? [[pair, "2 dots in an overlap = a shared pair (one bond)"], [dash, "empty hand: wants another electron"], [ion, "dashed line = electron handed over (+ and − stick)"]]
         : [[line(1), "1 line = 1 handshake (2 shared electrons)"], [line(2), "2 lines = double bond"], [dash, "empty hand: it won't last like this"], [ion, "electron handed over"]];
+      if (atoms.some(hasSocket)) items.push([`<svg width="22" height="14" viewBox="0 0 22 14"><circle cx="7" cy="7" r="4" fill="none" stroke="${css("--warn")}" stroke-width="1.6" stroke-dasharray="2 1.6"/><circle cx="15" cy="7" r="4" fill="none" stroke="${css("--warn")}" stroke-width="1.6" stroke-dasharray="2 1.6"/></svg>`, "amber = boron's empty spot: room for a whole pair"]);
+      if (bonds.some(b => b.kind === "dat")) items.push([`<svg width="26" height="12" viewBox="0 0 26 12"><line x1="2" y1="6" x2="18" y2="6" stroke="${acc}" stroke-width="2"/><path d="M24 6 L17 2 L17 10 Z" fill="${acc}"/></svg>`, "arrow = one atom brought both electrons"]);
       box.innerHTML = items.map(([g, t]) => `<span class="lg">${g}${t}</span>`).join("") +
         `<span class="lg">Drag gently to move. Yank hard to snap one bond. Tap a bond for more.</span> <button class="lgbtn" id="lgToggle">Hide</button>`;
     }
@@ -408,6 +524,7 @@ const Bench = (() => {
     focusInfo = focus || null;
     $("wbEmpty").hidden = atoms.length > 0;
     $("wbStatus").innerHTML = focus ? statusFor(focus) : "";
+    $("wbStatus").querySelector("[data-fixmove]")?.addEventListener("click", () => applyNeighborFix(neighborFix(focus)));
     $("wbStatus").querySelector("[data-dbl]")?.addEventListener("click", () => {
       const b = bonds.find(b => b.kind === "cov" && b.order < 3 && focus.comp.includes(b.a) && free(b.a) > 0 && free(b.b) > 0);
       if (b) addOrder(b);
@@ -438,6 +555,7 @@ const Bench = (() => {
     const f = focusInfo; if (!f) return;
     const set = new Set(f.comp), had = bonds.filter(b => set.has(b.a)).length;
     if (!had) return;
+    remember();
     for (let i = bonds.length - 1; i >= 0; i--) if (set.has(bonds[i].a)) bonds.splice(i, 1);
     // pop outward from the middle so you can see every atom is loose
     const cx = f.comp.reduce((t, a) => t + a.x, 0) / f.comp.length, cy = f.comp.reduce((t, a) => t + a.y, 0) / f.comp.length;
@@ -451,6 +569,7 @@ const Bench = (() => {
   /* ---------- duplicate: copy the selected molecule and set it beside the original ---------- */
   function duplicate(){
     const f = focusInfo; if (!f || !f.comp.length) return;
+    remember();
     const comp = f.comp, xs = comp.map(a => a.x), shift = Math.max(...xs) - Math.min(...xs) + 110;
     const map = new Map();
     loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);   // a copy isn't a new build: no banner
@@ -471,7 +590,7 @@ const Bench = (() => {
   /* double -> single (or triple -> double): frees one hand on each atom without separating them */
   function lessOrder(bd){
     if (bd.kind !== "cov" || bd.order < 2) return;
-    bd.order--;
+    remember(); bd.order--;
     note(null, `Loosened one handshake. The ${nameOf(bd.a.sym)} and ${nameOf(bd.b.sym)} still hold on, and each now has a free hand to grab something new. That's exactly what happens when ethylene links up into polyethylene.`);
     update();
   }
@@ -507,7 +626,8 @@ const Bench = (() => {
     try { localStorage.setItem(BUILT_KEY, JSON.stringify(built)); } catch(_){}
     if (!$("wbParts").hidden) buildParts();
   }
-  function addPart(p){
+  function addPart(p){ remember(); histHold++; try { addPartInner(p); } finally { histHold--; } }
+  function addPartInner(p){
     loadingRecipe = true; setTimeout(() => { loadingRecipe = false; }, 0);
     const SC = 38, ox = atoms.length ? Math.max(...atoms.map(a => a.x)) + 130 : cam.x, oy = cam.y;
     const made = p.atoms.map(([s, x, y]) => add(s, ox + x * SC, oy + y * SC));
@@ -617,9 +737,47 @@ const Bench = (() => {
     const e = el(syms[(Math.floor(performance.now() / 15000)) % syms.length]);
     return [`${e.name} by the numbers: ${e.number.value}. ${e.number.label}.`];
   }
+  function gridBtn(){ const b = $("wbGrid"); if (b){ b.setAttribute("aria-pressed", gridOn); b.textContent = gridOn ? "Grid on" : "Grid off"; } }
+  /* ---------- the idea cloud can be dragged by its top bar (laptop) and minimized (both) ---------- */
+  function placeCloud(){
+    const box = $("wbCloud"); if (!box) return;
+    if (phone() || !cloudPos){ box.style.left = box.style.top = box.style.right = ""; return; }
+    const wb = $("workbench"), w = box.offsetWidth || 300;
+    const x = Math.max(6, Math.min(wb.clientWidth - w - 6, cloudPos.x)), y = Math.max(6, Math.min(wb.clientHeight - 48, cloudPos.y));
+    box.style.left = x + "px"; box.style.top = y + "px"; box.style.right = "auto";
+  }
+  function mountCloudDrag(){
+    const box = $("wbCloud");
+    // the drag follows the pointer anywhere on the page, but only starts once it moves,
+    // so a plain click (or double-click) on the bar still works
+    const move = (e) => {
+      if (!cloudDrag) return;
+      if (!cloudDrag.live){
+        if (Math.hypot(e.clientX - cloudDrag.x0, e.clientY - cloudDrag.y0) < 4) return;
+        cloudDrag.live = true; box.classList.add("dragging");
+      }
+      e.preventDefault();
+      cloudPos = {x: e.clientX - cloudDrag.wb.left - cloudDrag.dx, y: e.clientY - cloudDrag.wb.top - cloudDrag.dy}; placeCloud();
+    };
+    const end = () => {
+      if (!cloudDrag) return;
+      const moved = cloudDrag.live; cloudDrag = null; box.classList.remove("dragging");
+      removeEventListener("pointermove", move); removeEventListener("pointerup", end); removeEventListener("pointercancel", end);
+      if (moved) store.set("plab.cloudPos", cloudPos);
+    };
+    box.addEventListener("pointerdown", (e) => {
+      if (phone() || !e.target.closest(".cl-bar") || e.target.closest(".cl-min")) return;
+      const r = box.getBoundingClientRect();
+      cloudDrag = {dx: e.clientX - r.left, dy: e.clientY - r.top, x0: e.clientX, y0: e.clientY, live: false, wb: $("workbench").getBoundingClientRect()};
+      addEventListener("pointermove", move); addEventListener("pointerup", end); addEventListener("pointercancel", end);
+    });
+    // double-click the bar: put it back in its corner
+    box.addEventListener("dblclick", (e) => { if (!e.target.closest(".cl-bar")) return; cloudPos = null; store.set("plab.cloudPos", null); placeCloud(); });
+  }
   function renderCloud(info){
     const box = $("wbCloud"); if (!box) return;
     if (!atoms.length){ box.hidden = true; return; }
+    box.classList.toggle("mini", cloudMini);
     const fresh = lastNote && performance.now() - lastNote.t < 20000 ? lastNote.text : null;
     const ideas = ideasFor(info), facts = factsFor(info);
     let html = "";
@@ -642,9 +800,11 @@ const Bench = (() => {
     const n = ideas.length + facts.length + (fresh ? 1 : 0);
     const nearL = almostFor(info)[0];
     const label = info?.done && info.match ? info.match.name : nearL ? `Almost ${nearL.name}` : info?.counts ? wordsFor(info.counts) : "";
-    box.innerHTML = `<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button>${html}`;
+    const bar = `<div class="cl-bar" title="${phone() ? "" : "Drag to move. Double-click to put it back."}">${phone() ? "" : `<span class="cl-grip" aria-hidden="true">⠿</span>`}<button class="cl-head" id="clToggle" type="button">Idea cloud${phone() && !cloudMini ? ` <span class="cl-count">${esc(label)} · ${n} ${n === 1 ? "tip" : "tips"} ${box.classList.contains("open") ? "▾" : "▴"}</span>` : ""}</button><button class="cl-min" id="clMin" type="button" aria-label="${cloudMini ? "Show" : "Minimize"} the idea cloud">${cloudMini ? "Show" : "–"}</button></div>`;
+    box.innerHTML = bar + (cloudMini ? "" : html);
     box.hidden = false;
-    $("clToggle").addEventListener("click", () => { if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
+    $("clToggle").addEventListener("click", () => { if (cloudMini){ cloudMini = false; store.set("plab.cloudMini", 0); renderCloud(focusInfo); return; } if (phone()){ box.classList.toggle("open"); renderCloud(focusInfo); fit(); } });
+    $("clMin").addEventListener("click", () => { cloudMini = !cloudMini; store.set("plab.cloudMini", cloudMini ? 1 : 0); box.classList.remove("open"); renderCloud(focusInfo); placeCloud(); fit(); });
     box.querySelector("[data-spin]")?.addEventListener("click", () => typeof open3D === "function" && open3D(info.match));
     box.querySelectorAll("[data-load]").forEach(b => b.addEventListener("click", () => { const m = S.mols.find(x => x.id === b.dataset.load); if (m) addMolecule(m); }));
     box.querySelectorAll("[data-idea]").forEach(b => b.addEventListener("click", () => {
@@ -790,7 +950,7 @@ const Bench = (() => {
     // frame where atoms are headed (a.tx/a.ty during a reaction), not where they are mid-glide
     const xs = atoms.map(a => a.tx ?? a.x), ys = atoms.map(a => a.ty ?? a.y);
     const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 160;
-    const side = W > 760 ? 330 : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
+    const side = W > 760 ? (cloudMini ? 0 : 330) : 0;   // the idea cloud sits on the right (on phones it's a drawer at the bottom)
     const lc = $("wbLearn"), cardOn = lc && !lc.hidden && lc.offsetHeight > 0;
     const left = W > 760 && cardOn ? 350 : 0;   // lesson / reaction card on the left
     const toolsH = document.querySelector(".wb-tools")?.offsetHeight || 76;
@@ -823,7 +983,7 @@ const Bench = (() => {
   const pos = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
   const phone = () => W <= 760;
   const inTrash = (sx, sy) => phone() ? (sx > W - 96 && sy > headH() && sy < headH() + 70) : (sx > W - 96 && sy > H - 84);
-  let lastBondTap = {b: null, t: 0};
+  let lastBondTap = {b: null, t: 0}, lastAtomTap = {a: null, t: 0};
   function onDown(ev){
     ev.preventDefault();
     touchPad = ev.pointerType === "touch" ? 12 : 0;
@@ -915,6 +1075,15 @@ const Bench = (() => {
       if (onto && drag.moved){ const bd2 = bondBetween(a, onto); addOrder(bd2); a.x += (a.x - onto.x) * 0.8 + 20; }
       else if (best && tryBond(a, best) && phone()) fit();
       if (!drag.moved){
+        // two quick taps on the same atom: open it in the full Explore view
+        const now = performance.now();
+        if (lastAtomTap.a === a && now - lastAtomTap.t < 380){
+          lastAtomTap = {a: null, t: 0};
+          $("wbTrash").classList.remove("hot"); hoverTrash = false; drag = null;
+          if (typeof openAtomPop === "function") openAtomPop(a.sym);
+          return;
+        }
+        lastAtomTap = {a, t: now};
         const k = kindOf(a.sym);
         const sh = el(a.sym)?.shells || [];
         const shellTxt = sh.length > 1 ? ` ${sh.length} shells (the ${sh.length - 1} faint inner ring${sh.length > 2 ? "s" : ""} + the bold outer one). ` : " ";
@@ -927,7 +1096,8 @@ const Bench = (() => {
   }
   function onDbl(ev){
     const [sx, sy] = pos(ev); clearTimeout(pendingBondClick); closePop();
-    const bd = hitBond(sx, sy) || (() => { const a = hitAtom(sx, sy); if (!a) return null; return bonds.find(b => b.a === a || b.b === a) || null; })();
+    if (hitAtom(sx, sy)) return;   // double-tapping an atom opens the Explore view (handled in onUp, works on phones too)
+    const bd = hitBond(sx, sy);
     if (bd) zoomTo(bd); else if (zoomBond) unzoom();
   }
 
@@ -973,6 +1143,7 @@ const Bench = (() => {
   function freeAngles(a, n){
     // pick n directions far from existing bonds
     const taken = neighbors(a).map(o => Math.atan2(o.y - a.y, o.x - a.x));
+    const even = evenAngles(taken, n); if (even) return even;
     const out = [];
     for (let k = 0; k < n; k++){
       let best = 0, bestD = -1;
@@ -998,11 +1169,14 @@ const Bench = (() => {
     const ink = css("--ink"), muted = css("--muted"), accent = css("--accent"), line = css("--line"), seat = css("--seat"), surface = css("--surface");
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
     // faint grid: it's a bench
-    ctx.strokeStyle = line; ctx.globalAlpha = .45; ctx.lineWidth = 1;
-    const g = 40 * cam.s, ox = (W/2 - cam.x * cam.s) % g, oy = (H/2 - cam.y * cam.s) % g;
-    for (let x = ox; x < W; x += g){ ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-    for (let y = oy; y < H; y += g){ ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-    ctx.globalAlpha = 1;
+    if (gridOn){
+      ctx.strokeStyle = line; ctx.globalAlpha = .45; ctx.lineWidth = 1;
+      let g = 40 * cam.s; while (g < 14) g *= 4; while (g > 240) g /= 4;   // keep the spacing readable at any zoom
+      const ox = (W/2 - cam.x * cam.s) % g, oy = (H/2 - cam.y * cam.s) % g;
+      for (let x = ox; x < W; x += g){ ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = oy; y < H; y += g){ ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      ctx.globalAlpha = 1;
+    }
     ctx.save(); ctx.translate(W/2, H/2); ctx.scale(cam.s, cam.s); ctx.translate(-cam.x, -cam.y);
     const ringMode = view === "ring";
     const focusSet = zoomBond ? new Set([zoomBond.a, zoomBond.b]) : null;
@@ -1023,6 +1197,8 @@ const Bench = (() => {
         const stretch = d / rest(b);
         if (b.kind === "ion"){
           ctx.setLineDash([3, 5]); ctx.strokeStyle = muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(b.a.x, b.a.y); ctx.lineTo(b.b.x, b.b.y); ctx.stroke(); ctx.setLineDash([]);
+        } else if (b.kind === "dat"){
+          drawDativeArrow(b, accent);
         } else {
           const offs = b.order === 2 ? [-3.5, 3.5] : b.order === 3 ? [-6, 0, 6] : [0];
           ctx.strokeStyle = stretch > 1.6 ? css("--proton") : ink; ctx.lineWidth = 2.6 * Math.min(1, 1.6 / cam.s);   // thinner when zoomed in, so it stays a line
@@ -1037,7 +1213,9 @@ const Bench = (() => {
         if (a.sym === "*"){ ctx.fillStyle = muted; ctx.font = "700 14px Archivo, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("…", a.x, a.y); ctx.globalAlpha = 1; continue; }
         const r = size(a.sym), col = atomColor(a.sym), k = kindOf(a.sym);
         // empty hands: small dashed circles pointing away from bonds
-        if (k === "nonmetal"){
+        const deep = cam.s >= DEEP_AT, kz = Math.min(1, 1.6 / cam.s);
+        if (k === "nonmetal" && !deep){
+          if (hasSocket(a)) drawSocket(a, r + 12, kz);
           for (const ang of freeAngles(a, free(a))){
             const hx = a.x + Math.cos(ang) * (r + 11), hy = a.y + Math.sin(ang) * (r + 11);
             if (glowAtoms.has(a)){   // almost done: the hands that still need filling pulse
@@ -1046,11 +1224,16 @@ const Bench = (() => {
             }
             const k2 = Math.min(1, 1.6 / cam.s); ctx.setLineDash([2.5 * k2, 2.5 * k2]); ctx.strokeStyle = seat; ctx.lineWidth = 1.6 * k2; ctx.beginPath(); ctx.arc(hx, hy, 5.5, 0, 7); ctx.stroke(); ctx.setLineDash([]);
           }
-        } else if (k === "metal"){
+        } else if (k === "metal" && !deep){
+          // electrons a metal can still give: same size as other electrons, just outside the ring
           const left = handsOf(a) - used(a);
-          if (!metalHappy(a)) for (const ang of freeAngles(a, Math.max(0, left))){ ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * (r + 10), a.y + Math.sin(ang) * (r + 10), 4, 0, 7); ctx.fillStyle = accent; ctx.fill(); }
+          if (!metalHappy(a)) for (const ang of freeAngles(a, Math.max(0, left))){ ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * (r + 7), a.y + Math.sin(ang) * (r + 7), 3.2 * kz, 0, 7); ctx.fillStyle = accent; ctx.fill(); }
         }
-        if (a === selected){ ctx.beginPath(); ctx.arc(a.x, a.y, r + 4, 0, 7); ctx.strokeStyle = accent; ctx.lineWidth = 2; ctx.stroke(); }
+        // selection: a thin ring that stays thin when you zoom in
+        if (a === selected){
+          if (deep){ ctx.setLineDash([6 / cam.s, 4 / cam.s]); ctx.beginPath(); ctx.arc(a.x, a.y, r + 7 / cam.s, 0, 7); ctx.strokeStyle = accent; ctx.lineWidth = 1.5 / cam.s; ctx.stroke(); ctx.setLineDash([]); }
+          else { ctx.beginPath(); ctx.arc(a.x, a.y, r + 3 + 2 * kz, 0, 7); ctx.strokeStyle = accent; ctx.lineWidth = 2 * kz; ctx.stroke(); }
+        }
         drawShellAtom(a, r, col, t, dimFor(a), {ink, muted, accent});
         const ch = chargeOf(a);
         if (ch){ ctx.fillStyle = ink; ctx.font = "700 12px Archivo, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText((Math.abs(ch) > 1 ? Math.abs(ch) : "") + (ch > 0 ? "+" : "−"), a.x + r + 2, a.y - r + 2); }
@@ -1068,6 +1251,7 @@ const Bench = (() => {
        zoom >= 2.6  outer electrons too, and the inner dots drift slowly, like Explore (calmer) */
   const DOTS_AT = 1.6, DEEP_AT = 2.6;
   function drawShellAtom(a, r, col, t, alpha, c){
+    if (cam.s >= DEEP_AT){ const [sx, sy] = toScreen(a.x, a.y); if (sx > -r * cam.s && sx < W + r * cam.s && sy > -r * cam.s && sy < H + r * cam.s) return drawExploreAtom(a, r, col, t, alpha, c); }
     const sh = el(a.sym)?.shells || [1], inner = sh.length - 1;
     const nucR = r * (a.sym === "H" ? 0.62 : 0.6), px = 1 / cam.s;   // px = one screen pixel in bench units
     // the outer shell's space, lightly tinted with the element's color
@@ -1094,7 +1278,6 @@ const Bench = (() => {
           const rr = Math.min(dr, gap * 0.3);
           for (let k = 0; k < n; k++){ const ang = off + k * Math.PI * 2 / n; ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * R, a.y + Math.sin(ang) * R, rr, 0, 7); ctx.fill(); }
         }
-        if (cam.s >= DEEP_AT) drawOuterElectrons(a, r, dr * 1.25, c.accent);
       }
     }
     // nucleus with the symbol
@@ -1104,6 +1287,94 @@ const Bench = (() => {
     ctx.fillText(a.sym, a.x, a.y + 0.5);
   }
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Deep zoom: the same look as Explore. A nucleus of protons (red) and neutrons (gray), thin rings,
+     inner electrons slowly circling. The outer electrons stay put, because their positions ARE the bonds.
+     The bench layout never changes: the atom is the same size, just drawn in more detail. */
+  function drawExploreAtom(a, r, col, t, alpha, c){
+    const e = el(a.sym), sh = e?.shells || [1], nSh = sh.length, px = 1 / cam.s;
+    // nucleus about as big, relative to the rings, as in Explore: small for light atoms, bigger for heavy ones
+    const A = (e?.z || 1) + (e?.neutrons || 0), nucR = r * (0.17 + 0.13 * Math.sqrt(A / 240));
+    const ringAt = (k) => nucR + 2 + (r - nucR - 2) * (k + 1) / nSh;   // the last ring is the outer shell, at r
+    ctx.globalAlpha = alpha;
+    ctx.beginPath(); ctx.arc(a.x, a.y, r, 0, 7); ctx.fillStyle = css("--surface"); ctx.fill();   // a clean backdrop so bonds don't run through the atom
+    ctx.lineWidth = 1 * px; ctx.strokeStyle = css("--line");
+    for (let k = 0; k < nSh - 1; k++){ ctx.beginPath(); ctx.arc(a.x, a.y, ringAt(k), 0, 7); ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(a.x, a.y, r, 0, 7); ctx.strokeStyle = col; ctx.lineWidth = 1.6 * px; ctx.stroke();
+    drawNucleus(a.sym, a.x, a.y, nucR);
+    const dr = 2.8 * px;
+    ctx.fillStyle = css("--electron-inner");
+    for (let k = 0; k < nSh - 1; k++){
+      const n = sh[k], R = ringAt(k), gap = 2 * Math.PI * R / n; if (gap * cam.s < 5) continue;
+      const rot = REDUCED ? 0 : t * 0.35 / (k + 1) * (k % 2 ? -1 : 1), rr = Math.min(dr, gap * 0.3);
+      for (let i = 0; i < n; i++){ const ang = rot + i * 2 * Math.PI / n; ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * R, a.y + Math.sin(ang) * R, rr, 0, 7); ctx.fill(); }
+    }
+    drawOuterElectrons(a, r, 3.8 * px, c.accent);
+    // the symbol, small, over the nucleus (halo keeps it readable on the red/gray balls)
+    // the symbol sits just above the nucleus, so the protons and neutrons stay visible
+    const ly = a.y - nucR - 9 * px;
+    ctx.font = `800 ${14 * px}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.lineJoin = "round"; ctx.lineWidth = 3.5 * px; ctx.strokeStyle = css("--surface"); ctx.strokeText(a.sym, a.x, ly);
+    ctx.fillStyle = css("--ink"); ctx.fillText(a.sym, a.x, ly);
+  }
+  // nuclei are drawn once per element and size, then reused (redrawing ~200 balls per atom every frame would be slow)
+  const nucCache = new Map();
+  function drawNucleus(sym, x, y, R){
+    const e = el(sym); if (!e) return;
+    const devR = R * cam.s * dpr, bucket = Math.max(8, Math.min(220, Math.round(devR / 6) * 6));
+    const pc = css("--proton"), nc = css("--neutron"), k = `${sym}:${bucket}:${pc}:${nc}`;
+    let spr = nucCache.get(k);
+    if (!spr){
+      const A = e.z + e.neutrons, sz = bucket * 2 + 6, c = sz / 2, ball = Math.max(1.2, bucket / Math.sqrt(A) * 0.98);
+      spr = document.createElement("canvas"); spr.width = spr.height = sz;
+      const g = spr.getContext("2d");
+      for (const [nx, ny, isP] of nucleusLayout(e.z, e.neutrons)){ g.beginPath(); g.arc(c + nx * bucket, c + ny * bucket, ball, 0, 7); g.fillStyle = isP ? pc : nc; g.fill(); }
+      nucCache.set(k, spr); if (nucCache.size > 150) nucCache.delete(nucCache.keys().next().value);
+    }
+    const w = spr.width * R / bucket;   // scale the sprite so its nucleus radius = R (bench units)
+    ctx.drawImage(spr, x - w / 2, y - w / 2, w, w);
+  }
+  /* boron's empty spot: two dashed amber circles (room for a whole pair), in the biggest gap around the atom */
+  function drawSocket(a, R, kz, usedAngles){
+    const taken = neighbors(a).map(o => Math.atan2(o.y - a.y, o.x - a.x)).concat(usedAngles || freeAngles(a, free(a)));
+    let ang = Math.PI / 2;
+    if (taken.length){
+      const srt = taken.map(x => (x + Math.PI * 4) % (Math.PI * 2)).sort((p, q) => p - q);
+      let best = -1;
+      for (let i = 0; i < srt.length; i++){ const p = srt[i], q = i + 1 < srt.length ? srt[i + 1] : srt[0] + Math.PI * 2; if (q - p > best){ best = q - p; ang = (p + q) / 2; } }
+    }
+    const cx = a.x + Math.cos(ang) * R, cy = a.y + Math.sin(ang) * R, tx = -Math.sin(ang), ty = Math.cos(ang), rr = 4.2 * kz, off = 4.6 * kz;
+    const warn = css("--warn");
+    ctx.save(); ctx.globalAlpha *= 0.9;
+    for (const sgn of [-1, 1]){
+      ctx.beginPath(); ctx.arc(cx + tx * off * sgn, cy + ty * off * sgn, rr, 0, 7);
+      ctx.fillStyle = `color-mix(in srgb, ${warn} 22%, transparent)`; try { ctx.fill(); } catch(_){}
+      ctx.setLineDash([2 * kz, 1.6 * kz]); ctx.strokeStyle = warn; ctx.lineWidth = 1.6 * kz; ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.restore();
+  }
+  /* spare-pair bond: an arrow from the atom that brought both electrons to the one that took them */
+  function drawDativeArrow(b, accent){
+    const dx = b.b.x - b.a.x, dy = b.b.y - b.a.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d, nx = -uy, ny = ux, kz = Math.min(1, 1.6 / cam.s);
+    const sx = b.a.x + ux * size(b.a.sym), sy = b.a.y + uy * size(b.a.sym), ex = b.b.x - ux * (size(b.b.sym) + 2), ey = b.b.y - uy * (size(b.b.sym) + 2), ah = 9 * kz;
+    ctx.strokeStyle = accent; ctx.lineWidth = 2.6 * kz; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex - ux * ah * 0.8, ey - uy * ah * 0.8); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex - ux * ah + nx * ah * 0.6, ey - uy * ah + ny * ah * 0.6); ctx.lineTo(ex - ux * ah - nx * ah * 0.6, ey - uy * ah - ny * ah * 0.6); ctx.closePath(); ctx.fillStyle = accent; ctx.fill();
+  }
+  /* inner shells for Ring view: faint rings between the nucleus and the outer ring, dots once zoomed in */
+  function ringInnerShells(a, nucR, R, t){
+    const sh = el(a.sym)?.shells || [1], inner = sh.length - 1; if (!inner) return;
+    const at = (i) => nucR + (R - nucR) * (i + 1) / (inner + 1);
+    ctx.strokeStyle = css("--muted"); ctx.lineWidth = Math.max(0.5, 0.8 / cam.s * Math.min(cam.s, 2));
+    const g0 = ctx.globalAlpha;
+    for (let i = 0; i < inner; i++){ ctx.globalAlpha = g0 * 0.5; ctx.beginPath(); ctx.arc(a.x, a.y, at(i), 0, 7); ctx.stroke(); }
+    ctx.globalAlpha = g0;
+    if (cam.s < DOTS_AT) return;
+    const dr = 2.2 / cam.s * Math.min(cam.s, 2.5); ctx.fillStyle = css("--electron-inner");
+    for (let i = 0; i < inner; i++){
+      const n = sh[i], Ri = at(i), gap = 2 * Math.PI * Ri / n; if (gap * cam.s < 5) continue;
+      const rot = cam.s >= DEEP_AT && !REDUCED ? t * 0.3 / (i + 1) * (i % 2 ? -1 : 1) : i * 0.4, rr = Math.min(dr, gap * 0.3);
+      for (let k = 0; k < n; k++){ const ang = rot + k * 2 * Math.PI / n; ctx.beginPath(); ctx.arc(a.x + Math.cos(ang) * Ri, a.y + Math.sin(ang) * Ri, rr, 0, 7); ctx.fill(); }
+    }
+  }
   /* Deep zoom: the outer electrons. Shared ones sit on the bond (a pair per handshake);
      the rest sit on the outer ring, pointing away from the bonds. Same counting as Ring view. */
   function drawOuterElectrons(a, R, dr, accent){
@@ -1113,11 +1384,17 @@ const Bench = (() => {
     items.forEach((it, i) => {
       const ang = angs[i], px = a.x + Math.cos(ang) * R, py = a.y + Math.sin(ang) * R, tx = -Math.sin(ang) * dr * 1.3, ty = Math.cos(ang) * dr * 1.3;
       if (it === "pair" || it === "got"){ dot(px + tx, py + ty, accent); dot(px - tx, py - ty, accent); }
+      else if (it === "single"){
+        // one electron + an empty dashed spot beside it: the hand waiting for a partner's electron
+        dot(px + tx, py + ty, accent);
+        ctx.beginPath(); ctx.arc(px - tx, py - ty, dr, 0, 7); ctx.setLineDash([dr * 0.8, dr * 0.8]); ctx.strokeStyle = css("--seat"); ctx.lineWidth = dr * 0.45; ctx.stroke(); ctx.setLineDash([]);
+      }
       else dot(px, py, accent);
     });
+    if (hasSocket(a)) drawSocket(a, R, dr / 3.4, angs);
     // shared pairs: drawn once per bond, from the lower-id atom, on the bond line where the two rings meet
     for (const b of bonds){
-      if (b.kind !== "cov" || (b.a !== a && b.b !== a)) continue;
+      if ((b.kind !== "cov" && b.kind !== "dat") || (b.a !== a && b.b !== a)) continue;
       const o = b.a === a ? b.b : b.a; if (o.id < a.id) continue;
       const dx = o.x - a.x, dy = o.y - a.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d, nx = -uy, ny = ux;
       const mx = a.x + ux * d / 2, my = a.y + uy * d / 2;
@@ -1140,7 +1417,7 @@ const Bench = (() => {
       const isH = a.sym === "H";
       const show = a === selected || (isH ? (cam.s >= 1.6 || atoms.length <= 4) : (cam.s >= 1.25 || !many));
       if (!show) continue;
-      const nm = Name(a.sym), y = a.y + size(a.sym) + 3 / cam.s;
+      const nm = Name(a.sym), y = a.y + size(a.sym) + (cam.s >= DOTS_AT ? 9 : 3) / cam.s + (cam.s >= DEEP_AT ? 2 : 0);
       ctx.strokeText(nm, a.x, y); ctx.fillText(nm, a.x, y);
     }
     ctx.textBaseline = "middle";
@@ -1183,8 +1460,14 @@ const Bench = (() => {
       ctx.globalAlpha = focusSet ? 1 : dimFor(a);
       ctx.beginPath(); ctx.arc(a.x, a.y, R, 0, 7); ctx.strokeStyle = col.ink; ctx.globalAlpha *= .55; ctx.lineWidth = 1.4; ctx.stroke(); ctx.globalAlpha = focusSet ? 1 : dimFor(a);
       const nucR = a.sym === "H" ? 9 : 12, ccol = atomColor(a.sym);
-      ctx.beginPath(); ctx.arc(a.x, a.y, nucR, 0, 7); ctx.fillStyle = ccol; ctx.fill();
-      ctx.fillStyle = textOn(ccol.startsWith("#") ? ccol : "#3A3F47"); ctx.font = `700 ${a.sym.length > 1 ? 10 : 11}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(a.sym, a.x, a.y + .5);
+      ringInnerShells(a, nucR + 2, R, t);
+      if (cam.s >= DEEP_AT){
+        drawNucleus(a.sym, a.x, a.y, nucR * 0.85);
+        ctx.font = `800 ${14 / cam.s}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round"; ctx.lineWidth = 3.5 / cam.s; ctx.strokeStyle = css("--surface"); ctx.strokeText(a.sym, a.x, a.y); ctx.fillStyle = col.ink; ctx.fillText(a.sym, a.x, a.y);
+      } else {
+        ctx.beginPath(); ctx.arc(a.x, a.y, nucR, 0, 7); ctx.fillStyle = ccol; ctx.fill();
+        ctx.fillStyle = textOn(ccol.startsWith("#") ? ccol : "#3A3F47"); ctx.font = `700 ${a.sym.length > 1 ? 10 : 11}px Archivo, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(a.sym, a.x, a.y + .5);
+      }
       // electrons that are not in a shared pair
       const myBonds = bonds.filter(b => b.a === a || b.b === a);
       const taken = myBonds.map(b => { const o = b.a === a ? b.b : b.a; return Math.atan2(o.y - a.y, o.x - a.x); });
@@ -1198,6 +1481,7 @@ const Bench = (() => {
         else if (it === "single"){ dot(px + tx * 4, py + ty * 4, col.accent); ctx.setLineDash([2, 2]); dot(px - tx * 4, py - ty * 4, null, col.seat); ctx.setLineDash([]); }
         else dot(px, py, col.accent);
       });
+      if (hasSocket(a)) drawSocket(a, R, 1, angs);
       const ch = chargeOf(a);
       if (ch){ ctx.fillStyle = col.ink; ctx.font = "700 13px Archivo, sans-serif"; ctx.fillText((Math.abs(ch) > 1 ? Math.abs(ch) : "") + (ch > 0 ? "+" : "−"), a.x + R * .78, a.y - R * .78); }
       ctx.globalAlpha = 1;
@@ -1220,14 +1504,23 @@ const Bench = (() => {
       const own = Math.max(0, v - covUsed);
       const singles = Math.max(0, handsOf(a) - covUsed - got);
       const gotPairs = Math.min(got, Math.max(0, own - singles));
-      const lonePairs = Math.max(0, Math.round((own - singles - gotPairs) / 2));
+      const lent = myBonds.filter(b => b.kind === "dat" && b.a === a).length;   // spare pairs lent to boron
+      const lonePairs = Math.max(0, Math.round((own - singles - gotPairs) / 2) - lent);
       for (let i = 0; i < lonePairs; i++) items.push("pair");
       for (let i = 0; i < gotPairs; i++) items.push("got");
       for (let i = 0; i < singles; i++) items.push("single");
     }
     return items;
   }
+  // with no bond (or just one) nothing pins the directions, so spread everything evenly:
+  // 3 directions = a Y (peace sign), 4 = a plus. Electrons push apart as far as they can.
+  function evenAngles(taken, n){
+    if (taken.length === 0) return Array.from({length: n}, (_, k) => -Math.PI / 2 + k * 2 * Math.PI / n);
+    if (taken.length === 1) return Array.from({length: n}, (_, k) => taken[0] + (k + 1) * 2 * Math.PI / (n + 1));
+    return null;
+  }
   function freeAnglesFrom(taken, n){
+    const even = evenAngles(taken, n); if (even) return even;
     const out = [];
     for (let k = 0; k < n; k++){
       let best = 0, bestD = -1;
@@ -1243,6 +1536,6 @@ const Bench = (() => {
 
   // internals other modules build on (lessons, reactions, 3D). Kept small on purpose.
   const api = {setQuiet: (v) => { quiet = v; }, hooks, baseHands, neighbors, tryBond, addOrder, bondBetween, free, handsOf, kindOf, note, celebrate, fit, relax, components: () => components().map(identify),
-    removeAtom, rest, get cam(){ return cam; }, get W(){ return W; }, get H(){ return H; }, toWorld, toScreen, isVisible: () => visible, phone: () => phone()};
+    removeAtom, rest, undo, get historyLength(){ return history.length; }, get cam(){ return cam; }, get W(){ return W; }, get H(){ return H; }, toWorld, toScreen, isVisible: () => visible, phone: () => phone()};
   return {api, mount, show, hide, add, addMolecule, breakApart, benchable, clear, counts, setView, get atoms(){ return atoms; }, get bonds(){ return bonds; }, fillH, update, _identify: () => components().map(identify), _screenOf: (a) => { const r = cv.getBoundingClientRect(); const [x, y] = toScreen(a.x, a.y); return [r.left + x, r.top + y]; }, _status: () => $("wbStatus").textContent};
 })();

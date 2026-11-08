@@ -21,7 +21,7 @@ os.makedirs(os.path.join(out, "data"), exist_ok=True)
 os.makedirs(os.path.join(out, "icons"), exist_ok=True)
 
 # ---------- data + scripts ----------
-for f in ("bench.js", "learn.js", "view3d.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json"):
+for f in ("bench.js", "learn.js", "view3d.js", "scenes.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json"):
     if os.path.exists(os.path.join(site, f)): shutil.copyfile(os.path.join(site, f), os.path.join(out, f))
 if os.path.isdir(os.path.join(site, "photos")):
     shutil.copytree(os.path.join(site, "photos"), os.path.join(out, "photos"), dirs_exist_ok=True)
@@ -92,7 +92,7 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 open(os.path.join(out, "index.html"), "w").write(head + page + sw_reg)
 
 # ---------- service worker: cache the app so it opens offline ----------
-files = ["./", "index.html", "bench.js", "learn.js", "view3d.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json", "manifest.webmanifest",
+files = ["./", "index.html", "bench.js", "learn.js", "view3d.js", "scenes.js", "data/elements.json", "data/molecules.json", "data/lessons.json", "data/reactions.json", "data/mol3d.json", "data/photos.json", "manifest.webmanifest",
          "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png"]
 files = [f for f in files if f == "./" or os.path.exists(os.path.join(out, f))]
 digest = hashlib.sha1(b"".join(open(os.path.join(out, f), "rb").read() for f in files if f != "./")).hexdigest()[:10]

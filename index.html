@@ -85,7 +85,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
 /* ---------- table ---------- */
 .table-wrap{overflow-x:auto;padding-bottom:6px}
 .ptable{display:grid;grid-template-columns:repeat(18,minmax(40px,1fr));grid-template-rows:repeat(7,auto) 14px repeat(2,auto);gap:3px;min-width:740px}
-.cell{position:relative;aspect-ratio:1/1.12;border:1px solid transparent;border-radius:4px;background:var(--cat-bg,var(--st-unknown));
+.cell{-webkit-touch-callout:none;position:relative;aspect-ratio:1/1.12;border:1px solid transparent;border-radius:4px;background:var(--cat-bg,var(--st-unknown));
   cursor:pointer;padding:3px 4px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;min-width:0;transition:transform .12s, opacity .15s, box-shadow .12s}
 .cell:hover{transform:translateY(-1px);box-shadow:0 2px 0 var(--line)}
 .cell .z{font-family:var(--mono);font-size:9.5px;color:var(--muted);line-height:1}
@@ -319,16 +319,17 @@ body.build:not(.show-f) .ptable{grid-template-rows:repeat(7,auto)}
 }
 .cl-head{border:0;background:none;padding:0;cursor:default;text-align:left;font-family:inherit}
 
-/* phones: in Build mode a row of common elements replaces the wide table (the table is one tap away) */
+/* phones: in Build mode a row of common elements replaces the wide table (the table is one tap away).
+   Focus mode uses the same row on laptops. */
 .quick-els{display:none}
+.quick-els .qe{flex:none;min-width:50px;height:46px;border-radius:8px;border:1px solid var(--line);background:var(--cat-bg);font-family:var(--display);font-weight:800;font-size:16px;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;padding:0 4px}
+.quick-els .qe .qn{font-family:var(--body);font-weight:600;font-size:9px;opacity:.8;margin-top:2px}
+.quick-els .qe.on{box-shadow:inset 0 0 0 2px var(--accent)}
+.quick-els .qe .n{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:10px;font-family:var(--mono);display:grid;place-items:center;padding:0 4px}
+.quick-els .qe.more{font-family:var(--body);font-size:12.5px;font-weight:650;padding:0 12px;background:var(--surface)}
 @media (max-width:760px){
   body.build .quick-els{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
   body.build:not(.show-table) .table-wrap{display:none}
-  .quick-els .qe{flex:none;min-width:50px;height:46px;border-radius:8px;border:1px solid var(--line);background:var(--cat-bg);font-family:var(--display);font-weight:800;font-size:16px;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;padding:0 4px}
-  .quick-els .qe .qn{font-family:var(--body);font-weight:600;font-size:9px;opacity:.8;margin-top:2px}
-  .quick-els .qe.on{box-shadow:inset 0 0 0 2px var(--accent)}
-  .quick-els .qe .n{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:10px;font-family:var(--mono);display:grid;place-items:center;padding:0 4px}
-  .quick-els .qe.more{font-family:var(--body);font-size:12.5px;font-weight:650;padding:0 12px;background:var(--surface)}
   body:not(.build) .ptable{min-width:600px}
   body:not(.build) .cell .nm{display:none}
 }
@@ -427,6 +428,48 @@ ol.rank button:hover{border-color:var(--accent)}
 .rx-bench{font-size:13px;color:var(--muted);margin:4px 0 8px}
 .rx-take{border-left:3px solid var(--accent);padding:4px 0 4px 10px;margin:8px 0;font-size:13.5px}
 .rx-now{font-size:14.5px;line-height:1.5;margin:6px 0}
+/* idea cloud: a bar you can grab, and a minimize button */
+.cl-bar{display:flex;align-items:center;gap:6px;margin:-4px -4px 4px;padding:2px 2px 2px 4px;border-radius:8px}
+@media (min-width:761px){ .cl-bar{cursor:grab} .wb-cloud.dragging{opacity:.92;box-shadow:0 12px 32px rgba(0,0,0,.18)} .wb-cloud.dragging .cl-bar{cursor:grabbing} }
+.cl-grip{color:var(--muted);font-size:14px;line-height:1;letter-spacing:-1px}
+.cl-bar .cl-head{flex:1;margin:0}
+.cl-min{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;font:inherit;font-size:12px;font-weight:700;line-height:1;padding:3px 8px;cursor:pointer}
+.wb-cloud.mini{width:auto;max-height:none;padding:8px 10px}
+.wb-cloud.mini .cl-bar{margin:0}
+@media (max-width:760px){ .wb-cloud.mini{left:auto;right:8px;max-height:44px} }
+/* focus mode: the bench gets the whole screen */
+body.build.focus .top, body.build.focus #searchHits, body.build.focus .table-wrap{display:none}
+body.build.focus.show-table .table-wrap{display:block}
+body.build.focus .quick-els{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
+body.build.focus .workbench{margin-top:4px}
+#wbFocus[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+/* element name on hover (laptop) or press-and-hold (phone) */
+.el-tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--surface);border-radius:8px;padding:6px 10px;font-size:13px;line-height:1.35;box-shadow:0 6px 20px rgba(0,0,0,.2);max-width:240px}
+.el-tip b{font-size:15px}
+.el-tip .m{opacity:.75;font-size:12px}
+/* Explore view of one atom, popped up from the bench */
+.atom-pop{position:fixed;inset:0;z-index:40;background:rgba(10,14,20,.45);display:flex;align-items:center;justify-content:center;padding:16px}
+.ap-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;width:min(420px,100%);max-height:100%;overflow:auto}
+.ap-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ap-top h3{margin:0;font-size:20px}
+#atomPopCanvas{width:100%;aspect-ratio:1;display:block}
+/* "See it in action" */
+.scenes .row{gap:6px;flex-wrap:wrap}
+.scene-btn{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit;min-width:0}
+.scene-btn:hover{border-color:var(--accent)}
+.scene-btn b{font-size:14px} .scene-btn span{font-size:12.5px;color:var(--muted)}
+.scene-pop{position:fixed;inset:0;z-index:45;background:rgba(10,14,20,.5);display:flex;align-items:center;justify-content:center;padding:12px}
+.sc-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;width:min(880px,100%);max-height:100%;overflow:auto;padding:14px 16px 16px}
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sc-top h3{margin:0;font-size:20px}
+.sc-dots{display:flex;gap:6px;margin:6px 0 8px}
+.sc-dots i{width:22px;height:5px;border-radius:3px;background:var(--line)}
+.sc-dots i.on{background:var(--accent)}
+#scCanvas{width:100%;aspect-ratio:16/10;display:block;border-radius:10px;background:var(--bg)}
+.sc-cap{font-size:16px;line-height:1.5;margin:10px 0 6px;min-height:3em}
+.sc-take{border-left:3px solid var(--accent);padding:4px 0 4px 10px;font-size:14px;margin:6px 0}
+.sc-nav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:8px}
+@media (max-width:760px){ .sc-card{padding:12px} .sc-cap{font-size:15px} }
 /* zoom buttons: a small strip above the trash on laptops, a column under it on phones */
 .wb-zoomctl{position:absolute;right:12px;bottom:82px;z-index:3;display:flex;width:84px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
 .wb-zoomctl button{flex:1;border:0;background:none;font:inherit;font-size:17px;line-height:1;padding:6px 0;cursor:pointer;color:var(--ink)}
@@ -443,6 +486,16 @@ ol.rank button:hover{border-color:var(--accent)}
 </style>
 
 <div class="scrim" id="scrim"></div>
+<div class="el-tip" id="elTip" hidden></div>
+<div class="atom-pop" id="atomPop" hidden role="dialog" aria-modal="true" aria-labelledby="atomPopTitle">
+  <div class="ap-card">
+    <div class="ap-top"><h3 id="atomPopTitle"></h3><button class="btn" id="atomPopClose">Close</button></div>
+    <canvas id="atomPopCanvas"></canvas>
+    <p class="small muted" id="atomPopNote"></p>
+    <div class="row"><button class="btn" id="atomPopCard">Open its full card</button></div>
+  </div>
+</div>
+<div class="scene-pop" id="scenePop" hidden role="dialog" aria-modal="true"></div>
 
 <header class="top">
   <div class="brand">
@@ -483,6 +536,7 @@ ol.rank button:hover{border-color:var(--accent)}
       </div>
       <canvas id="wbCanvas" aria-label="Workbench. Drag atoms together to bond them."></canvas>
       <div class="wb-tools">
+        <button class="btn" id="wbUndo" title="Undo your last change (Ctrl+Z)" disabled>↶ Undo</button>
         <div class="mini-seg" id="wbView" role="group" aria-label="View">
           <button data-v="ball" aria-pressed="true">Balls &amp; sticks</button><button data-v="ring" aria-pressed="false">Ring view</button>
         </div>
@@ -497,6 +551,8 @@ ol.rank button:hover{border-color:var(--accent)}
         <button class="btn" id="wbTidy">Tidy</button>
         <button class="btn" id="wbClear">Clear</button>
         <button class="btn" id="wbShowF" aria-pressed="false" title="Show the two bottom rows of the table">Bottom rows</button>
+        <button class="btn" id="wbGrid" aria-pressed="true" title="Show or hide the grid lines">Grid on</button>
+        <button class="btn" id="wbFocus" aria-pressed="false" title="Hide the title and the table so the bench fills the screen (Esc to leave)">Focus</button>
       </div>
       <div class="wb-empty" id="wbEmpty">
         <p><b>Your bench is empty.</b> Tap an element above to put an atom here. Tap it again for another one.</p>
@@ -642,7 +698,7 @@ function buildTable(){
     const lens = e.lenses || {};
     b.innerHTML = `<span class="z">${e.z}</span><span class="sym">${e.symbol}</span><span class="nm">${esc(e.name)}</span>` +
       `<span class="marks">${lens.nexus?'<i style="background:var(--nexus)" title="Nexus angle"></i>':''}${lens.rocket?'<i style="background:var(--rocket)" title="Rocket angle"></i>':''}</span>`;
-    b.addEventListener("click", () => onCell(e.symbol));
+    b.addEventListener("click", () => { if (tipSwallow()) return; onCell(e.symbol); });
     t.appendChild(b);
   }
   const g = document.createElement("div"); g.className = "gap-label"; g.style.gridRow = "6 / 8"; g.style.gridColumn = "3";
@@ -818,6 +874,7 @@ function renderElement(e){
       : "Closer to reality: each shell is a fuzzy region where electrons are likely to be, not a track. Outer shell in blue."}</p>
     <div class="seatline">${seatSummary(e)}</div>
     ${gstHTML(e)}
+    ${sceneHTML(e)}
     ${e.atomStory ? `<p>${esc(e.atomStory)}</p>` : ""}
     ${L.nexus ? `<div class="lensbox nexus"><span class="eyebrow"><span class="dot" style="background:var(--nexus)"></span>Nexus / pyrolysis</span><p>${esc(L.nexus)}</p></div>` : ""}
     ${L.rocket ? `<div class="lensbox rocket"><span class="eyebrow"><span class="dot" style="background:var(--rocket)"></span>Rockets</span><p>${esc(L.rocket)}</p></div>` : ""}
@@ -841,6 +898,7 @@ function renderElement(e){
   $("panelBody").querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => onCellExplore(b.dataset.go)));
   $("panelBody").querySelectorAll("[data-build]").forEach(b => b.addEventListener("click", () => loadBuilder(Object.fromEntries(b.dataset.build.split(",").map(s=>[s,1])))));
   $("panelBody").querySelectorAll("[data-mol]").forEach(b => b.addEventListener("click", () => loadMolecule(b.dataset.mol)));
+  $("panelBody").querySelectorAll("[data-scene]").forEach(b => b.addEventListener("click", () => openScene(b.dataset.scene)));
   renderDiscussedBlock();
   if (!PHOTOS) photosReady.then(() => { const box = $("elArchive"); if (box && S.current === e.symbol) box.innerHTML = photoFor("elements", e.symbol); });
   startAtom(e);
@@ -905,8 +963,9 @@ function nucleusLayout(Z, N){
   }
   return pts;
 }
-function startAtom(e){
-  const cv = $("atomCanvas"); if (!cv) return;
+function startAtom(e, cvArg){
+  const cv = cvArg || $("atomCanvas"); if (!cv) return null;
+  const handle = {raf: 0};
   const {ctx, W} = setupCanvas(cv);
   const c = W / 2, A = e.z + e.neutrons;
   const Rn = Math.min(W * 0.11, 9 + W * 0.075 * Math.sqrt(A / 240));
@@ -971,10 +1030,11 @@ function startAtom(e){
         ctx.globalAlpha = 1;
       });
     }
-    if (!reduceMotion) anim.raf = requestAnimationFrame(frame);
+    if (!reduceMotion) handle.raf = requestAnimationFrame(frame);
   }
-  anim = {raf: 0};
-  anim.raf = requestAnimationFrame(frame);
+  if (!cvArg) anim = handle;
+  handle.raf = requestAnimationFrame(frame);
+  return handle;
 }
 
 /* ---------------- build mode (the workbench lives in bench.js) ---------------- */
@@ -1215,6 +1275,84 @@ load().catch(err => { $("ptable").innerHTML = `<div class="loading">Couldn't loa
 </script>
 <script src="bench.js"></script>
 <script>
+/* ---------------- focus mode: hide the title and table so the bench fills the screen ---------------- */
+function setFocus(on){
+  document.body.classList.toggle("focus", on);
+  $("wbFocus").setAttribute("aria-pressed", on);
+  $("wbFocus").textContent = on ? "Exit focus" : "Focus";
+  markActive();                         // fills the element row that replaces the table
+  dispatchEvent(new Event("resize"));   // the bench re-measures to fill the space
+}
+$("wbFocus").addEventListener("click", () => setFocus(!document.body.classList.contains("focus")));
+document.addEventListener("keydown", (ev) => {
+  if (ev.key !== "Escape") return;
+  if (!$("scenePop").hidden) return;                // the scene player handles its own Esc
+  if (!$("atomPop").hidden){ closeAtomPop(); return; }
+  if (document.body.classList.contains("focus")) setFocus(false);
+});
+
+/* ---------------- element names: hover on a laptop, press and hold on a phone ---------------- */
+const elTip = $("elTip");
+let tipTimer = 0, tipHide = 0, swallowUntil = 0;
+const tipSwallow = () => performance.now() < swallowUntil;   // a long-press shouldn't also add an atom
+function showElTip(cell){
+  const e = S.bySym[cell.dataset.sym]; if (!e) return;
+  clearTimeout(tipHide);
+  elTip.innerHTML = `<b>${esc(e.name)}</b> <span class="m">${e.symbol} · ${e.z} proton${e.z > 1 ? "s" : ""}</span><br><span class="m">${esc(CAT[e.category]?.[1] || e.category)}${S.mode === "build" ? " · tap to add" : ""}</span>`;
+  elTip.hidden = false;
+  const r = cell.getBoundingClientRect(), w = elTip.offsetWidth, h = elTip.offsetHeight;
+  const x = Math.max(6, Math.min(innerWidth - w - 6, r.left + r.width / 2 - w / 2));
+  const y = r.top - h - 8 > 4 ? r.top - h - 8 : r.bottom + 8;
+  elTip.style.left = x + "px"; elTip.style.top = y + "px";
+}
+const hideElTip = (ms = 0) => { clearTimeout(tipHide); tipHide = setTimeout(() => { elTip.hidden = true; }, ms); };
+const ptab = $("ptable");
+ptab.addEventListener("pointerover", (ev) => { const c = ev.target.closest(".cell"); if (c && ev.pointerType === "mouse") showElTip(c); });
+ptab.addEventListener("pointerout", (ev) => { if (ev.pointerType === "mouse" && !ev.relatedTarget?.closest?.(".cell")) hideElTip(80); });
+ptab.addEventListener("pointerdown", (ev) => {
+  const c = ev.target.closest(".cell"); if (!c || ev.pointerType === "mouse") return;
+  clearTimeout(tipTimer);
+  tipTimer = setTimeout(() => { showElTip(c); swallowUntil = performance.now() + 900; hideElTip(1800); }, 450);
+});
+for (const t of ["pointerup", "pointercancel", "pointerleave"]) ptab.addEventListener(t, () => clearTimeout(tipTimer));
+ptab.addEventListener("contextmenu", (ev) => { if (ev.target.closest(".cell")) ev.preventDefault(); });
+addEventListener("scroll", () => hideElTip(0), {passive: true});
+
+/* ---------------- double-tap an atom on the bench: its Explore view pops up ---------------- */
+let popAnim = null;
+function openAtomPop(sym){
+  const e = S.bySym[sym]; if (!e) return;
+  $("atomPopTitle").textContent = `${e.name} (${e.symbol})`;
+  const g = gstFor(e);
+  $("atomPopNote").textContent = `${e.z} proton${e.z > 1 ? "s" : ""} (red) and ${e.neutrons} neutrons (gray) in the nucleus. Electrons per shell: ${e.shells.join(" · ")}. Outer electrons are blue.${g ? " " + g.verdict + "." : ""}`;
+  $("atomPop").hidden = false;
+  if (popAnim) cancelAnimationFrame(popAnim.raf);
+  popAnim = startAtom(e, $("atomPopCanvas"));
+  $("atomPopCard").onclick = () => { closeAtomPop(); setFocus(false); setMode("explore"); onCell(sym); };
+}
+function closeAtomPop(){ $("atomPop").hidden = true; if (popAnim){ cancelAnimationFrame(popAnim.raf); popAnim = null; } }
+$("atomPopClose").addEventListener("click", closeAtomPop);
+$("atomPop").addEventListener("click", (ev) => { if (ev.target.id === "atomPop") closeAtomPop(); });
+
+/* ---------------- "See it in action": step-by-step scenes drawn in the bench's atom style (scenes.js) ---------------- */
+const SCENE_LIST = [
+  {id: "battery", els: ["Li", "Co", "C"], title: "Inside a phone battery", sub: "The loose electron takes the wire; the ion takes the shortcut"},
+  {id: "heliumTank", els: ["He", "O"], title: "Pushing fuel on Falcon 9", sub: "Why a full shell makes helium the safe choice"},
+  {id: "beMirror", els: ["Be"], title: "Light and stiff: Webb's mirrors", sub: "Small atoms, packed tight, strong glue"},
+  {id: "solarHole", els: ["B", "Si", "P"], title: "The hole in a solar panel", sub: "Boron's missing electron moves through silicon"},
+  {id: "boronHard", els: ["B", "C"], title: "Why boron is so hard", sub: "A 3D web of 12-atom balls"},
+];
+function sceneHTML(e){
+  const list = SCENE_LIST.filter(x => x.els.includes(e.symbol));
+  return `<section class="scenes"><h3>See it in action</h3>${list.length
+    ? `<div class="row">${list.map(x => `<button class="scene-btn" data-scene="${x.id}"><b>${esc(x.title)}</b><span>${esc(x.sub)}</span></button>`).join("")}</div>`
+    : `<p class="small muted">No scene for ${esc(e.name)} yet. We add one when we get to it.</p>`}</section>`;
+}
+let scenesLoading = null;
+function openScene(id){
+  scenesLoading ||= new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "scenes.js"; sc.onload = () => res(window.Scenes); sc.onerror = rej; document.head.appendChild(sc); });
+  scenesLoading.then(Sc => Sc.open(id)).catch(() => { scenesLoading = null; });
+}
 /* Lessons + Reactions live in learn.js, fetched the first time Build mode opens (after the bench is drawn). */
 let learnLoading = null;
 function loadLearn(){
