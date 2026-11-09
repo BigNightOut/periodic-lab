@@ -98,6 +98,9 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
 .cell .flag{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1.5px var(--surface);order:9}
 .cell.discussed{box-shadow:inset 0 0 0 2px var(--accent)}
 .cell.discussed.active{box-shadow:inset 0 0 0 2px var(--accent),0 0 0 1.5px var(--ink)}
+/* in Build mode the log outlines looked like stuck selections: only the elements on your bench light up there */
+body.build .cell.discussed{box-shadow:none}
+body.build .cell.discussed.active{box-shadow:inset 0 0 0 1px var(--ink)}
 .cell .count{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;border-radius:10px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;font-weight:600;display:grid;place-items:center;padding:0 5px;z-index:2}
 .cell.en-hot .sym,.cell.en-hot .z,.cell.en-hot .nm{color:#fff}
 .gap-label{grid-column:3;grid-row:6/8;align-self:center;justify-self:center;font-size:9px;color:var(--muted);text-align:center;line-height:1.2}
@@ -429,7 +432,8 @@ ol.rank button:hover{border-color:var(--accent)}
 .rx-take{border-left:3px solid var(--accent);padding:4px 0 4px 10px;margin:8px 0;font-size:13.5px}
 .rx-now{font-size:14.5px;line-height:1.5;margin:6px 0}
 /* idea cloud: a bar you can grab, and a minimize button */
-.cl-bar{display:flex;align-items:center;gap:6px;margin:-4px -4px 4px;padding:2px 2px 2px 4px;border-radius:8px}
+.cl-bar{display:flex;align-items:center;gap:6px;margin:-4px -4px 4px;padding:2px 2px 2px 4px;border-radius:8px;
+  touch-action:none;user-select:none;-webkit-user-select:none}   /* a drag handle: touch and pen drags move the cloud instead of scrolling the page */
 @media (min-width:761px){ .cl-bar{cursor:grab} .wb-cloud.dragging{opacity:.92;box-shadow:0 12px 32px rgba(0,0,0,.18)} .wb-cloud.dragging .cl-bar{cursor:grabbing} }
 .cl-grip{color:var(--muted);font-size:14px;line-height:1;letter-spacing:-1px}
 .cl-bar .cl-head{flex:1;margin:0}

@@ -767,6 +767,7 @@ const Bench = (() => {
     };
     box.addEventListener("pointerdown", (e) => {
       if (phone() || !e.target.closest(".cl-bar") || e.target.closest(".cl-min")) return;
+      if (e.pointerType === "mouse") e.preventDefault();   // no text selection while dragging (clicks still work)
       const r = box.getBoundingClientRect();
       cloudDrag = {dx: e.clientX - r.left, dy: e.clientY - r.top, x0: e.clientX, y0: e.clientY, live: false, wb: $("workbench").getBoundingClientRect()};
       addEventListener("pointermove", move); addEventListener("pointerup", end); addEventListener("pointercancel", end);
